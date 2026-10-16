@@ -6,4 +6,5 @@ Work in progress for the Comfy #OpenSourceHiggsfield build competition (deadline
 
 - `on_the_one/planner.py` — lyric sheet + Whisper word timings + beat grid -> `shots.json`: every cut on a bar line,
   sections from the lyric sheet's `[Section]` tags, render lengths LTX accepts (1 + 8n frames).
+- `on_the_one/conform.py` — shots.json + clips/keyframes -> one cut over the original song; frame-exact cuts, placeholder cards for unrendered shots (a full-length animatic before any render).
 - `songs/green_flag/` — example inputs.

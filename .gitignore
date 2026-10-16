@@ -1,2 +1,5 @@
 __pycache__/
 *.pyc
+songs/*/cut.mp4
+songs/*/clips/
+songs/*/audio.*
