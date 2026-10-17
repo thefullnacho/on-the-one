@@ -631,6 +631,41 @@
    ]
   }
  ],
+ "cues": [
+  {
+   "id": "c01",
+   "text": "Beat drops",
+   "section": "Intro",
+   "time": 10.093,
+   "next_bar": 11.525,
+   "gap": [
+    8.66,
+    11.526
+   ]
+  },
+  {
+   "id": "c02",
+   "text": "Riser builds, snare roll",
+   "section": "Bridge",
+   "time": 131.359,
+   "next_bar": 131.897,
+   "gap": [
+    130.82,
+    131.898
+   ]
+  },
+  {
+   "id": "c03",
+   "text": "Phone lock click",
+   "section": "Outro",
+   "time": 170.32,
+   "next_bar": 172.021,
+   "gap": [
+    168.78,
+    171.86
+   ]
+  }
+ ],
  "alignment": [
   {
    "section": "Intro",

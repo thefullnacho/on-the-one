@@ -16,5 +16,14 @@ the #1 complaint in the category is paying credits for bad generations.
    (audio-to-video on that shot's exact slice). Cards update in place: card -> keyframe -> clip.
 6. **Review.** Watch the cut, re-roll any single card, export.
 
+**Foley / transitions.** The lyric sheet's stage directions ("(Beat drops)", "(Riser builds, snare roll)",
+"(Phone lock click)") become timed cues automatically; lyric moments can be added as cues. Each cue gets 2-3 open-weight
+text-to-audio takes (LTX-2.5 T2A, no extra models) to pick by ear. Conform places one-shots on their word/beat and times
+transitions to END on the next section's bar line. Stretch: video-to-audio (e.g. MMAudio) for picture-locked hits, after a
+weights-license check.
+
+**Levers.** Creative choices are picks; intensities are dials: reactive-layer strength per section, foley level,
+transition intensity, music duck under hits.
+
 Deterministic rig underneath: planner (shots on bar lines), conform (frame-exact cut over the original song),
 text overlays timed to words, a **reactive layer** in the conform (deterministic, from the analysis: punch-in on downbeats, exposure/bloom on the kick or bass envelope, sparse flashes on snares, word-timed freezes; turns "LTX roughly follows the song" into "every downbeat visibly lands"; per-section intensity is a creative choice), compliance check (no partner/API nodes in any graph), per-shot hashing for re-rolls.

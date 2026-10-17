@@ -30,9 +30,13 @@ def parse_sheet(text):
         if m:
             if m.group(1).strip().lower() == "end":
                 break
-            sections.append({"name": m.group(1).strip(), "note": (m.group(2) or "").strip(), "lines": []})
+            sections.append({"name": m.group(1).strip(), "note": (m.group(2) or "").strip(), "lines": [], "cues": []})
             continue
-        if STAGE.match(line) or not sections:
+        if not sections:
+            continue
+        if STAGE.match(line):
+            # stage directions are foley/transition cues; remember where in the section they sit
+            sections[-1]["cues"].append({"text": line.strip("()"), "after_line": len(sections[-1]["lines"])})
             continue
         # spoken asides inside a line, e.g. "(Spoken, close-mic) Breathe out." keep the sung part
         sung = re.sub(r"\([^)]*\)", " ", line)
@@ -118,6 +122,34 @@ def plan(sections, grid, duration, max_shot=5.0, fps=24):
             "duration": duration, "shots": shots}
 
 
+def place_cues(sections, out):
+    """Time each stage direction: in the gap between the line before it and the line after it."""
+    flat = [l for s in sections for l in s["lines"]]
+    starts = []                              # section start times in order, from the shot list
+    for sh in out["shots"]:
+        if sh["part"].startswith("1/"):
+            starts.append(sh["start"])
+    starts.append(out["duration"])
+    bar, phase, cues, seen = out["bar"], out["phase"], [], 0
+    for si, s in enumerate(sections):
+        for c in s["cues"]:
+            k = seen + c["after_line"]
+            prev_end = next((l["end"] for l in reversed(flat[:k]) if l["end"] is not None), None)
+            next_start = next((l["start"] for l in flat[k:] if l["start"] is not None), None)
+            if c["after_line"] == 0:
+                prev_end = starts[si]
+            if c["after_line"] == len(s["lines"]):
+                next_start = starts[si + 1]
+            t = prev_end if next_start is None else next_start if prev_end is None else (prev_end + next_start) / 2
+            nxt_bar = phase + math.ceil((t - phase) / bar) * bar
+            cues.append({"id": f"c{len(cues) + 1:02d}", "text": c["text"], "section": s["name"],
+                         "time": round(t, 3), "next_bar": round(nxt_bar, 3),
+                         "gap": [round(prev_end, 3) if prev_end is not None else None,
+                                 round(next_start, 3) if next_start is not None else None]})
+        seen += len(s["lines"])
+    return cues
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("song_dir")
@@ -132,12 +164,15 @@ def main():
     align(sections, heard)
     duration = a.duration or heard[-1]["e"] + 2.0
     out = plan(sections, grid, duration, a.max_shot, a.fps)
+    out["cues"] = place_cues(sections, out)
     out["alignment"] = [{"section": s["name"], "line": l["text"], "matched": l["matched"],
                          "start": l["start"]} for s in sections for l in s["lines"]]
     (d / "shots.json").write_text(json.dumps(out, indent=1, ensure_ascii=False))
     for sh in out["shots"]:
         print(f"{sh['id']} {sh['start']:7.2f}-{sh['end']:7.2f} {sh['bars']:4.1f} bars  {sh['section']:<12} {sh['part']:>4}  "
               f"{(sh['lines'][0][:48] if sh['lines'] else '')}")
+    for c in out["cues"]:
+        print(f"cue {c['id']} {c['time']:7.2f}s (next bar {c['next_bar']:7.2f})  {c['section']:<12} {c['text']}")
     weak = [x for x in out["alignment"] if x["start"] is None]
     print(f"{len(out['shots'])} shots; {len(weak)} unaligned lines" + (f": {[w['line'][:30] for w in weak]}" if weak else ""))
 
