@@ -3,3 +3,6 @@ __pycache__/
 songs/*/cut.mp4
 songs/*/clips/
 songs/*/audio.*
+.venv/
+songs/*/keyframes/options/
+songs/*/clips/*.preview.png

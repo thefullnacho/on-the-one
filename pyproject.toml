@@ -1,0 +1,10 @@
+[project]
+name = "on-the-one"
+version = "0.1.0"
+description = "Song in, beat-locked music video out, on open weights, on your own GPU."
+license = "MIT"
+requires-python = ">=3.10"
+dependencies = ["comfy-sdk[pil]==0.5.0", "pillow"]
+
+[tool.setuptools]
+packages = ["on_the_one"]

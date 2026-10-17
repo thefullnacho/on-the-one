@@ -1,0 +1,2 @@
+comfy-sdk[pil]==0.5.0
+pillow

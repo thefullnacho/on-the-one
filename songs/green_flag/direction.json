@@ -1,0 +1,13 @@
+{
+ "character": "character/hero_16x9.png",
+ "style": "Use this exact character: small glowing mint-green gummy blob, black pixel-LED sunglasses with green dot lenses, small smile, little green flag. Stylized 3D character in a real photographic world, cinematic, 16:9 widescreen. Fill the whole frame with the scene.",
+ "negative": "deformed character, extra limbs, fingers, text, watermark, blurry",
+ "shots": {
+  "s09": {"keyframe": "Sunlit kitchen in the morning: the character peeks out from behind a white coffee mug on the counter, much smaller than the mug; behind it a toaster is smoking, the toast burnt black. Warm golden window light, shallow depth of field.",
+          "motion": "The small glowing mint-green character peeks out from behind the coffee mug, ducks back, then peeks out again with a little wave of its green flag, bouncing on the beat. Smoke curls up from the burnt toast. Slow gentle push-in, warm morning light.",
+          "seed": 5},
+  "s12": {"keyframe": "Cinematic macro photo: a smartphone lying in tall grass at golden hour; the character is halfway out of the glowing screen, one stubby arm on the phone's edge, climbing out into a jungle of giant grass blades. Warm backlight, dew, shallow depth of field.",
+          "motion": "The small glowing mint-green gummy character in black pixel sunglasses pulls itself up out of the rippling liquid phone screen in three bouncy heaves, one on each beat, pops free and lands in the grass, then raises its little green flag. The camera swoops low through the giant dewy grass blades and rises up into a wide golden-hour park. Warm backlight, lens flare, playful energetic motion.",
+          "seed": 17}
+ }
+}
