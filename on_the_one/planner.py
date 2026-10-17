@@ -5,7 +5,7 @@ supplies timings. Section boundaries snap to bars, shots are whole bars, and eve
 render length LTX accepts (1 + 8n frames) that covers its slot.
 
 usage: python -m on_the_one.planner songs/<song> [--max-shot 5.0] [--fps 24]
-reads  songs/<song>/{lyrics.txt, words.json, grid.json}
+reads  songs/<song>/{lyrics.txt, words.json, grid.json, cuts.json (optional: {"Intro": [2.05, 7.07]})}
 writes songs/<song>/shots.json
 """
 import argparse, difflib, json, math, re
@@ -75,7 +75,7 @@ def align(sections, heard):
     return sections
 
 
-def plan(sections, grid, duration, max_shot=5.0, fps=24):
+def plan(sections, grid, duration, max_shot=5.0, fps=24, overrides=None):
     beat = 60.0 / grid["bpm"]
     bar = 4 * beat
     phase = grid["phase"]
@@ -104,6 +104,10 @@ def plan(sections, grid, duration, max_shot=5.0, fps=24):
             cuts.append(t)
             t += bars_per_shot * bar
         cuts.append(b)
+        if overrides and s["name"] in overrides:
+            # director's cuts: times inside the section, snapped to the nearest beat (not just bars)
+            inner = sorted(phase + round((t - phase) / beat) * beat for t in overrides[s["name"]])
+            cuts = [a] + [t for t in inner if a < t < b] + [b]
         for k in range(len(cuts) - 1):
             s0, s1 = cuts[k], cuts[k + 1]
             n = math.ceil(((s1 - s0) * fps - 1) / 8)
@@ -163,7 +167,8 @@ def main():
     grid = json.loads((d / "grid.json").read_text())
     align(sections, heard)
     duration = a.duration or heard[-1]["e"] + 2.0
-    out = plan(sections, grid, duration, a.max_shot, a.fps)
+    cuts = json.loads((d / "cuts.json").read_text()) if (d / "cuts.json").exists() else None
+    out = plan(sections, grid, duration, a.max_shot, a.fps, cuts)
     out["cues"] = place_cues(sections, out)
     out["alignment"] = [{"section": s["name"], "line": l["text"], "matched": l["matched"],
                          "start": l["start"]} for s in sections for l in s["lines"]]
