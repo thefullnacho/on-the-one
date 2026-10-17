@@ -6,7 +6,7 @@
  "duration": 174.024,
  "shots": [
   {
-   "id": "s01",
+   "id": "intro-1",
    "section": "Intro",
    "section_note": "Dry close-mic vocal, finger snaps",
    "part": "1/3",
@@ -19,7 +19,7 @@
    "lines": []
   },
   {
-   "id": "s02",
+   "id": "intro-2",
    "section": "Intro",
    "section_note": "Dry close-mic vocal, finger snaps",
    "part": "2/3",
@@ -35,7 +35,7 @@
    ]
   },
   {
-   "id": "s03",
+   "id": "intro-3",
    "section": "Intro",
    "section_note": "Dry close-mic vocal, finger snaps",
    "part": "3/3",
@@ -48,10 +48,10 @@
    "lines": []
   },
   {
-   "id": "s04",
+   "id": "verse1-1",
    "section": "Verse 1",
    "section_note": "Playful melodic rap, bouncy 808s and crisp snaps",
-   "part": "1/5",
+   "part": "1/6",
    "start": 11.526,
    "end": 15.984,
    "duration": 4.458,
@@ -63,10 +63,10 @@
    ]
   },
   {
-   "id": "s05",
+   "id": "verse1-2",
    "section": "Verse 1",
    "section_note": "Playful melodic rap, bouncy 808s and crisp snaps",
-   "part": "2/5",
+   "part": "2/6",
    "start": 15.984,
    "end": 20.442,
    "duration": 4.458,
@@ -79,10 +79,10 @@
    ]
   },
   {
-   "id": "s06",
+   "id": "verse1-3",
    "section": "Verse 1",
    "section_note": "Playful melodic rap, bouncy 808s and crisp snaps",
-   "part": "3/5",
+   "part": "3/6",
    "start": 20.442,
    "end": 24.9,
    "duration": 4.458,
@@ -95,10 +95,10 @@
    ]
   },
   {
-   "id": "s07",
+   "id": "verse1-4",
    "section": "Verse 1",
    "section_note": "Playful melodic rap, bouncy 808s and crisp snaps",
-   "part": "4/5",
+   "part": "4/6",
    "start": 24.9,
    "end": 29.359,
    "duration": 4.458,
@@ -111,22 +111,35 @@
    ]
   },
   {
-   "id": "s08",
+   "id": "verse1-5",
    "section": "Verse 1",
    "section_note": "Playful melodic rap, bouncy 808s and crisp snaps",
-   "part": "5/5",
+   "part": "5/6",
    "start": 29.359,
-   "end": 31.588,
-   "duration": 2.229,
-   "bars": 1.0,
-   "render_frames": 57,
-   "render_seconds": 2.375,
+   "end": 30.473,
+   "duration": 1.115,
+   "bars": 0.5,
+   "render_frames": 33,
+   "render_seconds": 1.375,
    "lines": [
     "Go put your phone on the charger and walk in the park."
    ]
   },
   {
-   "id": "s09",
+   "id": "verse1-6",
+   "section": "Verse 1",
+   "section_note": "Playful melodic rap, bouncy 808s and crisp snaps",
+   "part": "6/6",
+   "start": 30.473,
+   "end": 31.588,
+   "duration": 1.115,
+   "bars": 0.5,
+   "render_frames": 33,
+   "render_seconds": 1.375,
+   "lines": []
+  },
+  {
+   "id": "prechorus1-1",
    "section": "Pre-Chorus",
    "section_note": "Warm synth bass blooms, building harmonies",
    "part": "1/3",
@@ -142,7 +155,7 @@
    ]
   },
   {
-   "id": "s10",
+   "id": "prechorus1-2",
    "section": "Pre-Chorus",
    "section_note": "Warm synth bass blooms, building harmonies",
    "part": "2/3",
@@ -158,7 +171,7 @@
    ]
   },
   {
-   "id": "s11",
+   "id": "prechorus1-3",
    "section": "Pre-Chorus",
    "section_note": "Warm synth bass blooms, building harmonies",
    "part": "3/3",
@@ -171,7 +184,7 @@
    "lines": []
   },
   {
-   "id": "s12",
+   "id": "chorus1-1",
    "section": "Chorus",
    "section_note": "Full bright synth stabs, wide stacked stereo vocals, bouncy hook",
    "part": "1/5",
@@ -186,7 +199,7 @@
    ]
   },
   {
-   "id": "s13",
+   "id": "chorus1-2",
    "section": "Chorus",
    "section_note": "Full bright synth stabs, wide stacked stereo vocals, bouncy hook",
    "part": "2/5",
@@ -201,7 +214,7 @@
    ]
   },
   {
-   "id": "s14",
+   "id": "chorus1-3",
    "section": "Chorus",
    "section_note": "Full bright synth stabs, wide stacked stereo vocals, bouncy hook",
    "part": "3/5",
@@ -217,7 +230,7 @@
    ]
   },
   {
-   "id": "s15",
+   "id": "chorus1-4",
    "section": "Chorus",
    "section_note": "Full bright synth stabs, wide stacked stereo vocals, bouncy hook",
    "part": "4/5",
@@ -232,7 +245,7 @@
    ]
   },
   {
-   "id": "s16",
+   "id": "chorus1-5",
    "section": "Chorus",
    "section_note": "Full bright synth stabs, wide stacked stereo vocals, bouncy hook",
    "part": "5/5",
@@ -247,7 +260,7 @@
    ]
   },
   {
-   "id": "s17",
+   "id": "verse2-1",
    "section": "Verse 2",
    "section_note": "Tight rhythmic pocket, syncopated bass bounce",
    "part": "1/4",
@@ -263,7 +276,7 @@
    ]
   },
   {
-   "id": "s18",
+   "id": "verse2-2",
    "section": "Verse 2",
    "section_note": "Tight rhythmic pocket, syncopated bass bounce",
    "part": "2/4",
@@ -279,7 +292,7 @@
    ]
   },
   {
-   "id": "s19",
+   "id": "verse2-3",
    "section": "Verse 2",
    "section_note": "Tight rhythmic pocket, syncopated bass bounce",
    "part": "3/4",
@@ -295,7 +308,7 @@
    ]
   },
   {
-   "id": "s20",
+   "id": "verse2-4",
    "section": "Verse 2",
    "section_note": "Tight rhythmic pocket, syncopated bass bounce",
    "part": "4/4",
@@ -311,7 +324,7 @@
    ]
   },
   {
-   "id": "s21",
+   "id": "prechorus2-1",
    "section": "Pre-Chorus",
    "section_note": "Warm Rhodes keys and bass, layered harmonies",
    "part": "1/3",
@@ -326,7 +339,7 @@
    ]
   },
   {
-   "id": "s22",
+   "id": "prechorus2-2",
    "section": "Pre-Chorus",
    "section_note": "Warm Rhodes keys and bass, layered harmonies",
    "part": "2/3",
@@ -342,7 +355,7 @@
    ]
   },
   {
-   "id": "s23",
+   "id": "prechorus2-3",
    "section": "Pre-Chorus",
    "section_note": "Warm Rhodes keys and bass, layered harmonies",
    "part": "3/3",
@@ -357,7 +370,7 @@
    ]
   },
   {
-   "id": "s24",
+   "id": "chorus2-1",
    "section": "Chorus",
    "section_note": "Full bright synth stabs, wide stacked stereo vocals, bouncy hook",
    "part": "1/5",
@@ -372,7 +385,7 @@
    ]
   },
   {
-   "id": "s25",
+   "id": "chorus2-2",
    "section": "Chorus",
    "section_note": "Full bright synth stabs, wide stacked stereo vocals, bouncy hook",
    "part": "2/5",
@@ -387,7 +400,7 @@
    ]
   },
   {
-   "id": "s26",
+   "id": "chorus2-3",
    "section": "Chorus",
    "section_note": "Full bright synth stabs, wide stacked stereo vocals, bouncy hook",
    "part": "3/5",
@@ -403,7 +416,7 @@
    ]
   },
   {
-   "id": "s27",
+   "id": "chorus2-4",
    "section": "Chorus",
    "section_note": "Full bright synth stabs, wide stacked stereo vocals, bouncy hook",
    "part": "4/5",
@@ -418,7 +431,7 @@
    ]
   },
   {
-   "id": "s28",
+   "id": "chorus2-5",
    "section": "Chorus",
    "section_note": "Full bright synth stabs, wide stacked stereo vocals, bouncy hook",
    "part": "5/5",
@@ -434,7 +447,7 @@
    ]
   },
   {
-   "id": "s29",
+   "id": "bridge-1",
    "section": "Bridge",
    "section_note": "Beat cuts out completely, dry intimate spoken-rap, faint vinyl crackle",
    "part": "1/3",
@@ -450,7 +463,7 @@
    ]
   },
   {
-   "id": "s30",
+   "id": "bridge-2",
    "section": "Bridge",
    "section_note": "Beat cuts out completely, dry intimate spoken-rap, faint vinyl crackle",
    "part": "2/3",
@@ -466,7 +479,7 @@
    ]
   },
   {
-   "id": "s31",
+   "id": "bridge-3",
    "section": "Bridge",
    "section_note": "Beat cuts out completely, dry intimate spoken-rap, faint vinyl crackle",
    "part": "3/3",
@@ -481,7 +494,7 @@
    ]
   },
   {
-   "id": "s32",
+   "id": "chorus3-1",
    "section": "Chorus",
    "section_note": "Maximum energy, full beat drop, ad-libs in background",
    "part": "1/6",
@@ -496,7 +509,7 @@
    ]
   },
   {
-   "id": "s33",
+   "id": "chorus3-2",
    "section": "Chorus",
    "section_note": "Maximum energy, full beat drop, ad-libs in background",
    "part": "2/6",
@@ -511,7 +524,7 @@
    ]
   },
   {
-   "id": "s34",
+   "id": "chorus3-3",
    "section": "Chorus",
    "section_note": "Maximum energy, full beat drop, ad-libs in background",
    "part": "3/6",
@@ -527,7 +540,7 @@
    ]
   },
   {
-   "id": "s35",
+   "id": "chorus3-4",
    "section": "Chorus",
    "section_note": "Maximum energy, full beat drop, ad-libs in background",
    "part": "4/6",
@@ -540,7 +553,7 @@
    "lines": []
   },
   {
-   "id": "s36",
+   "id": "chorus3-5",
    "section": "Chorus",
    "section_note": "Maximum energy, full beat drop, ad-libs in background",
    "part": "5/6",
@@ -555,7 +568,7 @@
    ]
   },
   {
-   "id": "s37",
+   "id": "chorus3-6",
    "section": "Chorus",
    "section_note": "Maximum energy, full beat drop, ad-libs in background",
    "part": "6/6",
@@ -570,7 +583,7 @@
    ]
   },
   {
-   "id": "s38",
+   "id": "outro-1",
    "section": "Outro",
    "section_note": "Decaying synth arpeggio, warm keys, quiet spoken delivery",
    "part": "1/4",
@@ -585,7 +598,7 @@
    ]
   },
   {
-   "id": "s39",
+   "id": "outro-2",
    "section": "Outro",
    "section_note": "Decaying synth arpeggio, warm keys, quiet spoken delivery",
    "part": "2/4",
@@ -600,7 +613,7 @@
    ]
   },
   {
-   "id": "s40",
+   "id": "outro-3",
    "section": "Outro",
    "section_note": "Decaying synth arpeggio, warm keys, quiet spoken delivery",
    "part": "3/4",
@@ -615,7 +628,7 @@
    ]
   },
   {
-   "id": "s41",
+   "id": "outro-4",
    "section": "Outro",
    "section_note": "Decaying synth arpeggio, warm keys, quiet spoken delivery",
    "part": "4/4",

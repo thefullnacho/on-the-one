@@ -96,6 +96,15 @@ def plan(sections, grid, duration, max_shot=5.0, fps=24, overrides=None):
 
     bars_per_shot = max(1, int(max_shot // bar))
     shots = []
+    # stable ids: section slug + occurrence ("chorus2") + index within it, so a re-cut only renumbers its own section
+    seen, slugs = {}, []
+    for s in sections:
+        base = re.sub(r"[^a-z0-9]", "", s["name"].lower())
+        if re.search(r"\d$", base):
+            slugs.append(base)
+        else:
+            seen[base] = seen.get(base, 0) + 1
+            slugs.append(base if base in ("intro", "outro", "bridge") and seen[base] == 1 else f"{base}{seen[base]}")
     for i, s in enumerate(sections):
         a, b = bounds[i], bounds[i + 1]
         # cut points on every bars_per_shot-th bar line inside the section
@@ -115,7 +124,7 @@ def plan(sections, grid, duration, max_shot=5.0, fps=24, overrides=None):
             shot_lines = [l["text"] for l in s["lines"]
                           if l["start"] is not None and s0 <= (l["start"] + l["end"]) / 2 < s1]
             shots.append({
-                "id": f"s{len(shots) + 1:02d}",
+                "id": f"{slugs[i]}-{k + 1}",
                 "section": s["name"], "section_note": s["note"], "part": f"{k + 1}/{len(cuts) - 1}",
                 "start": round(s0, 3), "end": round(s1, 3), "duration": round(s1 - s0, 3),
                 "bars": round((s1 - s0) / bar, 2),

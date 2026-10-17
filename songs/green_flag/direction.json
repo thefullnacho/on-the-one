@@ -3,17 +3,17 @@
  "style": "Use this exact character: small glowing mint-green gummy blob, black pixel-LED sunglasses with green dot lenses, small smile, little green flag. Stylized 3D character in a real photographic world, cinematic, 16:9 widescreen. Fill the whole frame with the scene.",
  "negative": "deformed character, extra limbs, fingers, text, watermark, blurry",
  "shots": {
-  "s09": {
+  "prechorus1-1": {
    "keyframe": "Sunlit kitchen in the morning: the character peeks out from behind a white coffee mug on the counter, much smaller than the mug; behind it a toaster is smoking, the toast burnt black. Warm golden window light, shallow depth of field.",
    "motion": "The small glowing mint-green character peeks out from behind the coffee mug, ducks back, then peeks out again with a little wave of its green flag, bouncing on the beat. Smoke curls up from the burnt toast. Slow gentle push-in, warm morning light.",
    "seed": 5
   },
-  "s12": {
+  "chorus1-1": {
    "keyframe": "Cinematic macro photo: a smartphone lying in tall grass at golden hour; the character is halfway out of the glowing screen, one stubby arm on the phone's edge, climbing out into a jungle of giant grass blades. Warm backlight, dew, shallow depth of field.",
    "motion": "The small glowing mint-green gummy character in black pixel sunglasses pulls itself up out of the rippling liquid phone screen in three bouncy heaves, one on each beat, pops free and lands in the grass, then raises its little green flag. The camera swoops low through the giant dewy grass blades and rises up into a wide golden-hour park. Warm backlight, lens flare, playful energetic motion.",
    "seed": 17
   },
-  "s01": {
+  "intro-1": {
    "keyframe": "Dark bedroom at 2 AM: a man in his thirties (short dark messy hair, light stubble, black-framed glasses, grey hoodie) lies in bed in profile, face lit cold blue by a phone propped on the pillow beside him, the scrolling feed reflected in his glasses, tired eyes. On the phone's glowing screen, tiny, the character stands inside the glass tapping on it from the inside. Deep shadows, blue light, cinematic, no hands in frame.",
    "motion": "Almost still. The blue light flickers as the feed scrolls; his eyes track the screen. Inside the phone the tiny glowing character taps the glass twice. Very slow push-in toward the phone.",
    "foley": "two soft glass taps from inside the screen",
@@ -23,7 +23,7 @@
     "scroller"
    ]
   },
-  "s02": {
+  "intro-2": {
    "keyframe": "Close-up of a phone screen glowing in a dark bedroom, an endless social feed of blurred posts streaming past; the tiny glowing character stands inside the screen in front of the feed, looking out at the viewer, waving its little green flag.",
    "motion": "The camera pushes forward into the phone screen in three surges, one on each 'down', until the glowing feed fills the frame and the camera passes through the glass into the stream of posts; the little character beckons it in.",
    "foley": "a deep whoom on each push, the last one opening into a glassy rush",
@@ -32,15 +32,70 @@
     "blip"
    ]
   },
-  "s03": {
+  "intro-3": {
    "keyframe": "Abstract: falling through a tunnel of streaking blue and white light, blurred feed posts and notification bubbles stretched into long light streaks, the tiny glowing mint-green character tumbling among them, its green flag fluttering.",
    "motion": "A fast continuous fall through streaks of light that accelerate and stretch; the character tumbles past the camera; at the very end everything flares to white, ready to match-cut into the verse.",
    "foley": "a rising whoosh that ENDS on the drop at 11.53 (the next bar); the echoed 'hey hey hey' is already in the song",
-   "match_cut_to": "s04 (open verse 1 on a frame that matches the white flare)",
+   "match_cut_to": "verse1-1 (open verse 1 on a frame that matches the white flare)",
    "seed": 11,
    "characters": [
     "blip"
    ]
+  },
+  "verse1-1": {
+   "keyframe": "Inside the phone world: an endless vertical canyon built from social feed posts, cold blue and glitchy, notifications drifting like snow; the tiny glowing character has just landed on a post and turns toward the camera, pointing its green flag at the viewer.",
+   "motion": "Out of a white flare the canyon resolves; the character lands with a soft bounce, turns to camera and points its flag at the viewer on 'you'. Posts scroll endlessly up the canyon walls. Glitchy blue flicker.",
+   "foley": "notification pings scattered through the feed",
+   "seed": 13,
+   "characters": [
+    "blip"
+   ]
+  },
+  "verse1-2": {
+   "keyframe": "A city skyline made of giant glowing podcast audio waveforms at night inside the phone world, doom headlines scrolling on billboards; the tiny glowing character walks along the top of a waveform ridge.",
+   "motion": "The character walks the waveform ridge as the waveforms spike red on each doom word, billboards flicker with apocalyptic headlines; slow tracking shot, claustrophobic blue.",
+   "foley": "muffled podcast chatter, pings",
+   "seed": 17,
+   "characters": [
+    "blip"
+   ]
+  },
+  "verse1-3": {
+   "keyframe": "A cold blue feed landscape with a column of tiny identical figures in dark suits marching in lockstep across it; the tiny glowing character stands beside them holding a little green flag, a warm burst of color blooming where it planted another flag.",
+   "motion": "Tiny suited figures march in lockstep across the feed; on each 'Green flag' the character plants a flag and a warm burst of color blooms out of the blue; on the second one a dog photo post pops into full color.",
+   "foley": "tiny marching stomps; a soft pop on each green-flag bloom",
+   "seed": 19,
+   "characters": [
+    "blip"
+   ]
+  },
+  "verse1-4": {
+   "keyframe": "The tiny glowing character holding a small glowing planet Earth out in front of it with both stubby arms, offering it back, next to a soft fluffy cloud made of glowing green code glyphs floating in the dark blue phone world.",
+   "motion": "The character shrugs and hands the tiny Earth back out of frame, then flops happily onto the fluffy cloud of soft green code; its glow lights up the dark corners around it.",
+   "foley": "a little 'boop' as the Earth is handed back, a soft cloud flump",
+   "seed": 23,
+   "characters": [
+    "blip"
+   ]
+  },
+  "verse1-5": {
+   "keyframe": "Inside the phone world: the tiny glowing character hauling a giant phone charger plug across the frame toward a glowing charging port, straining, cable trailing behind it.",
+   "motion": "On the word 'charger' the character jams the giant plug into the port; a bright green charge bolt surges out and floods the whole frame.",
+   "foley": "heavy plug CLICK on 'charger' (29.36), electric surge into a charging chime",
+   "seed": 29,
+   "characters": [
+    "blip"
+   ]
+  },
+  "verse1-6": {
+   "keyframe": "Bedroom at dawn: a man in his thirties (short dark messy hair, light stubble, black-framed glasses, grey hoodie) bolting upright in bed, startled awake as if from a bad dream, soft morning light through the curtains, his phone on the nightstand charging with a small green light. No hands in frame.",
+   "motion": "He jolts awake and sits up sharply, blinking at the morning light, catching his breath; the phone on the nightstand glows green as it charges. Hard cut in, handheld feel.",
+   "foley": "a sharp breath in; birds outside as the room opens up; the charging chime tail",
+   "seed": 31,
+   "characters": [
+    "scroller"
+   ],
+   "note": "Leaves the phone world: hands off to the warm kitchen (prechorus1-1) on the downbeat at 31.59"
   }
  },
  "theme": "The camera gets pulled into the doomscroller's world inside the phone; Blip is there to add color and reset him back to real life.",
