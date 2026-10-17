@@ -17,4 +17,4 @@ the #1 complaint in the category is paying credits for bad generations.
 6. **Review.** Watch the cut, re-roll any single card, export.
 
 Deterministic rig underneath: planner (shots on bar lines), conform (frame-exact cut over the original song),
-text overlays timed to words, compliance check (no partner/API nodes in any graph), per-shot hashing for re-rolls.
+text overlays timed to words, a **reactive layer** in the conform (deterministic, from the analysis: punch-in on downbeats, exposure/bloom on the kick or bass envelope, sparse flashes on snares, word-timed freezes; turns "LTX roughly follows the song" into "every downbeat visibly lands"; per-section intensity is a creative choice), compliance check (no partner/API nodes in any graph), per-shot hashing for re-rolls.
