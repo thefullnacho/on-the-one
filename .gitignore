@@ -6,3 +6,4 @@ songs/*/audio.*
 .venv/
 songs/*/keyframes/options/
 songs/*/clips/*.preview.png
+songs/*/animatic.mp4
