@@ -4,9 +4,10 @@
  "negative": "deformed character, extra limbs, fingers, text, watermark, blurry",
  "shots": {
   "chorus1-1": {
-   "keyframe": "Cinematic macro photo: a smartphone lying in tall grass at golden hour; the character is halfway out of the glowing screen, one stubby arm on the phone's edge, climbing out into a jungle of giant grass blades. Warm backlight, dew, shallow depth of field.",
-   "motion": "The small glowing mint-green gummy character in black pixel sunglasses pulls itself up out of the rippling liquid phone screen in three bouncy heaves, one on each beat, pops free and lands in the grass, then raises its little green flag. The camera swoops low through the giant dewy grass blades and rises up into a wide golden-hour park. Warm backlight, lens flare, playful energetic motion.",
-   "seed": 17
+   "keyframe": "Cinematic macro photo: a smartphone lying in tall grass at sunrise golden hour; the character is halfway out of the glowing screen, one stubby arm on the phone's edge, climbing out into a jungle of giant grass blades. Warm backlight, dew, shallow depth of field.",
+   "motion": "The small glowing mint-green gummy character in black pixel sunglasses pulls itself up out of the rippling liquid phone screen in three bouncy heaves, one on each beat, pops free and lands in the grass, then raises its little green flag. The camera swoops low through the giant dewy grass blades and rises up into a wide sunrise park. Warm backlight, lens flare, playful energetic motion.",
+   "seed": 17,
+   "reactive": "punch-in on each 'down', bloom pulse on downbeats (hardest section)"
   },
   "intro-1": {
    "keyframe": "Dark bedroom at 2 AM: a man in his thirties (short dark messy hair, light stubble, black-framed glasses, grey hoodie) lies in bed in profile, face lit cold blue by a phone propped on the pillow beside him, the scrolling feed reflected in his glasses, tired eyes. On the phone's glowing screen, tiny, the character stands inside the glass tapping on it from the inside. Deep shadows, blue light, cinematic, no hands in frame.",
@@ -125,6 +126,37 @@
    "characters": [
     "blip"
    ]
+  },
+  "chorus1-2": {
+   "keyframe": "Macro photo at sunrise: a jungle of giant dewy grass blades, warm low backlight and bokeh; the tiny glowing mint-green character mid-leap between the blades, flag streaming behind it.",
+   "motion": "The character bounds through the giant grass blades toward camera; on 'come back around' the camera spirals up and out of the grass, revealing a wide sunrise park with long shadows.",
+   "foley": "grass swishes on each bound, a soft whoosh on the spiral up",
+   "seed": 41,
+   "characters": [
+    "blip"
+   ],
+   "reactive": "punch-in on downbeats"
+  },
+  "chorus1-3": {
+   "keyframe": "A sunrise park lawn: a giant silver paperclip looms over the tiny glowing character, and the sky behind is streaked with menacing red laser beams.",
+   "motion": "On 'no paperclips' the character flicks the giant paperclip away like a bug and it tumbles off; on 'no laser skies' the red laser streaks fizzle out and the sky melts into a plain blue morning sky crossed by a few ordinary jet contrails; on 'green flag' the character plants its flag on a little grassy hill.",
+   "foley": "a tinny ping as the paperclip is flicked, a laser powering down, a distant jet; a soft pop as the flag is planted",
+   "note": "paperclip = the paperclip-maximizer AI-doom meme; laser sky -> contrails = a wink at today's conspiracy chatter",
+   "seed": 43,
+   "characters": [
+    "blip"
+   ],
+   "reactive": "bloom on 'green flag'"
+  },
+  "chorus1-4": {
+   "keyframe": "Wide sunrise park: a huge slowly swirling spiral of grey notification bubbles hangs in the sky above the trees; the tiny glowing character stands on the grass looking up at it, flag in hand.",
+   "motion": "On 'low, low, low' the spiral unwinds a turn at a time, dropping lower; on 'let the spiral go' it dissolves into a flock of birds that scatter across the morning sky. The character waves them off.",
+   "foley": "notification hum fading down, then a burst of wings and birdsong",
+   "seed": 47,
+   "characters": [
+    "blip"
+   ],
+   "reactive": "three soft dips on 'low, low, low'"
   }
  },
  "theme": "The camera gets pulled into the doomscroller's world inside the phone; Blip is there to add color and reset him back to real life.",
