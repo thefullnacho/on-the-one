@@ -11,4 +11,6 @@ Work in progress for the Comfy #OpenSourceHiggsfield build competition (deadline
   then the clip: LTX-2.5 audio-to-video on that shot's exact audio slice.
 - `workflows/` + `tools/build_workflows.py` — the two graphs the app runs, built with every API node stripped and
   the result re-checked (Open Weights Only by construction), with named slots instead of node ids.
+- `on_the_one/app.py` — the app: `python -m on_the_one.app`, then open http://127.0.0.1:8700. Screen one is the live
+  animatic: the song plays against its shots (clip, keyframe, or card), with a notes pad per shot that saves as you type.
 - `songs/green_flag/` — example song: lyric sheet, timings, shot list, direction, picked keyframes.

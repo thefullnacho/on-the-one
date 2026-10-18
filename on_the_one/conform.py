@@ -16,7 +16,7 @@ from PIL import Image, ImageDraw, ImageFont
 FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
 
 
-def card(path, size, shot):
+def card(path, size, shot, note=""):
     w, h = size
     im = Image.new("RGB", size, (24, 26, 30))
     d = ImageDraw.Draw(im)
@@ -27,6 +27,8 @@ def card(path, size, shot):
     y = h * 0.42
     for line in shot["lines"][:4]:
         d.text((w * 0.06, y), line, font=small, fill=(235, 235, 235)); y += h * 0.07
+    if note:                                   # the director's note, in porch amber, at the bottom of the card
+        d.text((w * 0.06, h * 0.80), "note: " + note.replace("\n", " ")[:110], font=small, fill=(242, 182, 91))
     im.save(path)
 
 
@@ -42,6 +44,7 @@ def main():
     a = ap.parse_args()
     d = Path(a.song_dir)
     plan = json.loads((d / "shots.json").read_text())
+    notes = json.loads((d / "notes.json").read_text()) if (d / "notes.json").exists() else {}
     fps, size = plan["fps"], tuple(int(x) for x in a.size.split("x"))
     audio = next(d.glob("audio.*"))
     out = Path(a.out or d / "cut.mp4")
@@ -61,7 +64,7 @@ def main():
             else:
                 img = kf if kf.exists() else tmp / f"{sh['id']}.png"
                 if not kf.exists():
-                    card(img, size, sh); used["card"] += 1
+                    card(img, size, sh, notes.get(sh["id"], "")); used["card"] += 1
                 else:
                     used["keyframe"] += 1
                 src = ["-loop", "1", "-i", str(img)]; pad = ""

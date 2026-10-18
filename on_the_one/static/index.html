@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>on-the-one</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=DotGothic16&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --dusk: #121c33;      /* the 2 AM phone world */
+    --dusk-2: #1b2846;
+    --dusk-3: #26365c;
+    --ink: #e4eaf6;
+    --ink-soft: #9aa8c6;
+    --mint: #8ef0c0;      /* Blip: glow, playhead, the present */
+    --amber: #f2b65b;     /* porch light: the human side, notes */
+    --paper: #fff3dc;
+    --pencil: #3b2f1e;
+    --sec-intro: #5b6fa8; --sec-verse: #6f5fa6; --sec-pre: #c08a3e; --sec-chorus: #3fa47a;
+    --sec-bridge: #8a5c9e; --sec-outro: #b8a24a;
+    --r: 6px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    background: var(--dusk); color: var(--ink);
+    font: 16px/1.45 "Bricolage Grotesque", system-ui, sans-serif;
+    display: grid; grid-template-rows: auto 1fr auto; min-height: 100vh;
+  }
+  button { font: inherit; color: inherit; }
+  :focus-visible { outline: 2px solid var(--mint); outline-offset: 2px; }
+
+  header {
+    display: flex; align-items: baseline; gap: 16px; padding: 14px 20px 10px;
+  }
+  header h1 { font-size: 20px; font-weight: 800; margin: 0; letter-spacing: -0.01em; white-space: nowrap; }
+  header .theme { color: var(--ink-soft); font-size: 14px; max-width: 70ch; }
+  header select {
+    margin-left: auto; background: var(--dusk-2); border: 1px solid var(--dusk-3); color: var(--ink);
+    border-radius: var(--r); padding: 4px 8px; font: inherit; font-size: 14px;
+  }
+
+  main {
+    display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 18px; padding: 0 20px; min-height: 0;
+  }
+  .stage { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+  .viewer {
+    position: relative; aspect-ratio: 16 / 9; width: 100%; background: #060a14; border-radius: var(--r);
+    overflow: hidden;
+  }
+  .viewer > * { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .viewer .card {
+    display: flex; flex-direction: column; justify-content: center; padding: 6% 8%; gap: 14px;
+    background: radial-gradient(120% 90% at 20% 10%, var(--dusk-3), var(--dusk) 70%);
+  }
+  .card .cid { font-family: "DotGothic16", monospace; color: var(--mint); font-size: clamp(22px, 3.4vw, 40px); }
+  .card .lyric { font-size: clamp(18px, 2.6vw, 30px); font-weight: 600; line-height: 1.25; max-width: 30ch; }
+  .card .what { color: var(--ink-soft); font-size: clamp(13px, 1.3vw, 16px); max-width: 60ch; }
+  .viewer .badge {
+    position: absolute; inset: auto auto 12px 12px; width: auto; height: auto; padding: 3px 9px; border-radius: 99px;
+    background: rgba(6, 10, 20, .7); color: var(--ink-soft); font-size: 12px;
+  }
+
+  .transport { display: flex; align-items: center; gap: 14px; }
+  .play {
+    width: 44px; height: 44px; border-radius: 50%; border: 0; background: var(--mint); color: var(--dusk);
+    font-size: 18px; cursor: pointer; display: grid; place-items: center;
+  }
+  .led {
+    font-family: "DotGothic16", monospace; font-size: 26px; color: var(--mint); letter-spacing: .04em;
+    text-shadow: 0 0 10px rgba(142, 240, 192, .45);
+  }
+  .now { color: var(--ink-soft); font-size: 14px; }
+  .now b { color: var(--ink); font-weight: 600; }
+
+  /* the timeline: one cell per shot, widths are real time */
+  .timeline-wrap { padding: 12px 20px 18px; }
+  .timeline {
+    position: relative; display: flex; height: 74px; border-radius: var(--r); overflow: hidden; background: var(--dusk-2);
+    cursor: pointer;
+  }
+  .shot {
+    position: relative; flex: none; height: 100%; border-right: 1px solid var(--dusk); background-size: cover;
+    background-position: center; overflow: hidden;
+  }
+  .shot::before { content: ""; position: absolute; inset: 0; background: var(--c); opacity: .42; }
+  .shot.has-img::before { opacity: .18; }
+  .shot span {
+    position: absolute; left: 4px; bottom: 3px; font-size: 10px; color: rgba(255,255,255,.85); white-space: nowrap;
+  }
+  .shot.noted::after {
+    content: ""; position: absolute; top: 5px; right: 5px; width: 7px; height: 7px; border-radius: 50%; background: var(--amber);
+  }
+  .shot.selected { box-shadow: inset 0 0 0 2px var(--amber); }
+  .playhead {
+    position: absolute; top: -4px; bottom: -4px; width: 2px; background: var(--mint); pointer-events: none;
+    box-shadow: 0 0 8px var(--mint);
+  }
+  .sections { display: flex; height: 18px; margin-top: 6px; font-size: 11px; color: var(--ink-soft); }
+  .sections div { flex: none; overflow: hidden; white-space: nowrap; padding-left: 2px; border-left: 1px solid var(--dusk-3); }
+
+  /* the notes pad */
+  aside { display: flex; flex-direction: column; gap: 10px; min-height: 0; }
+  .pad-head { display: flex; align-items: baseline; gap: 4px 10px; flex-wrap: wrap; }
+  .pad-head .cid { font-family: "DotGothic16", monospace; color: var(--amber); font-size: 22px; white-space: nowrap; }
+  .pad-head .when { white-space: nowrap; }
+  .pad-head .when { color: var(--ink-soft); font-size: 13px; }
+  .follow {
+    margin-left: auto; background: none; border: 1px solid var(--dusk-3); border-radius: 99px; padding: 2px 10px;
+    font-size: 12px; color: var(--ink-soft); cursor: pointer; white-space: nowrap;
+  }
+  .follow[aria-pressed="true"] { border-color: var(--mint); color: var(--mint); }
+  .lyrics { font-size: 15px; font-weight: 600; }
+  textarea {
+    flex: 1; min-height: 180px; resize: none; border: 0; border-radius: var(--r); padding: 12px 14px;
+    background: var(--paper)
+      repeating-linear-gradient(to bottom, transparent 0 31px, rgba(59, 47, 30, .14) 31px 32px);
+    background-attachment: local;
+    color: var(--pencil); font: 19px/32px "Kalam", cursive;
+  }
+  textarea::placeholder { color: rgba(59, 47, 30, .45); }
+  .saved { font-size: 12px; color: var(--ink-soft); min-height: 1em; }
+  details { background: var(--dusk-2); border-radius: var(--r); padding: 8px 12px; font-size: 13px; color: var(--ink-soft); }
+  details summary { cursor: pointer; color: var(--ink); }
+  details p { margin: 6px 0 0; }
+  .keys { color: var(--ink-soft); font-size: 12px; }
+
+  @media (max-width: 900px) {
+    main { grid-template-columns: 1fr; }
+    header .theme { display: none; }
+    textarea { min-height: 140px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .led { text-shadow: none; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>on-the-one</h1>
+  <span class="theme" id="theme"></span>
+  <select id="songPick" aria-label="Song"></select>
+</header>
+
+<main>
+  <section class="stage">
+    <div class="viewer" id="viewer"></div>
+    <div class="transport">
+      <button class="play" id="play" aria-label="Play">▶</button>
+      <span class="led" id="led">0:00.00</span>
+      <span class="now" id="now"></span>
+    </div>
+  </section>
+
+  <aside>
+    <div class="pad-head">
+      <span class="cid" id="padId"></span><span class="when" id="padWhen"></span>
+      <button class="follow" id="follow" aria-pressed="true" title="The notes pad follows the playhead">Following playback</button>
+    </div>
+    <div class="lyrics" id="padLyrics"></div>
+    <textarea id="notes" placeholder="Notes on this shot. They save as you type."></textarea>
+    <div class="saved" id="saved"></div>
+    <details id="dir"><summary>Direction</summary><p id="dirKey"></p><p id="dirMotion"></p></details>
+    <div class="keys">Space play/pause · ← → previous/next shot · N write a note · Esc back to the timeline</div>
+  </aside>
+</main>
+
+<div class="timeline-wrap">
+  <div class="timeline" id="timeline"><div class="playhead" id="playhead"></div></div>
+  <div class="sections" id="sections"></div>
+</div>
+
+<audio id="audio" preload="auto"></audio>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const audio = $("audio"), viewer = $("viewer");
+let S = null, cur = -1, sel = -1, following = true, saveTimer = null, video = null;
+
+const fam = (sec) => {
+  const s = sec.toLowerCase();
+  return s.startsWith("intro") ? "intro" : s.startsWith("verse") ? "verse" : s.startsWith("pre") ? "pre"
+       : s.startsWith("chorus") ? "chorus" : s.startsWith("bridge") ? "bridge" : "outro";
+};
+const fmt = (t) => `${Math.floor(t / 60)}:${(t % 60).toFixed(2).padStart(5, "0")}`;
+const shotAt = (t) => { for (let i = S.shots.length - 1; i >= 0; i--) if (t >= S.shots[i].start) return i; return 0; };
+const media = (p) => `/media/${encodeURIComponent(S.name)}/${p}`;
+
+async function loadSongs() {
+  const names = await (await fetch("/api/songs")).json();
+  const want = new URLSearchParams(location.search).get("song") || names[0];
+  $("songPick").innerHTML = names.map((n) => `<option ${n === want ? "selected" : ""}>${n}</option>`).join("");
+  $("songPick").onchange = (e) => { location.search = `?song=${encodeURIComponent(e.target.value)}`; };
+  await loadSong(want);
+}
+
+async function loadSong(name) {
+  S = await (await fetch(`/api/song/${encodeURIComponent(name)}`)).json();
+  $("theme").textContent = S.theme;
+  audio.src = media(S.audio);
+  buildTimeline();
+  cur = -1; select(0, false); tick();
+}
+
+function buildTimeline() {
+  const tl = $("timeline"), total = S.duration;
+  tl.querySelectorAll(".shot").forEach((n) => n.remove());
+  S.shots.forEach((sh, i) => {
+    const d = document.createElement("div");
+    d.className = "shot";
+    d.style.width = `${(sh.duration / total) * 100}%`;
+    d.style.setProperty("--c", `var(--sec-${fam(sh.section)})`);
+    if (S.keyframes.includes(sh.id)) { d.classList.add("has-img"); d.style.backgroundImage = `url(${media("keyframes/" + sh.id + ".png")})`; }
+    if (S.notes[sh.id]) d.classList.add("noted");
+    d.innerHTML = `<span>${sh.id.split("-").pop()}</span>`;
+    d.title = `${sh.id}  ${sh.lines.join(" / ")}`;
+    d.onclick = (e) => { e.stopPropagation(); seekTo(sh.start); select(i, true); };
+    tl.insertBefore(d, $("playhead"));
+  });
+  // section labels under the strip
+  const secs = []; S.shots.forEach((sh) => {
+    const last = secs[secs.length - 1];
+    if (!last || last.name !== sh.section || sh.part.startsWith("1/")) secs.push({ name: sh.section, dur: sh.duration });
+    else last.dur += sh.duration;
+  });
+  $("sections").innerHTML = secs.map((s) => `<div style="width:${(s.dur / total) * 100}%">${s.name}</div>`).join("");
+}
+
+function renderViewer(i) {
+  const sh = S.shots[i], dir = S.direction[sh.id] || {};
+  viewer.innerHTML = ""; video = null;
+  if (S.clips.includes(sh.id)) {
+    video = document.createElement("video");
+    video.src = media("clips/" + sh.id + ".mp4"); video.muted = true; video.playsInline = true;
+    video.currentTime = Math.max(0, audio.currentTime - sh.start);
+    if (!audio.paused) video.play().catch(() => {});
+    viewer.append(video, badge("clip"));
+  } else if (S.keyframes.includes(sh.id)) {
+    const img = new Image(); img.src = media("keyframes/" + sh.id + ".png"); img.alt = sh.id;
+    viewer.append(img, badge("keyframe"));
+  } else {
+    const c = document.createElement("div"); c.className = "card";
+    c.innerHTML = `<div class="cid">${sh.id}</div>
+      <div class="lyric">${sh.lines.map(esc).join("<br>") || "<span style='color:var(--ink-soft)'>(instrumental)</span>"}</div>
+      <div class="what">${esc(dir.motion || "No direction yet.")}</div>`;
+    viewer.append(c);
+  }
+}
+const badge = (t) => { const b = document.createElement("span"); b.className = "badge"; b.textContent = t; return b; };
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+function select(i, pin) {
+  if (pin) setFollow(false);
+  if (i === sel) return;
+  flushSave();
+  sel = i;
+  const sh = S.shots[i], dir = S.direction[sh.id] || {};
+  $("padId").textContent = sh.id;
+  $("padWhen").textContent = `${fmt(sh.start)} – ${fmt(sh.end)} · ${sh.bars} bars`;
+  $("padLyrics").textContent = sh.lines.join(" / ");
+  $("notes").value = S.notes[sh.id] || "";
+  $("dirKey").textContent = dir.keyframe ? "Keyframe: " + dir.keyframe : "No direction yet.";
+  $("dirMotion").textContent = dir.motion ? "Motion: " + dir.motion : "";
+  $("saved").textContent = "";
+  document.querySelectorAll(".shot").forEach((n, k) => n.classList.toggle("selected", k === i));
+}
+
+function setFollow(on) {
+  following = on;
+  $("follow").setAttribute("aria-pressed", on);
+  $("follow").textContent = on ? "Following playback" : "Follow playback";
+  if (on) select(shotAt(audio.currentTime), false);
+}
+
+function tick() {
+  if (!S) return;
+  const t = audio.currentTime, i = shotAt(t);
+  if (i !== cur) { cur = i; renderViewer(i); if (following) select(i, false); }
+  if (video && !audio.paused) {
+    const want = t - S.shots[i].start;
+    if (Math.abs(video.currentTime - want) > 0.15) video.currentTime = want;
+    if (video.paused) video.play().catch(() => {});
+  }
+  $("led").textContent = fmt(t);
+  const sh = S.shots[i];
+  $("now").innerHTML = `<b>${sh.id}</b> ${esc(sh.section)} ${sh.part}`;
+  $("playhead").style.left = `${(t / S.duration) * 100}%`;
+  requestAnimationFrame(tick);
+}
+
+function seekTo(t) { audio.currentTime = Math.max(0, Math.min(t, S.duration - 0.01)); cur = -1; }
+function toggle() {
+  if (audio.paused) { audio.play(); $("play").textContent = "❚❚"; $("play").setAttribute("aria-label", "Pause"); }
+  else { audio.pause(); video && video.pause(); $("play").textContent = "▶"; $("play").setAttribute("aria-label", "Play"); }
+}
+
+function scheduleSave() {
+  $("saved").textContent = "Saving…";
+  clearTimeout(saveTimer); saveTimer = setTimeout(flushSave, 600);
+}
+async function flushSave() {
+  if (!saveTimer || sel < 0) return;
+  clearTimeout(saveTimer); saveTimer = null;
+  const id = S.shots[sel].id, text = $("notes").value;
+  await fetch(`/api/song/${encodeURIComponent(S.name)}/notes/${id}`, {
+    method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ text }) });
+  if (text.trim()) S.notes[id] = text; else delete S.notes[id];
+  document.querySelectorAll(".shot")[sel].classList.toggle("noted", !!text.trim());
+  $("saved").textContent = text.trim() ? "Saved" : "Note removed";
+}
+
+$("play").onclick = toggle;
+$("follow").onclick = () => setFollow(!following);
+$("notes").addEventListener("input", scheduleSave);
+$("notes").addEventListener("focus", () => setFollow(false));
+$("timeline").onclick = (e) => {
+  const r = e.currentTarget.getBoundingClientRect();
+  seekTo(((e.clientX - r.left) / r.width) * S.duration);
+};
+audio.onended = () => { $("play").textContent = "▶"; };
+document.addEventListener("keydown", (e) => {
+  const typing = e.target === $("notes");
+  if (e.key === "Escape" && typing) { e.target.blur(); return; }
+  if (typing) return;
+  if (e.key === " ") { e.preventDefault(); toggle(); }
+  else if (e.key === "ArrowRight") { const i = Math.min(sel + 1, S.shots.length - 1); seekTo(S.shots[i].start); select(i, true); }
+  else if (e.key === "ArrowLeft") { const i = Math.max(sel - 1, 0); seekTo(S.shots[i].start); select(i, true); }
+  else if (e.key.toLowerCase() === "n") { e.preventDefault(); $("notes").focus(); }
+});
+window.addEventListener("beforeunload", flushSave);
+loadSongs();
+</script>
+</body>
+</html>
