@@ -227,7 +227,7 @@ def main():
     out = plan(sections, grid, duration, a.max_shot, a.fps, cuts, heard)
     out["cues"] = place_cues(sections, out)
     out["alignment"] = [{"section": s["name"], "line": l["text"], "matched": l["matched"],
-                         "start": l["start"]} for s in sections for l in s["lines"]]
+                         "start": l["start"], "end": l["end"]} for s in sections for l in s["lines"]]
     (d / "shots.json").write_text(json.dumps(out, indent=1, ensure_ascii=False))
     for sh in out["shots"]:
         print(f"{sh['id']} {sh['start']:7.2f}-{sh['end']:7.2f} {sh['bars']:4.1f} bars  {sh['section']:<12} {sh['part']:>4}  "

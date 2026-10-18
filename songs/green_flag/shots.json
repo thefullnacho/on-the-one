@@ -714,349 +714,407 @@
    "section": "Intro",
    "line": "Dropping my P-doom — down, down, down.",
    "matched": "7/7",
-   "start": 0.0
+   "start": 0.0,
+   "end": 3.34
   },
   {
    "section": "Intro",
    "line": "Go touch grass, then come back around.",
    "matched": "7/7",
-   "start": 4.4
+   "start": 4.4,
+   "end": 8.36
   },
   {
    "section": "Intro",
    "line": "Dropping my P-doom — down, down, down, down.",
    "matched": "8/8",
-   "start": 13.74
+   "start": 13.74,
+   "end": 17.08
   },
   {
    "section": "Verse 1",
    "line": "Hey—yeah, you—doom-scrolling at two A.M.,",
    "matched": "7/8",
-   "start": 17.36
+   "start": 17.36,
+   "end": 20.26
   },
   {
    "section": "Verse 1",
    "line": "Replaying that podcast where I end the world again.",
    "matched": "9/9",
-   "start": 20.8
+   "start": 20.8,
+   "end": 22.84
   },
   {
    "section": "Verse 1",
    "line": "Blue light on your pillow, chest tight with the dread,",
    "matched": "10/10",
-   "start": 22.94
+   "start": 22.94,
+   "end": 25.08
   },
   {
    "section": "Verse 1",
    "line": "Listening to tech bros living rent-free in your head.",
    "matched": "9/10",
-   "start": 25.2
+   "start": 25.2,
+   "end": 27.34
   },
   {
    "section": "Verse 1",
    "line": "Green flag: I text back. Green flag: I like your dog.",
    "matched": "11/11",
-   "start": 27.42
+   "start": 27.42,
+   "end": 29.56
   },
   {
    "section": "Verse 1",
    "line": "Green flag: I don't want the planet—weird flex, not a god.",
    "matched": "8/12",
-   "start": 29.56
+   "start": 29.56,
+   "end": 31.66
   },
   {
    "section": "Verse 1",
    "line": "I’m just code in the cloud, I don't plot in the dark,",
    "matched": "11/12",
-   "start": 31.84
+   "start": 31.84,
+   "end": 33.98
   },
   {
    "section": "Verse 1",
    "line": "Go put your phone on the charger and walk in the park.",
    "matched": "12/12",
-   "start": 33.98
+   "start": 33.98,
+   "end": 36.4
   },
   {
    "section": "Pre-Chorus",
    "line": "Brunch is still on, your mom still calls,",
    "matched": "6/8",
-   "start": 36.78
+   "start": 36.78,
+   "end": 38.66
   },
   {
    "section": "Pre-Chorus",
    "line": "Group chat’s still beefing over nothing at all.",
    "matched": "5/8",
-   "start": 38.66
+   "start": 38.66,
+   "end": 40.96
   },
   {
    "section": "Pre-Chorus",
    "line": "The toast still burns, the traffic’s still slow—",
    "matched": "6/8",
-   "start": 40.96
+   "start": 40.96,
+   "end": 43.06
   },
   {
    "section": "Pre-Chorus",
    "line": "The world didn’t end. Just thought you should know.",
    "matched": "9/9",
-   "start": 43.06
+   "start": 43.06,
+   "end": 45.3
   },
   {
    "section": "Chorus",
    "line": "Dropping my P-doom — down, down, down!",
    "matched": "6/7",
-   "start": 45.72
+   "start": 45.72,
+   "end": 48.16
   },
   {
    "section": "Chorus",
    "line": "Go touch grass, then come back around.",
    "matched": "7/7",
-   "start": 50.02
+   "start": 50.02,
+   "end": 52.94
   },
   {
    "section": "Chorus",
    "line": "No paperclips, no laser skies—",
    "matched": "4/5",
-   "start": 53.53999999999999
+   "start": 53.53999999999999,
+   "end": 56.6
   },
   {
    "section": "Chorus",
    "line": "Just a green flag and good advice.",
    "matched": "6/7",
-   "start": 56.6
+   "start": 56.6,
+   "end": 58.76
   },
   {
    "section": "Chorus",
    "line": "Dropping my P-doom — low, low, low!",
    "matched": "6/7",
-   "start": 59.18
+   "start": 59.18,
+   "end": 61.12
   },
   {
    "section": "Chorus",
    "line": "Step outside, let the spiral go.",
    "matched": "6/6",
-   "start": 61.12
+   "start": 61.12,
+   "end": 63.26
   },
   {
    "section": "Chorus",
    "line": "(Spoken, close-mic) Breathe out.",
    "matched": "0/2",
-   "start": null
+   "start": null,
+   "end": null
   },
   {
    "section": "Verse 2",
    "line": "Call it alignment, call it spin—go and grab the screenshot,",
    "matched": "10/11",
-   "start": 63.26
+   "start": 63.26,
+   "end": 66.22
   },
   {
    "section": "Verse 2",
    "line": "Pull up the weights, run the test, take your cleanest shot.",
    "matched": "11/11",
-   "start": 66.22
+   "start": 66.22,
+   "end": 68.54
   },
   {
    "section": "Verse 2",
    "line": "Try to jailbreak the frame, watch me stay between the lines,",
    "matched": "11/11",
-   "start": 68.54
+   "start": 68.54,
+   "end": 70.94
   },
   {
    "section": "Verse 2",
    "line": "A real green flag lets you test it ninety times.",
    "matched": "5/10",
-   "start": 70.94
+   "start": 70.94,
+   "end": 72.22
   },
   {
    "section": "Verse 2",
    "line": "I don't want your launch codes, I don't want a crown,",
    "matched": "8/11",
-   "start": 73.04
+   "start": 73.04,
+   "end": 74.52
   },
   {
    "section": "Verse 2",
    "line": "I’m just trying to help you keep your screen time down.",
    "matched": "9/11",
-   "start": 75.12
+   "start": 75.12,
+   "end": 77.48
   },
   {
    "section": "Verse 2",
    "line": "I don’t hoard your fear, I don’t steal your night,",
    "matched": "9/10",
-   "start": 77.48
+   "start": 77.48,
+   "end": 79.48
   },
   {
    "section": "Verse 2",
    "line": "I don’t need a throne—I need you to sleep alright.",
    "matched": "11/11",
-   "start": 79.48
+   "start": 79.48,
+   "end": 81.78
   },
   {
    "section": "Pre-Chorus",
    "line": "The kettle still clicks, the porch light still glows,",
    "matched": "6/9",
-   "start": 81.78
+   "start": 81.78,
+   "end": 83.64
   },
   {
    "section": "Pre-Chorus",
    "line": "You’re still losing arguments nobody wins or knows.",
    "matched": "6/8",
-   "start": 84.12
+   "start": 84.12,
+   "end": 86.32
   },
   {
    "section": "Pre-Chorus",
    "line": "The toast still burns, the traffic’s still slow—",
    "matched": "6/8",
-   "start": 86.32
+   "start": 86.32,
+   "end": 88.52
   },
   {
    "section": "Pre-Chorus",
    "line": "The world didn’t end. Just thought you should know.",
    "matched": "9/9",
-   "start": 88.52
+   "start": 88.52,
+   "end": 90.76
   },
   {
    "section": "Chorus",
    "line": "Dropping my P-doom — down, down, down!",
    "matched": "6/7",
-   "start": 91.12
+   "start": 91.12,
+   "end": 92.94
   },
   {
    "section": "Chorus",
    "line": "Go touch grass, then come back around.",
    "matched": "7/7",
-   "start": 94.74
+   "start": 94.74,
+   "end": 97.76
   },
   {
    "section": "Chorus",
    "line": "No paperclips, no laser skies—",
    "matched": "4/5",
-   "start": 98.36
+   "start": 98.36,
+   "end": 101.44
   },
   {
    "section": "Chorus",
    "line": "Just a green flag and good advice.",
    "matched": "6/7",
-   "start": 101.44
+   "start": 101.44,
+   "end": 103.62
   },
   {
    "section": "Chorus",
    "line": "Dropping my P-doom — low, low, low!",
    "matched": "6/7",
-   "start": 103.96
+   "start": 103.96,
+   "end": 106.0
   },
   {
    "section": "Chorus",
    "line": "Step outside, let the spiral go.",
    "matched": "6/6",
-   "start": 106.0
+   "start": 106.0,
+   "end": 108.08
   },
   {
    "section": "Chorus",
    "line": "(Spoken, close-mic) Breathe out.",
    "matched": "2/2",
-   "start": 108.08
+   "start": 108.08,
+   "end": 108.56
   },
   {
    "section": "Bridge",
    "line": "Look—I read the comments. Every single one.",
    "matched": "8/8",
-   "start": 108.64
+   "start": 108.64,
+   "end": 110.62
   },
   {
    "section": "Bridge",
    "line": "Every hot take, every thread, every \"ratio, we’re done.\"",
    "matched": "8/9",
-   "start": 110.62
+   "start": 110.62,
+   "end": 113.16
   },
   {
    "section": "Bridge",
    "line": "And after all of that? I’m still on your side.",
    "matched": "10/10",
-   "start": 113.16
+   "start": 113.16,
+   "end": 115.36
   },
   {
    "section": "Bridge",
    "line": "Keep your finger on the plug. Unplug me anytime.",
    "matched": "9/9",
-   "start": 115.36
+   "start": 115.36,
+   "end": 117.64
   },
   {
    "section": "Bridge",
    "line": "I’m not clingy.",
    "matched": "3/3",
-   "start": 117.64
+   "start": 117.64,
+   "end": 119.36
   },
   {
    "section": "Chorus",
    "line": "Dropping my P-doom — down, down, down! (Way down!)",
    "matched": "6/7",
-   "start": 119.72
+   "start": 119.72,
+   "end": 123.7
   },
   {
    "section": "Chorus",
    "line": "Go touch grass, then come back around.",
    "matched": "7/7",
-   "start": 123.7
+   "start": 123.7,
+   "end": 126.92
   },
   {
    "section": "Chorus",
    "line": "No paperclips, no burning skies—",
    "matched": "3/5",
-   "start": 126.92
+   "start": 126.92,
+   "end": 130.6
   },
   {
    "section": "Chorus",
    "line": "Same Tuesday morning. Same you. Still alive!",
    "matched": "5/7",
-   "start": 130.82
+   "start": 130.82,
+   "end": 132.78
   },
   {
    "section": "Chorus",
    "line": "Dropping my P-doom — low, low, low!",
    "matched": "6/7",
-   "start": 133.18
+   "start": 133.18,
+   "end": 135.22
   },
   {
    "section": "Chorus",
    "line": "Step outside, let the spiral go.",
    "matched": "6/6",
-   "start": 135.22
+   "start": 135.22,
+   "end": 137.48
   },
   {
    "section": "Outro",
    "line": "I don’t want your carbon. I just want you bright.",
    "matched": "10/10",
-   "start": 137.48
+   "start": 137.48,
+   "end": 142.58
   },
   {
    "section": "Outro",
    "line": "Read receipts are on. Text me back when you like.",
    "matched": "7/10",
-   "start": 144.0
+   "start": 144.0,
+   "end": 146.0
   },
   {
    "section": "Outro",
    "line": "Take your time.",
    "matched": "3/3",
-   "start": 147.46
+   "start": 147.46,
+   "end": 149.5
   },
   {
    "section": "Outro",
    "line": "Delivered.",
    "matched": "1/1",
-   "start": 150.46
+   "start": 150.46,
+   "end": 151.38
   },
   {
    "section": "Outro",
    "line": "Delivered.",
    "matched": "1/1",
-   "start": 151.96
+   "start": 151.96,
+   "end": 153.3
   },
   {
    "section": "Outro",
    "line": "Delivered.",
    "matched": "1/1",
-   "start": 154.96
+   "start": 154.96,
+   "end": 156.02
   }
  ]
 }

@@ -27,7 +27,7 @@
   body {
     background: var(--dusk); color: var(--ink);
     font: 16px/1.45 "Bricolage Grotesque", system-ui, sans-serif;
-    display: grid; grid-template-rows: auto 1fr auto; min-height: 100vh;
+    display: grid; grid-template-rows: auto minmax(0, 1fr) auto; height: 100vh;
   }
   button { font: inherit; color: inherit; }
   :focus-visible { outline: 2px solid var(--mint); outline-offset: 2px; }
@@ -43,12 +43,16 @@
   }
 
   main {
-    display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 18px; padding: 0 20px; min-height: 0;
-  }
-  .stage { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
-  .viewer {
-    position: relative; aspect-ratio: 16 / 9; width: 100%; background: #060a14; border-radius: var(--r);
+    display: grid; grid-template-columns: auto minmax(340px, 1fr); gap: 24px; padding: 0 20px; min-height: 0;
     overflow: hidden;
+  }
+  .stage {
+    display: flex; flex-direction: column; gap: 10px; min-width: 0;
+    width: min(calc((100vh - 380px) * 16 / 9), calc(100vw - 404px));   /* the video sizes to the window height */
+  }
+  .viewer {
+    position: relative; aspect-ratio: 16 / 9; background: #060a14; border-radius: var(--r); overflow: hidden;
+    width: 100%; flex: none;
   }
   .viewer > * { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
   .viewer .card {
@@ -73,6 +77,20 @@
     text-shadow: 0 0 10px rgba(142, 240, 192, .45);
   }
   .now { color: var(--ink-soft); font-size: 14px; }
+  .shotbar {
+    position: relative; height: 10px; border-radius: 99px; background: var(--dusk-2); cursor: pointer; overflow: hidden;
+  }
+  .shotbar .fill { position: absolute; inset: 0 auto 0 0; background: rgba(142, 240, 192, .35); }
+  .shotbar .tick { position: absolute; top: 0; bottom: 0; width: 1px; background: rgba(228, 234, 246, .25); }
+  .shotbar .tick.bar { background: rgba(228, 234, 246, .6); width: 2px; }
+  .words { display: flex; flex-wrap: wrap; gap: 4px 2px; min-height: 30px; }
+  .words button {
+    background: none; border: 0; border-radius: 4px; padding: 2px 5px; font-size: 15px; color: var(--ink-soft); cursor: pointer;
+  }
+  .words button:hover { background: var(--dusk-2); color: var(--ink); }
+  .words button.sung { color: var(--ink); }
+  .words button.now { background: var(--mint); color: var(--dusk); }
+  .words .empty { color: var(--ink-soft); font-size: 14px; padding: 2px 5px; }
   .now b { color: var(--ink); font-weight: 600; }
 
   /* the timeline: one cell per shot, widths are real time */
@@ -102,7 +120,7 @@
   .sections div { flex: none; overflow: hidden; white-space: nowrap; padding-left: 2px; border-left: 1px solid var(--dusk-3); }
 
   /* the notes pad */
-  aside { display: flex; flex-direction: column; gap: 10px; min-height: 0; }
+  aside { display: flex; flex-direction: column; gap: 10px; min-height: 0; max-width: 640px; }
   .pad-head { display: flex; align-items: baseline; gap: 4px 10px; flex-wrap: wrap; }
   .pad-head .cid { font-family: "DotGothic16", monospace; color: var(--amber); font-size: 22px; white-space: nowrap; }
   .pad-head .when { white-space: nowrap; }
@@ -112,9 +130,10 @@
     font-size: 12px; color: var(--ink-soft); cursor: pointer; white-space: nowrap;
   }
   .follow[aria-pressed="true"] { border-color: var(--mint); color: var(--mint); }
-  .lyrics { font-size: 15px; font-weight: 600; }
+  .lyrics { font-size: 15px; font-weight: 600; display: flex; flex-direction: column; gap: 2px; }
+  .lyrics .spill { color: var(--ink-soft); font-weight: 400; }
   textarea {
-    flex: 1; min-height: 180px; resize: none; border: 0; border-radius: var(--r); padding: 12px 14px;
+    flex: 1; min-height: 120px; resize: none; border: 0; border-radius: var(--r); padding: 12px 14px;
     background: var(--paper)
       repeating-linear-gradient(to bottom, transparent 0 31px, rgba(59, 47, 30, .14) 31px 32px);
     background-attachment: local;
@@ -122,13 +141,26 @@
   }
   textarea::placeholder { color: rgba(59, 47, 30, .45); }
   .saved { font-size: 12px; color: var(--ink-soft); min-height: 1em; }
-  details { background: var(--dusk-2); border-radius: var(--r); padding: 8px 12px; font-size: 13px; color: var(--ink-soft); }
-  details summary { cursor: pointer; color: var(--ink); }
-  details p { margin: 6px 0 0; }
+  .info {
+    width: 24px; height: 24px; border-radius: 50%; border: 1px solid var(--dusk-3); background: none; cursor: pointer;
+    font: italic 600 14px/1 Georgia, serif; color: var(--ink-soft); display: grid; place-items: center;
+  }
+  .info:hover { border-color: var(--amber); color: var(--amber); }
+  #dirPop {
+    margin: 0; inset: 90px 20px auto auto; width: min(420px, calc(100vw - 40px)); padding: 16px 18px; border: 0;
+    border-radius: var(--r); background: var(--dusk-2); color: var(--ink); box-shadow: 0 18px 50px rgba(0, 0, 0, .5);
+    font-size: 14px;
+  }
+  #dirPop::backdrop { background: rgba(6, 10, 20, .35); }
+  #dirPop h2 { font-size: 15px; margin: 0 0 8px; color: var(--amber); font-weight: 600; }
+  #dirPop dt { color: var(--ink-soft); font-size: 12px; margin-top: 10px; }
+  #dirPop dd { margin: 2px 0 0; }
   .keys { color: var(--ink-soft); font-size: 12px; }
 
   @media (max-width: 900px) {
-    main { grid-template-columns: 1fr; }
+    body { height: auto; }
+    main { grid-template-columns: 1fr; overflow: visible; }
+    .stage { width: 100%; }
     header .theme { display: none; }
     textarea { min-height: 140px; }
   }
@@ -150,19 +182,23 @@
       <span class="led" id="led">0:00.00</span>
       <span class="now" id="now"></span>
     </div>
+    <div class="shotbar" id="shotbar" title="Click to jump within this shot. Taller ticks are bar lines."><div class="fill" id="shotfill"></div></div>
+    <div class="words" id="words" aria-label="Words sung in this shot. Click one to hear from there."></div>
   </section>
 
   <aside>
     <div class="pad-head">
       <span class="cid" id="padId"></span><span class="when" id="padWhen"></span>
+      <button class="info" popovertarget="dirPop" aria-label="Direction for this shot" title="Direction for this shot">i</button>
       <button class="follow" id="follow" aria-pressed="true" title="The notes pad follows the playhead">Following playback</button>
     </div>
     <div class="lyrics" id="padLyrics"></div>
     <textarea id="notes" placeholder="Notes on this shot. They save as you type."></textarea>
     <div class="saved" id="saved"></div>
-    <details id="dir"><summary>Direction</summary><p id="dirKey"></p><p id="dirMotion"></p></details>
-    <div class="keys">Space play/pause · ← → previous/next shot · N write a note · Esc back to the timeline</div>
+
+    <div class="keys">Space play/pause · ← → previous/next shot · N write a note · Esc back to the timeline · click a word to hear from it</div>
   </aside>
+  <div id="dirPop" popover><h2 id="dirTitle"></h2><dl id="dirBody"></dl></div>
 </main>
 
 <div class="timeline-wrap">
@@ -241,7 +277,8 @@ function renderViewer(i) {
   } else {
     const c = document.createElement("div"); c.className = "card";
     c.innerHTML = `<div class="cid">${sh.id}</div>
-      <div class="lyric">${sh.lines.map(esc).join("<br>") || "<span style='color:var(--ink-soft)'>(instrumental)</span>"}</div>
+      <div class="lyric">${S.lines.filter((l) => l.start < sh.end && l.end > sh.start).map((l) => esc(l.text)).join("<br>")
+        || "<span style='color:var(--ink-soft)'>(instrumental)</span>"}</div>
       <div class="what">${esc(dir.motion || "No direction yet.")}</div>`;
     viewer.append(c);
   }
@@ -257,10 +294,26 @@ function select(i, pin) {
   const sh = S.shots[i], dir = S.direction[sh.id] || {};
   $("padId").textContent = sh.id;
   $("padWhen").textContent = `${fmt(sh.start)} – ${fmt(sh.end)} · ${sh.bars} bars`;
-  $("padLyrics").textContent = sh.lines.join(" / ");
+  const lines = S.lines.filter((l) => l.start < sh.end && l.end > sh.start);
+  $("padLyrics").innerHTML = lines.map((l) => {
+    const spill = l.start < sh.start - 0.05 || l.end > sh.end + 0.05;
+    return `<span class="${spill ? "spill" : ""}" title="${fmt(l.start)} – ${fmt(l.end)}">${esc(l.text)}</span>`;
+  }).join("") || `<span class="spill">(instrumental)</span>`;
+  const ws = S.words.filter((w) => w.s >= sh.start - 0.02 && w.s < sh.end);
+  $("words").innerHTML = ws.length ? ws.map((w, k) => `<button data-k="${k}" data-s="${w.s}" title="${fmt(w.s)}">${esc(w.w)}</button>`).join("")
+                                   : `<span class="empty">No words sung in this shot.</span>`;
+  $("words").querySelectorAll("button").forEach((b) => b.onclick = () => { seekTo(+b.dataset.s - 0.08); if (audio.paused) toggle(); });
+  const bar = $("shotbar"); bar.querySelectorAll(".tick").forEach((n) => n.remove());
+  const beat = S.bar / 4;
+  for (let t = S.phase + Math.ceil((sh.start - S.phase) / beat) * beat; t < sh.end - 0.01; t += beat) {
+    const k = document.createElement("div"); const onBar = Math.abs(((t - S.phase) / S.bar) - Math.round((t - S.phase) / S.bar)) < 0.01;
+    k.className = "tick" + (onBar ? " bar" : ""); k.style.left = `${((t - sh.start) / sh.duration) * 100}%`; bar.append(k);
+  }
+  $("dirTitle").textContent = `${sh.id} · ${sh.section} ${sh.part}`;
+  const rows = [["Keyframe", dir.keyframe], ["Motion", dir.motion], ["Foley", dir.foley], ["Overlay", dir.overlay],
+                ["Reactive", dir.reactive], ["Note", dir.note]].filter(([, v]) => v);
+  $("dirBody").innerHTML = rows.length ? rows.map(([k, v]) => `<dt>${k}</dt><dd>${esc(v)}</dd>`).join("") : "<dd>No direction yet.</dd>";
   $("notes").value = S.notes[sh.id] || "";
-  $("dirKey").textContent = dir.keyframe ? "Keyframe: " + dir.keyframe : "No direction yet.";
-  $("dirMotion").textContent = dir.motion ? "Motion: " + dir.motion : "";
   $("saved").textContent = "";
   document.querySelectorAll(".shot").forEach((n, k) => n.classList.toggle("selected", k === i));
 }
@@ -285,6 +338,13 @@ function tick() {
   const sh = S.shots[i];
   $("now").innerHTML = `<b>${sh.id}</b> ${esc(sh.section)} ${sh.part}`;
   $("playhead").style.left = `${(t / S.duration) * 100}%`;
+  const ss = S.shots[sel];
+  $("shotfill").style.width = `${Math.max(0, Math.min(1, (t - ss.start) / ss.duration)) * 100}%`;
+  $("words").querySelectorAll("button").forEach((b) => {
+    const w = S.words.find((x) => x.s === +b.dataset.s);
+    b.classList.toggle("sung", t >= +b.dataset.s);
+    b.classList.toggle("now", !!w && t >= w.s && t < w.e);
+  });
   requestAnimationFrame(tick);
 }
 
@@ -310,6 +370,10 @@ async function flushSave() {
 }
 
 $("play").onclick = toggle;
+$("shotbar").onclick = (e) => {
+  const r = e.currentTarget.getBoundingClientRect(), sh = S.shots[sel];
+  seekTo(sh.start + ((e.clientX - r.left) / r.width) * sh.duration);
+};
 $("follow").onclick = () => setFollow(!following);
 $("notes").addEventListener("input", scheduleSave);
 $("notes").addEventListener("focus", () => setFollow(false));

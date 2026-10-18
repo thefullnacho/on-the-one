@@ -33,6 +33,11 @@ def song_payload(d):
         "shots": shots["shots"], "cues": shots.get("cues", []),
         "direction": direction.get("shots", {}), "theme": direction.get("theme", ""),
         "notes": notes,
+        "lines": [{"text": x["line"], "start": x["start"], "end": x["end"]} for x in shots.get("alignment", [])
+                  if x.get("start") is not None and x.get("end") is not None],
+        "words": [{"w": w["w"].strip(), "s": w["s"], "e": w["e"]}
+                  for seg in (json.loads((d / "words.json").read_text()) if (d / "words.json").exists() else [])
+                  for w in seg["words"]],
         "keyframes": sorted(p.stem for p in (d / "keyframes").glob("*.png")) if (d / "keyframes").exists() else [],
         "clips": sorted(p.stem for p in (d / "clips").glob("*.mp4")) if (d / "clips").exists() else [],
     }
