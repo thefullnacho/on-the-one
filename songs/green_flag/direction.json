@@ -300,6 +300,139 @@
    "characters": [
     "blip"
    ]
+  },
+  "bridge-1": {
+   "keyframe": "Dusk: the tiny glowing character sits small on top of a dark, switched-off phone lying on a wooden surface as if sitting on a porch step; its black pixel sunglasses are pushed up on its head, three dark dot eyes and a small smile visible, lenses dark; faint reflections of comment threads scroll on the glass behind it. Quiet, intimate, warm dim light.",
+   "motion": "Very still. The character sits and listens, swinging its little feet; faint comment threads drift across the dark glass in reflection. Almost no camera movement.",
+   "foley": "vinyl crackle only (the beat is out)",
+   "seed": 71,
+   "characters": [
+    "blip"
+   ],
+   "look": "bridge look: shades up, dot eyes, smile (assets: char_bridge_candidate / sheet lenses_off)"
+  },
+  "bridge-2": {
+   "keyframe": "Dusk, close: the tiny glowing character holds a phone charger plug out toward the camera with both stubby arms, offering it, sunglasses pushed up, soft smile.",
+   "motion": "The character slowly holds the charger plug out toward the camera, offering it, then nods gently. Very slow push-in.",
+   "foley": "vinyl crackle; a tiny cable rustle",
+   "seed": 72,
+   "characters": [
+    "blip"
+   ],
+   "note": "the trust beat: 'unplug me anytime'"
+  },
+  "bridge-3": {
+   "keyframe": "Dusk: the tiny glowing character standing up on top of the dark phone, sunglasses on its head, looking up with determination.",
+   "motion": "The character stands up as the riser builds; its sunglasses drop back down onto its face; at the very end a red gingham picnic blanket swoops in front of the camera and completely fills the frame.",
+   "foley": "the riser + snare roll is in the song; a big fabric whoosh at the end",
+   "seed": 73,
+   "characters": [
+    "blip"
+   ],
+   "transition_out": "hidden cut: last frames are all red gingham fabric; chorus3-1 opens on the same fabric (blend a few frames)"
+  },
+  "chorus3-1": {
+   "keyframe": "Frame completely filled by a red gingham picnic blanket billowing toward the camera, a hint of golden-hour park light glowing through its edges.",
+   "motion": "The billowing blanket floats away from the camera and settles onto the grass, revealing a golden-hour park; then phones drop onto the blanket from above, out of frame, one on each 'down', and a fourth on 'way down'.",
+   "foley": "blanket flap, then a soft thud per phone landing",
+   "seed": 74,
+   "characters": [
+    "blip"
+   ],
+   "transition_in": "hidden cut from bridge-3 (fabric)",
+   "reactive": "max: punch-in on each 'down'"
+  },
+  "chorus3-2": {
+   "keyframe": "Wide golden-hour park picnic: the red gingham blanket on the grass with a pile of phones face-down on it; a small red-gold and white parti-colored Lhasa Apso with a long silky shaggy coat, fringe falling over its eyes, dark-tipped ears and a plumed tail curled over its back racing around joyfully; the tiny glowing character riding on the dog's back, flag streaming.",
+   "motion": "The dog tears around the picnic in a big happy loop with the character riding on its back, flag streaming; warm low sun, long shadows, lens flare.",
+   "foley": "dog tags jingling, happy barks, distant park sounds",
+   "seed": 75,
+   "characters": [
+    "blip",
+    "dog"
+   ],
+   "reactive": "punch-in on downbeats"
+  },
+  "chorus3-3": {
+   "keyframe": "Golden hour, close: a man in his thirties (short dark messy hair, light stubble, black-framed glasses) wearing a flannel shirt in warm brown, amber and cream plaid, eyes closed, face turned up to the warm sun, smiling, the tiny glowing character sitting on the shoulder of his flannel shirt. No hands in frame.",
+   "motion": "He breathes in the sun, smiling, eyes closed; the character on his shoulder waves its flag on 'still alive'. Gentle, warm, slow push-in.",
+   "foley": "warm breeze, birdsong under the music",
+   "seed": 76,
+   "characters": [
+    "blip",
+    "scroller"
+   ],
+   "note": "his daylight reveal: same you, still alive"
+  },
+  "chorus3-4": {
+   "keyframe": "Golden hour, close on the man's flannel sleeve in warm brown, amber and cream plaid; the tiny glowing character at the top of the sleeve near the shoulder, about to slide.",
+   "motion": "The character slides down the flannel sleeve in three dips, one on each 'low'; the camera pushes in until the plaid fills the frame; on 'let the spiral go' the plaid warms and its straight lines resolve into wooden porch floorboards and a railing at dusk, the sleeve cuff becoming the porch railing with the character sitting on it.",
+   "foley": "three fabric zips on the slides, a warm whoosh into the porch",
+   "seed": 77,
+   "characters": [
+    "blip",
+    "scroller"
+   ],
+   "transition_out": "texture morph: chained motion + a short dissolve into outro-1; keep the character's glow at the same screen position across the cut"
+  },
+  "outro-1": {
+   "keyframe": "Dusk: a wooden front porch, the tiny glowing character sitting on the porch railing (same screen position as the end of chorus3-4); the man in his flannel sits on the steps below with the dog; warm porch light.",
+   "motion": "The porch light flicks on; the man leans back on the steps, the dog settles beside him; the character swings its feet on the railing.",
+   "foley": "porch light switch click, crickets beginning",
+   "seed": 81,
+   "characters": [
+    "blip",
+    "scroller",
+    "dog"
+   ],
+   "transition_in": "texture morph from chorus3-4"
+  },
+  "outro-2": {
+   "keyframe": "Dusk, close: a phone lying on a wooden porch step showing a message thread, the tiny glowing character sitting beside it.",
+   "motion": "A new message slides into the thread on the phone; the character looks at it, then up at the man, content.",
+   "foley": "a soft message whoosh, crickets",
+   "seed": 82,
+   "characters": [
+    "blip"
+   ]
+  },
+  "outro-3": {
+   "keyframe": "(chained from outro-2)",
+   "chain_from": "outro-2",
+   "motion": "The phone's screen locks and goes black; the porch light glows warm in the darkness behind it.",
+   "foley": "phone lock CLICK (cue c03, lands before 'Delivered')",
+   "overlay": "'Delivered.' composited on the word (150.46)",
+   "seed": 83,
+   "characters": [
+    "blip"
+   ]
+  },
+  "outro-4": {
+   "keyframe": "Night: darkness, a warm porch light glowing, fireflies beginning to rise over the lawn.",
+   "motion": "Fireflies rise slowly through the dark around the glowing porch light.",
+   "foley": "crickets, night air",
+   "overlay": "'Delivered.' echoes fading (151.96, 154.96)",
+   "seed": 84,
+   "characters": []
+  },
+  "outro-5": {
+   "keyframe": "Night lawn full of drifting fireflies, one larger soft mint-green glow among them: the tiny character floating up.",
+   "motion": "The fireflies drift upward; the character's mint-green glow floats up among them like one of them.",
+   "foley": "crickets fading",
+   "seed": 85,
+   "characters": [
+    "blip"
+   ]
+  },
+  "outro-6": {
+   "keyframe": "(chained from outro-5)",
+   "chain_from": "outro-5",
+   "motion": "The glows drift higher and dimmer as everything slowly fades to black.",
+   "foley": "fade to silence",
+   "seed": 86,
+   "characters": [
+    "blip"
+   ]
   }
  },
  "theme": "The camera gets pulled into the doomscroller's world inside the phone; Blip is there to add color and reset him back to real life.",
@@ -311,7 +444,8 @@
   "scroller": {
    "ref": null,
    "look": "a man in his thirties, short dark messy hair, light stubble, black-framed glasses, grey hoodie, tired eyes",
-   "todo": "design 3-4 options, Alex picks, then a sheet like Blip's"
+   "todo": "design 3-4 options, Alex picks, then a sheet like Blip's",
+   "look_day": "same man, daytime: flannel shirt in warm brown, amber and cream plaid (porch colors: the plaid resolves into porch boards in the chorus3 -> outro morph)"
   },
   "dog": {
    "ref": "character/dog_ref.jpg",
