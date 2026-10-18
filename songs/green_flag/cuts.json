@@ -1,1 +1,4 @@
-{"Intro": [2.05, 7.07], "Verse 1": [15.98, 20.44, 24.90, 29.36, 30.47]}
+{
+ "Intro":   {"cuts": [{"word": "down", "snap": "before"}, {"word": "back"}]},
+ "Verse 1": {"auto": true, "cuts": [{"word": "charger"}, {"word": "park"}]}
+}

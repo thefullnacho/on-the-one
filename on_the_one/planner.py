@@ -5,7 +5,7 @@ supplies timings. Section boundaries snap to bars, shots are whole bars, and eve
 render length LTX accepts (1 + 8n frames) that covers its slot.
 
 usage: python -m on_the_one.planner songs/<song> [--max-shot 5.0] [--fps 24]
-reads  songs/<song>/{lyrics.txt, words.json, grid.json, cuts.json (optional: {"Intro": [2.05, 7.07]})}
+reads  songs/<song>/{lyrics.txt, words.json, grid.json, cuts.json (optional, see director_cuts)}
 writes songs/<song>/shots.json
 """
 import argparse, difflib, json, math, re
@@ -67,6 +67,7 @@ def align(sections, heard):
     idx = 0
     for si, s in enumerate(sections):
         for l in s["lines"]:
+            l["word_times"] = [time_of[i]["s"] if i in time_of else None for i in range(idx, idx + len(l["words"]))]
             hits = [time_of[i] for i in range(idx, idx + len(l["words"])) if i in time_of]
             l["matched"] = f"{len(hits)}/{len(l['words'])}"
             l["start"] = hits[0]["s"] if hits else None
@@ -75,7 +76,41 @@ def align(sections, heard):
     return sections
 
 
-def plan(sections, grid, duration, max_shot=5.0, fps=24, overrides=None):
+def director_cuts(section, spec, auto, a, b, beat, phase, heard=()):
+    """Lyric-anchored cuts, so they survive a re-recorded take.
+
+    spec: {"auto": true|false, "cuts": [{"word": "charger", "nth": 1, "snap": "nearest"|"before"|"after"}, 12.5, ...]}
+    A word cut lands on a beat relative to that word's start in THIS section (nth occurrence, default 1).
+    "before" = the beat at or before the word (cut one beat ahead of it). Bare numbers are absolute seconds.
+    "auto": keep the planner's bar cuts too (near-duplicates within half a beat collapse).
+    """
+    # anchor on what was actually sung inside this section (Whisper), else on the sheet alignment
+    sung = [(h["w"], h["s"]) for h in heard if a - beat <= h["s"] < b]
+    sheet = [(w, t) for l in section["lines"] for w, t in zip(l["words"], l["word_times"])]
+    inner = []
+    for c in spec.get("cuts", []):
+        if isinstance(c, (int, float)):
+            t, mode = float(c), "nearest"
+        else:
+            want, nth, mode = norm(c["word"]), c.get("nth", 1), c.get("snap", "nearest")
+            hits = [t for w, t in sung if w == want] or [t for w, t in sheet if w == want]
+            if len(hits) < nth or hits[nth - 1] is None:
+                raise SystemExit(f"cut anchor {c} not found (or untimed) in section {section['name']}")
+            t = hits[nth - 1]
+        k = (t - phase) / beat
+        k = math.floor(k + 1e-6) if mode == "before" else math.ceil(k - 1e-6) if mode == "after" else round(k)
+        inner.append(phase + k * beat)
+    if spec.get("auto"):
+        inner += auto[1:-1]
+    inner = sorted(t for t in inner if a + beat / 2 < t < b - beat / 2)
+    merged = []
+    for t in inner:
+        if not merged or t - merged[-1] > beat / 2:
+            merged.append(t)
+    return [a] + merged + [b]
+
+
+def plan(sections, grid, duration, max_shot=5.0, fps=24, overrides=None, heard=()):
     beat = 60.0 / grid["bpm"]
     bar = 4 * beat
     phase = grid["phase"]
@@ -114,9 +149,7 @@ def plan(sections, grid, duration, max_shot=5.0, fps=24, overrides=None):
             t += bars_per_shot * bar
         cuts.append(b)
         if overrides and s["name"] in overrides:
-            # director's cuts: times inside the section, snapped to the nearest beat (not just bars)
-            inner = sorted(phase + round((t - phase) / beat) * beat for t in overrides[s["name"]])
-            cuts = [a] + [t for t in inner if a < t < b] + [b]
+            cuts = director_cuts(s, overrides[s["name"]], cuts, a, b, beat, phase, heard)
         for k in range(len(cuts) - 1):
             s0, s1 = cuts[k], cuts[k + 1]
             n = math.ceil(((s1 - s0) * fps - 1) / 8)
@@ -177,7 +210,7 @@ def main():
     align(sections, heard)
     duration = a.duration or heard[-1]["e"] + 2.0
     cuts = json.loads((d / "cuts.json").read_text()) if (d / "cuts.json").exists() else None
-    out = plan(sections, grid, duration, a.max_shot, a.fps, cuts)
+    out = plan(sections, grid, duration, a.max_shot, a.fps, cuts, heard)
     out["cues"] = place_cues(sections, out)
     out["alignment"] = [{"section": s["name"], "line": l["text"], "matched": l["matched"],
                          "start": l["start"]} for s in sections for l in s["lines"]]
