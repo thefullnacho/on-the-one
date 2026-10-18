@@ -7,6 +7,7 @@ the #1 complaint in the category is paying credits for bad generations.
 1. **Drop in the song + lyric sheet.** Analysis runs (beat grid, word timings, sections from the sheet's tags).
    The first screen is the **animatic**: the whole song as beat-locked placeholder cards, playable with the
    audio. The user never faces an empty timeline; everything after this fills cards in.
+1b. **Take vs sheet.** Real takes drift from the lyric sheet (Suno ad-libs: repeated hooks, dropped lines, echoes). A line-level diff of the sheet against what Whisper heard proposes the corrected sheet for THIS take ("repeated hook at 0:13, dropped line in the bridge, 'Delivered' x3: accept?"). The take is the truth; cuts are anchored to sung words so they survive re-records.
 2. **Story.** Per section, 2-3 suggested beats drawn from the lyrics; pick or rewrite. A full written
    treatment can be pasted instead ("I know what I want" path).
 3. **Character.** Four directions -> pick -> refine (face, accessories) -> lock a character sheet
