@@ -239,6 +239,67 @@
     "scroller"
    ],
    "note": "The AI as a nightlight, not an overlord. Dark -> next morning: prechorus2 opens on the kettle clicking."
+  },
+  "prechorus2-1": {
+   "keyframe": "Morning kitchen: an electric kettle on the counter in a puff of steam; through the window behind it a porch light is still on in the soft dawn; a phone on the counter shows a long group-chat argument; the tiny glowing character perches on top of the kettle.",
+   "motion": "The kettle clicks off and steam billows up; message bubbles keep stacking on the phone; the character on the kettle watches the pointless argument and rolls its eyes with its pixel lenses, then shrugs.",
+   "foley": "kettle CLICK on the cut (82.77), steam hiss, message pops",
+   "seed": 61,
+   "characters": [
+    "blip"
+   ],
+   "note": "the kettle line starts at 81.78 over the dark nightlight frame; the cut to morning lands as 'clicks' ends"
+  },
+  "prechorus2-2": {
+   "keyframe": "(callback: reuse the prechorus1-3 keyframe, same framing, slightly softer morning light)",
+   "reuse_keyframe": "prechorus1-3",
+   "motion": "The character peeks out from behind the coffee mug, ducks back, then peeks out again with a little wave of its green flag; smoke curls up from the burnt toast. Slow gentle push-in.",
+   "foley": "toaster pop, faint smoke-alarm chirp",
+   "seed": 62,
+   "characters": [
+    "blip"
+   ],
+   "note": "the line repeats, so the picture rhymes"
+  },
+  "chorus2-1": {
+   "keyframe": "A sunny backyard playground: the tiny glowing mint-green character at the top of a small bumpy wavy slide, flag raised, bright blue morning sky.",
+   "motion": "The character whooshes down the bumpy slide, bouncing on three bumps, one on each 'down', and lands in the grass with a bounce.",
+   "foley": "three plastic thumps on the bumps, a happy landing boing",
+   "seed": 63,
+   "characters": [
+    "blip"
+   ],
+   "reactive": "punch-in on each 'down'"
+  },
+  "chorus2-2": {
+   "keyframe": "Sunny backyard lawn: a small red-gold and white parti-colored Lhasa Apso with a long silky shaggy coat, fringe falling over its eyes, dark-tipped ears and a plumed tail curled over its back bounding happily toward the tiny glowing character in the grass, blue sky with a couple of kites.",
+   "motion": "The dog bounds in and flops down, rolling in the grass beside the character, who rolls with it; the camera tilts up to kites dancing in a clear blue sky on 'no laser skies'.",
+   "foley": "happy dog snuffles, grass rustle, kite flutter",
+   "seed": 64,
+   "characters": [
+    "blip",
+    "dog"
+   ]
+  },
+  "chorus2-3": {
+   "keyframe": "a small red-gold and white parti-colored Lhasa Apso with a long silky shaggy coat, fringe falling over its eyes, dark-tipped ears and a plumed tail curled over its back trotting across a sunny lawn with the tiny glowing character riding on top of its head, holding its little green flag up high.",
+   "motion": "The character rides on the trotting dog's head, flag up on 'green flag'; on 'low, low, low' it slides down into a little garden hammock that sinks lower with each 'low'.",
+   "foley": "dog tags jingling, hammock creaks on each 'low'",
+   "seed": 65,
+   "characters": [
+    "blip",
+    "dog"
+   ],
+   "reactive": "three soft dips on 'low, low, low'"
+  },
+  "chorus2-4": {
+   "keyframe": "Macro, sunny lawn: a dandelion seed head in sharp focus, the tiny glowing character beside it, soft bokeh of the garden behind.",
+   "motion": "On the spoken 'Breathe out' a soft breeze blows the dandelion apart in slow motion, seeds drifting across the frame and catching the light; the character watches them float away.",
+   "foley": "a soft exhale of wind, near silence: a gentle landing into the bridge",
+   "seed": 66,
+   "characters": [
+    "blip"
+   ]
   }
  },
  "theme": "The camera gets pulled into the doomscroller's world inside the phone; Blip is there to add color and reset him back to real life.",
@@ -251,6 +312,11 @@
    "ref": null,
    "look": "a man in his thirties, short dark messy hair, light stubble, black-framed glasses, grey hoodie, tired eyes",
    "todo": "design 3-4 options, Alex picks, then a sheet like Blip's"
+  },
+  "dog": {
+   "ref": "character/dog_ref.jpg",
+   "look": "a small red-gold and white parti-colored Lhasa Apso with a long silky shaggy coat, fringe falling over its eyes, dark-tipped ears and a plumed tail curled over its back",
+   "note": "the man's dog (verse 1: 'I like your dog'); Alex's reference photo"
   }
  }
 }
