@@ -158,23 +158,37 @@
    "id": "prechorus1-1",
    "section": "Pre-Chorus",
    "section_note": "Warm synth bass blooms, building harmonies",
-   "part": "1/2",
+   "part": "1/3",
    "start": 35.956,
-   "end": 40.414,
-   "duration": 4.458,
-   "bars": 2.0,
-   "render_frames": 113,
-   "render_seconds": 4.708,
+   "end": 38.185,
+   "duration": 2.229,
+   "bars": 1.0,
+   "render_frames": 57,
+   "render_seconds": 2.375,
    "lines": [
-    "Brunch is still on, your mom still calls,",
-    "Group chat’s still beefing over nothing at all."
+    "Brunch is still on, your mom still calls,"
    ]
   },
   {
    "id": "prechorus1-2",
    "section": "Pre-Chorus",
    "section_note": "Warm synth bass blooms, building harmonies",
-   "part": "2/2",
+   "part": "2/3",
+   "start": 38.185,
+   "end": 40.414,
+   "duration": 2.229,
+   "bars": 1.0,
+   "render_frames": 57,
+   "render_seconds": 2.375,
+   "lines": [
+    "Group chat’s still beefing over nothing at all."
+   ]
+  },
+  {
+   "id": "prechorus1-3",
+   "section": "Pre-Chorus",
+   "section_note": "Warm synth bass blooms, building harmonies",
+   "part": "3/3",
    "start": 40.414,
    "end": 44.872,
    "duration": 4.458,
