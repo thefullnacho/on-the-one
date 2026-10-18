@@ -1,4 +1,4 @@
 {
- "Intro":   {"cuts": [{"word": "down", "snap": "before"}, {"word": "back"}]},
+ "Intro":   {"cuts": [{"word": "down", "snap": "before"}, {"word": "back"}, {"word": "dropping", "nth": 2, "snap": "before"}]},
  "Verse 1": {"auto": true, "cuts": [{"word": "charger"}, {"word": "park"}]}
 }

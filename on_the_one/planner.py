@@ -79,7 +79,7 @@ def align(sections, heard):
 def director_cuts(section, spec, auto, a, b, beat, phase, heard=()):
     """Lyric-anchored cuts, so they survive a re-recorded take.
 
-    spec: {"auto": true|false, "cuts": [{"word": "charger", "nth": 1, "snap": "nearest"|"before"|"after"}, 12.5, ...]}
+    spec: {"auto": true|false, "cuts": [{"word": "charger", "nth": 1, "snap": "nearest"|"before"|"after"|"bar"}, 12.5, ...]}
     A word cut lands on a beat relative to that word's start in THIS section (nth occurrence, default 1).
     "before" = the beat at or before the word (cut one beat ahead of it). Bare numbers are absolute seconds.
     "auto": keep the planner's bar cuts too (near-duplicates within half a beat collapse).
@@ -98,6 +98,9 @@ def director_cuts(section, spec, auto, a, b, beat, phase, heard=()):
                 raise SystemExit(f"cut anchor {c} not found (or untimed) in section {section['name']}")
             t = hits[nth - 1]
         k = (t - phase) / beat
+        if mode == "bar":                       # nearest bar line instead of nearest beat
+            inner.append(phase + round((t - phase) / (4 * beat)) * 4 * beat)
+            continue
         k = math.floor(k + 1e-6) if mode == "before" else math.ceil(k - 1e-6) if mode == "after" else round(k)
         inner.append(phase + k * beat)
     if spec.get("auto"):
@@ -148,8 +151,19 @@ def plan(sections, grid, duration, max_shot=5.0, fps=24, overrides=None, heard=(
             cuts.append(t)
             t += bars_per_shot * bar
         cuts.append(b)
-        if overrides and s["name"] in overrides:
-            cuts = director_cuts(s, overrides[s["name"]], cuts, a, b, beat, phase, heard)
+        spec = overrides and (overrides.get(slugs[i]) or overrides.get(s["name"]))   # "prechorus1" beats "Pre-Chorus"
+        if spec:
+            cuts = director_cuts(s, spec, cuts, a, b, beat, phase, heard)
+            # no director segment may outgrow what LTX renders: split long ones on bar lines
+            split = [cuts[0]]
+            for t in cuts[1:]:
+                while t - split[-1] > max_shot + 0.05:   # 121 LTX frames cover 5.04 s
+                    nxt = phase + math.floor((split[-1] + bars_per_shot * bar - phase) / bar + 1e-6) * bar
+                    if nxt <= split[-1] + beat:
+                        nxt = split[-1] + bars_per_shot * bar
+                    split.append(nxt)
+                split.append(t)
+            cuts = split
         for k in range(len(cuts) - 1):
             s0, s1 = cuts[k], cuts[k + 1]
             n = math.ceil(((s1 - s0) * fps - 1) / 8)

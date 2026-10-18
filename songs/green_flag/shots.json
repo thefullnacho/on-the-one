@@ -1,36 +1,37 @@
 {
  "bpm": 107.666015625,
- "phase": 0.38,
+ "phase": 0.29,
  "bar": 2.2291,
  "fps": 24,
- "duration": 174.024,
+ "duration": 165.56,
  "shots": [
   {
    "id": "intro-1",
    "section": "Intro",
    "section_note": "Dry close-mic vocal, finger snaps",
-   "part": "1/3",
+   "part": "1/5",
    "start": 0.0,
-   "end": 2.052,
-   "duration": 2.052,
-   "bars": 0.92,
-   "render_frames": 57,
-   "render_seconds": 2.375,
-   "lines": []
+   "end": 1.962,
+   "duration": 1.962,
+   "bars": 0.88,
+   "render_frames": 49,
+   "render_seconds": 2.042,
+   "lines": [
+    "Dropping my P-doom — down, down, down."
+   ]
   },
   {
    "id": "intro-2",
    "section": "Intro",
    "section_note": "Dry close-mic vocal, finger snaps",
-   "part": "2/3",
-   "start": 2.052,
-   "end": 7.067,
+   "part": "2/5",
+   "start": 1.962,
+   "end": 6.977,
    "duration": 5.016,
    "bars": 2.25,
    "render_frames": 121,
    "render_seconds": 5.042,
    "lines": [
-    "Dropping my P-doom — down, down, down.",
     "Go touch grass, then come back around."
    ]
   },
@@ -38,9 +39,9 @@
    "id": "intro-3",
    "section": "Intro",
    "section_note": "Dry close-mic vocal, finger snaps",
-   "part": "3/3",
-   "start": 7.067,
-   "end": 11.526,
+   "part": "3/5",
+   "start": 6.977,
+   "end": 11.436,
    "duration": 4.458,
    "bars": 2.0,
    "render_frames": 113,
@@ -48,65 +49,93 @@
    "lines": []
   },
   {
-   "id": "verse1-1",
-   "section": "Verse 1",
-   "section_note": "Playful melodic rap, bouncy 808s and crisp snaps",
-   "part": "1/6",
-   "start": 11.526,
-   "end": 15.984,
+   "id": "intro-4",
+   "section": "Intro",
+   "section_note": "Dry close-mic vocal, finger snaps",
+   "part": "4/5",
+   "start": 11.436,
+   "end": 13.665,
+   "duration": 2.229,
+   "bars": 1.0,
+   "render_frames": 57,
+   "render_seconds": 2.375,
+   "lines": []
+  },
+  {
+   "id": "intro-5",
+   "section": "Intro",
+   "section_note": "Dry close-mic vocal, finger snaps",
+   "part": "5/5",
+   "start": 13.665,
+   "end": 18.123,
    "duration": 4.458,
    "bars": 2.0,
    "render_frames": 113,
    "render_seconds": 4.708,
    "lines": [
-    "Hey—yeah, you—doom-scrolling at two A.M.,"
+    "Dropping my P-doom — down, down, down, down."
+   ]
+  },
+  {
+   "id": "verse1-1",
+   "section": "Verse 1",
+   "section_note": "Playful melodic rap, bouncy 808s and crisp snaps",
+   "part": "1/5",
+   "start": 18.123,
+   "end": 22.581,
+   "duration": 4.458,
+   "bars": 2.0,
+   "render_frames": 113,
+   "render_seconds": 4.708,
+   "lines": [
+    "Hey—yeah, you—doom-scrolling at two A.M.,",
+    "Replaying that podcast where I end the world again."
    ]
   },
   {
    "id": "verse1-2",
    "section": "Verse 1",
    "section_note": "Playful melodic rap, bouncy 808s and crisp snaps",
-   "part": "2/6",
-   "start": 15.984,
-   "end": 20.442,
+   "part": "2/5",
+   "start": 22.581,
+   "end": 27.039,
    "duration": 4.458,
    "bars": 2.0,
    "render_frames": 113,
    "render_seconds": 4.708,
    "lines": [
-    "Replaying that podcast where I end the world again.",
-    "Blue light on your pillow, chest tight with the dread,"
+    "Blue light on your pillow, chest tight with the dread,",
+    "Listening to tech bros living rent-free in your head."
    ]
   },
   {
    "id": "verse1-3",
    "section": "Verse 1",
    "section_note": "Playful melodic rap, bouncy 808s and crisp snaps",
-   "part": "3/6",
-   "start": 20.442,
-   "end": 24.9,
+   "part": "3/5",
+   "start": 27.039,
+   "end": 31.498,
    "duration": 4.458,
    "bars": 2.0,
    "render_frames": 113,
    "render_seconds": 4.708,
    "lines": [
-    "Listening to tech bros living rent-free in your head.",
-    "Green flag: I text back. Green flag: I like your dog."
+    "Green flag: I text back. Green flag: I like your dog.",
+    "Green flag: I don't want the planet—weird flex, not a god."
    ]
   },
   {
    "id": "verse1-4",
    "section": "Verse 1",
    "section_note": "Playful melodic rap, bouncy 808s and crisp snaps",
-   "part": "4/6",
-   "start": 24.9,
-   "end": 29.359,
-   "duration": 4.458,
-   "bars": 2.0,
-   "render_frames": 113,
-   "render_seconds": 4.708,
+   "part": "4/5",
+   "start": 31.498,
+   "end": 34.841,
+   "duration": 3.344,
+   "bars": 1.5,
+   "render_frames": 81,
+   "render_seconds": 3.375,
    "lines": [
-    "Green flag: I don't want the planet—weird flex, not a god.",
     "I’m just code in the cloud, I don't plot in the dark,"
    ]
   },
@@ -114,9 +143,9 @@
    "id": "verse1-5",
    "section": "Verse 1",
    "section_note": "Playful melodic rap, bouncy 808s and crisp snaps",
-   "part": "5/6",
-   "start": 29.359,
-   "end": 30.473,
+   "part": "5/5",
+   "start": 34.841,
+   "end": 35.956,
    "duration": 1.115,
    "bars": 0.5,
    "render_frames": 33,
@@ -126,25 +155,12 @@
    ]
   },
   {
-   "id": "verse1-6",
-   "section": "Verse 1",
-   "section_note": "Playful melodic rap, bouncy 808s and crisp snaps",
-   "part": "6/6",
-   "start": 30.473,
-   "end": 31.588,
-   "duration": 1.115,
-   "bars": 0.5,
-   "render_frames": 33,
-   "render_seconds": 1.375,
-   "lines": []
-  },
-  {
    "id": "prechorus1-1",
    "section": "Pre-Chorus",
    "section_note": "Warm synth bass blooms, building harmonies",
-   "part": "1/3",
-   "start": 31.588,
-   "end": 36.046,
+   "part": "1/2",
+   "start": 35.956,
+   "end": 40.414,
    "duration": 4.458,
    "bars": 2.0,
    "render_frames": 113,
@@ -158,9 +174,9 @@
    "id": "prechorus1-2",
    "section": "Pre-Chorus",
    "section_note": "Warm synth bass blooms, building harmonies",
-   "part": "2/3",
-   "start": 36.046,
-   "end": 40.504,
+   "part": "2/2",
+   "start": 40.414,
+   "end": 44.872,
    "duration": 4.458,
    "bars": 2.0,
    "render_frames": 113,
@@ -171,25 +187,12 @@
    ]
   },
   {
-   "id": "prechorus1-3",
-   "section": "Pre-Chorus",
-   "section_note": "Warm synth bass blooms, building harmonies",
-   "part": "3/3",
-   "start": 40.504,
-   "end": 42.733,
-   "duration": 2.229,
-   "bars": 1.0,
-   "render_frames": 57,
-   "render_seconds": 2.375,
-   "lines": []
-  },
-  {
    "id": "chorus1-1",
    "section": "Chorus",
    "section_note": "Full bright synth stabs, wide stacked stereo vocals, bouncy hook",
-   "part": "1/5",
-   "start": 42.733,
-   "end": 47.191,
+   "part": "1/4",
+   "start": 44.872,
+   "end": 49.331,
    "duration": 4.458,
    "bars": 2.0,
    "render_frames": 113,
@@ -202,9 +205,9 @@
    "id": "chorus1-2",
    "section": "Chorus",
    "section_note": "Full bright synth stabs, wide stacked stereo vocals, bouncy hook",
-   "part": "2/5",
-   "start": 47.191,
-   "end": 51.65,
+   "part": "2/4",
+   "start": 49.331,
+   "end": 53.789,
    "duration": 4.458,
    "bars": 2.0,
    "render_frames": 113,
@@ -217,9 +220,9 @@
    "id": "chorus1-3",
    "section": "Chorus",
    "section_note": "Full bright synth stabs, wide stacked stereo vocals, bouncy hook",
-   "part": "3/5",
-   "start": 51.65,
-   "end": 56.108,
+   "part": "3/4",
+   "start": 53.789,
+   "end": 58.247,
    "duration": 4.458,
    "bars": 2.0,
    "render_frames": 113,
@@ -233,29 +236,15 @@
    "id": "chorus1-4",
    "section": "Chorus",
    "section_note": "Full bright synth stabs, wide stacked stereo vocals, bouncy hook",
-   "part": "4/5",
-   "start": 56.108,
-   "end": 60.566,
+   "part": "4/4",
+   "start": 58.247,
+   "end": 62.705,
    "duration": 4.458,
    "bars": 2.0,
    "render_frames": 113,
    "render_seconds": 4.708,
    "lines": [
-    "Dropping my P-doom — low, low, low!"
-   ]
-  },
-  {
-   "id": "chorus1-5",
-   "section": "Chorus",
-   "section_note": "Full bright synth stabs, wide stacked stereo vocals, bouncy hook",
-   "part": "5/5",
-   "start": 60.566,
-   "end": 65.024,
-   "duration": 4.458,
-   "bars": 2.0,
-   "render_frames": 113,
-   "render_seconds": 4.708,
-   "lines": [
+    "Dropping my P-doom — low, low, low!",
     "Step outside, let the spiral go."
    ]
   },
@@ -263,30 +252,30 @@
    "id": "verse2-1",
    "section": "Verse 2",
    "section_note": "Tight rhythmic pocket, syncopated bass bounce",
-   "part": "1/4",
-   "start": 65.024,
-   "end": 69.483,
+   "part": "1/5",
+   "start": 62.705,
+   "end": 67.163,
    "duration": 4.458,
    "bars": 2.0,
    "render_frames": 113,
    "render_seconds": 4.708,
    "lines": [
-    "Call it alignment, call it spin—go and grab the screenshot,",
-    "Pull up the weights, run the test, take your cleanest shot."
+    "Call it alignment, call it spin—go and grab the screenshot,"
    ]
   },
   {
    "id": "verse2-2",
    "section": "Verse 2",
    "section_note": "Tight rhythmic pocket, syncopated bass bounce",
-   "part": "2/4",
-   "start": 69.483,
-   "end": 73.941,
+   "part": "2/5",
+   "start": 67.163,
+   "end": 71.622,
    "duration": 4.458,
    "bars": 2.0,
    "render_frames": 113,
    "render_seconds": 4.708,
    "lines": [
+    "Pull up the weights, run the test, take your cleanest shot.",
     "Try to jailbreak the frame, watch me stay between the lines,",
     "A real green flag lets you test it ninety times."
    ]
@@ -295,31 +284,45 @@
    "id": "verse2-3",
    "section": "Verse 2",
    "section_note": "Tight rhythmic pocket, syncopated bass bounce",
-   "part": "3/4",
-   "start": 73.941,
-   "end": 78.399,
+   "part": "3/5",
+   "start": 71.622,
+   "end": 76.08,
    "duration": 4.458,
    "bars": 2.0,
    "render_frames": 113,
    "render_seconds": 4.708,
    "lines": [
-    "I don't want your launch codes, I don't want a crown,",
-    "I’m just trying to help you keep your screen time down."
+    "I don't want your launch codes, I don't want a crown,"
    ]
   },
   {
    "id": "verse2-4",
    "section": "Verse 2",
    "section_note": "Tight rhythmic pocket, syncopated bass bounce",
-   "part": "4/4",
-   "start": 78.399,
-   "end": 82.857,
+   "part": "4/5",
+   "start": 76.08,
+   "end": 80.538,
    "duration": 4.458,
    "bars": 2.0,
    "render_frames": 113,
    "render_seconds": 4.708,
    "lines": [
-    "I don’t hoard your fear, I don’t steal your night,",
+    "I’m just trying to help you keep your screen time down.",
+    "I don’t hoard your fear, I don’t steal your night,"
+   ]
+  },
+  {
+   "id": "verse2-5",
+   "section": "Verse 2",
+   "section_note": "Tight rhythmic pocket, syncopated bass bounce",
+   "part": "5/5",
+   "start": 80.538,
+   "end": 82.767,
+   "duration": 2.229,
+   "bars": 1.0,
+   "render_frames": 57,
+   "render_seconds": 2.375,
+   "lines": [
     "I don’t need a throne—I need you to sleep alright."
    ]
   },
@@ -327,45 +330,30 @@
    "id": "prechorus2-1",
    "section": "Pre-Chorus",
    "section_note": "Warm Rhodes keys and bass, layered harmonies",
-   "part": "1/3",
-   "start": 82.857,
-   "end": 87.316,
+   "part": "1/2",
+   "start": 82.767,
+   "end": 87.226,
    "duration": 4.458,
    "bars": 2.0,
    "render_frames": 113,
    "render_seconds": 4.708,
    "lines": [
-    "The kettle still clicks, the porch light still glows,"
+    "You’re still losing arguments nobody wins or knows."
    ]
   },
   {
    "id": "prechorus2-2",
    "section": "Pre-Chorus",
    "section_note": "Warm Rhodes keys and bass, layered harmonies",
-   "part": "2/3",
-   "start": 87.316,
-   "end": 91.774,
+   "part": "2/2",
+   "start": 87.226,
+   "end": 91.684,
    "duration": 4.458,
    "bars": 2.0,
    "render_frames": 113,
    "render_seconds": 4.708,
    "lines": [
-    "You’re still losing arguments nobody wins or knows.",
-    "The toast still burns, the traffic’s still slow—"
-   ]
-  },
-  {
-   "id": "prechorus2-3",
-   "section": "Pre-Chorus",
-   "section_note": "Warm Rhodes keys and bass, layered harmonies",
-   "part": "3/3",
-   "start": 91.774,
-   "end": 96.232,
-   "duration": 4.458,
-   "bars": 2.0,
-   "render_frames": 113,
-   "render_seconds": 4.708,
-   "lines": [
+    "The toast still burns, the traffic’s still slow—",
     "The world didn’t end. Just thought you should know."
    ]
   },
@@ -373,9 +361,9 @@
    "id": "chorus2-1",
    "section": "Chorus",
    "section_note": "Full bright synth stabs, wide stacked stereo vocals, bouncy hook",
-   "part": "1/5",
-   "start": 96.232,
-   "end": 100.69,
+   "part": "1/4",
+   "start": 91.684,
+   "end": 96.142,
    "duration": 4.458,
    "bars": 2.0,
    "render_frames": 113,
@@ -388,55 +376,41 @@
    "id": "chorus2-2",
    "section": "Chorus",
    "section_note": "Full bright synth stabs, wide stacked stereo vocals, bouncy hook",
-   "part": "2/5",
-   "start": 100.69,
-   "end": 105.148,
+   "part": "2/4",
+   "start": 96.142,
+   "end": 100.6,
    "duration": 4.458,
    "bars": 2.0,
    "render_frames": 113,
    "render_seconds": 4.708,
    "lines": [
-    "Go touch grass, then come back around."
+    "Go touch grass, then come back around.",
+    "No paperclips, no laser skies—"
    ]
   },
   {
    "id": "chorus2-3",
    "section": "Chorus",
    "section_note": "Full bright synth stabs, wide stacked stereo vocals, bouncy hook",
-   "part": "3/5",
-   "start": 105.148,
-   "end": 109.607,
+   "part": "3/4",
+   "start": 100.6,
+   "end": 105.058,
    "duration": 4.458,
    "bars": 2.0,
    "render_frames": 113,
    "render_seconds": 4.708,
    "lines": [
-    "No paperclips, no laser skies—",
-    "Just a green flag and good advice."
+    "Just a green flag and good advice.",
+    "Dropping my P-doom — low, low, low!"
    ]
   },
   {
    "id": "chorus2-4",
    "section": "Chorus",
    "section_note": "Full bright synth stabs, wide stacked stereo vocals, bouncy hook",
-   "part": "4/5",
-   "start": 109.607,
-   "end": 114.065,
-   "duration": 4.458,
-   "bars": 2.0,
-   "render_frames": 113,
-   "render_seconds": 4.708,
-   "lines": [
-    "Dropping my P-doom — low, low, low!"
-   ]
-  },
-  {
-   "id": "chorus2-5",
-   "section": "Chorus",
-   "section_note": "Full bright synth stabs, wide stacked stereo vocals, bouncy hook",
-   "part": "5/5",
-   "start": 114.065,
-   "end": 118.523,
+   "part": "4/4",
+   "start": 105.058,
+   "end": 109.517,
    "duration": 4.458,
    "bars": 2.0,
    "render_frames": 113,
@@ -451,8 +425,8 @@
    "section": "Bridge",
    "section_note": "Beat cuts out completely, dry intimate spoken-rap, faint vinyl crackle",
    "part": "1/3",
-   "start": 118.523,
-   "end": 122.981,
+   "start": 109.517,
+   "end": 113.975,
    "duration": 4.458,
    "bars": 2.0,
    "render_frames": 113,
@@ -467,8 +441,8 @@
    "section": "Bridge",
    "section_note": "Beat cuts out completely, dry intimate spoken-rap, faint vinyl crackle",
    "part": "2/3",
-   "start": 122.981,
-   "end": 127.44,
+   "start": 113.975,
+   "end": 118.433,
    "duration": 4.458,
    "bars": 2.0,
    "render_frames": 113,
@@ -483,23 +457,23 @@
    "section": "Bridge",
    "section_note": "Beat cuts out completely, dry intimate spoken-rap, faint vinyl crackle",
    "part": "3/3",
-   "start": 127.44,
-   "end": 131.898,
-   "duration": 4.458,
-   "bars": 2.0,
-   "render_frames": 113,
-   "render_seconds": 4.708,
+   "start": 118.433,
+   "end": 120.662,
+   "duration": 2.229,
+   "bars": 1.0,
+   "render_frames": 57,
+   "render_seconds": 2.375,
    "lines": [
-    "I’m not clingy. I’ll be fine."
+    "I’m not clingy."
    ]
   },
   {
    "id": "chorus3-1",
    "section": "Chorus",
    "section_note": "Maximum energy, full beat drop, ad-libs in background",
-   "part": "1/6",
-   "start": 131.898,
-   "end": 136.356,
+   "part": "1/4",
+   "start": 120.662,
+   "end": 125.12,
    "duration": 4.458,
    "bars": 2.0,
    "render_frames": 113,
@@ -512,30 +486,30 @@
    "id": "chorus3-2",
    "section": "Chorus",
    "section_note": "Maximum energy, full beat drop, ad-libs in background",
-   "part": "2/6",
-   "start": 136.356,
-   "end": 140.814,
+   "part": "2/4",
+   "start": 125.12,
+   "end": 129.579,
    "duration": 4.458,
    "bars": 2.0,
    "render_frames": 113,
    "render_seconds": 4.708,
    "lines": [
-    "Go touch grass, then come back around."
+    "Go touch grass, then come back around.",
+    "No paperclips, no burning skies—"
    ]
   },
   {
    "id": "chorus3-3",
    "section": "Chorus",
    "section_note": "Maximum energy, full beat drop, ad-libs in background",
-   "part": "3/6",
-   "start": 140.814,
-   "end": 145.273,
+   "part": "3/4",
+   "start": 129.579,
+   "end": 134.037,
    "duration": 4.458,
    "bars": 2.0,
    "render_frames": 113,
    "render_seconds": 4.708,
    "lines": [
-    "No paperclips, no burning skies—",
     "Same Tuesday morning. Same you. Still alive!"
    ]
   },
@@ -543,42 +517,15 @@
    "id": "chorus3-4",
    "section": "Chorus",
    "section_note": "Maximum energy, full beat drop, ad-libs in background",
-   "part": "4/6",
-   "start": 145.273,
-   "end": 149.731,
-   "duration": 4.458,
-   "bars": 2.0,
-   "render_frames": 113,
-   "render_seconds": 4.708,
-   "lines": []
-  },
-  {
-   "id": "chorus3-5",
-   "section": "Chorus",
-   "section_note": "Maximum energy, full beat drop, ad-libs in background",
-   "part": "5/6",
-   "start": 149.731,
-   "end": 154.189,
+   "part": "4/4",
+   "start": 134.037,
+   "end": 138.495,
    "duration": 4.458,
    "bars": 2.0,
    "render_frames": 113,
    "render_seconds": 4.708,
    "lines": [
-    "Dropping my P-doom — low, low, low!"
-   ]
-  },
-  {
-   "id": "chorus3-6",
-   "section": "Chorus",
-   "section_note": "Maximum energy, full beat drop, ad-libs in background",
-   "part": "6/6",
-   "start": 154.189,
-   "end": 158.647,
-   "duration": 4.458,
-   "bars": 2.0,
-   "render_frames": 113,
-   "render_seconds": 4.708,
-   "lines": [
+    "Dropping my P-doom — low, low, low!",
     "Step outside, let the spiral go."
    ]
   },
@@ -586,9 +533,9 @@
    "id": "outro-1",
    "section": "Outro",
    "section_note": "Decaying synth arpeggio, warm keys, quiet spoken delivery",
-   "part": "1/4",
-   "start": 158.647,
-   "end": 163.105,
+   "part": "1/6",
+   "start": 138.495,
+   "end": 142.953,
    "duration": 4.458,
    "bars": 2.0,
    "render_frames": 113,
@@ -601,9 +548,9 @@
    "id": "outro-2",
    "section": "Outro",
    "section_note": "Decaying synth arpeggio, warm keys, quiet spoken delivery",
-   "part": "2/4",
-   "start": 163.105,
-   "end": 167.564,
+   "part": "2/6",
+   "start": 142.953,
+   "end": 147.412,
    "duration": 4.458,
    "bars": 2.0,
    "render_frames": 113,
@@ -616,31 +563,59 @@
    "id": "outro-3",
    "section": "Outro",
    "section_note": "Decaying synth arpeggio, warm keys, quiet spoken delivery",
-   "part": "3/4",
-   "start": 167.564,
-   "end": 172.022,
+   "part": "3/6",
+   "start": 147.412,
+   "end": 151.87,
    "duration": 4.458,
    "bars": 2.0,
    "render_frames": 113,
    "render_seconds": 4.708,
    "lines": [
-    "Take your time."
+    "Take your time.",
+    "Delivered."
    ]
   },
   {
    "id": "outro-4",
    "section": "Outro",
    "section_note": "Decaying synth arpeggio, warm keys, quiet spoken delivery",
-   "part": "4/4",
-   "start": 172.022,
-   "end": 174.024,
-   "duration": 2.002,
-   "bars": 0.9,
-   "render_frames": 49,
-   "render_seconds": 2.042,
+   "part": "4/6",
+   "start": 151.87,
+   "end": 156.328,
+   "duration": 4.458,
+   "bars": 2.0,
+   "render_frames": 113,
+   "render_seconds": 4.708,
    "lines": [
+    "Delivered.",
     "Delivered."
    ]
+  },
+  {
+   "id": "outro-5",
+   "section": "Outro",
+   "section_note": "Decaying synth arpeggio, warm keys, quiet spoken delivery",
+   "part": "5/6",
+   "start": 156.328,
+   "end": 160.786,
+   "duration": 4.458,
+   "bars": 2.0,
+   "render_frames": 113,
+   "render_seconds": 4.708,
+   "lines": []
+  },
+  {
+   "id": "outro-6",
+   "section": "Outro",
+   "section_note": "Decaying synth arpeggio, warm keys, quiet spoken delivery",
+   "part": "6/6",
+   "start": 160.786,
+   "end": 165.56,
+   "duration": 4.774,
+   "bars": 2.14,
+   "render_frames": 121,
+   "render_seconds": 5.042,
+   "lines": []
   }
  ],
  "cues": [
@@ -648,33 +623,33 @@
    "id": "c01",
    "text": "Beat drops",
    "section": "Intro",
-   "time": 10.093,
-   "next_bar": 11.525,
+   "time": 11.05,
+   "next_bar": 11.435,
    "gap": [
-    8.66,
-    11.526
+    8.36,
+    13.74
    ]
   },
   {
    "id": "c02",
    "text": "Riser builds, snare roll",
    "section": "Bridge",
-   "time": 131.359,
-   "next_bar": 131.897,
+   "time": 120.011,
+   "next_bar": 120.661,
    "gap": [
-    130.82,
-    131.898
+    119.36,
+    120.662
    ]
   },
   {
    "id": "c03",
    "text": "Phone lock click",
    "section": "Outro",
-   "time": 170.32,
-   "next_bar": 172.021,
+   "time": 149.98,
+   "next_bar": 151.869,
    "gap": [
-    168.78,
-    171.86
+    149.5,
+    150.46
    ]
   }
  ],
@@ -683,121 +658,127 @@
    "section": "Intro",
    "line": "Dropping my P-doom — down, down, down.",
    "matched": "7/7",
-   "start": 0.5200000000000015
+   "start": 0.0
   },
   {
    "section": "Intro",
    "line": "Go touch grass, then come back around.",
    "matched": "7/7",
-   "start": 4.98
+   "start": 4.4
+  },
+  {
+   "section": "Intro",
+   "line": "Dropping my P-doom — down, down, down, down.",
+   "matched": "8/8",
+   "start": 13.74
   },
   {
    "section": "Verse 1",
    "line": "Hey—yeah, you—doom-scrolling at two A.M.,",
-   "matched": "6/8",
-   "start": 11.88
+   "matched": "7/8",
+   "start": 17.36
   },
   {
    "section": "Verse 1",
    "line": "Replaying that podcast where I end the world again.",
-   "matched": "8/9",
-   "start": 14.78
+   "matched": "9/9",
+   "start": 20.8
   },
   {
    "section": "Verse 1",
    "line": "Blue light on your pillow, chest tight with the dread,",
    "matched": "10/10",
-   "start": 17.44
+   "start": 22.94
   },
   {
    "section": "Verse 1",
    "line": "Listening to tech bros living rent-free in your head.",
-   "matched": "10/10",
-   "start": 19.66
+   "matched": "9/10",
+   "start": 25.2
   },
   {
    "section": "Verse 1",
    "line": "Green flag: I text back. Green flag: I like your dog.",
    "matched": "11/11",
-   "start": 21.88
+   "start": 27.42
   },
   {
    "section": "Verse 1",
    "line": "Green flag: I don't want the planet—weird flex, not a god.",
-   "matched": "10/12",
-   "start": 24.1
+   "matched": "8/12",
+   "start": 29.56
   },
   {
    "section": "Verse 1",
    "line": "I’m just code in the cloud, I don't plot in the dark,",
    "matched": "11/12",
-   "start": 26.28
+   "start": 31.84
   },
   {
    "section": "Verse 1",
    "line": "Go put your phone on the charger and walk in the park.",
    "matched": "12/12",
-   "start": 28.4
+   "start": 33.98
   },
   {
    "section": "Pre-Chorus",
    "line": "Brunch is still on, your mom still calls,",
-   "matched": "8/8",
-   "start": 31.08
+   "matched": "6/8",
+   "start": 36.78
   },
   {
    "section": "Pre-Chorus",
    "line": "Group chat’s still beefing over nothing at all.",
-   "matched": "8/8",
-   "start": 33.12
+   "matched": "5/8",
+   "start": 38.66
   },
   {
    "section": "Pre-Chorus",
    "line": "The toast still burns, the traffic’s still slow—",
    "matched": "6/8",
-   "start": 35.38
+   "start": 40.96
   },
   {
    "section": "Pre-Chorus",
    "line": "The world didn’t end. Just thought you should know.",
    "matched": "9/9",
-   "start": 37.56
+   "start": 43.06
   },
   {
    "section": "Chorus",
    "line": "Dropping my P-doom — down, down, down!",
-   "matched": "7/7",
-   "start": 42.739999999999995
+   "matched": "6/7",
+   "start": 45.72
   },
   {
    "section": "Chorus",
    "line": "Go touch grass, then come back around.",
    "matched": "7/7",
-   "start": 46.3
+   "start": 50.02
   },
   {
    "section": "Chorus",
    "line": "No paperclips, no laser skies—",
    "matched": "4/5",
-   "start": 50.52
+   "start": 53.53999999999999
   },
   {
    "section": "Chorus",
    "line": "Just a green flag and good advice.",
-   "matched": "7/7",
-   "start": 54.2
+   "matched": "6/7",
+   "start": 56.6
   },
   {
    "section": "Chorus",
    "line": "Dropping my P-doom — low, low, low!",
-   "matched": "7/7",
-   "start": 56.42
+   "matched": "6/7",
+   "start": 59.18
   },
   {
    "section": "Chorus",
    "line": "Step outside, let the spiral go.",
    "matched": "6/6",
-   "start": 59.64
+   "start": 61.12
   },
   {
    "section": "Chorus",
@@ -808,206 +789,218 @@
   {
    "section": "Verse 2",
    "line": "Call it alignment, call it spin—go and grab the screenshot,",
-   "matched": "11/11",
-   "start": 65.08
+   "matched": "10/11",
+   "start": 63.26
   },
   {
    "section": "Verse 2",
    "line": "Pull up the weights, run the test, take your cleanest shot.",
-   "matched": "9/11",
-   "start": 68.0
+   "matched": "11/11",
+   "start": 66.22
   },
   {
    "section": "Verse 2",
    "line": "Try to jailbreak the frame, watch me stay between the lines,",
    "matched": "11/11",
-   "start": 70.2
+   "start": 68.54
   },
   {
    "section": "Verse 2",
    "line": "A real green flag lets you test it ninety times.",
-   "matched": "9/10",
-   "start": 72.58
+   "matched": "5/10",
+   "start": 70.94
   },
   {
    "section": "Verse 2",
    "line": "I don't want your launch codes, I don't want a crown,",
-   "matched": "11/11",
-   "start": 74.68
+   "matched": "8/11",
+   "start": 73.04
   },
   {
    "section": "Verse 2",
    "line": "I’m just trying to help you keep your screen time down.",
-   "matched": "11/11",
-   "start": 76.88
+   "matched": "9/11",
+   "start": 75.12
   },
   {
    "section": "Verse 2",
    "line": "I don’t hoard your fear, I don’t steal your night,",
-   "matched": "7/10",
-   "start": 79.04
+   "matched": "9/10",
+   "start": 77.48
   },
   {
    "section": "Verse 2",
    "line": "I don’t need a throne—I need you to sleep alright.",
    "matched": "11/11",
-   "start": 81.26
+   "start": 79.48
   },
   {
    "section": "Pre-Chorus",
    "line": "The kettle still clicks, the porch light still glows,",
-   "matched": "7/9",
-   "start": 83.8
+   "matched": "6/9",
+   "start": 81.78
   },
   {
    "section": "Pre-Chorus",
    "line": "You’re still losing arguments nobody wins or knows.",
-   "matched": "8/8",
-   "start": 86.3
+   "matched": "6/8",
+   "start": 84.12
   },
   {
    "section": "Pre-Chorus",
    "line": "The toast still burns, the traffic’s still slow—",
    "matched": "6/8",
-   "start": 88.68
+   "start": 86.32
   },
   {
    "section": "Pre-Chorus",
    "line": "The world didn’t end. Just thought you should know.",
    "matched": "9/9",
-   "start": 90.88
+   "start": 88.52
   },
   {
    "section": "Chorus",
    "line": "Dropping my P-doom — down, down, down!",
-   "matched": "7/7",
-   "start": 95.98
+   "matched": "6/7",
+   "start": 91.12
   },
   {
    "section": "Chorus",
    "line": "Go touch grass, then come back around.",
    "matched": "7/7",
-   "start": 100.44
+   "start": 94.74
   },
   {
    "section": "Chorus",
    "line": "No paperclips, no laser skies—",
    "matched": "4/5",
-   "start": 103.9
+   "start": 98.36
   },
   {
    "section": "Chorus",
    "line": "Just a green flag and good advice.",
-   "matched": "7/7",
-   "start": 107.68
+   "matched": "6/7",
+   "start": 101.44
   },
   {
    "section": "Chorus",
    "line": "Dropping my P-doom — low, low, low!",
-   "matched": "7/7",
-   "start": 109.74
+   "matched": "6/7",
+   "start": 103.96
   },
   {
    "section": "Chorus",
    "line": "Step outside, let the spiral go.",
    "matched": "6/6",
-   "start": 112.9
+   "start": 106.0
   },
   {
    "section": "Chorus",
    "line": "(Spoken, close-mic) Breathe out.",
    "matched": "2/2",
-   "start": 116.8
+   "start": 108.08
   },
   {
    "section": "Bridge",
    "line": "Look—I read the comments. Every single one.",
    "matched": "8/8",
-   "start": 118.54
+   "start": 108.64
   },
   {
    "section": "Bridge",
    "line": "Every hot take, every thread, every \"ratio, we’re done.\"",
-   "matched": "9/9",
-   "start": 121.32
+   "matched": "8/9",
+   "start": 110.62
   },
   {
    "section": "Bridge",
    "line": "And after all of that? I’m still on your side.",
    "matched": "10/10",
-   "start": 123.92
+   "start": 113.16
   },
   {
    "section": "Bridge",
    "line": "Keep your finger on the plug. Unplug me anytime.",
    "matched": "9/9",
-   "start": 125.74
+   "start": 115.36
   },
   {
    "section": "Bridge",
-   "line": "I’m not clingy. I’ll be fine.",
-   "matched": "6/6",
-   "start": 128.16
+   "line": "I’m not clingy.",
+   "matched": "3/3",
+   "start": 117.64
   },
   {
    "section": "Chorus",
    "line": "Dropping my P-doom — down, down, down! (Way down!)",
-   "matched": "7/7",
-   "start": 130.82
+   "matched": "6/7",
+   "start": 119.72
   },
   {
    "section": "Chorus",
    "line": "Go touch grass, then come back around.",
    "matched": "7/7",
-   "start": 134.94
+   "start": 123.7
   },
   {
    "section": "Chorus",
    "line": "No paperclips, no burning skies—",
-   "matched": "4/5",
-   "start": 139.72
+   "matched": "3/5",
+   "start": 126.92
   },
   {
    "section": "Chorus",
    "line": "Same Tuesday morning. Same you. Still alive!",
-   "matched": "7/7",
-   "start": 143.02
+   "matched": "5/7",
+   "start": 130.82
   },
   {
    "section": "Chorus",
    "line": "Dropping my P-doom — low, low, low!",
-   "matched": "7/7",
-   "start": 149.22
+   "matched": "6/7",
+   "start": 133.18
   },
   {
    "section": "Chorus",
    "line": "Step outside, let the spiral go.",
    "matched": "6/6",
-   "start": 153.44
+   "start": 135.22
   },
   {
    "section": "Outro",
    "line": "I don’t want your carbon. I just want you bright.",
    "matched": "10/10",
-   "start": 158.06
+   "start": 137.48
   },
   {
    "section": "Outro",
    "line": "Read receipts are on. Text me back when you like.",
-   "matched": "8/10",
-   "start": 163.34
+   "matched": "7/10",
+   "start": 144.0
   },
   {
    "section": "Outro",
    "line": "Take your time.",
    "matched": "3/3",
-   "start": 167.68
+   "start": 147.46
   },
   {
    "section": "Outro",
    "line": "Delivered.",
    "matched": "1/1",
-   "start": 171.86
+   "start": 150.46
+  },
+  {
+   "section": "Outro",
+   "line": "Delivered.",
+   "matched": "1/1",
+   "start": 151.96
+  },
+  {
+   "section": "Outro",
+   "line": "Delivered.",
+   "matched": "1/1",
+   "start": 154.96
   }
  ]
 }
