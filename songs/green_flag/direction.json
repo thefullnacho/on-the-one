@@ -47,27 +47,27 @@
    ]
   },
   "verse1-2": {
-   "keyframe": "A city skyline made of giant glowing podcast audio waveforms at night inside the phone world, doom headlines scrolling on billboards; the tiny glowing character walks along the top of a waveform ridge.",
-   "motion": "The character walks the waveform ridge as the waveforms spike red on each doom word, billboards flicker with apocalyptic headlines; slow tracking shot, claustrophobic blue.",
-   "foley": "muffled podcast chatter, pings",
+   "keyframe": "A city skyline made of giant glowing podcast audio waveforms at night inside the phone world, doom headlines on billboards; a column of tiny identical figures in dark suits marches in lockstep along a waveform ridge, and the tiny glowing character walks the other way against them.",
+   "motion": "The tiny suited figures march in lockstep along the waveform ridge while the waveforms spike red on doom words; the character walks against the flow, weaving between them. Slow tracking shot, claustrophobic blue.",
+   "foley": "muffled podcast chatter, tiny marching stomps",
    "seed": 17,
    "characters": [
     "blip"
    ]
   },
   "verse1-3": {
-   "keyframe": "A cold blue feed landscape with a column of tiny identical figures in dark suits marching in lockstep across it; the tiny glowing character stands beside them holding a little green flag, a warm burst of color blooming where it planted another flag.",
-   "motion": "Tiny suited figures march in lockstep across the feed; on each 'Green flag' the character plants a flag and a warm burst of color blooms out of the blue; on the second one a dog photo post pops into full color.",
-   "foley": "tiny marching stomps; a soft pop on each green-flag bloom",
+   "keyframe": "A cold blue feed landscape; the tiny glowing character holds a little green flag, a warm burst of color blooming where it planted another; a small glowing planet Earth floats beside it.",
+   "motion": "On each 'Green flag' the character plants a flag and a warm burst of color blooms out of the blue; on the second a dog photo post pops into full color; on 'I don't want the planet' it hands the tiny glowing Earth back out of frame with a shrug.",
+   "foley": "a soft pop on each green-flag bloom, a little 'boop' as the Earth is handed back",
    "seed": 19,
    "characters": [
     "blip"
    ]
   },
   "verse1-4": {
-   "keyframe": "The tiny glowing character holding a small glowing planet Earth out in front of it with both stubby arms, offering it back, next to a soft fluffy cloud made of glowing green code glyphs floating in the dark blue phone world.",
-   "motion": "The character shrugs and hands the tiny Earth back out of frame, then flops happily onto the fluffy cloud of soft green code; its glow lights up the dark corners around it.",
-   "foley": "a little 'boop' as the Earth is handed back, a soft cloud flump",
+   "keyframe": "The tiny glowing character lounging on a soft fluffy cloud made of glowing green code glyphs floating in the dark blue phone world; at the edge of the frame a giant phone charger plug dangles on its cable.",
+   "motion": "The character flops happily onto the cloud of soft green code, its glow lighting the dark corners; on 'Go put your phone on the charger' it sits up as the giant charger plug swings into view.",
+   "foley": "a soft cloud flump, the cable creaking as the plug swings in",
    "seed": 23,
    "characters": [
     "blip"
@@ -263,7 +263,7 @@
   },
   "chorus2-1": {
    "keyframe": "A sunny backyard playground: the tiny glowing mint-green character at the top of a small bumpy wavy slide, flag raised, bright blue morning sky.",
-   "motion": "The character whooshes down the bumpy slide, bouncing on three bumps, one on each 'down', and lands in the grass with a bounce.",
+   "motion": "The character whooshes down the bumpy slide, bouncing on three bumps, one on each 'down', and lands in the grass on 'touch grass', rolling once.",
    "foley": "three plastic thumps on the bumps, a happy landing boing",
    "seed": 63,
    "characters": [
@@ -272,14 +272,15 @@
    "reactive": "punch-in on each 'down'"
   },
   "chorus2-2": {
-   "keyframe": "Sunny backyard lawn: a small red-gold and white parti-colored Lhasa Apso with a long silky shaggy coat, fringe falling over its eyes, dark-tipped ears and a plumed tail curled over its back bounding happily toward the tiny glowing character in the grass, blue sky with a couple of kites.",
-   "motion": "The dog bounds in and flops down, rolling in the grass beside the character, who rolls with it; the camera tilts up to kites dancing in a clear blue sky on 'no laser skies'.",
-   "foley": "happy dog snuffles, grass rustle, kite flutter",
+   "keyframe": "Sunny backyard lawn: a small red-gold and white parti-colored Lhasa Apso with a long silky shaggy coat, fringe falling over its eyes, dark-tipped ears and a plumed tail curled over its back bounding toward the camera with a giant silver paperclip in its mouth, the tiny glowing character in the grass, blue sky with a couple of kites.",
+   "motion": "On 'no, no, no paperclips' the dog bounds in proudly carrying the giant paperclip, shakes it and drops it at the character's feet; on 'no laser skies' the camera tilts up to kites dancing in a clear blue sky.",
+   "foley": "dog tags, a metallic clatter as the paperclip drops, kite flutter",
    "seed": 64,
    "characters": [
     "blip",
     "dog"
-   ]
+   ],
+   "note": "callback: the paperclip Blip flicked away in chorus1-3 comes back as the dog's toy"
   },
   "chorus2-3": {
    "keyframe": "a small red-gold and white parti-colored Lhasa Apso with a long silky shaggy coat, fringe falling over its eyes, dark-tipped ears and a plumed tail curled over its back trotting across a sunny lawn with the tiny glowing character riding on top of its head, holding its little green flag up high.",
