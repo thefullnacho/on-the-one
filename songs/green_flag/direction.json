@@ -445,13 +445,13 @@
   "scroller": {
    "ref": null,
    "look": "a man in his thirties, short dark messy hair, light stubble, black-framed glasses, grey hoodie, tired eyes",
-   "todo": "design 3-4 options, Alex picks, then a sheet like Blip's",
+   "todo": "design 3-4 options, the director picks, then a sheet like Blip's",
    "look_day": "same man, daytime: flannel shirt in warm brown, amber and cream plaid (porch colors: the plaid resolves into porch boards in the chorus3 -> outro morph)"
   },
   "dog": {
    "ref": "character/dog_ref.jpg",
    "look": "a small red-gold and white parti-colored Lhasa Apso with a long silky shaggy coat, fringe falling over its eyes, dark-tipped ears and a plumed tail curled over its back",
-   "note": "the man's dog (verse 1: 'I like your dog'); Alex's reference photo"
+   "note": "the man's dog (verse 1: 'I like your dog'); reference photo"
   }
  }
 }
