@@ -266,13 +266,13 @@
    "id": "verse2-1",
    "section": "Verse 2",
    "section_note": "Tight rhythmic pocket, syncopated bass bounce",
-   "part": "1/5",
+   "part": "1/8",
    "start": 62.705,
-   "end": 67.163,
-   "duration": 4.458,
-   "bars": 2.0,
-   "render_frames": 113,
-   "render_seconds": 4.708,
+   "end": 66.049,
+   "duration": 3.344,
+   "bars": 1.5,
+   "render_frames": 81,
+   "render_seconds": 3.375,
    "lines": [
     "Call it alignment, call it spin—go and grab the screenshot,"
    ]
@@ -281,61 +281,103 @@
    "id": "verse2-2",
    "section": "Verse 2",
    "section_note": "Tight rhythmic pocket, syncopated bass bounce",
-   "part": "2/5",
-   "start": 67.163,
-   "end": 71.622,
-   "duration": 4.458,
-   "bars": 2.0,
-   "render_frames": 113,
-   "render_seconds": 4.708,
+   "part": "2/8",
+   "start": 66.049,
+   "end": 68.278,
+   "duration": 2.229,
+   "bars": 1.0,
+   "render_frames": 57,
+   "render_seconds": 2.375,
    "lines": [
-    "Pull up the weights, run the test, take your cleanest shot.",
-    "Try to jailbreak the frame, watch me stay between the lines,",
-    "A real green flag lets you test it ninety times."
+    "Pull up the weights, run the test, take your cleanest shot."
    ]
   },
   {
    "id": "verse2-3",
    "section": "Verse 2",
    "section_note": "Tight rhythmic pocket, syncopated bass bounce",
-   "part": "3/5",
-   "start": 71.622,
-   "end": 76.08,
-   "duration": 4.458,
-   "bars": 2.0,
-   "render_frames": 113,
-   "render_seconds": 4.708,
+   "part": "3/8",
+   "start": 68.278,
+   "end": 71.064,
+   "duration": 2.786,
+   "bars": 1.25,
+   "render_frames": 73,
+   "render_seconds": 3.042,
    "lines": [
-    "I don't want your launch codes, I don't want a crown,"
+    "Try to jailbreak the frame, watch me stay between the lines,"
    ]
   },
   {
    "id": "verse2-4",
    "section": "Verse 2",
    "section_note": "Tight rhythmic pocket, syncopated bass bounce",
-   "part": "4/5",
-   "start": 76.08,
-   "end": 80.538,
-   "duration": 4.458,
-   "bars": 2.0,
-   "render_frames": 113,
-   "render_seconds": 4.708,
+   "part": "4/8",
+   "start": 71.064,
+   "end": 72.736,
+   "duration": 1.672,
+   "bars": 0.75,
+   "render_frames": 41,
+   "render_seconds": 1.708,
    "lines": [
-    "I’m just trying to help you keep your screen time down.",
-    "I don’t hoard your fear, I don’t steal your night,"
+    "A real green flag lets you test it ninety times."
    ]
   },
   {
    "id": "verse2-5",
    "section": "Verse 2",
    "section_note": "Tight rhythmic pocket, syncopated bass bounce",
-   "part": "5/5",
-   "start": 80.538,
-   "end": 82.767,
+   "part": "5/8",
+   "start": 72.736,
+   "end": 74.965,
    "duration": 2.229,
    "bars": 1.0,
    "render_frames": 57,
    "render_seconds": 2.375,
+   "lines": [
+    "I don't want your launch codes, I don't want a crown,"
+   ]
+  },
+  {
+   "id": "verse2-6",
+   "section": "Verse 2",
+   "section_note": "Tight rhythmic pocket, syncopated bass bounce",
+   "part": "6/8",
+   "start": 74.965,
+   "end": 77.194,
+   "duration": 2.229,
+   "bars": 1.0,
+   "render_frames": 57,
+   "render_seconds": 2.375,
+   "lines": [
+    "I’m just trying to help you keep your screen time down."
+   ]
+  },
+  {
+   "id": "verse2-7",
+   "section": "Verse 2",
+   "section_note": "Tight rhythmic pocket, syncopated bass bounce",
+   "part": "7/8",
+   "start": 77.194,
+   "end": 79.424,
+   "duration": 2.229,
+   "bars": 1.0,
+   "render_frames": 57,
+   "render_seconds": 2.375,
+   "lines": [
+    "I don’t hoard your fear, I don’t steal your night,"
+   ]
+  },
+  {
+   "id": "verse2-8",
+   "section": "Verse 2",
+   "section_note": "Tight rhythmic pocket, syncopated bass bounce",
+   "part": "8/8",
+   "start": 79.424,
+   "end": 82.767,
+   "duration": 3.344,
+   "bars": 1.5,
+   "render_frames": 81,
+   "render_seconds": 3.375,
    "lines": [
     "I don’t need a throne—I need you to sleep alright."
    ]

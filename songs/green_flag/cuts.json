@@ -34,5 +34,40 @@
     "snap": "bar"
    }
   ]
+ },
+ "Verse 2": {
+  "cuts": [
+   {
+    "word": "pull",
+    "snap": "before"
+   },
+   {
+    "word": "try",
+    "snap": "before"
+   },
+   {
+    "word": "real",
+    "snap": "before"
+   },
+   {
+    "word": "i",
+    "nth": 1,
+    "snap": "before"
+   },
+   {
+    "word": "im",
+    "snap": "before"
+   },
+   {
+    "word": "i",
+    "nth": 3,
+    "snap": "before"
+   },
+   {
+    "word": "i",
+    "nth": 5,
+    "snap": "before"
+   }
+  ]
  }
 }

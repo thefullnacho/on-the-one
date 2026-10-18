@@ -157,6 +157,88 @@
     "blip"
    ],
    "reactive": "three soft dips on 'low, low, low'"
+  },
+  "verse2-1": {
+   "keyframe": "At night on a bedside nightstand, at the tiny character's scale: a miniature lab set-up next to an alarm clock and a charging phone, the sleeping man (short dark messy hair, grey hoodie) a soft blur in bed beyond. The glowing mint-green character stands on a small wooden lazy Susan under a tiny spotlight, mid-spin, black pixel sunglasses on.",
+   "motion": "The lazy Susan spins the character slowly under the spotlight; on 'screenshot' a camera flash pops white for an instant.",
+   "foley": "lazy Susan creak, camera shutter + flash pop on 'screenshot'",
+   "seed": 51,
+   "characters": [
+    "blip"
+   ],
+   "note": "additive scene: each shot adds pressure; verse2-2..7 chain from the previous shot's last frame"
+  },
+  "verse2-2": {
+   "keyframe": "(chained from verse2-1)",
+   "chain_from": "verse2-1",
+   "motion": "Still spinning on the lazy Susan, the character now curls a pair of tiny dumbbells, one arm then the other, straining comically.",
+   "foley": "tiny clinks on each curl",
+   "seed": 52,
+   "characters": [
+    "blip"
+   ]
+  },
+  "verse2-3": {
+   "keyframe": "(chained from verse2-2)",
+   "chain_from": "verse2-2",
+   "motion": "Still spinning and curling, colorful rubber balls fly in from all sides and bounce harmlessly off the character, which stays calmly in place.",
+   "foley": "rubbery boings, one per ball",
+   "seed": 53,
+   "characters": [
+    "blip"
+   ]
+  },
+  "verse2-4": {
+   "keyframe": "(chained from verse2-3)",
+   "chain_from": "verse2-3",
+   "motion": "Peak pile-up: little green flags pop up all over the nightstand, waving, while the balls keep bouncing and the lazy Susan keeps spinning.",
+   "foley": "a flurry of soft pops",
+   "overlay": "tally counter spinning up to 90 (composited, timed to 'ninety times')",
+   "seed": 54,
+   "characters": [
+    "blip"
+   ]
+  },
+  "verse2-5": {
+   "keyframe": "(chained from verse2-4)",
+   "chain_from": "verse2-4",
+   "motion": "The character pushes its sunglasses up onto its head, then swats a big red button under a glass dome off the edge, then swats a little golden crown away after it.",
+   "foley": "two cartoon swats, glass dome clatter, a tiny crown tinkle",
+   "seed": 55,
+   "characters": [
+    "blip"
+   ]
+  },
+  "verse2-6": {
+   "keyframe": "(chained from verse2-5)",
+   "chain_from": "verse2-5",
+   "motion": "On 'down' the black pixel sunglasses drop from the top of its head down onto its face, deal-with-it style; it strikes a cool pose.",
+   "foley": "a pixel 'bling' as the shades land on 'down' (76.92)",
+   "seed": 56,
+   "characters": [
+    "blip"
+   ]
+  },
+  "verse2-7": {
+   "keyframe": "(chained from verse2-6)",
+   "chain_from": "verse2-6",
+   "motion": "The character hops off the lazy Susan and runs across the nightstand past the scattered debris (rubber balls, tiny dumbbells, the crown) toward the edge by the bed.",
+   "foley": "tiny pattering steps, a ball rolling away",
+   "seed": 57,
+   "characters": [
+    "blip"
+   ]
+  },
+  "verse2-8": {
+   "keyframe": "At night by the bed: the tiny glowing character at the edge of the mattress tugging the blanket up over the sleeping man's shoulder (short dark messy hair, grey hoodie), the nightstand with a charging phone beside them.",
+   "motion": "The character tucks the blanket over the sleeping man, then hops onto the charging phone on the nightstand and settles there like a nightlight, glowing softly; its lenses blink once, then switch off, and the room goes dark on the last beat.",
+   "foley": "soft blanket rustle, a contented little sigh, the faint click of the lenses switching off; silence",
+   "seed": 58,
+   "characters": [
+    "blip",
+    "scroller"
+   ],
+   "note": "The AI as a nightlight, not an overlord. Dark -> next morning: prechorus2 opens on the kettle clicking."
   }
  },
  "theme": "The camera gets pulled into the doomscroller's world inside the phone; Blip is there to add color and reset him back to real life.",
