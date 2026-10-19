@@ -86,7 +86,7 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header("Content-Type", ctype)
         self.send_header("Accept-Ranges", "bytes")
         self.send_header("Content-Length", str(end - start + 1))
-        self.send_header("Cache-Control", "no-cache")
+        self.send_header("Cache-Control", "no-store")   # re-rolls reuse filenames; never show a stale image
         self.end_headers()
         with open(path, "rb") as f:
             f.seek(start)
