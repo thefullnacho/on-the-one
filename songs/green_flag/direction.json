@@ -1,6 +1,6 @@
 {
  "character": "character/hero_16x9.png",
- "style": "Use this exact character: small glowing mint-green gummy blob, black pixel-LED sunglasses with green dot lenses, small smile, little green flag. Stylized 3D character in a real photographic world, cinematic, 16:9 widescreen. Fill the whole frame with the scene.",
+ "style": "Stylized 3D character in a real photographic world, cinematic, 16:9 widescreen. Fill the whole frame with the scene.",
  "negative": "deformed character, extra limbs, fingers, text, watermark, blurry",
  "shots": {
   "chorus1-1": {
@@ -449,9 +449,12 @@
    "look_day": "same man by day: Dickies-style carpenter pants and a heavyweight cotton t-shirt with a left chest pocket; in chorus 3 a flannel shirt over it in warm brown, amber and cream plaid (porch colors: the plaid resolves into porch boards in the chorus3 -> outro morph)"
   },
   "dog": {
-   "ref": "character/dog_ref.jpg",
+   "ref": [
+    "character/dog_ref.jpg"
+   ],
    "look": "a small red-gold and white parti-colored Lhasa Apso with a long silky shaggy coat, fringe falling over its eyes, dark-tipped ears and a plumed tail curled over its back",
    "note": "the man's dog (verse 1: 'I like your dog'); reference photo"
   }
- }
+ },
+ "style_empty": "Cinematic photograph, 16:9 widescreen, real photographic world. No people, no characters, no creatures."
 }

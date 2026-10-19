@@ -1,0 +1,185 @@
+{
+ "graph": {
+  "161": {
+   "class_type": "LoadImage",
+   "_meta": {
+    "title": "load char_hero_16x9.png"
+   },
+   "inputs": {
+    "image": "char_hero_16x9.png"
+   }
+  },
+  "212": {
+   "class_type": "LoadImage",
+   "_meta": {
+    "title": "load dog_ref.jpg"
+   },
+   "inputs": {
+    "image": "dog_ref.jpg"
+   }
+  },
+  "101": {
+   "inputs": {
+    "unet_name": "flux3_image_klein_sd_int8_convrot.safetensors",
+    "weight_dtype": "default"
+   },
+   "class_type": "UNETLoader",
+   "_meta": {
+    "title": "Load Diffusion Model"
+   }
+  },
+  "102": {
+   "inputs": {
+    "clip_name": "qwen3vl_4b_int8_convrot.safetensors",
+    "type": "flux3",
+    "device": "default"
+   },
+   "class_type": "CLIPLoader",
+   "_meta": {
+    "title": "Load CLIP"
+   }
+  },
+  "103": {
+   "inputs": {
+    "vae_name": "flux2-vae.safetensors"
+   },
+   "class_type": "VAELoader",
+   "_meta": {
+    "title": "Load VAE"
+   }
+  },
+  "104": {
+   "inputs": {
+    "text": "{{prompt}}",
+    "clip": [
+     "102",
+     0
+    ]
+   },
+   "class_type": "CLIPTextEncode",
+   "_meta": {
+    "title": "Positive Prompt"
+   }
+  },
+  "107": {
+   "inputs": {
+    "seed": 777001,
+    "steps": 16,
+    "cfg": 1,
+    "sampler_name": "euler",
+    "scheduler": "simple",
+    "denoise": 1,
+    "model": [
+     "101",
+     0
+    ],
+    "positive": [
+     "117",
+     0
+    ],
+    "negative": [
+     "117",
+     1
+    ],
+    "latent_image": [
+     "117",
+     2
+    ]
+   },
+   "class_type": "KSampler",
+   "_meta": {
+    "title": "KSampler"
+   }
+  },
+  "108": {
+   "inputs": {
+    "samples": [
+     "107",
+     0
+    ],
+    "vae": [
+     "103",
+     0
+    ]
+   },
+   "class_type": "VAEDecode",
+   "_meta": {
+    "title": "VAE Decode"
+   }
+  },
+  "117": {
+   "inputs": {
+    "resolution": "keep resolution",
+    "resolution.megapixels": 1,
+    "positive": [
+     "104",
+     0
+    ],
+    "negative": [
+     "132",
+     0
+    ],
+    "vae": [
+     "103",
+     0
+    ],
+    "images.image0": [
+     "161",
+     0
+    ],
+    "images.image1": [
+     "212",
+     0
+    ]
+   },
+   "class_type": "ReferenceMultiLatent",
+   "_meta": {
+    "title": "Set Reference Multi Latent"
+   }
+  },
+  "132": {
+   "inputs": {
+    "conditioning": [
+     "104",
+     0
+    ]
+   },
+   "class_type": "ConditioningZeroOut",
+   "_meta": {
+    "title": "Conditioning Zero Out"
+   }
+  },
+  "263": {
+   "class_type": "SaveImage",
+   "_meta": {
+    "title": "save composed final (image)"
+   },
+   "inputs": {
+    "images": [
+     "108",
+     0
+    ],
+    "filename_prefix": "outputs/oto"
+   }
+  }
+ },
+ "slots": {
+  "image": [
+   "161",
+   "image"
+  ],
+  "image2": [
+   "212",
+   "image"
+  ],
+  "prompt": [
+   "104",
+   "text"
+  ],
+  "seed": [
+   "107",
+   "seed"
+  ]
+ },
+ "removed": []
+}

@@ -77,9 +77,16 @@ def check(graph, info):
 
 def slots(graph):
     out = {}
+    ref_names = {"images.image0": "image", "images.image1": "image2", "images.image2": "image3"}
     for k, n in graph.items():
         if n["class_type"] in LOADERS:
             name, field = LOADERS[n["class_type"]]
+            if n["class_type"] == "LoadImage":     # several references: name each by the slot it feeds
+                fed = [f for m in graph.values() for f, v in m["inputs"].items()
+                       if isinstance(v, list) and len(v) == 2 and v[0] == k]
+                name = next((ref_names[f] for f in fed if f in ref_names), name)
+            if name in out:
+                raise SystemExit(f"two loaders map to slot {name!r}")
             out[name] = [k, field]
         for f, v in n["inputs"].items():
             if not isinstance(v, (list, dict, bool)) and v in MARKERS:

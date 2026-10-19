@@ -6,6 +6,7 @@ tools/build_workflows.py has already stripped of API nodes.
 
 usage:
   python -m on_the_one.render songs/<song> keyframes s09 s12 [--options 3]
+  python -m on_the_one.render songs/<song> keyframes pending      # every shot still needing options
   python -m on_the_one.render songs/<song> pick s09 <seed>
   python -m on_the_one.render songs/<song> clips s09 s12
 
@@ -45,6 +46,57 @@ def run(client, wf, out):
     return time.time() - t0
 
 
+def refs_for(d, direction, spec):
+    """Reference images for a shot, from the characters it lists (default: the lead). None = a character has no ref yet."""
+    chars = spec.get("characters", ["blip"])
+    paths, looks = [], []
+    for c in chars:
+        info = direction.get("characters", {}).get(c, {})
+        ref = info.get("ref")
+        if not ref:
+            return None, None
+        for r in ref if isinstance(ref, list) else [ref]:
+            paths.append(d / r)
+            looks.append(info.get("look", c))
+    return paths[:3], looks[:3]
+
+
+def pad_16x9(src, dst):
+    """The first reference sets Klein's output size, so it must be 16:9: centre it on a canvas of its own edge colour."""
+    from PIL import Image
+    im = Image.open(src).convert("RGB")
+    if abs(im.width / im.height - 16 / 9) < 0.02:
+        return src
+    h = 768; w = round(h * 16 / 9 / 8) * 8
+    fit = im.copy(); fit.thumbnail((w, h))
+    canvas = Image.new("RGB", (w, h), im.getpixel((2, 2)))
+    canvas.paste(fit, ((w - fit.width) // 2, (h - fit.height) // 2))
+    canvas.save(dst)
+    return dst
+
+
+def keyframe_prompt(direction, spec, looks):
+    who = "; ".join(f"reference image {i + 1} shows {look}" for i, look in enumerate(looks))
+    lead = f"Use the exact characters from the reference images ({who})." if looks else ""
+    # a scene with no characters gets a scene-only style, or the model invents someone to fill the "character" slot
+    style = direction.get("style", "") if looks else direction.get("style_empty", "Cinematic photograph, 16:9 widescreen. No people, no characters.")
+    return " ".join(x for x in (lead, spec["keyframe"], style) if x)
+
+
+def pending(d, direction):
+    """Shots that still need keyframe options: no pick, no options, not chained or reused, every character has a ref."""
+    out = []
+    for sid, spec in direction["shots"].items():
+        if spec.get("chain_from") or spec.get("reuse_keyframe") or (d / "keyframes" / f"{sid}.png").exists():
+            continue
+        if list((d / "keyframes" / "options").glob(f"{sid}_*.png")):
+            continue
+        if refs_for(d, direction, spec)[0] is None:
+            continue
+        out.append(sid)
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("song_dir")
@@ -67,17 +119,29 @@ def main():
 
     client = Comfy()
     if a.stage == "keyframes":
-        ref = client.assets.from_file(d / direction["character"])
         (d / "keyframes" / "options").mkdir(parents=True, exist_ok=True)
-        for shot in a.args:
-            spec = direction["shots"][shot]
-            prompt = f"{spec['keyframe']} {direction.get('style', '')}".strip()
-            base = spec.get("seed", 1)
-            for i in range(a.options):
-                seed = base + 1000 * i
-                out = d / "keyframes" / "options" / f"{shot}_{seed}.png"
-                took = run(client, fill(client, "klein_edit", {"image": ref, "prompt": prompt, "seed": seed}), out)
-                print(f"{shot} option seed {seed}: {out} ({took:.0f}s)")
+        shots = pending(d, direction) if a.args == ["pending"] else a.args
+        order = [s["id"] for s in shots_doc["shots"]]
+        shots.sort(key=order.index)
+        print(f"{len(shots)} shots x {a.options} options: {' '.join(shots)}")
+        with tempfile.TemporaryDirectory() as tmp:
+            for shot in shots:
+                spec = direction["shots"][shot]
+                paths, looks = refs_for(d, direction, spec)
+                if paths is None:
+                    print(f"{shot}: skipped, a character has no reference yet"); continue
+                if paths:
+                    paths[0] = pad_16x9(paths[0], Path(tmp) / f"{shot}_ref0.png")
+                assets = [client.assets.from_file(p) for p in paths]
+                name = ["klein_t2i", "klein_edit", "klein_edit2", "klein_edit3"][len(assets)]
+                values = {"prompt": keyframe_prompt(direction, spec, looks)}
+                values.update({slot: a_ for slot, a_ in zip(("image", "image2", "image3"), assets)})
+                base = spec.get("seed", 1)
+                for i in range(a.options):
+                    seed = base + 1000 * i
+                    out = d / "keyframes" / "options" / f"{shot}_{seed}.png"
+                    took = run(client, fill(client, name, {**values, "seed": seed}), out)
+                    print(f"{shot} [{name}] option seed {seed}: {out.name} ({took:.0f}s)", flush=True)
 
     if a.stage == "clips":
         audio = next(d.glob("audio.*"))
@@ -86,6 +150,14 @@ def main():
             for shot in a.args:
                 s, spec = plan[shot], direction["shots"][shot]
                 kf = d / "keyframes" / f"{shot}.png"
+                if spec.get("chain_from"):            # continue from the previous shot's last frame
+                    prev = d / "clips" / f"{spec['chain_from']}.mp4"
+                    if not prev.exists():
+                        raise SystemExit(f"{shot}: chained from {spec['chain_from']}, which has no clip yet")
+                    subprocess.run(["ffmpeg", "-v", "error", "-y", "-sseof", "-0.1", "-i", str(prev),
+                                    "-frames:v", "1", "-update", "1", str(kf)], check=True)
+                elif spec.get("reuse_keyframe") and not kf.exists():
+                    shutil.copy(d / "keyframes" / f"{spec['reuse_keyframe']}.png", kf)
                 if not kf.exists():
                     raise SystemExit(f"{shot}: no keyframe picked yet (render keyframes, then pick)")
                 # the shot's exact audio slice, render-length (LTX frames are 1 + 8n, a little past the slot)
