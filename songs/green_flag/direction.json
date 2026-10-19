@@ -272,7 +272,7 @@
    "reactive": "punch-in on each 'down'"
   },
   "chorus2-2": {
-   "keyframe": "Sunny backyard lawn: a small red-gold and white parti-colored Lhasa Apso with a long silky shaggy coat, fringe falling over its eyes, dark-tipped ears and a plumed tail curled over its back bounding toward the camera with a giant silver paperclip in its mouth, the tiny glowing character in the grass, blue sky with a couple of kites.",
+   "keyframe": "Sunny backyard lawn: a small honey-gold and white parti-colored Lhasa Apso with a long silky shaggy coat, fringe falling over its eyes, dark-tipped ears and a plumed tail curled over its back bounding toward the camera with a giant silver paperclip in its mouth, the tiny glowing character in the grass, blue sky with a couple of kites.",
    "motion": "On 'no, no, no paperclips' the dog bounds in proudly carrying the giant paperclip, shakes it and drops it at the character's feet; on 'no laser skies' the camera tilts up to kites dancing in a clear blue sky.",
    "foley": "dog tags, a metallic clatter as the paperclip drops, kite flutter",
    "seed": 64,
@@ -283,7 +283,7 @@
    "note": "callback: the paperclip Blip flicked away in chorus1-3 comes back as the dog's toy"
   },
   "chorus2-3": {
-   "keyframe": "a small red-gold and white parti-colored Lhasa Apso with a long silky shaggy coat, fringe falling over its eyes, dark-tipped ears and a plumed tail curled over its back trotting across a sunny lawn with the tiny glowing character riding on top of its head, holding its little green flag up high.",
+   "keyframe": "a small honey-gold and white parti-colored Lhasa Apso with a long silky shaggy coat, fringe falling over its eyes, dark-tipped ears and a plumed tail curled over its back trotting across a sunny lawn with the tiny glowing character riding on top of its head, holding its little green flag up high.",
    "motion": "The character rides on the trotting dog's head, flag up on 'green flag'; on 'low, low, low' it slides down into a little garden hammock that sinks lower with each 'low'.",
    "foley": "dog tags jingling, hammock creaks on each 'low'",
    "seed": 65,
@@ -344,7 +344,7 @@
    "reactive": "max: punch-in on each 'down'"
   },
   "chorus3-2": {
-   "keyframe": "Wide golden-hour park picnic: the red gingham blanket on the grass with a pile of phones face-down on it; a small red-gold and white parti-colored Lhasa Apso with a long silky shaggy coat, fringe falling over its eyes, dark-tipped ears and a plumed tail curled over its back racing around joyfully; the tiny glowing character riding on the dog's back, flag streaming.",
+   "keyframe": "Wide golden-hour park picnic: the red gingham blanket on the grass with a pile of phones face-down on it; a small honey-gold and white parti-colored Lhasa Apso with a long silky shaggy coat, fringe falling over its eyes, dark-tipped ears and a plumed tail curled over its back racing around joyfully; the tiny glowing character riding on the dog's back, flag streaming.",
    "motion": "The dog tears around the picnic in a big happy loop with the character riding on its back, flag streaming; warm low sun, long shadows, lens flare.",
    "foley": "dog tags jingling, happy barks, distant park sounds",
    "seed": 75,
@@ -452,7 +452,7 @@
    "ref": [
     "character/dog_ref.jpg"
    ],
-   "look": "a small red-gold and white parti-colored Lhasa Apso with a long silky shaggy coat, fringe falling over its eyes, dark-tipped ears and a plumed tail curled over its back",
+   "look": "a small honey-gold and white parti-colored Lhasa Apso with a long silky shaggy coat, fringe falling over its eyes, dark-tipped ears and a plumed tail curled over its back",
    "note": "the man's dog (verse 1: 'I like your dog'). Long coat, as in the reference photo: the only reference, on purpose (current photos show a groomed cut, which would shorten the coat)."
   }
  },
