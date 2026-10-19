@@ -11,3 +11,5 @@ songs/*/takes/**/*.wav
 songs/*/takes/**/*.mp3
 songs/*/analysis/
 STATUS.md
+logs/
+songs/*/character/_incoming/
