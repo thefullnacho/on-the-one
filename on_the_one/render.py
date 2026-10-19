@@ -166,6 +166,10 @@ def main():
                 subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", str(s["start"]), "-t", f"{dur:.4f}",
                                 "-i", str(audio), "-ac", "2", "-ar", "48000", str(wav)], check=True)
                 seed = spec.get("seed", 1)
+                picks = json.loads((d / "picks.json").read_text()) if (d / "picks.json").exists() else {}
+                for v, seeds in spec.get("variant_seeds", {}).items():   # a shot with variants uses the picked variant's motion
+                    if picks.get(shot) in seeds:
+                        spec = {**spec, **spec["variants"][v]}
                 wf = fill(client, "ltx_a2v", {
                     "image": client.assets.from_file(kf), "audio": client.assets.from_file(wav),
                     "prompt": spec["motion"], "negative": direction.get("negative", ""),

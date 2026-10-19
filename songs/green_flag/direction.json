@@ -281,6 +281,18 @@
      "keyframe": "Macro photograph of a sunny garden at dawn: a long curved green leaf arching down to the grass like a slide, three round dewdrops sitting on it as bumps; the tiny glowing mint-green character at the top of the leaf, flag raised, giant blurred flowers behind.",
      "motion": "The tiny character slides down the curved leaf, bouncing over the three dewdrops one on each 'down' (each splashes softly), and lands in the grass on 'touch grass', rolling once."
     }
+   },
+   "variant_seeds": {
+    "a": [
+     163,
+     1163,
+     2163
+    ],
+    "b": [
+     263,
+     1263,
+     2263
+    ]
    }
   },
   "chorus2-2": {
