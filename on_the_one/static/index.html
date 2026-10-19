@@ -141,6 +141,19 @@
   }
   textarea::placeholder { color: rgba(59, 47, 30, .45); }
   .saved { font-size: 12px; color: var(--ink-soft); min-height: 1em; }
+  .opts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .opts button {
+    position: relative; padding: 0; border: 2px solid transparent; border-radius: var(--r); overflow: hidden; cursor: pointer;
+    background: var(--dusk-2); aspect-ratio: 16 / 9;
+  }
+  .opts img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .opts button span {
+    position: absolute; left: 6px; top: 4px; font-size: 12px; font-weight: 600; color: #fff; text-shadow: 0 1px 3px #000;
+  }
+  .opts button:hover { border-color: var(--ink-soft); }
+  .opts button.picked { border-color: var(--mint); }
+  .opts button.picked span::after { content: " · picked"; }
+  .opts-note { font-size: 13px; color: var(--ink-soft); }
   .info {
     width: 24px; height: 24px; border-radius: 50%; border: 1px solid var(--dusk-3); background: none; cursor: pointer;
     font: italic 600 14px/1 Georgia, serif; color: var(--ink-soft); display: grid; place-items: center;
@@ -193,10 +206,12 @@
       <button class="follow" id="follow" aria-pressed="true" title="The notes pad follows the playhead">Following playback</button>
     </div>
     <div class="lyrics" id="padLyrics"></div>
+    <div class="opts" id="opts" aria-label="Keyframe options. Click one to use it."></div>
+    <div class="opts-note" id="optsNote"></div>
     <textarea id="notes" placeholder="Notes on this shot. They save as you type."></textarea>
     <div class="saved" id="saved"></div>
 
-    <div class="keys">Space play/pause · ← → previous/next shot · N write a note · Esc back to the timeline · click a word to hear from it</div>
+    <div class="keys">Space play/pause · ← → previous/next shot · 1 2 3 pick an option · N write a note · Esc back to the timeline · click a word to hear from it</div>
   </aside>
   <div id="dirPop" popover><h2 id="dirTitle"></h2><dl id="dirBody"></dl></div>
 </main>
@@ -272,7 +287,7 @@ function renderViewer(i) {
     if (!audio.paused) video.play().catch(() => {});
     viewer.append(video, badge("clip"));
   } else if (S.keyframes.includes(sh.id)) {
-    const img = new Image(); img.src = media("keyframes/" + sh.id + ".png"); img.alt = sh.id;
+    const img = new Image(); img.src = media("keyframes/" + sh.id + ".png") + `?v=${S.picks[sh.id] || 0}`; img.alt = sh.id;
     viewer.append(img, badge("keyframe"));
   } else {
     const c = document.createElement("div"); c.className = "card";
@@ -309,6 +324,7 @@ function select(i, pin) {
     const k = document.createElement("div"); const onBar = Math.abs(((t - S.phase) / S.bar) - Math.round((t - S.phase) / S.bar)) < 0.01;
     k.className = "tick" + (onBar ? " bar" : ""); k.style.left = `${((t - sh.start) / sh.duration) * 100}%`; bar.append(k);
   }
+  renderOptions();
   $("dirTitle").textContent = `${sh.id} · ${sh.section} ${sh.part}`;
   const rows = [["Keyframe", dir.keyframe], ["Motion", dir.motion], ["Foley", dir.foley], ["Overlay", dir.overlay],
                 ["Reactive", dir.reactive], ["Note", dir.note]].filter(([, v]) => v);
@@ -316,6 +332,29 @@ function select(i, pin) {
   $("notes").value = S.notes[sh.id] || "";
   $("saved").textContent = "";
   document.querySelectorAll(".shot").forEach((n, k) => n.classList.toggle("selected", k === i));
+}
+
+function renderOptions() {
+  const sh = S.shots[sel], dir = S.direction[sh.id] || {}, seeds = S.options[sh.id] || [];
+  $("opts").innerHTML = seeds.map((sd, k) => `<button data-seed="${sd}" class="${S.picks[sh.id] == sd ? "picked" : ""}"
+      title="Use option ${k + 1} as this shot's keyframe"><img loading="lazy" src="${media(`keyframes/options/${sh.id}_${sd}.png`)}" alt="Option ${k + 1}"><span>${k + 1}</span></button>`).join("");
+  $("opts").querySelectorAll("button").forEach((b) => b.onclick = () => pick(sh.id, b.dataset.seed));
+  $("optsNote").textContent = seeds.length ? (S.picks[sh.id] ? "" : "Click an option to use it as this shot's keyframe.")
+    : dir.chain_from ? `Continues from ${dir.chain_from}'s last frame. Nothing to pick.`
+    : dir.reuse_keyframe ? `Reuses ${dir.reuse_keyframe}'s keyframe. Nothing to pick.`
+    : S.keyframes.includes(sh.id) ? "Keyframe already chosen." : "No options rendered yet.";
+}
+async function pick(id, seed) {
+  const r = await fetch(`/api/song/${encodeURIComponent(S.name)}/pick/${id}`, {
+    method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ seed }) });
+  if (!r.ok) { $("optsNote").textContent = "Couldn't save that pick. Is the app still running?"; return; }
+  S.picks[id] = +seed;
+  if (!S.keyframes.includes(id)) S.keyframes.push(id);
+  const i = S.shots.findIndex((x) => x.id === id), cell = document.querySelectorAll(".shot")[i];
+  const bust = `?v=${seed}`;
+  cell.classList.add("has-img"); cell.style.backgroundImage = `url(${media("keyframes/" + id + ".png")}${bust})`;
+  renderOptions(); if (i === cur) { cur = -1; }
+  $("optsNote").textContent = `Option picked for ${id}.`;
 }
 
 function setFollow(on) {
@@ -390,6 +429,7 @@ document.addEventListener("keydown", (e) => {
   else if (e.key === "ArrowRight") { const i = Math.min(sel + 1, S.shots.length - 1); seekTo(S.shots[i].start); select(i, true); }
   else if (e.key === "ArrowLeft") { const i = Math.max(sel - 1, 0); seekTo(S.shots[i].start); select(i, true); }
   else if (e.key.toLowerCase() === "n") { e.preventDefault(); $("notes").focus(); }
+  else if (["1", "2", "3"].includes(e.key)) { const sd = (S.options[S.shots[sel].id] || [])[+e.key - 1]; if (sd) pick(S.shots[sel].id, sd); }
 });
 window.addEventListener("beforeunload", flushSave);
 loadSongs();

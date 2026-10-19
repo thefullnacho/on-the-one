@@ -6,7 +6,7 @@ then open http://127.0.0.1:8700
 Screen one is the live animatic: the song plays, the viewer shows each shot as it comes up (clip, keyframe or
 placeholder card), and every shot has a notes pad that saves as you type (songs/<song>/notes.json).
 """
-import argparse, json, mimetypes, re
+import argparse, json, mimetypes, re, shutil
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 from pathlib import Path
 from urllib.parse import unquote
@@ -33,14 +33,24 @@ def song_payload(d):
         "shots": shots["shots"], "cues": shots.get("cues", []),
         "direction": direction.get("shots", {}), "theme": direction.get("theme", ""),
         "notes": notes,
+        "picks": json.loads((d / "picks.json").read_text()) if (d / "picks.json").exists() else {},
         "lines": [{"text": x["line"], "start": x["start"], "end": x["end"]} for x in shots.get("alignment", [])
                   if x.get("start") is not None and x.get("end") is not None],
         "words": [{"w": w["w"].strip(), "s": w["s"], "e": w["e"]}
                   for seg in (json.loads((d / "words.json").read_text()) if (d / "words.json").exists() else [])
                   for w in seg["words"]],
         "keyframes": sorted(p.stem for p in (d / "keyframes").glob("*.png")) if (d / "keyframes").exists() else [],
+        "options": options_by_shot(d),
         "clips": sorted(p.stem for p in (d / "clips").glob("*.mp4")) if (d / "clips").exists() else [],
     }
+
+
+def options_by_shot(d):
+    out = {}
+    for p in sorted((d / "keyframes" / "options").glob("*.png")) if (d / "keyframes" / "options").exists() else []:
+        sid, seed = p.stem.rsplit("_", 1)
+        out.setdefault(sid, []).append(seed)
+    return {k: sorted(v, key=int) for k, v in out.items()}   # numeric, so option numbers match the contact sheets
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -109,6 +119,23 @@ class Handler(BaseHTTPRequestHandler):
                 return self.send_json({"error": "not found"}, 404)
             return self.send_file(f)
         self.send_json({"error": "not found"}, 404)
+
+    def do_POST(self):
+        """Pick a keyframe option: copies keyframes/options/<shot>_<seed>.png to keyframes/<shot>.png."""
+        m = re.match(r"^/api/song/([^/]+)/pick/([a-z0-9-]+)$", unquote(self.path))
+        d = song_dir(m.group(1)) if m else None
+        if not d:
+            return self.send_json({"error": "not found"}, 404)
+        seed = str(json.loads(self.rfile.read(int(self.headers.get("Content-Length", 0))) or b"{}").get("seed", ""))
+        src = d / "keyframes" / "options" / f"{m.group(2)}_{seed}.png"
+        if not re.fullmatch(r"\d+", seed) or not src.exists():
+            return self.send_json({"error": "no such option"}, 404)
+        shutil.copyfile(src, d / "keyframes" / f"{m.group(2)}.png")
+        picks = d / "picks.json"
+        data = json.loads(picks.read_text()) if picks.exists() else {}
+        data[m.group(2)] = int(seed)
+        picks.write_text(json.dumps(data, indent=1))
+        self.send_json({"picked": m.group(2), "seed": int(seed)})
 
     def do_PUT(self):
         m = re.match(r"^/api/song/([^/]+)/notes/([a-z0-9-]+)$", unquote(self.path))

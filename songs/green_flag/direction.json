@@ -16,7 +16,7 @@
    "seed": 3,
    "characters": [
     "blip",
-    "scroller"
+    "man_night"
    ]
   },
   "intro-2": {
@@ -56,7 +56,7 @@
    ]
   },
   "verse1-3": {
-   "keyframe": "A cold blue feed landscape; the tiny glowing character holds a little green flag, a warm burst of color blooming where it planted another; a small glowing planet Earth floats beside it.",
+   "keyframe": "Inside the phone world, NOT the real world: a landscape built entirely from glowing blue social-feed posts and app interface panels, the ground made of stacked screens; the tiny glowing character holds a little green flag, a warm burst of color blooming where it planted another; a small glowing planet Earth floats beside it.",
    "motion": "On each 'Green flag' the character plants a flag and a warm burst of color blooms out of the blue; on the second a dog photo post pops into full color; on 'I don't want the planet' it hands the tiny glowing Earth back out of frame with a shrug.",
    "foley": "a soft pop on each green-flag bloom, a little 'boop' as the Earth is handed back",
    "seed": 19,
@@ -74,7 +74,7 @@
    ]
   },
   "verse1-5": {
-   "keyframe": "Inside the phone world: the tiny glowing character hauling a giant phone charger plug across the frame toward a glowing charging port, straining, cable trailing behind it.",
+   "keyframe": "Inside the phone world, NOT the real world: a dark blue digital space made of glowing interface panels, with a giant glowing charging port set into a wall of screen light; the tiny glowing character hauls a giant phone charger plug toward it, straining, cable trailing behind.",
    "motion": "On the word 'charger' the character jams the giant plug into the port; a bright green charge bolt surges out and floods the whole frame.",
    "foley": "heavy plug CLICK on 'charger' (29.36), electric surge into a charging chime",
    "seed": 29,
@@ -93,7 +93,7 @@
    "foley": "sharp breath in; phone buzz/ringtone; birds outside",
    "seed": 31,
    "characters": [
-    "scroller"
+    "man_night"
    ],
    "note": "The charge snapped him awake; Mom's call gets him up. Leaves the phone world.",
    "overlay": "'Mom' as the caller name on the phone screen (composited, timed to 'your momma still calls')"
@@ -164,7 +164,8 @@
    "foley": "lazy Susan creak, camera shutter + flash pop on 'screenshot'",
    "seed": 51,
    "characters": [
-    "blip"
+    "blip",
+    "man_night"
    ],
    "note": "additive scene: each shot adds pressure; verse2-2..7 chain from the previous shot's last frame"
   },
@@ -236,7 +237,7 @@
    "seed": 58,
    "characters": [
     "blip",
-    "scroller"
+    "man_night"
    ],
    "note": "The AI as a nightlight, not an overlord. Dark -> next morning: prechorus2 opens on the kettle clicking."
   },
@@ -313,7 +314,7 @@
    "look": "bridge look: shades up, dot eyes, smile (assets: char_bridge_candidate / sheet lenses_off)"
   },
   "bridge-2": {
-   "keyframe": "Dusk, close: the tiny glowing character holds a phone charger plug out toward the camera with both stubby arms, offering it, sunglasses pushed up, soft smile.",
+   "keyframe": "Dusk on the wooden front porch: the tiny glowing character stands on top of the dark switched-off phone lying on the porch boards, holding a phone charger plug out toward the camera with both stubby arms, offering it, sunglasses pushed up, soft smile. Warm dim porch light.",
    "motion": "The character slowly holds the charger plug out toward the camera, offering it, then nods gently. Very slow push-in.",
    "foley": "vinyl crackle; a tiny cable rustle",
    "seed": 72,
@@ -361,7 +362,8 @@
    "seed": 76,
    "characters": [
     "blip",
-    "scroller"
+    "man_day",
+    "man_face"
    ],
    "note": "his daylight reveal: same you, still alive"
   },
@@ -372,7 +374,7 @@
    "seed": 77,
    "characters": [
     "blip",
-    "scroller"
+    "man_day"
    ],
    "transition_out": "texture morph: chained motion + a short dissolve into outro-1; keep the character's glow at the same screen position across the cut"
   },
@@ -383,7 +385,7 @@
    "seed": 81,
    "characters": [
     "blip",
-    "scroller",
+    "man_day",
     "dog"
    ],
    "transition_in": "texture morph from chorus3-4"
@@ -442,18 +444,37 @@
    "ref": "character/hero_16x9.png",
    "look": "small glowing mint-green gummy blob, black pixel-LED sunglasses with green dot lenses, small smile, little green flag"
   },
-  "scroller": {
-   "ref": null,
-   "look": "a white man in his mid-thirties, brown mid-length hair, a beard, glasses; at night: sweatpants and a t-shirt",
-   "todo": "design 3-4 options, the director picks, then a sheet like Blip's",
-   "look_day": "same man by day: Dickies-style carpenter pants and a heavyweight cotton t-shirt with a left chest pocket; in chorus 3 a flannel shirt over it in warm brown, amber and cream plaid (porch colors: the plaid resolves into porch boards in the chorus3 -> outro morph)"
-  },
   "dog": {
    "ref": [
     "character/dog_ref.jpg"
    ],
    "look": "a small honey-gold and white parti-colored Lhasa Apso with a long silky shaggy coat, fringe falling over its eyes, dark-tipped ears and a plumed tail curled over its back",
    "note": "the man's dog (verse 1: 'I like your dog'). Long coat, as in the reference photo: the only reference, on purpose (current photos show a groomed cut, which would shorten the coat)."
+  },
+  "man_night": {
+   "ref": [
+    "character/man_front_night.png"
+   ],
+   "look": "a white man in his mid-thirties with brown mid-length hair, a beard and glasses, in grey sweatpants and a plain t-shirt",
+   "sheet": {
+    "night": "character/man_front_night.png",
+    "side": "character/man_side_night.png",
+    "day": "character/man_front_day.png",
+    "flannel": "character/man_front_flannel.png",
+    "face": "character/man_face.png"
+   }
+  },
+  "man_day": {
+   "ref": [
+    "character/man_front_flannel.png"
+   ],
+   "look": "the same man in tan carpenter pants and a brown, amber and cream plaid flannel shirt over a t-shirt"
+  },
+  "man_face": {
+   "ref": [
+    "character/man_face.png"
+   ],
+   "look": "a close-up of the same man's face (brown mid-length hair, beard, glasses)"
   }
  },
  "style_empty": "Cinematic photograph, 16:9 widescreen, real photographic world. No people, no characters, no creatures."
