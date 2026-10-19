@@ -10,7 +10,7 @@
    "reactive": "punch-in on each 'down', bloom pulse on downbeats (hardest section)"
   },
   "intro-1": {
-   "keyframe": "Dark bedroom at 2 AM: a man in his thirties (short dark messy hair, light stubble, black-framed glasses, grey hoodie) lies in bed in profile, face lit cold blue by a phone propped on the pillow beside him, the scrolling feed reflected in his glasses, tired eyes. On the phone's glowing screen, tiny, the character stands inside the glass tapping on it from the inside. Deep shadows, blue light, cinematic, no hands in frame.",
+   "keyframe": "Dark bedroom at 2 AM: a white man in his mid-thirties (brown mid-length hair, a beard, glasses, sweatpants and a t-shirt) lies in bed in profile, face lit cold blue by a phone propped on the pillow beside him, the scrolling feed reflected in his glasses, tired eyes. On the phone's glowing screen, tiny, the character stands inside the glass tapping on it from the inside. Deep shadows, blue light, cinematic, no hands in frame.",
    "motion": "Almost still. The blue light flickers as the feed scrolls; his eyes track the screen. Inside the phone the tiny glowing character taps the glass twice. Very slow push-in toward the phone.",
    "foley": "two soft glass taps from inside the screen",
    "seed": 3,
@@ -88,7 +88,7 @@
    "seed": 5
   },
   "prechorus1-1": {
-   "keyframe": "Bedroom at dawn: a man in his thirties (short dark messy hair, light stubble, black-framed glasses, grey hoodie) bolting upright in bed, startled awake as if from a bad dream, soft morning light through the curtains, his phone on the nightstand lit up and buzzing with an incoming call. No hands in frame.",
+   "keyframe": "Bedroom at dawn: a white man in his mid-thirties (brown mid-length hair, a beard, glasses, sweatpants and a t-shirt) bolting upright in bed, startled awake as if from a bad dream, soft morning light through the curtains, his phone on the nightstand lit up and buzzing with an incoming call. No hands in frame.",
    "motion": "He jolts awake and sits up sharply as the phone buzzes on the nightstand, blinking at the morning light, catching his breath; he turns toward the ringing phone. Hard cut in, handheld feel.",
    "foley": "sharp breath in; phone buzz/ringtone; birds outside",
    "seed": 31,
@@ -159,7 +159,7 @@
    "reactive": "three soft dips on 'low, low, low'"
   },
   "verse2-1": {
-   "keyframe": "At night on a bedside nightstand, at the tiny character's scale: a miniature lab set-up next to an alarm clock and a charging phone, the sleeping man (short dark messy hair, grey hoodie) a soft blur in bed beyond. The glowing mint-green character stands on a small wooden lazy Susan under a tiny spotlight, mid-spin, black pixel sunglasses on.",
+   "keyframe": "At night on a bedside nightstand, at the tiny character's scale: a miniature lab set-up next to an alarm clock and a charging phone, the sleeping man (brown mid-length hair, beard, t-shirt) a soft blur in bed beyond. The glowing mint-green character stands on a small wooden lazy Susan under a tiny spotlight, mid-spin, black pixel sunglasses on.",
    "motion": "The lazy Susan spins the character slowly under the spotlight; on 'screenshot' a camera flash pops white for an instant.",
    "foley": "lazy Susan creak, camera shutter + flash pop on 'screenshot'",
    "seed": 51,
@@ -230,7 +230,7 @@
    ]
   },
   "verse2-8": {
-   "keyframe": "At night by the bed: the tiny glowing character at the edge of the mattress tugging the blanket up over the sleeping man's shoulder (short dark messy hair, grey hoodie), the nightstand with a charging phone beside them.",
+   "keyframe": "At night by the bed: the tiny glowing character at the edge of the mattress tugging the blanket up over the sleeping man's shoulder (brown mid-length hair, beard, t-shirt), the nightstand with a charging phone beside them.",
    "motion": "The character tucks the blanket over the sleeping man, then hops onto the charging phone on the nightstand and settles there like a nightlight, glowing softly; its lenses blink once, then switch off, and the room goes dark on the last beat.",
    "foley": "soft blanket rustle, a contented little sigh, the faint click of the lenses switching off; silence",
    "seed": 58,
@@ -355,7 +355,7 @@
    "reactive": "punch-in on downbeats"
   },
   "chorus3-3": {
-   "keyframe": "Golden hour, close: a man in his thirties (short dark messy hair, light stubble, black-framed glasses) wearing a flannel shirt in warm brown, amber and cream plaid, eyes closed, face turned up to the warm sun, smiling, the tiny glowing character sitting on the shoulder of his flannel shirt. No hands in frame.",
+   "keyframe": "Golden hour, close: a white man in his mid-thirties (brown mid-length hair, a beard, glasses) in Dickies-style carpenter pants and a flannel shirt in warm brown, amber and cream plaid over a heavyweight cotton pocket t-shirt, eyes closed, face turned up to the warm sun, smiling, the tiny glowing character sitting on the shoulder of his flannel shirt. No hands in frame.",
    "motion": "He breathes in the sun, smiling, eyes closed; the character on his shoulder waves its flag on 'still alive'. Gentle, warm, slow push-in.",
    "foley": "warm breeze, birdsong under the music",
    "seed": 76,
@@ -444,9 +444,9 @@
   },
   "scroller": {
    "ref": null,
-   "look": "a man in his thirties, short dark messy hair, light stubble, black-framed glasses, grey hoodie, tired eyes",
+   "look": "a white man in his mid-thirties, brown mid-length hair, a beard, glasses; at night: sweatpants and a t-shirt",
    "todo": "design 3-4 options, the director picks, then a sheet like Blip's",
-   "look_day": "same man, daytime: flannel shirt in warm brown, amber and cream plaid (porch colors: the plaid resolves into porch boards in the chorus3 -> outro morph)"
+   "look_day": "same man by day: Dickies-style carpenter pants and a heavyweight cotton t-shirt with a left chest pocket; in chorus 3 a flannel shirt over it in warm brown, amber and cream plaid (porch colors: the plaid resolves into porch boards in the chorus3 -> outro morph)"
   },
   "dog": {
    "ref": "character/dog_ref.jpg",
