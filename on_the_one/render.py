@@ -176,7 +176,7 @@ def main():
                     "duration": round(dur, 4), "seed": seed, "seed_2": seed + 1})
                 out = d / "clips" / f"{shot}.mp4"
                 took = run(client, wf, out)
-                print(f"{shot} clip: {out} ({took:.0f}s, {s['render_frames']} frames for a {s['duration']}s slot)")
+                print(f"{shot} clip: {out} ({took:.0f}s, {s['render_frames']} frames for a {s['duration']}s slot)", flush=True)
 
 
 if __name__ == "__main__":

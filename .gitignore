@@ -14,3 +14,4 @@ STATUS.md
 logs/
 songs/*/character/_incoming/
 songs/*/keyframes/rejected/
+songs/*/cut_v*.mp4
