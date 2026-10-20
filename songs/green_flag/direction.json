@@ -19,7 +19,11 @@
     "man_night"
    ],
    "world": "real",
-   "transition_out": "whip pan from his face into the phone screen (conform: 4-6 frame directional blur whip into intro-2)"
+   "transition_out": "whip pan from his face into the phone screen (conform: 4-6 frame directional blur whip into intro-2)",
+   "transition": {
+    "type": "whip",
+    "frames": 6
+   }
   },
   "intro-2": {
    "keyframe": "A 2D side-scrolling video game title screen inside a phone: the character stands inside the screen's game world on a starting platform, flag raised, a simple level stretching away to the right made of feed-post platforms.",
@@ -91,7 +95,11 @@
     "blip"
    ],
    "world": "phone",
-   "transition_out": "full-screen white flashbang wipe into prechorus1-1 (conform: ramp to white over ~4 frames, hold 2, fade into the bedroom)"
+   "transition_out": "full-screen white flashbang wipe into prechorus1-1 (conform: ramp to white over ~4 frames, hold 2, fade into the bedroom)",
+   "transition": {
+    "type": "flash",
+    "frames": 8
+   }
   },
   "prechorus1-3": {
    "keyframe": "Sunlit kitchen in the morning: the character peeks out from behind a white coffee mug on the counter, much smaller than the mug; behind it a toaster is smoking, the toast burnt black. Warm golden window light, shallow depth of field.",
@@ -445,7 +453,11 @@
     "blip"
    ],
    "transition_out": "hidden cut: last frames are all red gingham fabric; chorus3-1 opens on the same fabric (blend a few frames)",
-   "world": "real"
+   "world": "real",
+   "transition": {
+    "type": "blend",
+    "frames": 6
+   }
   },
   "chorus3-1": {
    "keyframe": "Frame completely filled by a red gingham picnic blanket billowing toward the camera, a hint of golden-hour park light glowing through its edges.",
@@ -495,7 +507,11 @@
    ],
    "transition_out": "the camera chase into the plaid continues into outro-1's sunburst",
    "world": "real",
-   "note": "Alex: slide down the arm, vanish behind the fabric, camera chases into the plaid; the porch morph is dropped."
+   "note": "Alex: slide down the arm, vanish behind the fabric, camera chases into the plaid; the porch morph is dropped.",
+   "transition": {
+    "type": "blend",
+    "frames": 8
+   }
   },
   "outro-1": {
    "keyframe": "Extreme close-up of brown, amber and cream plaid flannel weave, the threads glowing as warm golden sunlight bursts through the fabric from behind.",

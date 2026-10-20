@@ -71,13 +71,34 @@ def main():
             run(["ffmpeg", "-y", *src, "-vf", vf + pad, "-frames:v", str(frames), "-an",
                  "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", str(seg)])
             parts.append(seg)
+        # transitions: the outgoing clip lends its spare frames (LTX renders past the slot), so the overlap never moves a cut
+        direction = json.loads((d / "direction.json").read_text()) if (d / "direction.json").exists() else {"shots": {}}
+        XF = {"whip": "smoothleft", "flash": "fadewhite", "blend": "fade"}
+        i = 0
+        while i < len(plan["shots"]) - 1:
+            sh, nxt = plan["shots"][i], plan["shots"][i + 1]
+            tr = direction["shots"].get(sh["id"], {}).get("transition")
+            clip = d / "clips" / f"{sh['id']}.mp4"
+            if not tr or not clip.exists():
+                i += 1; continue
+            n = int(tr.get("frames", 6)); frames = round(sh["end"] * fps) - round(sh["start"] * fps)
+            ext = tmp / f"{sh['id']}_ext.mp4"
+            run(["ffmpeg", "-y", "-i", str(clip), "-vf", vf + f",tpad=stop_mode=clone:stop={frames + n}", "-frames:v", str(frames + n),
+                 "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", str(ext)])
+            xout = tmp / f"{sh['id']}_x_{nxt['id']}.mp4"
+            run(["ffmpeg", "-y", "-i", str(ext), "-i", str(parts[i + 1]), "-filter_complex",
+                 f"[0][1]xfade=transition={XF.get(tr['type'], 'fade')}:duration={n / fps:.4f}:offset={frames / fps:.4f},format=yuv420p",
+                 "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", str(xout)])
+            parts[i] = xout; parts.pop(i + 1); plan["shots"].pop(i + 1)     # the pair is now one segment
+            used.setdefault("transitions", []).append(f"{sh['id']}>{nxt['id']}:{tr['type']}")
+            i += 1
         lst = tmp / "parts.txt"
         lst.write_text("".join(f"file '{p}'\n" for p in parts))
         run(["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(lst), "-i", str(audio),
              "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-c:a", "aac", "-b:a", "256k", "-shortest", str(out)])
     probe = subprocess.run(["ffprobe", "-v", "error", "-count_frames", "-select_streams", "v:0", "-show_entries",
                             "stream=nb_read_frames", "-of", "csv=p=0", str(out)], capture_output=True, text=True).stdout.strip()
-    expect = round(plan["shots"][-1]["end"] * fps)
+    expect = round(plan["shots"][-1]["end"] * fps)   # (the last shot's end is unchanged by merged transition pairs)
     print(f"{out}  frames {probe} (expected {expect})  shots: {used}")
 
 
