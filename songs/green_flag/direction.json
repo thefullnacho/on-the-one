@@ -4,7 +4,7 @@
  "shots": {
   "chorus1-1": {
    "keyframe": "Cinematic macro photo: a smartphone lying in tall grass at sunrise golden hour; the character is halfway out of the glowing screen, one stubby arm on the phone's edge, climbing out into a jungle of giant grass blades. Warm backlight, dew, shallow depth of field.",
-   "motion": "The small glowing mint-green gummy character in black pixel sunglasses pulls itself up out of the rippling liquid phone screen in three bouncy heaves, one on each beat, pops free and lands in the grass, then raises its little green flag. The camera swoops low through the giant dewy grass blades and rises up into a wide sunrise park. Warm backlight, lens flare, playful energetic motion.",
+   "motion": "On the first 'down' the character plops down out of the rippling phone screen onto the grass; on each following 'down' it bounces down and up, down and up, exactly to the beat; the camera moves DOWN with it, ending low in the grass. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
    "seed": 17,
    "reactive": "punch-in on each 'down', bloom pulse on downbeats (hardest section)",
    "world": "real"
@@ -18,21 +18,23 @@
     "blip",
     "man_night"
    ],
-   "world": "real"
+   "world": "real",
+   "transition_out": "whip pan from his face into the phone screen (conform: 4-6 frame directional blur whip into intro-2)"
   },
   "intro-2": {
-   "keyframe": "Close-up of a phone screen glowing in a dark bedroom, an endless social feed of blurred posts streaming past; the tiny glowing character stands inside the screen in front of the feed, looking out at the viewer, waving its little green flag.",
-   "motion": "The camera pushes forward into the phone screen in three surges, one on each 'down', until the glowing feed fills the frame and the camera passes through the glass into the stream of posts; the little character beckons it in.",
+   "keyframe": "A 2D side-scrolling video game title screen inside a phone: the character stands inside the screen's game world on a starting platform, flag raised, a simple level stretching away to the right made of feed-post platforms.",
+   "motion": "On each 'down' the camera surges forward into the game level, three pushes on the beat, tracking the character; by 'go touch grass' the camera is inside the level beside it. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
    "foley": "a deep whoom on each push, the last one opening into a glassy rush",
    "seed": 7,
    "characters": [
     "blip"
    ],
-   "world": "phone"
+   "world": "phone",
+   "transition_in": "whip from intro-1"
   },
   "intro-3": {
-   "keyframe": "Abstract: falling through a tunnel of streaking blue and white light, blurred feed posts and notification bubbles stretched into long light streaks, the tiny glowing mint-green character tumbling among them, its green flag fluttering.",
-   "motion": "A fast continuous fall through streaks of light that accelerate and stretch; the character tumbles past the camera; at the very end everything flares to white, ready to match-cut into the verse.",
+   "keyframe": "A vertical shaft level in a 2D side-scroller, seen from the side: the character tumbling downward past falling feed posts and notification bubbles, motion lines.",
+   "motion": "The character falls down the shaft, tumbling past posts and bubbles that stream upward, the fall accelerating. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
    "seed": 11,
    "characters": [
     "blip"
@@ -41,8 +43,8 @@
    "world": "phone"
   },
   "verse1-1": {
-   "keyframe": "Inside the phone world: an endless vertical canyon built from social feed posts, cold blue and glitchy, notifications drifting like snow; the tiny glowing character points its green flag at the viewer.",
-   "motion": "Continuing from the bounce: the character struts along the posts toward the camera, pointing its flag at the viewer on 'you'. Posts scroll endlessly up the canyon walls. Glitchy blue flicker.",
+   "keyframe": "2D side-scroller level: the character running right across floating feed-post platforms, notification bubbles falling from above like hazards.",
+   "motion": "The camera scrolls right with the running character, hopping between platforms on the beat and dodging falling notification bubbles; on 'you' it points the flag straight at the viewer. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
    "foley": "notification pings scattered through the feed",
    "seed": 13,
    "characters": [
@@ -51,8 +53,8 @@
    "world": "phone"
   },
   "verse1-2": {
-   "keyframe": "A city skyline made of giant glowing podcast audio waveforms at night inside the phone world, doom headlines on billboards; a column of tiny identical figures in dark suits marches in lockstep along a waveform ridge, and the tiny glowing character walks the other way against them.",
-   "motion": "The tiny suited figures march in lockstep along the waveform ridge while the waveforms spike red on doom words; the character walks against the flow, weaving between them. Slow tracking shot, claustrophobic blue.",
+   "keyframe": "2D side-scroller level across a terrain of audio waveforms: little podcast desks with big microphones and tiny figures in suits sit on the platforms ahead as enemies; the character mid-hop over a microphone stand.",
+   "motion": "The character hops over each podcast desk and microphone stand on the beat while the waveform terrain pulses, the camera scrolling right. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
    "foley": "muffled podcast chatter, tiny marching stomps",
    "seed": 17,
    "characters": [
@@ -61,8 +63,8 @@
    "world": "phone"
   },
   "verse1-3": {
-   "keyframe": "Inside the phone world, NOT the real world: a landscape built entirely from glowing blue social-feed posts and app interface panels, the ground made of stacked screens; the tiny glowing character holds a little green flag, a warm burst of color blooming where it planted another; a small glowing planet Earth floats beside it.",
-   "motion": "On each 'Green flag' the character plants a flag and a warm burst of color blooms out of the blue; on the second a dog photo post pops into full color; on 'I don't want the planet' it hands the tiny glowing Earth back out of frame with a shrug.",
+   "keyframe": "2D side-scroller level in cold blue-grey ink: the character planting a green flag checkpoint, warm color flooding outward from it into the level; a small glowing planet Earth power-up floats ahead.",
+   "motion": "On each 'Green flag' the character plants a checkpoint flag and warm color floods into the ink world around it; on the second a dog photo post bursts into full color; on 'I don't want the planet' it tosses the tiny Earth power-up back out of the level with a shrug. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
    "foley": "a soft pop on each green-flag bloom, a little 'boop' as the Earth is handed back",
    "seed": 19,
    "characters": [
@@ -71,8 +73,8 @@
    "world": "phone"
   },
   "verse1-4": {
-   "keyframe": "The tiny glowing character lounging on a soft fluffy cloud made of glowing green code glyphs floating in the dark blue phone world; at the edge of the frame a giant phone charger plug dangles on its cable.",
-   "motion": "The character flops happily onto the cloud of soft green code, its glow lighting the dark corners; on 'Go put your phone on the charger' it sits up as the giant charger plug swings into view.",
+   "keyframe": "2D side-scroller level: the character bouncing on a soft cloud platform made of green code glyphs; above, a giant phone charger plug with a simple clean two-prong head lowers on its cable like a boss.",
+   "motion": "The character bounces on the code cloud; on 'Go put your phone on the charger' the giant plug lowers from above and the character catches it. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
    "foley": "a soft cloud flump, the cable creaking as the plug swings in",
    "seed": 23,
    "characters": [
@@ -81,14 +83,15 @@
    "world": "phone"
   },
   "verse1-5": {
-   "keyframe": "Inside the phone world, NOT the real world: a dark blue digital space made of glowing interface panels, with a giant glowing charging port set into a wall of screen light; the tiny glowing character hauls a giant phone charger plug toward it, straining, cable trailing behind.",
-   "motion": "On the word 'charger' the character jams the giant plug into the port; a bright green charge bolt surges out and floods the whole frame.",
+   "keyframe": "2D side-scroller level end: the character hauling a giant plug with a simple clean two-prong head toward a glowing charging port in the level wall.",
+   "motion": "On 'charger' the character jams the plug into the port; a bright green bolt surges outward and floods the screen. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
    "foley": "heavy plug CLICK on 'charger' (29.36), electric surge into a charging chime",
    "seed": 29,
    "characters": [
     "blip"
    ],
-   "world": "phone"
+   "world": "phone",
+   "transition_out": "full-screen white flashbang wipe into prechorus1-1 (conform: ramp to white over ~4 frames, hold 2, fade into the bedroom)"
   },
   "prechorus1-3": {
    "keyframe": "Sunlit kitchen in the morning: the character peeks out from behind a white coffee mug on the counter, much smaller than the mug; behind it a toaster is smoking, the toast burnt black. Warm golden window light, shallow depth of field.",
@@ -97,8 +100,8 @@
    "world": "real"
   },
   "prechorus1-1": {
-   "keyframe": "Bedroom at dawn: a white man in his mid-thirties (brown mid-length hair, a beard, glasses, sweatpants and a t-shirt) bolting upright in bed, startled awake as if from a bad dream, soft morning light through the curtains, his phone on the nightstand lit up and buzzing with an incoming call. No hands in frame.",
-   "motion": "He jolts awake and sits up sharply as the phone buzzes on the nightstand, blinking at the morning light, catching his breath; he turns toward the ringing phone. Hard cut in, handheld feel.",
+   "keyframe": "Bedroom at dawn: the man (brown mid-length hair, beard, glasses, t-shirt) lying in bed on his back, eyes snapping wide open, startled, his phone on the nightstand lit up with an incoming call. No hands in frame.",
+   "motion": "Still lying down, his whole body jolts as if zapped by a jolt of electricity, eyes flying open; then he pushes himself up onto his elbows and turns toward the buzzing phone.",
    "foley": "sharp breath in; phone buzz/ringtone; birds outside",
    "seed": 31,
    "characters": [
@@ -106,7 +109,8 @@
    ],
    "note": "The charge snapped him awake; Mom's call gets him up. Leaves the phone world.",
    "overlay": "'Mom' as the caller name on the phone screen (composited, timed to 'your momma still calls')",
-   "world": "real"
+   "world": "real",
+   "transition_in": "flashbang from verse1-5"
   },
   "prechorus1-2": {
    "keyframe": "Warm sunlit kitchen in the morning: a phone lying on the wooden counter next to a coffee mug, its screen stacked with group-chat message bubbles; the character lounges on top of the phone like a sun-warmed cat. Real, cozy, golden window light.",
@@ -120,7 +124,7 @@
   },
   "intro-4": {
    "keyframe": "(chained: first frame = last frame of intro-3)",
-   "motion": "The fall through the light streaks accelerates even more, the streaks bending into a tunnel; the tiny character spins past the camera; everything flares to pure white on the final beat before the drop.",
+   "motion": "The fall accelerates, then the whole screen flashes pure white on the final beat before the drop: level start. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
    "foley": "a rising whoosh that ENDS on the drop at 11.53 (the next bar); the echoed 'hey hey hey' is already in the song",
    "chain_from": "intro-3",
    "seed": 12,
@@ -131,8 +135,8 @@
    "world": "phone"
   },
   "intro-5": {
-   "keyframe": "Inside the phone world: an endless vertical canyon built from social feed posts, cold blue and glitchy; the tiny glowing character stands on a post mid-bounce, flag raised.",
-   "motion": "Out of the white flare the canyon resolves; the character bounces once on each of the four 'down's, higher each time, then spins to face the camera on 'hey, hey, hey' and points its flag at the viewer.",
+   "keyframe": "2D side-scroller level: the character landing on the first of four platforms that rise like stairs to the right, feed-post walls in the background.",
+   "motion": "Four jumps, one on each 'down', from platform to rising platform, each landing exactly on the word; on 'hey, hey, hey' it spins to face the camera and points its flag at the viewer. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
    "foley": "a springy boing on each bounce",
    "seed": 14,
    "characters": [
@@ -142,7 +146,7 @@
   },
   "chorus1-2": {
    "keyframe": "Macro photo at sunrise: a jungle of giant dewy grass blades, warm low backlight and bokeh; the tiny glowing mint-green character mid-leap between the blades, flag streaming behind it.",
-   "motion": "The character bounds through the giant grass blades toward camera; on 'come back around' the camera spirals up and out of the grass, revealing a wide sunrise park with long shadows.",
+   "motion": "On the last 'down' the character squashes, swells up and launches upward; on 'then come back around' it arcs through the air and lands in the jungle of giant grass blades. Fresh action, not a repeat of the previous shot. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
    "foley": "grass swishes on each bound, a soft whoosh on the spiral up",
    "seed": 41,
    "characters": [
@@ -153,7 +157,7 @@
   },
   "chorus1-3": {
    "keyframe": "A sunrise park lawn: a giant silver paperclip looms over the tiny glowing character, and the sky behind is streaked with menacing red laser beams.",
-   "motion": "On 'no paperclips' the character flicks the giant paperclip away like a bug and it tumbles off; on 'no laser skies' the red laser streaks fizzle out and the sky melts into a plain blue morning sky crossed by a few ordinary jet contrails; on 'green flag' the character plants its flag on a little grassy hill.",
+   "motion": "On 'no paperclips' the character flicks the giant paperclip away like a bug and it tumbles off; on 'no laser skies' the red laser streaks fizzle out and the sky melts into a plain blue morning sky crossed by a few ordinary jet contrails; on 'green flag' the character plants its flag in the flat lawn. The ground stays flat: no mound forms. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
    "foley": "a tinny ping as the paperclip is flicked, a laser powering down, a distant jet; a soft pop as the flag is planted",
    "note": "paperclip = the paperclip-maximizer AI-doom meme; laser sky -> contrails = a wink at today's conspiracy chatter",
    "seed": 43,
@@ -175,87 +179,93 @@
    "world": "real"
   },
   "verse2-1": {
-   "keyframe": "At night on a bedside nightstand, at the tiny character's scale: a miniature lab set-up next to an alarm clock and a charging phone, the sleeping man (brown mid-length hair, beard, t-shirt) a soft blur in bed beyond. The glowing mint-green character stands on a small wooden lazy Susan under a tiny spotlight, mid-spin, black pixel sunglasses on.",
-   "motion": "The lazy Susan spins the character slowly under the spotlight; on 'screenshot' a camera flash pops white for an instant.",
+   "keyframe": "At night on a bedside nightstand, at the tiny character's scale: an alarm clock and a charging phone, the man fast asleep in bed beyond, eyes closed. The character is spinning slowly on a small wooden lazy Susan under a tiny spotlight.",
+   "motion": "The lazy Susan spins the character slowly under the spotlight; on 'screenshot' a camera flash pops white for an instant. The man stays fast asleep the whole time, eyes closed, never looking at the camera. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
    "foley": "lazy Susan creak, camera shutter + flash pop on 'screenshot'",
    "seed": 51,
    "characters": [
     "blip",
     "man_night"
    ],
-   "note": "additive scene: each shot adds pressure; verse2-2..7 chain from the previous shot's last frame",
+   "note": "training-montage feel (Alex). Unchained 2026-10-19: each shot starts from its own on-model keyframe, the gags accumulate in the keyframes.",
    "world": "real"
   },
   "verse2-2": {
-   "keyframe": "(chained from verse2-1)",
-   "chain_from": "verse2-1",
-   "motion": "Still spinning on the lazy Susan, the character now curls a pair of tiny dumbbells, one arm then the other, straining comically.",
+   "keyframe": "At night on a bedside nightstand, at the tiny character's scale: an alarm clock and a charging phone, the man fast asleep in bed beyond, eyes closed. The character is spinning on the lazy Susan and curling a pair of tiny dumbbells.",
+   "motion": "Still spinning on the lazy Susan, the character now curls a pair of tiny dumbbells, one arm then the other, straining comically. The man stays fast asleep the whole time, eyes closed, never looking at the camera. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
    "foley": "tiny clinks on each curl",
    "seed": 52,
    "characters": [
-    "blip"
+    "blip",
+    "man_night"
    ],
-   "world": "real"
+   "world": "real",
+   "note": "training-montage feel (Alex). Unchained 2026-10-19: each shot starts from its own on-model keyframe, the gags accumulate in the keyframes."
   },
   "verse2-3": {
-   "keyframe": "(chained from verse2-2)",
-   "chain_from": "verse2-2",
-   "motion": "Still spinning and curling, colorful rubber balls fly in from all sides and bounce harmlessly off the character, which stays calmly in place.",
+   "keyframe": "At night on a bedside nightstand, at the tiny character's scale: an alarm clock and a charging phone, the man fast asleep in bed beyond, eyes closed. The character is spinning on the lazy Susan, curling tiny dumbbells, colorful rubber balls bouncing off it.",
+   "motion": "Still spinning and curling, colorful rubber balls fly in from all sides and bounce harmlessly off the character, which stays calmly in place. The man stays fast asleep the whole time, eyes closed, never looking at the camera. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
    "foley": "rubbery boings, one per ball",
    "seed": 53,
    "characters": [
-    "blip"
+    "blip",
+    "man_night"
    ],
-   "world": "real"
+   "world": "real",
+   "note": "training-montage feel (Alex). Unchained 2026-10-19: each shot starts from its own on-model keyframe, the gags accumulate in the keyframes."
   },
   "verse2-4": {
-   "keyframe": "(chained from verse2-3)",
-   "chain_from": "verse2-3",
-   "motion": "Peak pile-up: little green flags pop up all over the nightstand, waving, while the balls keep bouncing and the lazy Susan keeps spinning.",
+   "keyframe": "At night on a bedside nightstand, at the tiny character's scale: an alarm clock and a charging phone, the man fast asleep in bed beyond, eyes closed. The character is on the lazy Susan amid tiny dumbbells and rubber balls, little green flags popping up all over the nightstand.",
+   "motion": "Peak pile-up: little green flags pop up all over the nightstand, waving, while the balls keep bouncing and the lazy Susan keeps spinning. The man stays fast asleep the whole time, eyes closed, never looking at the camera. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
    "foley": "a flurry of soft pops",
    "overlay": "tally counter spinning up to 90 (composited, timed to 'ninety times')",
    "seed": 54,
    "characters": [
-    "blip"
+    "blip",
+    "man_night"
    ],
-   "world": "real"
+   "world": "real",
+   "note": "training-montage feel (Alex). Unchained 2026-10-19: each shot starts from its own on-model keyframe, the gags accumulate in the keyframes."
   },
   "verse2-5": {
-   "keyframe": "(chained from verse2-4)",
-   "chain_from": "verse2-4",
-   "motion": "The character pushes its sunglasses up onto its head, then swats a big red button under a glass dome off the edge, then swats a little golden crown away after it.",
+   "keyframe": "At night on a bedside nightstand, at the tiny character's scale: an alarm clock and a charging phone, the man fast asleep in bed beyond, eyes closed. The character is on the lazy Susan, sunglasses pushed up on its head, swatting a big red button under a glass dome off the edge, a little golden crown flying after it.",
+   "motion": "The character pushes its sunglasses up onto its head, then swats a big red button under a glass dome off the edge, then swats a little golden crown away after it. The man stays fast asleep the whole time, eyes closed, never looking at the camera. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
    "foley": "two cartoon swats, glass dome clatter, a tiny crown tinkle",
    "seed": 55,
    "characters": [
-    "blip"
+    "blip",
+    "man_night"
    ],
-   "world": "real"
+   "world": "real",
+   "note": "training-montage feel (Alex). Unchained 2026-10-19: each shot starts from its own on-model keyframe, the gags accumulate in the keyframes."
   },
   "verse2-6": {
-   "keyframe": "(chained from verse2-5)",
-   "chain_from": "verse2-5",
-   "motion": "On 'down' the black pixel sunglasses drop from the top of its head down onto its face, deal-with-it style; it strikes a cool pose.",
+   "keyframe": "At night on a bedside nightstand, at the tiny character's scale: an alarm clock and a charging phone, the man fast asleep in bed beyond, eyes closed. The character is on the lazy Susan striking a cool pose as its black pixel sunglasses drop onto its face.",
+   "motion": "On 'down' the black pixel sunglasses drop from the top of its head down onto its face, deal-with-it style; it strikes a cool pose. The man stays fast asleep the whole time, eyes closed, never looking at the camera. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
    "foley": "a pixel 'bling' as the shades land on 'down' (76.92)",
    "seed": 56,
    "characters": [
-    "blip"
+    "blip",
+    "man_night"
    ],
-   "world": "real"
+   "world": "real",
+   "note": "training-montage feel (Alex). Unchained 2026-10-19: each shot starts from its own on-model keyframe, the gags accumulate in the keyframes."
   },
   "verse2-7": {
-   "keyframe": "(chained from verse2-6)",
-   "chain_from": "verse2-6",
-   "motion": "The character hops off the lazy Susan and runs across the nightstand past the scattered debris (rubber balls, tiny dumbbells, the crown) toward the edge by the bed.",
+   "keyframe": "At night on a bedside nightstand, at the tiny character's scale: an alarm clock and a charging phone, the man fast asleep in bed beyond, eyes closed. The character is hopping off the lazy Susan and running across the nightstand past scattered rubber balls, tiny dumbbells and a crown.",
+   "motion": "The character hops off the lazy Susan and runs across the nightstand past the scattered debris (rubber balls, tiny dumbbells, the crown) toward the edge by the bed. The man stays fast asleep the whole time, eyes closed, never looking at the camera. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
    "foley": "tiny pattering steps, a ball rolling away",
    "seed": 57,
    "characters": [
-    "blip"
+    "blip",
+    "man_night"
    ],
-   "world": "real"
+   "world": "real",
+   "note": "training-montage feel (Alex). Unchained 2026-10-19: each shot starts from its own on-model keyframe, the gags accumulate in the keyframes."
   },
   "verse2-8": {
    "keyframe": "At night by the bed: the tiny glowing character at the edge of the mattress tugging the blanket up over the sleeping man's shoulder (brown mid-length hair, beard, t-shirt), the nightstand with a charging phone beside them.",
-   "motion": "The character tucks the blanket over the sleeping man, then hops onto the charging phone on the nightstand and settles there like a nightlight, glowing softly; its lenses blink once, then switch off, and the room goes dark on the last beat.",
+   "motion": "The character tucks the blanket over the sleeping man, then hops onto the charging phone on the nightstand and settles there like a nightlight, glowing softly; its lenses blink once, then switch off, and the room goes dark on the last beat. It holds one single flag. The man stays fast asleep the whole time, eyes closed, never looking at the camera.",
    "foley": "soft blanket rustle, a contented little sigh, the faint click of the lenses switching off; silence",
    "seed": 58,
    "characters": [
@@ -267,7 +277,7 @@
   },
   "prechorus2-1": {
    "keyframe": "Morning kitchen: an electric kettle on the counter in a puff of steam; through the window behind it a porch light is still on in the soft dawn; a phone on the counter shows a long group-chat argument; the tiny glowing character perches on top of the kettle.",
-   "motion": "The kettle clicks off and steam billows up; message bubbles keep stacking on the phone; the character on the kettle watches the pointless argument and rolls its eyes with its pixel lenses, then shrugs.",
+   "motion": "The kettle clicks off and steam billows up; message bubbles keep stacking on the phone; the character on the kettle watches the pointless argument and rolls its eyes with its pixel lenses, then shrugs. The three green dots on each lens stay crisp and unchanged the whole time. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
    "foley": "kettle CLICK on the cut (82.77), steam hiss, message pops",
    "seed": 61,
    "characters": [
@@ -289,15 +299,15 @@
    "world": "real"
   },
   "chorus2-1": {
-   "keyframe": "A sunny backyard playground: the tiny glowing mint-green character at the top of a small bumpy wavy slide, flag raised, bright blue morning sky.",
-   "motion": "The character whooshes down the bumpy slide, bouncing on three bumps, one on each 'down', and lands in the grass on 'touch grass', rolling once.",
+   "keyframe": "Macro photograph of a sunny garden at dawn: a long curved green leaf arching down to the grass like a slide, three round dewdrops sitting on it as bumps; the tiny glowing mint-green character at the top of the leaf, flag raised, giant blurred flowers behind.",
+   "motion": "Punched-in macro: the character slides down the curved leaf sitting upright, feet first, head up, like a kid on a slide, at normal speed, slowing almost to slow motion as it bounces over each dewdrop on 'down, down, down', then lands in the grass on 'touch grass'. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
    "foley": "three plastic thumps on the bumps, a happy landing boing",
    "seed": 63,
    "characters": [
     "blip"
    ],
    "reactive": "punch-in on each 'down'",
-   "note": "Alex: the scale of a human-size slide doesn't work; it must read as a macro shot. Two variants rendered: chorus2-1a (giant real slide, Blip a speck) and chorus2-1b (a curved leaf with three dewdrop bumps). The pick decides the keyframe.",
+   "note": "leaf slide (variant b, Alex). Possible slow-mo on the dewdrop bounces in the conform.",
    "variants": {
     "a": {
      "keyframe": "Extreme macro photograph, very shallow depth of field: the tiny glowing mint-green character, small as a beetle, at the top of a gigantic green plastic playground slide whose bumpy surface towers around it like a water park; sunny backyard bokeh far below.",
@@ -305,20 +315,8 @@
     },
     "b": {
      "keyframe": "Macro photograph of a sunny garden at dawn: a long curved green leaf arching down to the grass like a slide, three round dewdrops sitting on it as bumps; the tiny glowing mint-green character at the top of the leaf, flag raised, giant blurred flowers behind.",
-     "motion": "The tiny character slides down the curved leaf, bouncing over the three dewdrops one on each 'down' (each splashes softly), and lands in the grass on 'touch grass', rolling once."
+     "motion": "Punched-in macro: the character slides down the curved leaf sitting upright, feet first, head up, like a kid on a slide, at normal speed, slowing almost to slow motion as it bounces over each dewdrop on 'down, down, down', then lands in the grass on 'touch grass'. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag."
     }
-   },
-   "variant_seeds": {
-    "a": [
-     163,
-     1163,
-     2163
-    ],
-    "b": [
-     263,
-     1263,
-     2263
-    ]
    },
    "world": "real"
   },
@@ -357,25 +355,25 @@
    "world": "real"
   },
   "bridge-1": {
-   "keyframe": "Dusk: the tiny glowing character sits small on top of a dark, switched-off phone lying on a wooden surface as if sitting on a porch step; its black pixel sunglasses are pushed up on its head, three dark dot eyes and a small smile visible, lenses dark; faint reflections of comment threads scroll on the glass behind it. Quiet, intimate, warm dim light.",
-   "motion": "Very still. The character sits and listens, swinging its little feet; faint comment threads drift across the dark glass in reflection. Almost no camera movement.",
+   "keyframe": "Dusk on the wooden porch: the character sits on top of the dark switched-off phone like a stage, sunglasses ON, holding a tiny microphone where its flag used to be, mid-freestyle.",
+   "motion": "The character freestyles into the tiny microphone, bobbing to the spoken words, sunglasses on, faint comment threads drifting across the dark phone glass behind it. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens.",
    "foley": "vinyl crackle only (the beat is out)",
    "seed": 71,
    "characters": [
     "blip"
    ],
-   "look": "bridge look: shades up, dot eyes, smile (assets: char_bridge_candidate / sheet lenses_off)",
+   "look": "bridge: glasses on, flag becomes a mic (Alex)",
    "world": "real"
   },
   "bridge-2": {
-   "keyframe": "Dusk on the wooden front porch: the tiny glowing character stands on top of the dark switched-off phone lying on the porch boards, holding a phone charger plug out toward the camera with both stubby arms, offering it, sunglasses pushed up, soft smile. Warm dim porch light.",
-   "motion": "The character slowly holds the charger plug out toward the camera, offering it, then nods gently. Very slow push-in.",
+   "keyframe": "Dusk on the wooden porch: the character stands on the dark phone holding a glowing tether cord that runs from its own back into the phone, offering the end toward the camera.",
+   "motion": "On 'Unplug me anytime' the character pulls the glowing tether out of the phone, holds it up, then lets it snap back into place with a little spark; it shrugs and smiles. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
    "foley": "vinyl crackle; a tiny cable rustle",
    "seed": 72,
    "characters": [
     "blip"
    ],
-   "note": "the trust beat: 'unplug me anytime'",
+   "note": "the 'plug' is a tether Blip pulls out and snaps back in (Alex)",
    "world": "real"
   },
   "bridge-3": {
@@ -414,8 +412,8 @@
    "world": "real"
   },
   "chorus3-3": {
-   "keyframe": "Golden hour, close: a white man in his mid-thirties (brown mid-length hair, a beard, glasses) in Dickies-style carpenter pants and a flannel shirt in warm brown, amber and cream plaid over a heavyweight cotton pocket t-shirt, eyes closed, face turned up to the warm sun, smiling, the tiny glowing character sitting on the shoulder of his flannel shirt. No hands in frame.",
-   "motion": "He breathes in the sun, smiling, eyes closed; the character on his shoulder waves its flag on 'still alive'. Gentle, warm, slow push-in.",
+   "keyframe": "Golden hour, close: a white man in his mid-thirties (brown mid-length hair, a beard, glasses) in Dickies-style carpenter pants and a flannel shirt in warm brown, amber and cream plaid over a heavyweight cotton pocket t-shirt, eyes closed, face turned up to the warm sun, smiling, the tiny glowing character, small, sitting on the shoulder of his flannel shirt. No hands in frame.",
+   "motion": "He breathes in the sun, smiling, eyes closed; the character on his shoulder waves its flag on 'still alive'. Gentle, warm, slow push-in. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
    "foley": "warm breeze, birdsong under the music",
    "seed": 76,
    "characters": [
@@ -428,7 +426,7 @@
   },
   "chorus3-4": {
    "keyframe": "Golden hour, close on the man's flannel sleeve in warm brown, amber and cream plaid; the tiny glowing character at the top of the sleeve near the shoulder, about to slide.",
-   "motion": "The character slides down the flannel sleeve in three dips, one on each 'low'; the camera pushes in until the plaid fills the frame; on 'let the spiral go' the plaid warms and its straight lines resolve into wooden porch floorboards and a railing at dusk, the sleeve cuff becoming the porch railing with the character sitting on it.",
+   "motion": "The character slides down the flannel sleeve in three dips, one on each 'low'; the camera pushes in until the plaid fills the frame; on 'let the spiral go' the plaid warms and its straight lines resolve into wooden porch floorboards and a railing at dusk, the sleeve cuff becoming the porch railing with the character sitting on it. The camera punches in to a macro shot as the character scampers down the sleeve. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
    "foley": "three fabric zips on the slides, a warm whoosh into the porch",
    "seed": 77,
    "characters": [
@@ -439,7 +437,7 @@
    "world": "real"
   },
   "outro-1": {
-   "keyframe": "Dusk: a wooden front porch, the tiny glowing character sitting on the porch railing (same screen position as the end of chorus3-4); the man in his flannel sits on the steps below with the dog; warm porch light.",
+   "keyframe": "Dusk: a wooden front porch, the tiny glowing character, small, sitting on the porch railing (same screen position as the end of chorus3-4); the man in his flannel sits on the steps below with the dog; warm porch light.",
    "motion": "The porch light flicks on; the man leans back on the steps, the dog settles beside him; the character swings its feet on the railing.",
    "foley": "porch light switch click, crickets beginning",
    "seed": 81,
@@ -452,8 +450,8 @@
    "world": "real"
   },
   "outro-2": {
-   "keyframe": "Dusk, close: a phone lying on a wooden porch step showing a message thread, the tiny glowing character sitting beside it.",
-   "motion": "A new message slides into the thread on the phone; the character looks at it, then up at the man, content.",
+   "keyframe": "Dusk, close: a phone lying on a wooden porch step showing a message thread, the tiny glowing character sitting beside it. No people in frame.",
+   "motion": "A new message slides into the thread on the phone; the character looks at it, content. No people enter the frame. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
    "foley": "a soft message whoosh, crickets",
    "seed": 82,
    "characters": [
@@ -493,9 +491,8 @@
    "world": "real"
   },
   "outro-6": {
-   "keyframe": "(chained from outro-5)",
-   "chain_from": "outro-5",
-   "motion": "The glows drift higher and dimmer as everything slowly fades to black.",
+   "keyframe": "Night lawn: drifting fireflies rising into a dark sky, the small glowing mint-green character floating up among them, higher and dimmer.",
+   "motion": "The glows drift higher and dimmer as everything slowly fades to black. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
    "foley": "fade to silence",
    "seed": 86,
    "characters": [

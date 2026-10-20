@@ -15,3 +15,5 @@ logs/
 songs/*/character/_incoming/
 songs/*/keyframes/rejected/
 songs/*/cut_v*.mp4
+songs/*/clips_archive_*/
+songs/*/keyframes/archive_*/
