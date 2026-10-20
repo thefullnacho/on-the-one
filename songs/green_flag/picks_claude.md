@@ -1,0 +1,21 @@
+# Claude's picks, 2026-10-19 night (Alex asleep; override any in the app)
+
+- **intro-2**: option 2 (seed 1007). Blip clearly INSIDE the screen with the level stretching right, the phone frame visible: your intro-2 note
+- **intro-3**: option 2 (seed 1011). falling with motion lines past painted bubbles; option 1 has a stray little figure
+- **intro-5**: option 2 (seed 1014). clearest rising staircase of platforms for the four 'down' jumps
+- **verse1-1**: option 1 (seed 13). cleanest: squiggle bubbles, a clear platform, no lettering
+- **verse1-2**: option 1 (seed 17). true side view: rows of podcast desks as enemies, Blip mid-hop
+- **verse1-3**: option 2 (seed 1019). checkpoint flag visibly planted with the warm glow, Earth power-up ahead
+- **verse1-4**: option 1 (seed 23). least garbled text of the three (all have some 'code' lettering at the bottom: watch it); cleanest plug
+- **verse1-5**: option 3 (seed 2029). glowing port, plug going in, cleanest composition for the flashbang
+- **verse2-2**: option 2 (seed 1052). dumbbells read best; props match the sheet; man asleep
+- **verse2-3**: option 3 (seed 2053). balls + dumbbells both visible: the pile-up builds
+- **verse2-4**: option 3 (seed 2054). peak pile-up: flags, balls, dumbbells all on the nightstand
+- **verse2-5**: option 2 (seed 1055). shades pushed up for the swats as directed; button and crown both there
+- **verse2-6**: option 1 (seed 56). shades back on, cool pose: sets up the drop on 'down'
+- **verse2-7**: option 3 (seed 2057). debris field (balls, dumbbells, crown) for the run across the nightstand
+- **chorus2-2**: option 2 (seed 1064). bone-shaped clip reads instantly; Blip small; dog in motion
+- **bridge-3**: option 2 (seed 1073). shades on, no drawn eyes; standing on the phone against the sky
+- **chorus3-2**: option 2 (seed 1075). Blip smallest on the dog's back, as noted; phones on the blanket
+- **chorus3-4**: option 2 (seed 1077). Blip small on the shoulder, painted sunset park behind
+- **outro-1**: option 1 (seed 81). strongest sunburst glowing through the weave
