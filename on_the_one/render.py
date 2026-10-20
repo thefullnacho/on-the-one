@@ -62,7 +62,7 @@ def refs_for(d, direction, spec):
             looks.append(info.get("look", c))
     for extra in spec.get("extra_refs", []):         # props/locations to hold steady (e.g. the same nightstand across a sequence)
         paths.append(d / extra["path"]); looks.append(extra["look"])
-    return paths[:3], looks[:3]
+    return paths[:4], looks[:4]
 
 
 def pad_16x9(src, dst):
@@ -139,9 +139,9 @@ def main():
                 if paths:
                     paths[0] = pad_16x9(paths[0], Path(tmp) / f"{shot}_ref0.png")
                 assets = [client.assets.from_file(p) for p in paths]
-                name = ["klein_t2i", "klein_edit", "klein_edit2", "klein_edit3"][len(assets)]
+                name = ["klein_t2i", "klein_edit", "klein_edit2", "klein_edit3", "klein_edit4"][len(assets)]
                 values = {"prompt": keyframe_prompt(direction, spec, looks)}
-                values.update({slot: a_ for slot, a_ in zip(("image", "image2", "image3"), assets)})
+                values.update({slot: a_ for slot, a_ in zip(("image", "image2", "image3", "image4"), assets)})
                 base = spec.get("seed", 1)
                 for i in range(a.options):
                     seed = base + 1000 * i

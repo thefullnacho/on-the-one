@@ -77,7 +77,7 @@ def check(graph, info):
 
 def slots(graph):
     out = {}
-    ref_names = {"images.image0": "image", "images.image1": "image2", "images.image2": "image3"}
+    ref_names = {"images.image0": "image", "images.image1": "image2", "images.image2": "image3", "images.image3": "image4"}
     for k, n in graph.items():
         if n["class_type"] in LOADERS:
             name, field = LOADERS[n["class_type"]]
