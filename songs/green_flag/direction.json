@@ -200,7 +200,13 @@
     "man_night"
    ],
    "world": "real",
-   "note": "training-montage feel (Alex). Unchained 2026-10-19: each shot starts from its own on-model keyframe, the gags accumulate in the keyframes."
+   "note": "training-montage feel (Alex). Unchained 2026-10-19: each shot starts from its own on-model keyframe, the gags accumulate in the keyframes.",
+   "extra_refs": [
+    {
+     "path": "keyframes/verse2-1.png",
+     "look": "the bedroom and nightstand this sequence takes place in (keep the same alarm clock, phone, lamp and furniture)"
+    }
+   ]
   },
   "verse2-3": {
    "keyframe": "At night on a bedside nightstand, at the tiny character's scale: an alarm clock and a charging phone, the man fast asleep in bed beyond, eyes closed. The character is spinning on the lazy Susan, curling tiny dumbbells, colorful rubber balls bouncing off it.",
@@ -212,7 +218,13 @@
     "man_night"
    ],
    "world": "real",
-   "note": "training-montage feel (Alex). Unchained 2026-10-19: each shot starts from its own on-model keyframe, the gags accumulate in the keyframes."
+   "note": "training-montage feel (Alex). Unchained 2026-10-19: each shot starts from its own on-model keyframe, the gags accumulate in the keyframes.",
+   "extra_refs": [
+    {
+     "path": "keyframes/verse2-1.png",
+     "look": "the bedroom and nightstand this sequence takes place in (keep the same alarm clock, phone, lamp and furniture)"
+    }
+   ]
   },
   "verse2-4": {
    "keyframe": "At night on a bedside nightstand, at the tiny character's scale: an alarm clock and a charging phone, the man fast asleep in bed beyond, eyes closed. The character is on the lazy Susan amid tiny dumbbells and rubber balls, little green flags popping up all over the nightstand.",
@@ -225,7 +237,13 @@
     "man_night"
    ],
    "world": "real",
-   "note": "training-montage feel (Alex). Unchained 2026-10-19: each shot starts from its own on-model keyframe, the gags accumulate in the keyframes."
+   "note": "training-montage feel (Alex). Unchained 2026-10-19: each shot starts from its own on-model keyframe, the gags accumulate in the keyframes.",
+   "extra_refs": [
+    {
+     "path": "keyframes/verse2-1.png",
+     "look": "the bedroom and nightstand this sequence takes place in (keep the same alarm clock, phone, lamp and furniture)"
+    }
+   ]
   },
   "verse2-5": {
    "keyframe": "At night on a bedside nightstand, at the tiny character's scale: an alarm clock and a charging phone, the man fast asleep in bed beyond, eyes closed. The character is on the lazy Susan, sunglasses pushed up on its head, swatting a big red button under a glass dome off the edge, a little golden crown flying after it.",
@@ -237,7 +255,13 @@
     "man_night"
    ],
    "world": "real",
-   "note": "training-montage feel (Alex). Unchained 2026-10-19: each shot starts from its own on-model keyframe, the gags accumulate in the keyframes."
+   "note": "training-montage feel (Alex). Unchained 2026-10-19: each shot starts from its own on-model keyframe, the gags accumulate in the keyframes.",
+   "extra_refs": [
+    {
+     "path": "keyframes/verse2-1.png",
+     "look": "the bedroom and nightstand this sequence takes place in (keep the same alarm clock, phone, lamp and furniture)"
+    }
+   ]
   },
   "verse2-6": {
    "keyframe": "At night on a bedside nightstand, at the tiny character's scale: an alarm clock and a charging phone, the man fast asleep in bed beyond, eyes closed. The character is on the lazy Susan striking a cool pose as its black pixel sunglasses drop onto its face.",
@@ -249,7 +273,13 @@
     "man_night"
    ],
    "world": "real",
-   "note": "training-montage feel (Alex). Unchained 2026-10-19: each shot starts from its own on-model keyframe, the gags accumulate in the keyframes."
+   "note": "training-montage feel (Alex). Unchained 2026-10-19: each shot starts from its own on-model keyframe, the gags accumulate in the keyframes.",
+   "extra_refs": [
+    {
+     "path": "keyframes/verse2-1.png",
+     "look": "the bedroom and nightstand this sequence takes place in (keep the same alarm clock, phone, lamp and furniture)"
+    }
+   ]
   },
   "verse2-7": {
    "keyframe": "At night on a bedside nightstand, at the tiny character's scale: an alarm clock and a charging phone, the man fast asleep in bed beyond, eyes closed. The character is hopping off the lazy Susan and running across the nightstand past scattered rubber balls, tiny dumbbells and a crown.",
@@ -261,7 +291,13 @@
     "man_night"
    ],
    "world": "real",
-   "note": "training-montage feel (Alex). Unchained 2026-10-19: each shot starts from its own on-model keyframe, the gags accumulate in the keyframes."
+   "note": "training-montage feel (Alex). Unchained 2026-10-19: each shot starts from its own on-model keyframe, the gags accumulate in the keyframes.",
+   "extra_refs": [
+    {
+     "path": "keyframes/verse2-1.png",
+     "look": "the bedroom and nightstand this sequence takes place in (keep the same alarm clock, phone, lamp and furniture)"
+    }
+   ]
   },
   "verse2-8": {
    "keyframe": "At night by the bed: the tiny glowing character at the edge of the mattress tugging the blanket up over the sleeping man's shoulder (brown mid-length hair, beard, t-shirt), the nightstand with a charging phone beside them.",
@@ -321,15 +357,15 @@
    "world": "real"
   },
   "chorus2-2": {
-   "keyframe": "Sunny backyard lawn: a small honey-gold and white parti-colored Lhasa Apso with a long silky shaggy coat, fringe falling over its eyes, dark-tipped ears and a plumed tail curled over its back bounding toward the camera with a giant silver paperclip in its mouth, the tiny glowing character in the grass, blue sky with a couple of kites.",
-   "motion": "On 'no, no, no paperclips' the dog bounds in proudly carrying the giant paperclip, shakes it and drops it at the character's feet; on 'no laser skies' the camera tilts up to kites dancing in a clear blue sky.",
+   "keyframe": "Sunny backyard lawn: a small honey-gold and white parti-colored Lhasa Apso with a long silky shaggy coat, fringe falling over its eyes, dark-tipped ears and a plumed tail curled over its back bounding toward the camera with a giant silver paperclip bent into the shape of a dog bone in its mouth, the tiny glowing character in the grass, blue sky with a couple of kites.",
+   "motion": "On 'no, no, no paperclips' the dog bounds in proudly carrying the giant paperclip bent into a dog-bone shape, shakes it and drops it at the character's feet; on 'no laser skies' the camera tilts up to kites dancing in a clear blue sky.",
    "foley": "dog tags, a metallic clatter as the paperclip drops, kite flutter",
    "seed": 64,
    "characters": [
     "blip",
     "dog"
    ],
-   "note": "callback: the paperclip Blip flicked away in chorus1-3 comes back as the dog's toy",
+   "note": "callback: the paperclip Blip flicked away in chorus1-3 comes back as the dog's toy The paperclip is shaped like a dog bone (Alex).",
    "world": "real"
   },
   "chorus2-3": {
@@ -377,8 +413,8 @@
    "world": "real"
   },
   "bridge-3": {
-   "keyframe": "Dusk: the tiny glowing character standing up on top of the dark phone, sunglasses on its head, looking up with determination.",
-   "motion": "The character stands up as the riser builds; its sunglasses drop back down onto its face; at the very end a red gingham picnic blanket swoops in front of the camera and completely fills the frame.",
+   "keyframe": "Dusk: the tiny glowing character standing up on top of the dark phone, its black pixel sunglasses on its face (no visible eyes), looking up with determination.",
+   "motion": "The character stands up as the riser builds; its sunglasses drop back down onto its face; at the very end a red gingham picnic blanket swoops in front of the camera and completely fills the frame. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
    "foley": "the riser + snare roll is in the song; a big fabric whoosh at the end",
    "seed": 73,
    "characters": [
@@ -400,7 +436,7 @@
    "world": "real"
   },
   "chorus3-2": {
-   "keyframe": "Wide golden-hour park picnic: the red gingham blanket on the grass with a pile of phones face-down on it; a small honey-gold and white parti-colored Lhasa Apso with a long silky shaggy coat, fringe falling over its eyes, dark-tipped ears and a plumed tail curled over its back racing around joyfully; the tiny glowing character riding on the dog's back, flag streaming.",
+   "keyframe": "Wide golden-hour park picnic: the red gingham blanket on the grass with a pile of phones face-down on it; a small honey-gold and white parti-colored Lhasa Apso with a long silky shaggy coat, fringe falling over its eyes, dark-tipped ears and a plumed tail curled over its back racing around joyfully; the tiny glowing character, very small, riding on the dog's back, flag streaming.",
    "motion": "The dog tears around the picnic in a big happy loop with the character riding on its back, flag streaming; warm low sun, long shadows, lens flare.",
    "foley": "dog tags jingling, happy barks, distant park sounds",
    "seed": 75,
@@ -426,28 +462,25 @@
   },
   "chorus3-4": {
    "keyframe": "Golden hour, close on the man's brown, amber and cream plaid flannel sleeve and shoulder, a softly painted sunset park and sky behind; the small glowing character at the top of the sleeve near the shoulder, about to slide. The background is a painted landscape, not a plain backdrop.",
-   "motion": "The character slides down the flannel sleeve in three dips, one on each 'low'; the camera pushes in until the plaid fills the frame; on 'let the spiral go' the plaid warms and its straight lines resolve into wooden porch floorboards and a railing at dusk, the sleeve cuff becoming the porch railing with the character sitting on it. The camera punches in to a macro shot as the character scampers down the sleeve. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
+   "motion": "The character slides down the flannel sleeve using one stubby arm like a rope, then disappears behind a fold of the fabric; the camera chases it, punching in closer and closer into the plaid weave. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
    "foley": "three fabric zips on the slides, a warm whoosh into the porch",
    "seed": 77,
    "characters": [
     "blip",
     "man_day"
    ],
-   "transition_out": "texture morph: chained motion + a short dissolve into outro-1; keep the character's glow at the same screen position across the cut",
-   "world": "real"
+   "transition_out": "the camera chase into the plaid continues into outro-1's sunburst",
+   "world": "real",
+   "note": "Alex: slide down the arm, vanish behind the fabric, camera chases into the plaid; the porch morph is dropped."
   },
   "outro-1": {
-   "keyframe": "Dusk: a wooden front porch, the tiny glowing character, small, sitting on the porch railing (same screen position as the end of chorus3-4); the man in his flannel sits on the steps below with the dog; warm porch light.",
-   "motion": "The porch light flicks on; the man leans back on the steps, the dog settles beside him; the character swings its feet on the railing.",
-   "foley": "porch light switch click, crickets beginning",
+   "keyframe": "Extreme close-up of brown, amber and cream plaid flannel weave, the threads glowing as warm golden sunlight bursts through the fabric from behind.",
+   "motion": "The camera pushes through the plaid weave and on 'I just want you bright' the frame bursts into a blaze of warm golden sunlight that fills the screen, then softens.",
+   "foley": "a warm swell into the sunburst",
    "seed": 81,
-   "characters": [
-    "blip",
-    "man_day",
-    "dog"
-   ],
-   "transition_in": "texture morph from chorus3-4",
-   "world": "real"
+   "characters": [],
+   "world": "real",
+   "note": "replaces the porch shot (Alex): the chase into the plaid ends in a sunburst on 'I just want you bright'"
   },
   "outro-2": {
    "keyframe": "Dusk, close: a phone lying on a wooden porch step showing a message thread, the tiny glowing character sitting beside it. No people in frame.",
@@ -506,7 +539,7 @@
   "blip": {
    "ref": {
     "phone": [
-     "character/blip_ink.png"
+     "character/blip_gouache.png"
     ],
     "real": [
      "character/blip_gouache.png"
@@ -550,9 +583,9 @@
  },
  "art": {
   "phone": {
-   "style": "Drawn as French bande dessinee comic art: crisp fine black ink outlines on every shape (ligne claire), flat areas of cool blue-grey pastel color, no gradients, no photographic texture, no readable text: posts and screens carry abstract squiggle lines instead of lettering. 16:9.",
-   "style_empty": "Drawn as French bande dessinee comic art: crisp fine black ink outlines on every shape (ligne claire), flat areas of cool blue-grey pastel color, no gradients, no photographic texture, no readable text: posts and screens carry abstract squiggle lines instead of lettering. 16:9. No characters.",
-   "note": "inside the phone: a 2D side-scrolling game level, ink line art"
+   "style": "Painted as a hand-painted gouache storybook illustration in COOL tones: thick matte opaque paint, visible brush strokes, simplified painted shapes, soft edges; a palette of desaturated blues, teals, slate and grey-violet, lit like a phone screen glowing at 2 AM; only the character keeps its mint-green glow and warm color appears only where a green flag is planted. No readable text: posts and screens carry abstract painted squiggles. Side view of a 2D platformer level, 16:9.",
+   "style_empty": "Painted as a hand-painted gouache storybook illustration in COOL tones: thick matte opaque paint, visible brush strokes, simplified painted shapes, soft edges; a palette of desaturated blues, teals, slate and grey-violet, lit like a phone screen glowing at 2 AM; only the character keeps its mint-green glow and warm color appears only where a green flag is planted. No readable text: posts and screens carry abstract painted squiggles. Side view of a 2D platformer level, 16:9. No characters.",
+   "note": "inside the phone: a 2D platformer level in COOL gouache (switched from ink line art 2026-10-19, Alex: ink varied too much, palette inconsistent)"
   },
   "real": {
    "style": "Painted as a hand-painted gouache storybook illustration: thick matte opaque paint, visible brush strokes, simplified painted shapes, soft edges, warm harmonious palette; nothing photographic. 16:9.",

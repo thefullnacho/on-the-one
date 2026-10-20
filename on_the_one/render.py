@@ -60,6 +60,8 @@ def refs_for(d, direction, spec):
         for r in ref if isinstance(ref, list) else [ref]:
             paths.append(d / r)
             looks.append(info.get("look", c))
+    for extra in spec.get("extra_refs", []):         # props/locations to hold steady (e.g. the same nightstand across a sequence)
+        paths.append(d / extra["path"]); looks.append(extra["look"])
     return paths[:3], looks[:3]
 
 
