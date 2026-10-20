@@ -53,6 +53,8 @@ def refs_for(d, direction, spec):
     for c in chars:
         info = direction.get("characters", {}).get(c, {})
         ref = info.get("ref")
+        if isinstance(ref, dict):              # per-world references (e.g. ink inside the phone, gouache in reality)
+            ref = ref.get(spec.get("world", "real"))
         if not ref:
             return None, None
         for r in ref if isinstance(ref, list) else [ref]:
@@ -79,7 +81,9 @@ def keyframe_prompt(direction, spec, looks):
     who = "; ".join(f"reference image {i + 1} shows {look}" for i, look in enumerate(looks))
     lead = f"Use the exact characters from the reference images ({who})." if looks else ""
     # a scene with no characters gets a scene-only style, or the model invents someone to fill the "character" slot
-    style = direction.get("style", "") if looks else direction.get("style_empty", "Cinematic photograph, 16:9 widescreen. No people, no characters.")
+    art = direction.get("art", {}).get(spec.get("world", "real"), {})
+    style = (art.get("style") or direction.get("style", "")) if looks else \
+            (art.get("style_empty") or direction.get("style_empty", "Cinematic photograph, 16:9 widescreen. No people, no characters."))
     return " ".join(x for x in (lead, spec["keyframe"], style) if x)
 
 

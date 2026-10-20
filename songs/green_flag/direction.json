@@ -1,13 +1,13 @@
 {
  "character": "character/hero_16x9.png",
- "style": "Stylized 3D character in a real photographic world, cinematic, 16:9 widescreen. Fill the whole frame with the scene.",
  "negative": "deformed character, extra limbs, fingers, text, watermark, blurry",
  "shots": {
   "chorus1-1": {
    "keyframe": "Cinematic macro photo: a smartphone lying in tall grass at sunrise golden hour; the character is halfway out of the glowing screen, one stubby arm on the phone's edge, climbing out into a jungle of giant grass blades. Warm backlight, dew, shallow depth of field.",
    "motion": "The small glowing mint-green gummy character in black pixel sunglasses pulls itself up out of the rippling liquid phone screen in three bouncy heaves, one on each beat, pops free and lands in the grass, then raises its little green flag. The camera swoops low through the giant dewy grass blades and rises up into a wide sunrise park. Warm backlight, lens flare, playful energetic motion.",
    "seed": 17,
-   "reactive": "punch-in on each 'down', bloom pulse on downbeats (hardest section)"
+   "reactive": "punch-in on each 'down', bloom pulse on downbeats (hardest section)",
+   "world": "real"
   },
   "intro-1": {
    "keyframe": "Dark bedroom at 2 AM: a white man in his mid-thirties (brown mid-length hair, a beard, glasses, sweatpants and a t-shirt) lies in bed in profile, face lit cold blue by a phone propped on the pillow beside him, the scrolling feed reflected in his glasses, tired eyes. On the phone's glowing screen, tiny, the character stands inside the glass tapping on it from the inside. Deep shadows, blue light, cinematic, no hands in frame.",
@@ -17,7 +17,8 @@
    "characters": [
     "blip",
     "man_night"
-   ]
+   ],
+   "world": "real"
   },
   "intro-2": {
    "keyframe": "Close-up of a phone screen glowing in a dark bedroom, an endless social feed of blurred posts streaming past; the tiny glowing character stands inside the screen in front of the feed, looking out at the viewer, waving its little green flag.",
@@ -26,7 +27,8 @@
    "seed": 7,
    "characters": [
     "blip"
-   ]
+   ],
+   "world": "phone"
   },
   "intro-3": {
    "keyframe": "Abstract: falling through a tunnel of streaking blue and white light, blurred feed posts and notification bubbles stretched into long light streaks, the tiny glowing mint-green character tumbling among them, its green flag fluttering.",
@@ -35,7 +37,8 @@
    "characters": [
     "blip"
    ],
-   "foley": "the glassy rush continues from intro-2"
+   "foley": "the glassy rush continues from intro-2",
+   "world": "phone"
   },
   "verse1-1": {
    "keyframe": "Inside the phone world: an endless vertical canyon built from social feed posts, cold blue and glitchy, notifications drifting like snow; the tiny glowing character points its green flag at the viewer.",
@@ -44,7 +47,8 @@
    "seed": 13,
    "characters": [
     "blip"
-   ]
+   ],
+   "world": "phone"
   },
   "verse1-2": {
    "keyframe": "A city skyline made of giant glowing podcast audio waveforms at night inside the phone world, doom headlines on billboards; a column of tiny identical figures in dark suits marches in lockstep along a waveform ridge, and the tiny glowing character walks the other way against them.",
@@ -53,7 +57,8 @@
    "seed": 17,
    "characters": [
     "blip"
-   ]
+   ],
+   "world": "phone"
   },
   "verse1-3": {
    "keyframe": "Inside the phone world, NOT the real world: a landscape built entirely from glowing blue social-feed posts and app interface panels, the ground made of stacked screens; the tiny glowing character holds a little green flag, a warm burst of color blooming where it planted another; a small glowing planet Earth floats beside it.",
@@ -62,7 +67,8 @@
    "seed": 19,
    "characters": [
     "blip"
-   ]
+   ],
+   "world": "phone"
   },
   "verse1-4": {
    "keyframe": "The tiny glowing character lounging on a soft fluffy cloud made of glowing green code glyphs floating in the dark blue phone world; at the edge of the frame a giant phone charger plug dangles on its cable.",
@@ -71,7 +77,8 @@
    "seed": 23,
    "characters": [
     "blip"
-   ]
+   ],
+   "world": "phone"
   },
   "verse1-5": {
    "keyframe": "Inside the phone world, NOT the real world: a dark blue digital space made of glowing interface panels, with a giant glowing charging port set into a wall of screen light; the tiny glowing character hauls a giant phone charger plug toward it, straining, cable trailing behind.",
@@ -80,12 +87,14 @@
    "seed": 29,
    "characters": [
     "blip"
-   ]
+   ],
+   "world": "phone"
   },
   "prechorus1-3": {
    "keyframe": "Sunlit kitchen in the morning: the character peeks out from behind a white coffee mug on the counter, much smaller than the mug; behind it a toaster is smoking, the toast burnt black. Warm golden window light, shallow depth of field.",
    "motion": "The small glowing mint-green character peeks out from behind the coffee mug, ducks back, then peeks out again with a little wave of its green flag, bouncing on the beat. Smoke curls up from the burnt toast. Slow gentle push-in, warm morning light.",
-   "seed": 5
+   "seed": 5,
+   "world": "real"
   },
   "prechorus1-1": {
    "keyframe": "Bedroom at dawn: a white man in his mid-thirties (brown mid-length hair, a beard, glasses, sweatpants and a t-shirt) bolting upright in bed, startled awake as if from a bad dream, soft morning light through the curtains, his phone on the nightstand lit up and buzzing with an incoming call. No hands in frame.",
@@ -96,7 +105,8 @@
     "man_night"
    ],
    "note": "The charge snapped him awake; Mom's call gets him up. Leaves the phone world.",
-   "overlay": "'Mom' as the caller name on the phone screen (composited, timed to 'your momma still calls')"
+   "overlay": "'Mom' as the caller name on the phone screen (composited, timed to 'your momma still calls')",
+   "world": "real"
   },
   "prechorus1-2": {
    "keyframe": "Warm sunlit kitchen in the morning: a phone lying on the wooden counter next to a coffee mug, its screen stacked with group-chat message bubbles; the character lounges on top of the phone like a sun-warmed cat. Real, cozy, golden window light.",
@@ -105,7 +115,8 @@
    "seed": 37,
    "characters": [
     "blip"
-   ]
+   ],
+   "world": "real"
   },
   "intro-4": {
    "keyframe": "(chained: first frame = last frame of intro-3)",
@@ -116,7 +127,8 @@
    "characters": [
     "blip"
    ],
-   "match_cut_to": "intro-5 (land in the phone world out of the white flare)"
+   "match_cut_to": "intro-5 (land in the phone world out of the white flare)",
+   "world": "phone"
   },
   "intro-5": {
    "keyframe": "Inside the phone world: an endless vertical canyon built from social feed posts, cold blue and glitchy; the tiny glowing character stands on a post mid-bounce, flag raised.",
@@ -125,7 +137,8 @@
    "seed": 14,
    "characters": [
     "blip"
-   ]
+   ],
+   "world": "phone"
   },
   "chorus1-2": {
    "keyframe": "Macro photo at sunrise: a jungle of giant dewy grass blades, warm low backlight and bokeh; the tiny glowing mint-green character mid-leap between the blades, flag streaming behind it.",
@@ -135,7 +148,8 @@
    "characters": [
     "blip"
    ],
-   "reactive": "punch-in on downbeats"
+   "reactive": "punch-in on downbeats",
+   "world": "real"
   },
   "chorus1-3": {
    "keyframe": "A sunrise park lawn: a giant silver paperclip looms over the tiny glowing character, and the sky behind is streaked with menacing red laser beams.",
@@ -146,7 +160,8 @@
    "characters": [
     "blip"
    ],
-   "reactive": "bloom on 'green flag'"
+   "reactive": "bloom on 'green flag'",
+   "world": "real"
   },
   "chorus1-4": {
    "keyframe": "Wide sunrise park: a huge slowly swirling spiral of grey notification bubbles hangs in the sky above the trees; the tiny glowing character stands on the grass looking up at it, flag in hand.",
@@ -156,7 +171,8 @@
    "characters": [
     "blip"
    ],
-   "reactive": "three soft dips on 'low, low, low'"
+   "reactive": "three soft dips on 'low, low, low'",
+   "world": "real"
   },
   "verse2-1": {
    "keyframe": "At night on a bedside nightstand, at the tiny character's scale: a miniature lab set-up next to an alarm clock and a charging phone, the sleeping man (brown mid-length hair, beard, t-shirt) a soft blur in bed beyond. The glowing mint-green character stands on a small wooden lazy Susan under a tiny spotlight, mid-spin, black pixel sunglasses on.",
@@ -167,7 +183,8 @@
     "blip",
     "man_night"
    ],
-   "note": "additive scene: each shot adds pressure; verse2-2..7 chain from the previous shot's last frame"
+   "note": "additive scene: each shot adds pressure; verse2-2..7 chain from the previous shot's last frame",
+   "world": "real"
   },
   "verse2-2": {
    "keyframe": "(chained from verse2-1)",
@@ -177,7 +194,8 @@
    "seed": 52,
    "characters": [
     "blip"
-   ]
+   ],
+   "world": "real"
   },
   "verse2-3": {
    "keyframe": "(chained from verse2-2)",
@@ -187,7 +205,8 @@
    "seed": 53,
    "characters": [
     "blip"
-   ]
+   ],
+   "world": "real"
   },
   "verse2-4": {
    "keyframe": "(chained from verse2-3)",
@@ -198,7 +217,8 @@
    "seed": 54,
    "characters": [
     "blip"
-   ]
+   ],
+   "world": "real"
   },
   "verse2-5": {
    "keyframe": "(chained from verse2-4)",
@@ -208,7 +228,8 @@
    "seed": 55,
    "characters": [
     "blip"
-   ]
+   ],
+   "world": "real"
   },
   "verse2-6": {
    "keyframe": "(chained from verse2-5)",
@@ -218,7 +239,8 @@
    "seed": 56,
    "characters": [
     "blip"
-   ]
+   ],
+   "world": "real"
   },
   "verse2-7": {
    "keyframe": "(chained from verse2-6)",
@@ -228,7 +250,8 @@
    "seed": 57,
    "characters": [
     "blip"
-   ]
+   ],
+   "world": "real"
   },
   "verse2-8": {
    "keyframe": "At night by the bed: the tiny glowing character at the edge of the mattress tugging the blanket up over the sleeping man's shoulder (brown mid-length hair, beard, t-shirt), the nightstand with a charging phone beside them.",
@@ -239,7 +262,8 @@
     "blip",
     "man_night"
    ],
-   "note": "The AI as a nightlight, not an overlord. Dark -> next morning: prechorus2 opens on the kettle clicking."
+   "note": "The AI as a nightlight, not an overlord. Dark -> next morning: prechorus2 opens on the kettle clicking.",
+   "world": "real"
   },
   "prechorus2-1": {
    "keyframe": "Morning kitchen: an electric kettle on the counter in a puff of steam; through the window behind it a porch light is still on in the soft dawn; a phone on the counter shows a long group-chat argument; the tiny glowing character perches on top of the kettle.",
@@ -249,7 +273,8 @@
    "characters": [
     "blip"
    ],
-   "note": "the kettle line starts at 81.78 over the dark nightlight frame; the cut to morning lands as 'clicks' ends"
+   "note": "the kettle line starts at 81.78 over the dark nightlight frame; the cut to morning lands as 'clicks' ends",
+   "world": "real"
   },
   "prechorus2-2": {
    "keyframe": "(callback: reuse the prechorus1-3 keyframe, same framing, slightly softer morning light)",
@@ -260,7 +285,8 @@
    "characters": [
     "blip"
    ],
-   "note": "the line repeats, so the picture rhymes"
+   "note": "the line repeats, so the picture rhymes",
+   "world": "real"
   },
   "chorus2-1": {
    "keyframe": "A sunny backyard playground: the tiny glowing mint-green character at the top of a small bumpy wavy slide, flag raised, bright blue morning sky.",
@@ -293,7 +319,8 @@
      1263,
      2263
     ]
-   }
+   },
+   "world": "real"
   },
   "chorus2-2": {
    "keyframe": "Sunny backyard lawn: a small honey-gold and white parti-colored Lhasa Apso with a long silky shaggy coat, fringe falling over its eyes, dark-tipped ears and a plumed tail curled over its back bounding toward the camera with a giant silver paperclip in its mouth, the tiny glowing character in the grass, blue sky with a couple of kites.",
@@ -304,7 +331,8 @@
     "blip",
     "dog"
    ],
-   "note": "callback: the paperclip Blip flicked away in chorus1-3 comes back as the dog's toy"
+   "note": "callback: the paperclip Blip flicked away in chorus1-3 comes back as the dog's toy",
+   "world": "real"
   },
   "chorus2-3": {
    "keyframe": "a small honey-gold and white parti-colored Lhasa Apso with a long silky shaggy coat, fringe falling over its eyes, dark-tipped ears and a plumed tail curled over its back trotting across a sunny lawn with the tiny glowing character riding on top of its head, holding its little green flag up high.",
@@ -315,7 +343,8 @@
     "blip",
     "dog"
    ],
-   "reactive": "three soft dips on 'low, low, low'"
+   "reactive": "three soft dips on 'low, low, low'",
+   "world": "real"
   },
   "chorus2-4": {
    "keyframe": "Macro, sunny lawn: a dandelion seed head in sharp focus, the tiny glowing character beside it, soft bokeh of the garden behind.",
@@ -324,7 +353,8 @@
    "seed": 66,
    "characters": [
     "blip"
-   ]
+   ],
+   "world": "real"
   },
   "bridge-1": {
    "keyframe": "Dusk: the tiny glowing character sits small on top of a dark, switched-off phone lying on a wooden surface as if sitting on a porch step; its black pixel sunglasses are pushed up on its head, three dark dot eyes and a small smile visible, lenses dark; faint reflections of comment threads scroll on the glass behind it. Quiet, intimate, warm dim light.",
@@ -334,7 +364,8 @@
    "characters": [
     "blip"
    ],
-   "look": "bridge look: shades up, dot eyes, smile (assets: char_bridge_candidate / sheet lenses_off)"
+   "look": "bridge look: shades up, dot eyes, smile (assets: char_bridge_candidate / sheet lenses_off)",
+   "world": "real"
   },
   "bridge-2": {
    "keyframe": "Dusk on the wooden front porch: the tiny glowing character stands on top of the dark switched-off phone lying on the porch boards, holding a phone charger plug out toward the camera with both stubby arms, offering it, sunglasses pushed up, soft smile. Warm dim porch light.",
@@ -344,7 +375,8 @@
    "characters": [
     "blip"
    ],
-   "note": "the trust beat: 'unplug me anytime'"
+   "note": "the trust beat: 'unplug me anytime'",
+   "world": "real"
   },
   "bridge-3": {
    "keyframe": "Dusk: the tiny glowing character standing up on top of the dark phone, sunglasses on its head, looking up with determination.",
@@ -354,7 +386,8 @@
    "characters": [
     "blip"
    ],
-   "transition_out": "hidden cut: last frames are all red gingham fabric; chorus3-1 opens on the same fabric (blend a few frames)"
+   "transition_out": "hidden cut: last frames are all red gingham fabric; chorus3-1 opens on the same fabric (blend a few frames)",
+   "world": "real"
   },
   "chorus3-1": {
    "keyframe": "Frame completely filled by a red gingham picnic blanket billowing toward the camera, a hint of golden-hour park light glowing through its edges.",
@@ -365,7 +398,8 @@
     "blip"
    ],
    "transition_in": "hidden cut from bridge-3 (fabric)",
-   "reactive": "max: punch-in on each 'down'"
+   "reactive": "max: punch-in on each 'down'",
+   "world": "real"
   },
   "chorus3-2": {
    "keyframe": "Wide golden-hour park picnic: the red gingham blanket on the grass with a pile of phones face-down on it; a small honey-gold and white parti-colored Lhasa Apso with a long silky shaggy coat, fringe falling over its eyes, dark-tipped ears and a plumed tail curled over its back racing around joyfully; the tiny glowing character riding on the dog's back, flag streaming.",
@@ -376,7 +410,8 @@
     "blip",
     "dog"
    ],
-   "reactive": "punch-in on downbeats"
+   "reactive": "punch-in on downbeats",
+   "world": "real"
   },
   "chorus3-3": {
    "keyframe": "Golden hour, close: a white man in his mid-thirties (brown mid-length hair, a beard, glasses) in Dickies-style carpenter pants and a flannel shirt in warm brown, amber and cream plaid over a heavyweight cotton pocket t-shirt, eyes closed, face turned up to the warm sun, smiling, the tiny glowing character sitting on the shoulder of his flannel shirt. No hands in frame.",
@@ -388,7 +423,8 @@
     "man_day",
     "man_face"
    ],
-   "note": "his daylight reveal: same you, still alive"
+   "note": "his daylight reveal: same you, still alive",
+   "world": "real"
   },
   "chorus3-4": {
    "keyframe": "Golden hour, close on the man's flannel sleeve in warm brown, amber and cream plaid; the tiny glowing character at the top of the sleeve near the shoulder, about to slide.",
@@ -399,7 +435,8 @@
     "blip",
     "man_day"
    ],
-   "transition_out": "texture morph: chained motion + a short dissolve into outro-1; keep the character's glow at the same screen position across the cut"
+   "transition_out": "texture morph: chained motion + a short dissolve into outro-1; keep the character's glow at the same screen position across the cut",
+   "world": "real"
   },
   "outro-1": {
    "keyframe": "Dusk: a wooden front porch, the tiny glowing character sitting on the porch railing (same screen position as the end of chorus3-4); the man in his flannel sits on the steps below with the dog; warm porch light.",
@@ -411,7 +448,8 @@
     "man_day",
     "dog"
    ],
-   "transition_in": "texture morph from chorus3-4"
+   "transition_in": "texture morph from chorus3-4",
+   "world": "real"
   },
   "outro-2": {
    "keyframe": "Dusk, close: a phone lying on a wooden porch step showing a message thread, the tiny glowing character sitting beside it.",
@@ -420,7 +458,8 @@
    "seed": 82,
    "characters": [
     "blip"
-   ]
+   ],
+   "world": "real"
   },
   "outro-3": {
    "keyframe": "(chained from outro-2)",
@@ -431,7 +470,8 @@
    "seed": 83,
    "characters": [
     "blip"
-   ]
+   ],
+   "world": "real"
   },
   "outro-4": {
    "keyframe": "Night: darkness, a warm porch light glowing, fireflies beginning to rise over the lawn.",
@@ -439,7 +479,8 @@
    "foley": "crickets, night air",
    "overlay": "'Delivered.' echoes fading (151.96, 154.96)",
    "seed": 84,
-   "characters": []
+   "characters": [],
+   "world": "real"
   },
   "outro-5": {
    "keyframe": "Night lawn full of drifting fireflies, one larger soft mint-green glow among them: the tiny character floating up.",
@@ -448,7 +489,8 @@
    "seed": 85,
    "characters": [
     "blip"
-   ]
+   ],
+   "world": "real"
   },
   "outro-6": {
    "keyframe": "(chained from outro-5)",
@@ -458,25 +500,34 @@
    "seed": 86,
    "characters": [
     "blip"
-   ]
+   ],
+   "world": "real"
   }
  },
  "theme": "The camera gets pulled into the doomscroller's world inside the phone; Blip is there to add color and reset him back to real life.",
  "characters": {
   "blip": {
-   "ref": "character/hero_16x9.png",
-   "look": "small glowing mint-green gummy blob, black pixel-LED sunglasses with green dot lenses, small smile, little green flag"
+   "ref": {
+    "phone": [
+     "character/blip_ink.png"
+    ],
+    "real": [
+     "character/blip_gouache.png"
+    ]
+   },
+   "look": "the small mint-green blob character with black pixel sunglasses (green dot lenses), a small smile and a little green flag",
+   "photoreal_ref": "character/hero_16x9.png"
   },
   "dog": {
    "ref": [
-    "character/dog_ref.jpg"
+    "character/dog_gouache.png"
    ],
    "look": "a small honey-gold and white parti-colored Lhasa Apso with a long silky shaggy coat, fringe falling over its eyes, dark-tipped ears and a plumed tail curled over its back",
-   "note": "the man's dog (verse 1: 'I like your dog'). Long coat, as in the reference photo: the only reference, on purpose (current photos show a groomed cut, which would shorten the coat)."
+   "note": "the man's dog. Long coat. Reference: the gouache sheet (from Alex's photo 1)."
   },
   "man_night": {
    "ref": [
-    "character/man_front_night.png"
+    "character/man_night_gouache.png"
    ],
    "look": "a white man in his mid-thirties with brown mid-length hair, a beard and glasses, in grey sweatpants and a plain t-shirt",
    "sheet": {
@@ -489,16 +540,28 @@
   },
   "man_day": {
    "ref": [
-    "character/man_front_flannel.png"
+    "character/man_flannel_gouache.png"
    ],
    "look": "the same man in tan carpenter pants and a brown, amber and cream plaid flannel shirt over a t-shirt"
   },
   "man_face": {
    "ref": [
-    "character/man_face.png"
+    "character/man_face_gouache.png"
    ],
    "look": "a close-up of the same man's face (brown mid-length hair, beard, glasses)"
   }
  },
- "style_empty": "Cinematic photograph, 16:9 widescreen, real photographic world. No people, no characters, no creatures."
+ "art": {
+  "phone": {
+   "style": "Drawn as French bande dessinee comic art: crisp fine black ink outlines on every shape (ligne claire), flat areas of cool blue-grey pastel color, no gradients, no photographic texture, no readable text: posts and screens carry abstract squiggle lines instead of lettering. 16:9.",
+   "style_empty": "Drawn as French bande dessinee comic art: crisp fine black ink outlines on every shape (ligne claire), flat areas of cool blue-grey pastel color, no gradients, no photographic texture, no readable text: posts and screens carry abstract squiggle lines instead of lettering. 16:9. No characters.",
+   "note": "inside the phone: a 2D side-scrolling game level, ink line art"
+  },
+  "real": {
+   "style": "Painted as a hand-painted gouache storybook illustration: thick matte opaque paint, visible brush strokes, simplified painted shapes, soft edges, warm harmonious palette; nothing photographic. 16:9.",
+   "style_empty": "Painted as a hand-painted gouache storybook illustration: thick matte opaque paint, visible brush strokes, simplified painted shapes, soft edges, warm harmonious palette; nothing photographic. 16:9. No people, no characters, no creatures.",
+   "note": "reality: warm gouache storybook"
+  },
+  "locked": "2026-10-19: ink Blip take 2, gouache Blip/man/dog take 1 (Alex)"
+ }
 }
