@@ -17,3 +17,8 @@ songs/*/keyframes/rejected/
 songs/*/cut_v*.mp4
 songs/*/clips_archive_*/
 songs/*/keyframes/archive_*/
+demo/frames/
+demo/crops/
+demo/*.mp4
+demo/*.png
+songs/*/takes/app/*.log

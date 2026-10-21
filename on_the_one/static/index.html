@@ -721,6 +721,9 @@ function renderTakes() {
     : st.state === "busy" || st.state === "failed" ? (st.error || "The re-roll failed.") : titled(st.state);
   $("rvJob").innerHTML = busy ? `<span class="pulse"></span>${esc(say)}` : esc(say);
   const seeds = [...new Set(t.seeds)].sort((a, b) => b - a);
+  const sig = `${sh.id}|${seeds}|${S.seeds[sh.id]}`;
+  if ($("rvTakes").dataset.sig === sig) return;   // polling: don't rebuild the takes (it blanks the videos)
+  $("rvTakes").dataset.sig = sig;
   $("rvTakes").innerHTML = seeds.map((s) => `<div class="take ${s === S.seeds[sh.id] ? "current" : ""}">
       <video src="${media(`takes/app/${sh.id}_${s}.mp4`)}" muted loop playsinline preload="metadata"></video>
       ${s === S.seeds[sh.id] ? `<span>In the cut</span>` : `<button class="btn" data-seed="${s}">Use this</button>`}</div>`).join("");
