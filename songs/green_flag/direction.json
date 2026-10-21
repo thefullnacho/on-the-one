@@ -27,9 +27,9 @@
   },
   "intro-2": {
    "keyframe": "A 2D side-scrolling video game title screen inside a phone: the character stands inside the screen's game world on a starting platform, flag raised, a simple level stretching away to the right made of feed-post platforms.",
-   "motion": "On each 'down' the camera surges forward into the game level, three pushes on the beat, tracking the character; by 'go touch grass' the camera is inside the level beside it. The character stays small inside the game world the whole time, never growing large or stepping out in front of the screen. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
+   "motion": "The camera glides sideways to the right along the game level, three smooth pushes on each 'down', like a side-scroller scrolling; the small character runs right across the platforms and stays small, never more than a quarter of the frame tall, always inside the game world. The camera never zooms in on the character. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
    "foley": "a deep whoom on each push, the last one opening into a glassy rush",
-   "seed": 107,
+   "seed": 307,
    "characters": [
     "blip"
    ],
@@ -144,9 +144,9 @@
   },
   "intro-5": {
    "keyframe": "2D side-scroller level: the character landing on the first of four platforms that rise like stairs to the right, feed-post walls in the background.",
-   "motion": "One single small character, the only one in frame: it hops up the rising platforms, one jump on each 'down', each landing exactly on the word; on 'hey, hey, hey' it spins to face the camera and points its flag at the viewer. Never more than one character on screen, no copies, no trails. No speech bubbles, no text, no letters. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
+   "motion": "Side view, the camera stays still and wide. One single small character climbs the staircase: four clear jumps on the beat, each jump lifting it up onto the next higher step to the right; in the last second it turns to face the camera and points its flag at the viewer. Only one character on screen, no copies, no floating shapes, no glowing lights. The signs and walls stay blank: no words, no letters, no writing anywhere. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
    "foley": "a springy boing on each bounce",
-   "seed": 114,
+   "seed": 414,
    "characters": [
     "blip"
    ],
