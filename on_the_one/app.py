@@ -50,7 +50,18 @@ def song_payload(d):
         "cast": cast(d, direction),
         "cuts": sorted((p.name for p in d.glob("cut*.mp4")), key=lambda n: (d / n).stat().st_mtime),
         "takes": app_takes(d),
+        "foley": foley_takes(d),
+        "foley_picks": read_json(d / "foley_picks.json"),
     }
+
+
+def foley_takes(d):
+    """Overnight foley takes, songs/<song>/foley/<id>_<seed>.flac, grouped by shot or cue id."""
+    out = {}
+    for p in sorted((d / "foley").glob("*.flac")) if (d / "foley").exists() else []:
+        cid, seed = p.stem.rsplit("_", 1)
+        out.setdefault(cid, []).append(p.name)
+    return out
 
 
 def read_json(path, default=None):
@@ -184,7 +195,7 @@ class Handler(BaseHTTPRequestHandler):
         return json.loads(self.rfile.read(int(self.headers.get("Content-Length", 0))) or b"{}")
 
     def do_POST(self):
-        m = re.match(r"^/api/song/([^/]+)/(pick|reroll|clip|step|export)(?:/([a-z0-9-]+))?$", unquote(self.path))
+        m = re.match(r"^/api/song/([^/]+)/(pick|reroll|clip|step|export|foley)(?:/([a-z0-9-]+))?$", unquote(self.path))
         d = song_dir(m.group(1)) if m else None
         if not d:
             return self.send_json({"error": "not found"}, 404)
@@ -195,6 +206,14 @@ class Handler(BaseHTTPRequestHandler):
             return self.reroll(d, shot)
         if action == "clip" and shot:
             return self.use_take(d, shot)
+        if action == "foley" and shot:
+            take = str(self.body().get("take", ""))   # a file name from foley/, or "" for no foley on this shot
+            if take and not (re.fullmatch(rf"{re.escape(shot)}_\d+\.flac", take) and (d / "foley" / take).exists()):
+                return self.send_json({"error": "no such take"}, 404)
+            picks = read_json(d / "foley_picks.json")
+            picks[shot] = take
+            write_json(d / "foley_picks.json", picks)
+            return self.send_json({"foley": shot, "take": take})
         if action == "step":
             b = self.body()
             if b.get("key") not in ("story", "look", "cast"):

@@ -154,6 +154,15 @@
   .opts button.picked { border-color: var(--mint); }
   .opts button.picked span::after { content: " · picked"; }
   .opts-note { font-size: 13px; color: var(--ink-soft); }
+  .foley { display: flex; flex-direction: column; gap: 6px; font-size: 13px; }
+  .foley:empty { display: none; }
+  .foley .what { color: var(--ink-soft); }
+  .foley .what b { color: var(--amber); font-weight: 600; margin-right: 6px; }
+  .foley .ftake { display: flex; align-items: center; gap: 6px; }
+  .foley .ftake > span { min-width: 54px; color: var(--ink-soft); }
+  .foley button { font-size: 12px; padding: 3px 9px; }
+  .foley .ftake.used > span { color: var(--mint); font-weight: 600; }
+  body[data-step="song"] .foley { display: flex; }
   .info {
     width: 24px; height: 24px; border-radius: 50%; border: 1px solid var(--dusk-3); background: none; cursor: pointer;
     font: italic 600 14px/1 Georgia, serif; color: var(--ink-soft); display: grid; place-items: center;
@@ -360,6 +369,7 @@
     <div class="lyrics" id="padLyrics"></div>
     <div class="opts" id="opts" aria-label="Keyframe options. Click one to use it."></div>
     <div class="opts-note" id="optsNote"></div>
+    <div class="foley" id="foley" aria-label="Foley takes for this shot"></div>
     <textarea id="notes" placeholder="Notes on this shot. They save as you type."></textarea>
     <div class="saved" id="saved"></div>
 
@@ -374,6 +384,7 @@
 </div>
 
 <audio id="audio" preload="auto"></audio>
+<audio id="foleyAudio" preload="none"></audio>
 
 <script>
 const $ = (id) => document.getElementById(id);
@@ -477,6 +488,7 @@ function select(i, pin) {
     k.className = "tick" + (onBar ? " bar" : ""); k.style.left = `${((t - sh.start) / sh.duration) * 100}%`; bar.append(k);
   }
   renderOptions();
+  renderFoley();
   $("dirTitle").textContent = `${sh.id} · ${sh.section} ${sh.part}`;
   const rows = [["Keyframe", dir.keyframe], ["Motion", dir.motion], ["Foley", dir.foley], ["Overlay", dir.overlay],
                 ["Reactive", dir.reactive], ["Note", dir.note]].filter(([, v]) => v);
@@ -507,6 +519,37 @@ async function pick(id, seed) {
   cell.classList.add("has-img"); cell.style.backgroundImage = `url(${media("keyframes/" + id + ".png")}${bust})`;
   renderOptions(); if (i === cur) { cur = -1; }
   $("optsNote").textContent = `Option picked for ${id}.`;
+}
+
+/* Foley: each overnight take, alone or over the song from the shot's start; "Use" records the pick by ear */
+function renderFoley() {
+  const sh = S.shots[sel], d = S.direction[sh.id] || {};
+  const ids = [sh.id, ...(S.cues || []).filter((c) => c.time >= sh.start && c.time < sh.end).map((c) => c.id)];
+  $("foley").innerHTML = ids.filter((id) => (S.foley[id] || []).length).map((id) => {
+    const cue = (S.cues || []).find((c) => c.id === id), what = cue ? cue.text : d.foley || "";
+    const picked = S.foley_picks[id];
+    return `<div class="what"><b>Foley</b>${esc(what)}</div>` + S.foley[id].map((f, k) => `
+      <div class="ftake ${picked === f ? "used" : ""}"><span>Take ${k + 1}${picked === f ? " ✓" : ""}</span>
+        <button class="btn" data-f="${f}" data-mix="1">▶ with song</button>
+        <button class="btn" data-f="${f}">▶ alone</button>
+        ${picked === f ? "" : `<button class="btn" data-use="${f}" data-id="${id}">Use</button>`}</div>`).join("")
+      + `<div class="ftake ${picked === "" ? "used" : ""}"><span>None${picked === "" ? " ✓" : ""}</span>
+        ${picked === "" ? "" : `<button class="btn" data-use="" data-id="${id}">No foley here</button>`}</div>`;
+  }).join("");
+  $("foley").querySelectorAll("[data-f]").forEach((b) => b.onclick = () => playFoley(b.dataset.f, !!b.dataset.mix));
+  $("foley").querySelectorAll("[data-id]").forEach((b) => b.onclick = async () => {
+    const r = await fetch(`/api/song/${encodeURIComponent(S.name)}/foley/${b.dataset.id}`, {
+      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ take: b.dataset.use }) });
+    if (r.ok) { S.foley_picks[b.dataset.id] = b.dataset.use; renderFoley(); }
+  });
+}
+function playFoley(file, withSong) {
+  const fa = $("foleyAudio"), sh = S.shots[sel];
+  fa.src = media(`foley/${file}`); fa.currentTime = 0;
+  if (withSong) { setFollow(false); seekTo(sh.start); audio.volume = 0.6; if (audio.paused) toggle(); }
+  else if (!audio.paused) toggle();
+  fa.play();
+  fa.onended = () => { audio.volume = 1; };
 }
 
 function setFollow(on) {
