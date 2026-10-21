@@ -104,7 +104,7 @@
   "prechorus1-3": {
    "keyframe": "Sunlit kitchen in the morning: the character peeks out from behind a white coffee mug on the counter, much smaller than the mug; behind it a toaster is smoking, the toast burnt black. Warm golden window light, shallow depth of field.",
    "motion": "The small glowing mint-green character peeks out from behind the coffee mug, ducks back, then peeks out again with a little wave of its green flag, bouncing on the beat. Smoke curls up from the burnt toast. Slow gentle push-in, warm morning light. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, worn on its face the whole time and never removed, one single little green flag.",
-   "seed": 5,
+   "seed": 4005,
    "world": "real",
    "negative_extra": "real eyes, eyeballs, pupils, eyes visible on the small character, clear lenses on the small character, sunglasses removed"
   },
@@ -125,7 +125,7 @@
    "keyframe": "Warm sunlit kitchen in the morning: a phone lying on the wooden counter next to a coffee mug, its screen stacked with group-chat message bubbles; the character lounges on top of the phone like a sun-warmed cat. Real, cozy, golden window light.",
    "motion": "Group-chat bubbles keep popping up on the phone screen in quick succession; the character lounging on the phone bobs its head to the beat and lazily waves its flag at each new bubble. Gentle slide along the counter. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, worn on its face the whole time and never removed, one single little green flag.",
    "foley": "a flurry of message pops",
-   "seed": 37,
+   "seed": 4037,
    "characters": [
     "blip"
    ],
@@ -186,7 +186,8 @@
     "blip"
    ],
    "reactive": "three soft dips on 'low, low, low'",
-   "world": "real"
+   "world": "real",
+   "note": "clip is the seed-47 render's clean first 3.79s retimed to fill the slot (glasses drifted after); takes/v3f/chorus1-4_before.mp4 is the original"
   },
   "verse2-1": {
    "keyframe": "At night on a bedside nightstand, at the tiny character's scale: an alarm clock and a charging phone, the man fast asleep in bed beyond, eyes closed. The character is spinning slowly on a small wooden lazy Susan under a tiny spotlight.",
@@ -271,7 +272,7 @@
    "keyframe": "At night on a bedside nightstand, at the tiny character's scale: an alarm clock and a charging phone, the man fast asleep in bed beyond, eyes closed. The character is on the lazy Susan, sunglasses pushed up on its head, swatting a big red button under a glass dome off the edge, a little golden crown flying after it.",
    "motion": "The character swats a big red button under a glass dome off the edge of the nightstand, then swats a little golden crown away after it. The man stays fast asleep the whole time, eyes closed, never looking at the camera. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, worn on its face the whole time and never removed, one single little green flag.",
    "foley": "two cartoon swats, glass dome clatter, a tiny crown tinkle",
-   "seed": 55,
+   "seed": 5055,
    "characters": [
     "blip",
     "man_night"
@@ -291,16 +292,16 @@
    "negative_extra": "real eyes, eyeballs, pupils, eyes visible on the small character, clear lenses on the small character, sunglasses removed"
   },
   "verse2-6": {
-   "keyframe": "At night on a bedside nightstand, at the tiny character's scale: an alarm clock and a charging phone, the man fast asleep in bed beyond, eyes closed. The character is on the lazy Susan striking a cool pose as its black pixel sunglasses drop onto its face.",
-   "motion": "On 'down' the black pixel sunglasses drop from the top of its head down onto its face, deal-with-it style; it strikes a cool pose. The man stays fast asleep the whole time, eyes closed, never looking at the camera. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
+   "keyframe": "At night on a bedside nightstand, at the tiny character's scale: an alarm clock and a charging phone, the man fast asleep in bed beyond, eyes closed. The character is on the lazy Susan, black pixel sunglasses on, striking a cool pose.",
+   "motion": "On the beat the character strikes a cool pose on the lazy Susan, one stubby arm on its hip, flag raised; the three green dots on each lens of its black pixel sunglasses flash bright like an 8-bit level-up, and the lazy Susan turns a quarter turn under it. The man stays fast asleep the whole time, eyes closed, never looking at the camera. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, worn on its face the whole time and never removed, one single little green flag.",
    "foley": "a pixel 'bling' as the shades land on 'down' (76.92)",
-   "seed": 56,
+   "seed": 5056,
    "characters": [
     "blip",
     "man_night"
    ],
    "world": "real",
-   "note": "training-montage feel (Alex). Unchained 2026-10-19: each shot starts from its own on-model keyframe, the gags accumulate in the keyframes.",
+   "note": "Alex: drop the deal-with-it meme; shades never come off (eyes drift otherwise)",
    "extra_refs": [
     {
      "path": "keyframes/verse2-1.png",
@@ -310,7 +311,8 @@
      "path": "character/props_verse2.png",
      "look": "the exact props of this scene: the brass alarm clock, the smartphone, the round wooden lazy Susan and the wooden nightstand (same shapes, colors and materials)"
     }
-   ]
+   ],
+   "negative_extra": "real eyes, eyeballs, pupils, eyes visible on the small character, clear lenses on the small character, sunglasses removed, second pair of sunglasses, floating sunglasses"
   },
   "verse2-7": {
    "keyframe": "At night on a bedside nightstand, at the tiny character's scale: an alarm clock and a charging phone, the man fast asleep in bed beyond, eyes closed. The character is hopping off the lazy Susan and running across the nightstand past scattered rubber balls, tiny dumbbells and a crown.",
@@ -395,7 +397,7 @@
    "keyframe": "Sunny backyard lawn: a small honey-gold and white parti-colored Lhasa Apso with a long silky shaggy coat, fringe falling over its eyes, dark-tipped ears and a plumed tail curled over its back bounding toward the camera with a giant silver paperclip bent into the shape of a dog bone in its mouth, the tiny glowing character in the grass, blue sky with a couple of kites.",
    "motion": "The dog bounds in proudly carrying the giant paperclip bent into a dog-bone shape, shakes it and drops it at the character's feet; then the camera tilts up to kites dancing in a clear blue sky. The dog keeps exactly four legs and one tail, its body solid and simple. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, worn on its face the whole time and never removed, one single little green flag.",
    "foley": "dog tags, a metallic clatter as the paperclip drops, kite flutter",
-   "seed": 64,
+   "seed": 3064,
    "characters": [
     "blip",
     "dog"
@@ -467,7 +469,7 @@
    "keyframe": "Frame completely filled by a red gingham picnic blanket billowing toward the camera, a hint of golden-hour park light glowing through its edges.",
    "motion": "The character stands on the red gingham picnic blanket the whole time while the camera slowly pulls back to reveal a golden-hour park; the blanket stays flat on the grass and never lifts or folds. Phones drop from above, out of frame, and land flat on the blanket around the character, one on each beat, four in all. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, worn on its face the whole time and never removed, one single little green flag.",
    "foley": "blanket flap, then a soft thud per phone landing",
-   "seed": 74,
+   "seed": 3074,
    "characters": [
     "blip"
    ],
