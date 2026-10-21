@@ -103,9 +103,10 @@
   },
   "prechorus1-3": {
    "keyframe": "Sunlit kitchen in the morning: the character peeks out from behind a white coffee mug on the counter, much smaller than the mug; behind it a toaster is smoking, the toast burnt black. Warm golden window light, shallow depth of field.",
-   "motion": "The small glowing mint-green character peeks out from behind the coffee mug, ducks back, then peeks out again with a little wave of its green flag, bouncing on the beat. Smoke curls up from the burnt toast. Slow gentle push-in, warm morning light.",
+   "motion": "The small glowing mint-green character peeks out from behind the coffee mug, ducks back, then peeks out again with a little wave of its green flag, bouncing on the beat. Smoke curls up from the burnt toast. Slow gentle push-in, warm morning light. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, worn on its face the whole time and never removed, one single little green flag.",
    "seed": 5,
-   "world": "real"
+   "world": "real",
+   "negative_extra": "real eyes, eyeballs, pupils, eyes visible on the small character, clear lenses on the small character, sunglasses removed"
   },
   "prechorus1-1": {
    "keyframe": "Bedroom at dawn: the man (brown mid-length hair, beard, glasses, t-shirt) lying in bed on his back, eyes snapping wide open, startled, his phone on the nightstand lit up with an incoming call. No hands in frame.",
@@ -122,13 +123,14 @@
   },
   "prechorus1-2": {
    "keyframe": "Warm sunlit kitchen in the morning: a phone lying on the wooden counter next to a coffee mug, its screen stacked with group-chat message bubbles; the character lounges on top of the phone like a sun-warmed cat. Real, cozy, golden window light.",
-   "motion": "Group-chat bubbles keep popping up on the phone screen in quick succession; the character lounging on the phone bobs its head to the beat and lazily waves its flag at each new bubble. Gentle slide along the counter.",
+   "motion": "Group-chat bubbles keep popping up on the phone screen in quick succession; the character lounging on the phone bobs its head to the beat and lazily waves its flag at each new bubble. Gentle slide along the counter. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, worn on its face the whole time and never removed, one single little green flag.",
    "foley": "a flurry of message pops",
    "seed": 37,
    "characters": [
     "blip"
    ],
-   "world": "real"
+   "world": "real",
+   "negative_extra": "real eyes, eyeballs, pupils, eyes visible on the small character, clear lenses on the small character, sunglasses removed"
   },
   "intro-4": {
    "keyframe": "(chained: first frame = last frame of intro-3)",
@@ -267,7 +269,7 @@
   },
   "verse2-5": {
    "keyframe": "At night on a bedside nightstand, at the tiny character's scale: an alarm clock and a charging phone, the man fast asleep in bed beyond, eyes closed. The character is on the lazy Susan, sunglasses pushed up on its head, swatting a big red button under a glass dome off the edge, a little golden crown flying after it.",
-   "motion": "The character pushes its sunglasses up onto its head, then swats a big red button under a glass dome off the edge, then swats a little golden crown away after it. The man stays fast asleep the whole time, eyes closed, never looking at the camera. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
+   "motion": "The character swats a big red button under a glass dome off the edge of the nightstand, then swats a little golden crown away after it. The man stays fast asleep the whole time, eyes closed, never looking at the camera. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, worn on its face the whole time and never removed, one single little green flag.",
    "foley": "two cartoon swats, glass dome clatter, a tiny crown tinkle",
    "seed": 55,
    "characters": [
@@ -285,7 +287,8 @@
      "path": "character/props_verse2.png",
      "look": "the exact props of this scene: the brass alarm clock, the smartphone, the round wooden lazy Susan and the wooden nightstand (same shapes, colors and materials)"
     }
-   ]
+   ],
+   "negative_extra": "real eyes, eyeballs, pupils, eyes visible on the small character, clear lenses on the small character, sunglasses removed"
   },
   "verse2-6": {
    "keyframe": "At night on a bedside nightstand, at the tiny character's scale: an alarm clock and a charging phone, the man fast asleep in bed beyond, eyes closed. The character is on the lazy Susan striking a cool pose as its black pixel sunglasses drop onto its face.",
@@ -390,7 +393,7 @@
   },
   "chorus2-2": {
    "keyframe": "Sunny backyard lawn: a small honey-gold and white parti-colored Lhasa Apso with a long silky shaggy coat, fringe falling over its eyes, dark-tipped ears and a plumed tail curled over its back bounding toward the camera with a giant silver paperclip bent into the shape of a dog bone in its mouth, the tiny glowing character in the grass, blue sky with a couple of kites.",
-   "motion": "On 'no, no, no paperclips' the dog bounds in proudly carrying the giant paperclip bent into a dog-bone shape, shakes it and drops it at the character's feet; on 'no laser skies' the camera tilts up to kites dancing in a clear blue sky.",
+   "motion": "The dog bounds in proudly carrying the giant paperclip bent into a dog-bone shape, shakes it and drops it at the character's feet; then the camera tilts up to kites dancing in a clear blue sky. The dog keeps exactly four legs and one tail, its body solid and simple. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, worn on its face the whole time and never removed, one single little green flag.",
    "foley": "dog tags, a metallic clatter as the paperclip drops, kite flutter",
    "seed": 64,
    "characters": [
@@ -398,7 +401,8 @@
     "dog"
    ],
    "note": "callback: the paperclip Blip flicked away in chorus1-3 comes back as the dog's toy The paperclip is shaped like a dog bone (Alex).",
-   "world": "real"
+   "world": "real",
+   "negative_extra": "real eyes, eyeballs, pupils, eyes visible on the small character, clear lenses on the small character, sunglasses removed, extra legs, merged limbs, melting fur"
   },
   "chorus2-3": {
    "keyframe": "a small honey-gold and white parti-colored Lhasa Apso with a long silky shaggy coat, fringe falling over its eyes, dark-tipped ears and a plumed tail curled over its back trotting across a sunny lawn with the tiny glowing character riding on top of its head, holding its little green flag up high.",
@@ -461,7 +465,7 @@
   },
   "chorus3-1": {
    "keyframe": "Frame completely filled by a red gingham picnic blanket billowing toward the camera, a hint of golden-hour park light glowing through its edges.",
-   "motion": "The billowing blanket floats away from the camera and settles onto the grass, revealing a golden-hour park; then phones drop onto the blanket from above, out of frame, one on each 'down', and a fourth on 'way down'.",
+   "motion": "The character stands on the red gingham picnic blanket the whole time while the camera slowly pulls back to reveal a golden-hour park; the blanket stays flat on the grass and never lifts or folds. Phones drop from above, out of frame, and land flat on the blanket around the character, one on each beat, four in all. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, worn on its face the whole time and never removed, one single little green flag.",
    "foley": "blanket flap, then a soft thud per phone landing",
    "seed": 74,
    "characters": [
@@ -469,7 +473,8 @@
    ],
    "transition_in": "hidden cut from bridge-3 (fabric)",
    "reactive": "max: punch-in on each 'down'",
-   "world": "real"
+   "world": "real",
+   "negative_extra": "real eyes, eyeballs, pupils, eyes visible on the small character, clear lenses on the small character, sunglasses removed, blanket flipping, blanket covering the character"
   },
   "chorus3-2": {
    "keyframe": "Wide golden-hour park picnic: the red gingham blanket on the grass with a pile of phones face-down on it; a small honey-gold and white parti-colored Lhasa Apso with a long silky shaggy coat, fringe falling over its eyes, dark-tipped ears and a plumed tail curled over its back racing around joyfully; the tiny glowing character, very small, riding on the dog's back, flag streaming.",

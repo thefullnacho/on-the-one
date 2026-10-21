@@ -13,7 +13,7 @@ usage:
 songs/<song>/direction.json:
   {"character": "character/hero_16x9.png",          # reference for every keyframe (16:9: output takes its size)
    "style": "appended to every keyframe prompt",
-   "negative": "for clips",
+   "negative": "for clips (a shot can add its own with negative_extra)",
    "shots": {"s09": {"keyframe": "...", "motion": "...", "seed": 5}}}
 """
 import argparse, copy, json, os, shutil, subprocess, tempfile, time
@@ -178,7 +178,7 @@ def main():
                         spec = {**spec, **spec["variants"][v]}
                 wf = fill(client, "ltx_a2v", {
                     "image": client.assets.from_file(kf), "audio": client.assets.from_file(wav),
-                    "prompt": spec["motion"], "negative": direction.get("negative", ""),
+                    "prompt": spec["motion"], "negative": ", ".join(x for x in (direction.get("negative", ""), spec.get("negative_extra", "")) if x),
                     "duration": round(dur, 4), "seed": seed, "seed_2": seed + 1})
                 out = d / "clips" / f"{shot}.mp4"
                 took = run(client, wf, out)
