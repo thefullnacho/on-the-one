@@ -48,13 +48,14 @@
   },
   "verse1-1": {
    "keyframe": "2D side-scroller level: the character running right across floating feed-post platforms, notification bubbles falling from above like hazards.",
-   "motion": "The camera scrolls right with the running character, hopping between platforms on the beat and dodging falling notification bubbles; on 'you' it points the flag straight at the viewer. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
+   "motion": "The camera scrolls right with the running character, hopping between platforms on the beat and dodging falling notification bubbles; near the end it points the flag straight at the viewer. Blank bubbles, no words or letters. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, worn on its face the whole time and never removed, one single little green flag.",
    "foley": "notification pings scattered through the feed",
    "seed": 13,
    "characters": [
     "blip"
    ],
-   "world": "phone"
+   "world": "phone",
+   "negative_extra": "real eyes, eyeballs, pupils, eyes visible on the small character, clear lenses on the small character, sunglasses removed"
   },
   "verse1-2": {
    "keyframe": "2D side-scroller level across a terrain of audio waveforms: little podcast desks with big microphones and tiny figures in suits sit on the platforms ahead as enemies; the character mid-hop over a microphone stand.",
@@ -191,7 +192,7 @@
   },
   "verse2-1": {
    "keyframe": "At night on a bedside nightstand, at the tiny character's scale: an alarm clock and a charging phone, the man fast asleep in bed beyond, eyes closed. The character is spinning slowly on a small wooden lazy Susan under a tiny spotlight.",
-   "motion": "The lazy Susan spins the character slowly under the spotlight; on 'screenshot' a camera flash pops white for an instant. The man stays fast asleep the whole time, eyes closed, never looking at the camera. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
+   "motion": "The round wooden lazy Susan turns slowly and steadily like a turntable, and the character standing on it turns with it as one piece, feet planted, rotating in place to show its side and then face front again; it stands upright and never leans. At one moment a camera flash pops white for an instant. The man stays fast asleep the whole time, eyes closed, never looking at the camera. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, worn on its face the whole time and never removed, one single little green flag.",
    "foley": "lazy Susan creak, camera shutter + flash pop on 'screenshot'",
    "seed": 51,
    "characters": [
@@ -199,7 +200,8 @@
     "man_night"
    ],
    "note": "training-montage feel (Alex). Unchained 2026-10-19: each shot starts from its own on-model keyframe, the gags accumulate in the keyframes.",
-   "world": "real"
+   "world": "real",
+   "negative_extra": "real eyes, eyeballs, pupils, eyes visible on the small character, clear lenses on the small character, sunglasses removed, leaning, tilting"
   },
   "verse2-2": {
    "keyframe": "At night on a bedside nightstand, at the tiny character's scale: an alarm clock and a charging phone, the man fast asleep in bed beyond, eyes closed. The character is spinning on the lazy Susan and curling a pair of tiny dumbbells.",
