@@ -146,7 +146,7 @@
    "keyframe": "2D side-scroller level: the character landing on the first of four platforms that rise like stairs to the right, feed-post walls in the background.",
    "motion": "Side view, the camera stays still and wide. One single small character climbs the staircase: four clear jumps on the beat, each jump lifting it up onto the next higher step to the right; in the last second it turns to face the camera and points its flag at the viewer. Only one character on screen, no copies, no floating shapes, no glowing lights. The signs and walls stay blank: no words, no letters, no writing anywhere. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
    "foley": "a springy boing on each bounce",
-   "seed": 414,
+   "seed": 614,
    "characters": [
     "blip"
    ],
