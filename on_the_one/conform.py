@@ -6,7 +6,8 @@ little long); a shot without one shows a placeholder card (its keyframe if there
 id and lyric), so the whole song can be watched as an animatic before anything is rendered.
 The audio is the original song, laid once under the whole cut: no seams at the cuts.
 
-usage: python -m on_the_one.conform songs/<song> [--out cut.mp4] [--size 1408x768]
+usage: python -m on_the_one.conform songs/<song> [--out cut.mp4] [--size 1408x768] [--clips clips]
+  master: --clips clips_1080 --size 1920x1080 (a shot without a 1080p clip falls back to clips/)
 reads  songs/<song>/{shots.json, audio.*, clips/<shot_id>.mp4, keyframes/<shot_id>.png}
 """
 import argparse, json, subprocess, tempfile
@@ -14,6 +15,11 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
 FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
+
+
+def clip_path(d, folder, sid):
+    p = d / folder / f"{sid}.mp4"
+    return p if p.exists() else d / "clips" / f"{sid}.mp4"
 
 
 def card(path, size, shot, note=""):
@@ -41,6 +47,7 @@ def main():
     ap.add_argument("song_dir")
     ap.add_argument("--out", default=None)
     ap.add_argument("--size", default="1408x768")
+    ap.add_argument("--clips", default="clips", help="folder of per-shot clips (clips_1080 for the master)")
     a = ap.parse_args()
     d = Path(a.song_dir)
     plan = json.loads((d / "shots.json").read_text())
@@ -56,7 +63,7 @@ def main():
         for sh in plan["shots"]:
             frames = round(sh["end"] * fps) - round(sh["start"] * fps)
             seg = tmp / f"{sh['id']}.mp4"
-            clip, kf = d / "clips" / f"{sh['id']}.mp4", d / "keyframes" / f"{sh['id']}.png"
+            clip, kf = clip_path(d, a.clips, sh["id"]), d / "keyframes" / f"{sh['id']}.png"
             if clip.exists():
                 src = ["-i", str(clip)]; used["clip"] += 1
                 # a clip shorter than its slot holds its last frame
@@ -78,7 +85,7 @@ def main():
         while i < len(plan["shots"]) - 1:
             sh, nxt = plan["shots"][i], plan["shots"][i + 1]
             tr = direction["shots"].get(sh["id"], {}).get("transition")
-            clip = d / "clips" / f"{sh['id']}.mp4"
+            clip = clip_path(d, a.clips, sh["id"])
             if not tr or not clip.exists():
                 i += 1; continue
             n = int(tr.get("frames", 6)); frames = round(sh["end"] * fps) - round(sh["start"] * fps)

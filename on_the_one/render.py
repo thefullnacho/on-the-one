@@ -29,12 +29,16 @@ def template(name):
     return t["graph"], t["slots"]
 
 
+SAVES = {"SaveImage", "SaveVideo", "SaveAudio", "SaveAudioAdvanced"}
+
+
 def fill(client, name, values):
     graph, slots = template(name)
     wf = client.workflows.from_json(copy.deepcopy(graph))
     for slot, value in values.items():
         node, field = slots[slot]
         wf.set_input(node, field, value)
+    wf.oto_saves = {k for k, n in graph.items() if n["class_type"] in SAVES}
     return wf
 
 
@@ -43,7 +47,9 @@ def run(client, wf, out):
     job = client.run(wf)
     if job.status != "succeeded" or not job.outputs:
         raise SystemExit(f"job {job.id}: {job.status}")
-    job.outputs[0].to_file(out)
+    # the save node's file, not whatever is listed first (a LoadVideo input shows up as an output too)
+    saved = [o for o in job.outputs if o.node_id in getattr(wf, "oto_saves", ())] or job.outputs
+    saved[0].to_file(out)
     return time.time() - t0
 
 

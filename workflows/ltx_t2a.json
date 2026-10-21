@@ -1,0 +1,439 @@
+{
+ "graph": {
+  "101": {
+   "inputs": {
+    "value": "{{prompt}}"
+   },
+   "class_type": "PrimitiveStringMultiline",
+   "_meta": {
+    "title": "Prompt (positive)"
+   }
+  },
+  "102": {
+   "inputs": {
+    "value": "{{negative}}"
+   },
+   "class_type": "PrimitiveStringMultiline",
+   "_meta": {
+    "title": "Prompt (negative)"
+   }
+  },
+  "103": {
+   "inputs": {
+    "value": 24
+   },
+   "class_type": "PrimitiveFloat",
+   "_meta": {
+    "title": "fps (frames per second)"
+   }
+  },
+  "104": {
+   "inputs": {
+    "value": 7.777
+   },
+   "class_type": "PrimitiveFloat",
+   "_meta": {
+    "title": "duration in seconds"
+   }
+  },
+  "107": {
+   "inputs": {
+    "filename_prefix": "oto/foley",
+    "format": "flac",
+    "format.quality": "V0",
+    "audio": [
+     "137",
+     0
+    ]
+   },
+   "class_type": "SaveAudioAdvanced",
+   "_meta": {
+    "title": "Save Audio (Advanced)"
+   }
+  },
+  "108": {
+   "inputs": {
+    "vae_name": "ltx-2.5-audio-vae-bf16.safetensors"
+   },
+   "class_type": "VAELoader",
+   "_meta": {
+    "title": "Load VAE - Audio"
+   }
+  },
+  "109": {
+   "inputs": {
+    "unet_name": "ltx-2.5-22b-distilled-transformer-nvfp4.safetensors",
+    "weight_dtype": "default"
+   },
+   "class_type": "UNETLoader",
+   "_meta": {
+    "title": "Load Diffusion Model"
+   }
+  },
+  "110": {
+   "inputs": {
+    "model": [
+     "109",
+     0
+    ]
+   },
+   "class_type": "LTXVAudioOnlyModel",
+   "_meta": {
+    "title": "Audio-Only Model"
+   }
+  },
+  "111": {
+   "inputs": {
+    "clip_name": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+    "type": "ltxv",
+    "device": "default"
+   },
+   "class_type": "CLIPLoader",
+   "_meta": {
+    "title": "Load CLIP - Text Enhancer"
+   }
+  },
+  "112": {
+   "inputs": {
+    "clip_name": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+    "type": "ltxv",
+    "device": "default"
+   },
+   "class_type": "CLIPLoader",
+   "_meta": {
+    "title": "Load CLIP - Text Encoder"
+   }
+  },
+  "113": {
+   "inputs": {
+    "prompt": [
+     "101",
+     0
+    ],
+    "max_length": 600,
+    "sampling_mode": "on",
+    "sampling_mode.temperature": 0.01,
+    "sampling_mode.top_k": 0,
+    "sampling_mode.top_p": 1,
+    "sampling_mode.min_p": 0,
+    "sampling_mode.repetition_penalty": 1.15,
+    "sampling_mode.seed": 0,
+    "sampling_mode.presence_penalty": 0,
+    "thinking": false,
+    "use_default_template": true,
+    "mtp": "auto",
+    "clip": [
+     "111",
+     0
+    ]
+   },
+   "class_type": "TextGenerateLTX2Prompt",
+   "_meta": {
+    "title": "Positive prompt (t2v) enhancer - TextGenerateLTX2Prompt"
+   }
+  },
+  "114": {
+   "inputs": {
+    "switch": false,
+    "on_false": [
+     "101",
+     0
+    ],
+    "on_true": [
+     "113",
+     0
+    ]
+   },
+   "class_type": "ComfySwitchNode",
+   "_meta": {
+    "title": "If/Else Switch"
+   }
+  },
+  "120": {
+   "inputs": {
+    "value": [
+     "104",
+     0
+    ]
+   },
+   "class_type": "PrimitiveFloat",
+   "_meta": {
+    "title": "Duration in seconds - Float"
+   }
+  },
+  "121": {
+   "inputs": {
+    "value": [
+     "103",
+     0
+    ]
+   },
+   "class_type": "PrimitiveFloat",
+   "_meta": {
+    "title": "fps"
+   }
+  },
+  "122": {
+   "inputs": {
+    "expression": "1 + floor(a*b/8)*8",
+    "values.a": [
+     "121",
+     0
+    ],
+    "values.b": [
+     "120",
+     0
+    ]
+   },
+   "class_type": "ComfyMathExpression",
+   "_meta": {
+    "title": "calculate frames count - Math Expression"
+   }
+  },
+  "123": {
+   "inputs": {
+    "value": [
+     "122",
+     1
+    ]
+   },
+   "class_type": "PrimitiveInt",
+   "_meta": {
+    "title": "number of frames"
+   }
+  },
+  "124": {
+   "inputs": {
+    "frame_rate": [
+     "121",
+     0
+    ],
+    "positive": [
+     "125",
+     0
+    ],
+    "negative": [
+     "126",
+     0
+    ]
+   },
+   "class_type": "LTXVConditioning",
+   "_meta": {
+    "title": "LTXVConditioning"
+   }
+  },
+  "125": {
+   "inputs": {
+    "text": [
+     "114",
+     0
+    ],
+    "clip": [
+     "112",
+     0
+    ]
+   },
+   "class_type": "CLIPTextEncode",
+   "_meta": {
+    "title": "CLIP Text Encode (Positive Prompt)"
+   }
+  },
+  "126": {
+   "inputs": {
+    "text": [
+     "102",
+     0
+    ],
+    "clip": [
+     "112",
+     0
+    ]
+   },
+   "class_type": "CLIPTextEncode",
+   "_meta": {
+    "title": "CLIP Text Encode (Negative Prompt)"
+   }
+  },
+  "127": {
+   "inputs": {
+    "frames_number": [
+     "123",
+     0
+    ],
+    "frame_rate": [
+     "130",
+     0
+    ],
+    "batch_size": 1,
+    "audio_vae": [
+     "108",
+     0
+    ]
+   },
+   "class_type": "LTXVEmptyLatentAudio",
+   "_meta": {
+    "title": "Empty Audio Latent"
+   }
+  },
+  "128": {
+   "inputs": {
+    "video_latent": [
+     "129",
+     0
+    ],
+    "audio_latent": [
+     "127",
+     0
+    ]
+   },
+   "class_type": "LTXVConcatAVLatent",
+   "_meta": {
+    "title": "Concat A/V Latent"
+   }
+  },
+  "129": {
+   "inputs": {},
+   "class_type": "LTXVAudioOnlyEmptyVideoLatent",
+   "_meta": {
+    "title": "Audio-Only Video Latent"
+   }
+  },
+  "130": {
+   "inputs": {
+    "a": [
+     "121",
+     0
+    ]
+   },
+   "class_type": "LTXFloatToInt",
+   "_meta": {
+    "title": "fps -> int"
+   }
+  },
+  "131": {
+   "inputs": {
+    "av_latent": [
+     "136",
+     0
+    ]
+   },
+   "class_type": "LTXVSeparateAVLatent",
+   "_meta": {
+    "title": "Separate A/V Latent"
+   }
+  },
+  "132": {
+   "inputs": {
+    "cfg": 1,
+    "model": [
+     "110",
+     0
+    ],
+    "positive": [
+     "124",
+     0
+    ],
+    "negative": [
+     "124",
+     1
+    ]
+   },
+   "class_type": "CFGGuider",
+   "_meta": {
+    "title": "CFG Guider"
+   }
+  },
+  "133": {
+   "inputs": {
+    "noise_seed": 777001
+   },
+   "class_type": "RandomNoise",
+   "_meta": {
+    "title": "RandomNoise"
+   }
+  },
+  "134": {
+   "inputs": {
+    "sampler_name": "euler_ancestral"
+   },
+   "class_type": "KSamplerSelect",
+   "_meta": {
+    "title": "KSamplerSelect"
+   }
+  },
+  "135": {
+   "inputs": {
+    "sigmas": "1.0, 0.99375, 0.9875, 0.98125, 0.975, 0.909375, 0.725, 0.421875, 0.0"
+   },
+   "class_type": "ManualSigmas",
+   "_meta": {
+    "title": "ManualSigmas"
+   }
+  },
+  "136": {
+   "inputs": {
+    "noise": [
+     "133",
+     0
+    ],
+    "guider": [
+     "132",
+     0
+    ],
+    "sampler": [
+     "134",
+     0
+    ],
+    "sigmas": [
+     "135",
+     0
+    ],
+    "latent_image": [
+     "128",
+     0
+    ]
+   },
+   "class_type": "SamplerCustomAdvanced",
+   "_meta": {
+    "title": "SamplerCustomAdvanced"
+   }
+  },
+  "137": {
+   "inputs": {
+    "samples": [
+     "131",
+     1
+    ],
+    "audio_vae": [
+     "108",
+     0
+    ]
+   },
+   "class_type": "LTXVAudioVAEDecode",
+   "_meta": {
+    "title": "Decode Audio"
+   }
+  }
+ },
+ "slots": {
+  "prompt": [
+   "101",
+   "value"
+  ],
+  "negative": [
+   "102",
+   "value"
+  ],
+  "duration": [
+   "104",
+   "value"
+  ],
+  "seed": [
+   "133",
+   "noise_seed"
+  ]
+ },
+ "removed": [
+  "GemmaAPITextEncode"
+ ]
+}

@@ -16,8 +16,8 @@ from pathlib import Path
 
 MARKERS = {"{{prompt}}": "prompt", "{{negative}}": "negative", 777001: "seed", 777002: "seed_2",
            7.777: "duration"}
-LOADERS = {"LoadImage": ("image", "image"), "LoadAudio": ("audio", "audio")}
-OUTPUTS = {"SaveImage", "SaveVideo", "SaveAudio", "PreviewImage"}
+LOADERS = {"LoadImage": ("image", "image"), "LoadAudio": ("audio", "audio"), "LoadVideo": ("video", "file")}
+OUTPUTS = {"SaveImage", "SaveVideo", "SaveAudio", "SaveAudioAdvanced", "PreviewImage"}
 
 
 def is_api(cls, info):

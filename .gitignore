@@ -22,3 +22,6 @@ demo/crops/
 demo/*.mp4
 demo/*.png
 songs/*/takes/app/*.log
+songs/*/clips_1080/
+songs/*/foley/
+songs/*/cut_master_*.mp4
