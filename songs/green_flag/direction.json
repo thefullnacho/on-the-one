@@ -27,9 +27,9 @@
   },
   "intro-2": {
    "keyframe": "A 2D side-scrolling video game title screen inside a phone: the character stands inside the screen's game world on a starting platform, flag raised, a simple level stretching away to the right made of feed-post platforms.",
-   "motion": "On each 'down' the camera surges forward into the game level, three pushes on the beat, tracking the character; by 'go touch grass' the camera is inside the level beside it. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
+   "motion": "On each 'down' the camera surges forward into the game level, three pushes on the beat, tracking the character; by 'go touch grass' the camera is inside the level beside it. The character stays small inside the game world the whole time, never growing large or stepping out in front of the screen. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
    "foley": "a deep whoom on each push, the last one opening into a glassy rush",
-   "seed": 7,
+   "seed": 107,
    "characters": [
     "blip"
    ],
@@ -144,9 +144,9 @@
   },
   "intro-5": {
    "keyframe": "2D side-scroller level: the character landing on the first of four platforms that rise like stairs to the right, feed-post walls in the background.",
-   "motion": "Four jumps, one on each 'down', from platform to rising platform, each landing exactly on the word; on 'hey, hey, hey' it spins to face the camera and points its flag at the viewer. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
+   "motion": "One single small character, the only one in frame: it hops up the rising platforms, one jump on each 'down', each landing exactly on the word; on 'hey, hey, hey' it spins to face the camera and points its flag at the viewer. Never more than one character on screen, no copies, no trails. No speech bubbles, no text, no letters. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
    "foley": "a springy boing on each bounce",
-   "seed": 14,
+   "seed": 114,
    "characters": [
     "blip"
    ],
@@ -485,9 +485,9 @@
   },
   "chorus3-3": {
    "keyframe": "Golden hour in a wide open park: behind him a glowing sunset sky with warm clouds, rolling green hills and trees in the distance, long warm light. Close on the man (brown mid-length hair, beard, glasses) in his brown plaid flannel, eyes closed, face turned up to the sun, smiling; the small glowing character sits on his shoulder. No hands in frame. The background is a full painted landscape, not a plain backdrop.",
-   "motion": "He breathes in the sun, smiling, eyes closed; the character on his shoulder waves its flag on 'still alive'. Gentle, warm, slow push-in. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
+   "motion": "He breathes in the sun, smiling, eyes closed; the character on his shoulder waves its flag on 'still alive'. Gentle, warm, slow push-in. The man wears his own clear eyeglasses the whole time, never sunglasses; only the small character wears the black pixel sunglasses. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
    "foley": "warm breeze, birdsong under the music",
-   "seed": 76,
+   "seed": 176,
    "characters": [
     "blip",
     "man_day",
@@ -498,9 +498,9 @@
   },
   "chorus3-4": {
    "keyframe": "Golden hour, close on the man's brown, amber and cream plaid flannel sleeve and shoulder, a softly painted sunset park and sky behind; the small glowing character at the top of the sleeve near the shoulder, about to slide. The background is a painted landscape, not a plain backdrop.",
-   "motion": "The character slides down the flannel sleeve using one stubby arm like a rope, then disappears behind a fold of the fabric; the camera chases it, punching in closer and closer into the plaid weave. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
+   "motion": "The character slides down the flannel sleeve using one stubby arm like a rope, then disappears behind a fold of the fabric; the camera chases it, punching in closer and closer, and keeps pushing until the plaid weave fills the entire frame by the last second. The man wears his own clear eyeglasses the whole time, never sunglasses; only the small character wears the black pixel sunglasses. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
    "foley": "three fabric zips on the slides, a warm whoosh into the porch",
-   "seed": 77,
+   "seed": 177,
    "characters": [
     "blip",
     "man_day"
