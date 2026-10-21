@@ -50,7 +50,7 @@
    "keyframe": "2D side-scroller level: the character running right across floating feed-post platforms, notification bubbles falling from above like hazards.",
    "motion": "The camera scrolls right with the running character, hopping between platforms on the beat and dodging falling notification bubbles; near the end it points the flag straight at the viewer. Blank bubbles, no words or letters. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, worn on its face the whole time and never removed, one single little green flag.",
    "foley": "notification pings scattered through the feed",
-   "seed": 13,
+   "seed": 5013,
    "characters": [
     "blip"
    ],
@@ -194,7 +194,7 @@
    "keyframe": "At night on a bedside nightstand, at the tiny character's scale: an alarm clock and a charging phone, the man fast asleep in bed beyond, eyes closed. The character is spinning slowly on a small wooden lazy Susan under a tiny spotlight.",
    "motion": "The round wooden lazy Susan turns slowly and steadily like a turntable, and the character standing on it turns with it as one piece, feet planted, rotating in place to show its side and then face front again; it stands upright and never leans. At one moment a camera flash pops white for an instant. The man stays fast asleep the whole time, eyes closed, never looking at the camera. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, worn on its face the whole time and never removed, one single little green flag.",
    "foley": "lazy Susan creak, camera shutter + flash pop on 'screenshot'",
-   "seed": 51,
+   "seed": 5051,
    "characters": [
     "blip",
     "man_night"
