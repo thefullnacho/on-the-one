@@ -3,10 +3,12 @@
 usage: python -m on_the_one.app [--port 8700] [--songs songs]
 then open http://127.0.0.1:8700
 
-Screen one is the live animatic: the song plays, the viewer shows each shot as it comes up (clip, keyframe or
-placeholder card), and every shot has a notes pad that saves as you type (songs/<song>/notes.json).
+The coached flow (docs/APP_FLOW.md), one step per screen: Song (the live animatic: the song plays, the viewer shows
+each shot as it comes up, every shot has a notes pad that saves as you type into songs/<song>/notes.json), Story,
+Look, Cast, Shots (keyframe options to pick) and Review (watch the cut, re-roll one shot live on the GPU, export).
+Picks made on the Story/Look/Cast screens go to songs/<song>/steps.json.
 """
-import argparse, json, mimetypes, re, shutil
+import argparse, json, mimetypes, re, shutil, subprocess, sys, time
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 from pathlib import Path
 from urllib.parse import unquote
@@ -42,7 +44,65 @@ def song_payload(d):
         "keyframes": sorted(p.stem for p in (d / "keyframes").glob("*.png")) if (d / "keyframes").exists() else [],
         "options": options_by_shot(d),
         "clips": sorted(p.stem for p in (d / "clips").glob("*.mp4")) if (d / "clips").exists() else [],
+        "seeds": {k: v.get("seed") for k, v in direction.get("shots", {}).items()},
+        "steps": read_json(d / "steps.json"),
+        "look": look_tests(d),
+        "cast": cast(d, direction),
+        "cuts": sorted((p.name for p in d.glob("cut*.mp4")), key=lambda n: (d / n).stat().st_mtime),
+        "takes": app_takes(d),
     }
+
+
+def read_json(path, default=None):
+    return json.loads(path.read_text()) if path.exists() else ({} if default is None else default)
+
+
+def write_json(path, obj):
+    tmp = path.with_suffix(".tmp")
+    tmp.write_text(json.dumps(obj, indent=1) + "\n")   # ascii escapes, like the files the runner writes
+    tmp.replace(path)
+
+
+def look_tests(d):
+    """style_tests/<subject>_<style>[_v2].png|mp4 -> {style: {stills, motion}}; ref_<char>_<style>.png are the cast in that style."""
+    out = {}
+    for p in sorted((d / "style_tests").glob("*")) if (d / "style_tests").exists() else []:
+        m = re.fullmatch(r"(ref_)?([a-z0-9-]+)_(3d|clay|gouache|ligne)(_v2)?\.(png|mp4)", p.name)
+        if not m:
+            continue
+        st = out.setdefault(m.group(3), {"stills": [], "refs": [], "motion": []})
+        st["motion" if m.group(5) == "mp4" else "refs" if m.group(1) else "stills"].append(f"style_tests/{p.name}")
+    return out
+
+
+def cast(d, direction):
+    """Each character's locked sheet(s) plus the options it was picked from (character/art/<prefix>_*, character/<x>_options/)."""
+    out, used = [], set()
+    for name, info in direction.get("characters", {}).items():
+        ref = info.get("ref")
+        refs = sorted({r for v in ref.values() for r in v}) if isinstance(ref, dict) else (ref or [])
+        if not refs:
+            continue
+        prefix = Path(refs[0]).stem.replace("_gouache", "")
+        opts = sorted(f"character/art/{p.name}" for p in (d / "character" / "art").glob(f"{prefix}_*.png"))
+        for od in sorted((d / "character").glob("*_options")):
+            if prefix.startswith(od.name[:-len("_options")]) and od not in used:
+                used.add(od)
+                opts += sorted(f"character/{od.name}/{p.name}" for p in od.glob("*.png"))
+        out.append({"name": name, "look": info.get("look", ""), "refs": refs, "options": opts, "note": info.get("note", "")})
+    return out
+
+
+def app_takes(d):
+    """Live re-roll results: takes/app/<shot>_<seed>.mp4, plus each shot's job status."""
+    out, base = {}, d / "takes" / "app"
+    for p in sorted(base.glob("*.mp4")) if base.exists() else []:
+        sid, seed = p.stem.rsplit("_", 1)
+        if seed.isdigit():
+            out.setdefault(sid, {"seeds": [], "status": None})["seeds"].append(int(seed))
+    for p in sorted(base.glob("*.status.json")) if base.exists() else []:
+        out.setdefault(p.name[:-len(".status.json")], {"seeds": [], "status": None})["status"] = read_json(p)
+    return out
 
 
 def options_by_shot(d):
@@ -120,22 +180,80 @@ class Handler(BaseHTTPRequestHandler):
             return self.send_file(f)
         self.send_json({"error": "not found"}, 404)
 
+    def body(self):
+        return json.loads(self.rfile.read(int(self.headers.get("Content-Length", 0))) or b"{}")
+
     def do_POST(self):
-        """Pick a keyframe option: copies keyframes/options/<shot>_<seed>.png to keyframes/<shot>.png."""
-        m = re.match(r"^/api/song/([^/]+)/pick/([a-z0-9-]+)$", unquote(self.path))
+        m = re.match(r"^/api/song/([^/]+)/(pick|reroll|clip|step|export)(?:/([a-z0-9-]+))?$", unquote(self.path))
         d = song_dir(m.group(1)) if m else None
         if not d:
             return self.send_json({"error": "not found"}, 404)
-        seed = str(json.loads(self.rfile.read(int(self.headers.get("Content-Length", 0))) or b"{}").get("seed", ""))
-        src = d / "keyframes" / "options" / f"{m.group(2)}_{seed}.png"
+        action, shot = m.group(2), m.group(3)
+        if action == "pick" and shot:
+            return self.pick_keyframe(d, shot)
+        if action == "reroll" and shot:
+            return self.reroll(d, shot)
+        if action == "clip" and shot:
+            return self.use_take(d, shot)
+        if action == "step":
+            b = self.body()
+            if b.get("key") not in ("story", "look", "cast"):
+                return self.send_json({"error": "unknown step"}, 400)
+            steps = read_json(d / "steps.json")
+            steps[b["key"]] = b.get("value")
+            write_json(d / "steps.json", steps)
+            return self.send_json({"saved": b["key"]})
+        if action == "export":
+            out = d / "cut.mp4"
+            r = subprocess.run([sys.executable, "-m", "on_the_one.conform", str(d), "--out", str(out)],
+                               cwd=Path(__file__).resolve().parents[1], capture_output=True, text=True)
+            if r.returncode != 0:
+                return self.send_json({"error": (r.stderr or r.stdout).strip()[-400:]}, 500)
+            return self.send_json({"cut": out.name, "log": r.stdout.strip().splitlines()[-1:]})
+        self.send_json({"error": "not found"}, 404)
+
+    def reroll(self, d, shot):
+        """Start a live re-roll of one shot (3 new seeds into takes/app/); the page polls the song payload for status."""
+        if shot not in read_json(d / "direction.json").get("shots", {}):
+            return self.send_json({"error": "no such shot"}, 404)
+        st = read_json(d / "takes" / "app" / f"{shot}.status.json")
+        if st.get("state") not in (None, "done", "failed", "busy") and time.time() - st.get("t", 0) < 600:
+            return self.send_json({"error": "already re-rolling"}, 409)
+        (d / "takes" / "app").mkdir(parents=True, exist_ok=True)
+        with open(d / "takes" / "app" / f"{shot}.log", "a") as log:
+            subprocess.Popen([sys.executable, "-m", "on_the_one.reroll", str(d), shot], cwd=Path(__file__).resolve().parents[1],
+                             stdout=log, stderr=subprocess.STDOUT, start_new_session=True)
+        write_json(d / "takes" / "app" / f"{shot}.status.json", {"shot": shot, "state": "queued", "t": time.time()})
+        self.send_json({"rerolling": shot})
+
+    def use_take(self, d, shot):
+        """Use a re-rolled take: takes/app/<shot>_<seed>.mp4 becomes clips/<shot>.mp4 (the old clip is kept in takes/app/)."""
+        seed = str(self.body().get("seed", ""))
+        src = d / "takes" / "app" / f"{shot}_{seed}.mp4"
+        if not re.fullmatch(r"\d+", seed) or not src.exists():
+            return self.send_json({"error": "no such take"}, 404)
+        direction = read_json(d / "direction.json")
+        clip = d / "clips" / f"{shot}.mp4"
+        old = direction["shots"][shot].get("seed")
+        if clip.exists() and old is not None and not (d / "takes" / "app" / f"{shot}_{old}.mp4").exists():
+            shutil.copyfile(clip, d / "takes" / "app" / f"{shot}_{old}.mp4")
+        shutil.copyfile(src, clip)
+        direction["shots"][shot]["seed"] = int(seed)
+        write_json(d / "direction.json", direction)
+        self.send_json({"clip": shot, "seed": int(seed)})
+
+    def pick_keyframe(self, d, shot):
+        """Pick a keyframe option: copies keyframes/options/<shot>_<seed>.png to keyframes/<shot>.png."""
+        seed = str(self.body().get("seed", ""))
+        src = d / "keyframes" / "options" / f"{shot}_{seed}.png"
         if not re.fullmatch(r"\d+", seed) or not src.exists():
             return self.send_json({"error": "no such option"}, 404)
-        shutil.copyfile(src, d / "keyframes" / f"{m.group(2)}.png")
+        shutil.copyfile(src, d / "keyframes" / f"{shot}.png")
         picks = d / "picks.json"
         data = json.loads(picks.read_text()) if picks.exists() else {}
-        data[m.group(2)] = int(seed)
+        data[shot] = int(seed)
         picks.write_text(json.dumps(data, indent=1))
-        self.send_json({"picked": m.group(2), "seed": int(seed)})
+        self.send_json({"picked": shot, "seed": int(seed)})
 
     def do_PUT(self):
         m = re.match(r"^/api/song/([^/]+)/notes/([a-z0-9-]+)$", unquote(self.path))

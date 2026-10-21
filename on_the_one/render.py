@@ -9,6 +9,7 @@ usage:
   python -m on_the_one.render songs/<song> keyframes pending      # every shot still needing options
   python -m on_the_one.render songs/<song> pick s09 <seed>
   python -m on_the_one.render songs/<song> clips s09 s12
+  python -m on_the_one.render songs/<song> clips s09 --seeds 3009,4009 --out-dir songs/<song>/takes/app   # options, cut untouched
 
 songs/<song>/direction.json:
   {"character": "character/hero_16x9.png",          # reference for every keyframe (16:9: output takes its size)
@@ -109,6 +110,8 @@ def main():
     ap.add_argument("stage", choices=["keyframes", "pick", "clips"])
     ap.add_argument("args", nargs="+")
     ap.add_argument("--options", type=int, default=3)
+    ap.add_argument("--seeds", default=None, help="clips: render these seeds (comma-separated) instead of the shot's own")
+    ap.add_argument("--out-dir", default=None, help="clips: write <shot>_<seed>.mp4 here instead of clips/<shot>.mp4")
     a = ap.parse_args()
     d = Path(a.song_dir)
     shots_doc = json.loads((d / "shots.json").read_text())
@@ -171,18 +174,20 @@ def main():
                 wav = Path(tmp) / f"{shot}.wav"
                 subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", str(s["start"]), "-t", f"{dur:.4f}",
                                 "-i", str(audio), "-ac", "2", "-ar", "48000", str(wav)], check=True)
-                seed = spec.get("seed", 1)
                 picks = json.loads((d / "picks.json").read_text()) if (d / "picks.json").exists() else {}
                 for v, seeds in spec.get("variant_seeds", {}).items():   # a shot with variants uses the picked variant's motion
                     if picks.get(shot) in seeds:
                         spec = {**spec, **spec["variants"][v]}
-                wf = fill(client, "ltx_a2v", {
-                    "image": client.assets.from_file(kf), "audio": client.assets.from_file(wav),
-                    "prompt": spec["motion"], "negative": ", ".join(x for x in (direction.get("negative", ""), spec.get("negative_extra", "")) if x),
-                    "duration": round(dur, 4), "seed": seed, "seed_2": seed + 1})
-                out = d / "clips" / f"{shot}.mp4"
-                took = run(client, wf, out)
-                print(f"{shot} clip: {out} ({took:.0f}s, {s['render_frames']} frames for a {s['duration']}s slot)", flush=True)
+                image, sound = client.assets.from_file(kf), client.assets.from_file(wav)
+                for seed in [int(x) for x in a.seeds.split(",")] if a.seeds else [spec.get("seed", 1)]:
+                    wf = fill(client, "ltx_a2v", {
+                        "image": image, "audio": sound,
+                        "prompt": spec["motion"], "negative": ", ".join(x for x in (direction.get("negative", ""), spec.get("negative_extra", "")) if x),
+                        "duration": round(dur, 4), "seed": seed, "seed_2": seed + 1})
+                    out = Path(a.out_dir) / f"{shot}_{seed}.mp4" if a.out_dir else d / "clips" / f"{shot}.mp4"
+                    out.parent.mkdir(parents=True, exist_ok=True)
+                    took = run(client, wf, out)
+                    print(f"{shot} clip: {out} ({took:.0f}s, {s['render_frames']} frames for a {s['duration']}s slot)", flush=True)
 
 
 if __name__ == "__main__":
