@@ -33,7 +33,7 @@ def song_payload(d):
         "name": d.name, "audio": audio,
         "bpm": shots["bpm"], "phase": shots["phase"], "bar": shots["bar"], "duration": shots["duration"],
         "shots": shots["shots"], "cues": shots.get("cues", []),
-        "direction": direction.get("shots", {}), "theme": direction.get("theme", ""),
+        "direction": direction.get("shots", {}), "theme": direction.get("theme", ""), "art": direction.get("art", {}),
         "notes": notes,
         "picks": json.loads((d / "picks.json").read_text()) if (d / "picks.json").exists() else {},
         "lines": [{"text": x["line"], "start": x["start"], "end": x["end"]} for x in shots.get("alignment", [])

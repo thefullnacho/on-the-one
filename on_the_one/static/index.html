@@ -170,6 +170,109 @@
   #dirPop dd { margin: 2px 0 0; }
   .keys { color: var(--ink-soft); font-size: 12px; }
 
+  /* the coached flow: one step per screen */
+  .steps { display: flex; gap: 2px; margin: 0; padding: 0; list-style: none; }
+  .steps button {
+    background: none; border: 0; border-radius: 99px; padding: 4px 12px; cursor: pointer; color: var(--ink-soft);
+    font-size: 14px; white-space: nowrap;
+  }
+  .steps button b { font-family: "DotGothic16", monospace; font-weight: 400; margin-right: 6px; color: var(--ink-soft); opacity: .6; }
+  .steps button:hover { color: var(--ink); }
+  .steps button[aria-current="step"] { background: var(--dusk-2); color: var(--ink); }
+  .steps button[aria-current="step"] b { color: var(--mint); opacity: 1; }
+  .screen { display: none; overflow: auto; padding: 4px 20px 24px; min-height: 0; grid-row: 2 / 4; }
+  body:is([data-step="story"], [data-step="look"], [data-step="cast"], [data-step="review"]) :is(main, .timeline-wrap) { display: none; }
+  body[data-step="story"] #story, body[data-step="look"] #look, body[data-step="cast"] #cast, body[data-step="review"] #review { display: block; }
+  body[data-step="song"] :is(.opts, .opts-note) { display: none; }
+  body:not([data-step="song"]) header .theme { display: none; }
+  .lede { color: var(--ink-soft); max-width: 72ch; margin: 0 0 18px; font-size: 15px; }
+  .lede b { color: var(--ink); font-weight: 600; }
+  .tag {
+    display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 99px; background: var(--mint); color: var(--dusk);
+    font-weight: 600; letter-spacing: .02em; vertical-align: middle;
+  }
+  .tag.soft { background: var(--dusk-3); color: var(--ink-soft); }
+
+  /* Story */
+  .logline {
+    font-size: clamp(20px, 2.2vw, 28px); font-weight: 800; line-height: 1.2; max-width: 40ch; margin: 6px 0 22px;
+    letter-spacing: -0.01em;
+  }
+  .sec { display: grid; grid-template-columns: minmax(180px, 1fr) minmax(0, 2.2fr); gap: 20px; padding: 16px 0;
+         border-top: 1px solid var(--dusk-2); }
+  .sec h3 { margin: 0 0 6px; font-size: 15px; display: flex; gap: 8px; align-items: center; }
+  .sec h3 i { width: 10px; height: 10px; border-radius: 3px; background: var(--c); display: inline-block; }
+  .sec .sung { color: var(--ink-soft); font-size: 14px; display: flex; flex-direction: column; gap: 2px; }
+  .beats { display: flex; flex-direction: column; gap: 8px; }
+  .beat { display: grid; grid-template-columns: 96px 1fr; gap: 12px; align-items: start; font-size: 14px; }
+  .beat img, .beat .noimg { width: 96px; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 4px; background: var(--dusk-2); }
+  .beat > div:last-child { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .beat .bid { font-family: "DotGothic16", monospace; color: var(--mint); font-size: 12px; margin-right: 6px; }
+  .sec textarea { min-height: 64px; font-size: 17px; line-height: 28px; margin-top: 10px; width: 100%;
+    background: var(--paper) repeating-linear-gradient(to bottom, transparent 0 27px, rgba(59, 47, 30, .14) 27px 28px); }
+
+  /* Look */
+  .looks { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+  .lookcard { background: var(--dusk-2); border-radius: var(--r); padding: 12px; border: 2px solid transparent;
+              display: flex; flex-direction: column; gap: 10px; }
+  .lookcard.locked { border-color: var(--mint); }
+  .lookcard h3 { margin: 0; font-size: 17px; display: flex; justify-content: space-between; align-items: center; }
+  .lookcard .hero { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 4px; background: var(--dusk); }
+  .strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+  .strip img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px; cursor: zoom-in; background: var(--dusk); }
+  .lookcard .why { font-size: 13px; color: var(--ink-soft); }
+  .artdir { margin-top: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+  .artdir div { background: var(--dusk-2); border-radius: var(--r); padding: 12px 14px; font-size: 14px; color: var(--ink-soft); }
+  .artdir h4 { margin: 0 0 6px; color: var(--ink); font-size: 14px; }
+
+  /* Cast */
+  .castgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+  .person { background: var(--dusk-2); border-radius: var(--r); padding: 12px; display: flex; flex-direction: column; gap: 10px; }
+  .person h3 { margin: 0; font-size: 17px; display: flex; gap: 8px; align-items: center; }
+  .person .sheet { width: 100%; max-height: 300px; object-fit: contain; background: var(--dusk); border-radius: 4px; }
+  .person .look { font-size: 13px; color: var(--ink-soft); }
+  .person .from { font-size: 12px; color: var(--ink-soft); }
+  .person .strip img { aspect-ratio: 16 / 9; }
+
+  /* Review */
+  .review { display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, 420px); gap: 24px; }
+  .review video.cut { width: 100%; aspect-ratio: 16 / 9; background: #060a14; border-radius: var(--r); display: block; }
+  .cutbar { display: flex; gap: 10px; align-items: center; margin: 10px 0; flex-wrap: wrap; }
+  .cutbar select, .btn {
+    background: var(--dusk-2); border: 1px solid var(--dusk-3); color: var(--ink); border-radius: var(--r); padding: 6px 12px;
+    font: inherit; font-size: 14px; cursor: pointer;
+  }
+  .btn.go { background: var(--mint); color: var(--dusk); border-color: var(--mint); font-weight: 600; }
+  .btn:disabled { opacity: .5; cursor: progress; }
+  .cutbar .msg { font-size: 13px; color: var(--ink-soft); }
+  .thumbs { display: flex; gap: 3px; overflow-x: auto; padding-bottom: 6px; }
+  .thumbs button { flex: none; width: 92px; padding: 0; border: 2px solid transparent; border-radius: 4px; overflow: hidden;
+                   background: var(--dusk-2); cursor: pointer; position: relative; }
+  .thumbs img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+  .thumbs span { position: absolute; left: 3px; bottom: 1px; font-size: 10px; color: #fff; text-shadow: 0 1px 2px #000; }
+  .thumbs button.on { border-color: var(--amber); }
+  .thumbs button.live { border-color: var(--mint); }
+  .panel { display: flex; flex-direction: column; gap: 12px; }
+  .panel video { width: 100%; aspect-ratio: 16 / 9; background: #060a14; border-radius: var(--r); display: block; }
+  .takes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .take { display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: var(--ink-soft); }
+  .take video { border: 2px solid transparent; border-radius: 4px; }
+  .take.current video { border-color: var(--mint); }
+  .take button { font-size: 12px; padding: 3px 8px; }
+  .job { font-size: 14px; color: var(--ink-soft); min-height: 1.4em; }
+  .job .pulse { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--mint); margin-right: 6px;
+                animation: pulse 1.1s ease-in-out infinite; }
+  @keyframes pulse { 50% { opacity: .25; } }
+  #zoom { padding: 0; border: 0; background: none; max-width: 92vw; max-height: 92vh; }
+  #zoom::backdrop { background: rgba(6, 10, 20, .85); }
+  #zoom img { max-width: 92vw; max-height: 92vh; display: block; border-radius: var(--r); }
+
+  @media (max-width: 900px) {
+    .review, .sec { grid-template-columns: 1fr; }
+    header { flex-wrap: wrap; }
+    .steps { order: 3; width: 100%; overflow-x: auto; }
+  }
+  @media (prefers-reduced-motion: reduce) { .job .pulse { animation: none; } }
   @media (max-width: 900px) {
     body { height: auto; }
     main { grid-template-columns: 1fr; overflow: visible; }
@@ -183,9 +286,58 @@
 <body>
 <header>
   <h1>on-the-one</h1>
+  <nav aria-label="Steps"><ol class="steps" id="steps">
+    <li><button data-step="song"><b>1</b>Song</button></li>
+    <li><button data-step="story"><b>2</b>Story</button></li>
+    <li><button data-step="look"><b>3</b>Look</button></li>
+    <li><button data-step="cast"><b>4</b>Cast</button></li>
+    <li><button data-step="shots"><b>5</b>Shots</button></li>
+    <li><button data-step="review"><b>6</b>Review</button></li>
+  </ol></nav>
   <span class="theme" id="theme"></span>
   <select id="songPick" aria-label="Song"></select>
 </header>
+
+<section class="screen" id="story" aria-label="Story">
+  <p class="lede">The story, section by section. Each beat is one shot on the bar lines; rewrite a section in your own words and the next pass works from it.</p>
+  <div class="logline" id="logline"></div>
+  <div id="sections2"></div>
+</section>
+
+<section class="screen" id="look" aria-label="Look">
+  <p class="lede">The look is locked while the first character is drawn: the same subjects in each candidate style, stills and a short motion test, so you can see which one holds up when it moves.</p>
+  <div class="looks" id="looks"></div>
+  <div class="artdir" id="artdir"></div>
+</section>
+
+<section class="screen" id="cast" aria-label="Cast">
+  <p class="lede">Every character gets a locked sheet in the chosen look. The sheet is the reference every shot is built from; the row underneath is what it was picked from.</p>
+  <div class="castgrid" id="castgrid"></div>
+</section>
+
+<section class="screen" id="review" aria-label="Review">
+  <div class="review">
+    <div>
+      <video class="cut" id="cutVideo" controls preload="metadata"></video>
+      <div class="cutbar">
+        <select id="cutPick" aria-label="Cut"></select>
+        <button class="btn go" id="exportBtn">Export cut</button>
+        <span class="msg" id="exportMsg"></span>
+      </div>
+      <div class="thumbs" id="thumbs" aria-label="Shots. Click one to jump there and work on it."></div>
+    </div>
+    <div class="panel">
+      <div class="pad-head"><span class="cid" id="rvId"></span><span class="when" id="rvWhen"></span></div>
+      <div class="lyrics" id="rvLyrics"></div>
+      <video id="rvClip" muted loop playsinline autoplay></video>
+      <div><button class="btn go" id="rerollBtn">Re-roll this shot</button></div>
+      <div class="job" id="rvJob" aria-live="polite"></div>
+      <div class="takes" id="rvTakes"></div>
+    </div>
+  </div>
+</section>
+
+<dialog id="zoom"><img alt=""></dialog>
 
 <main>
   <section class="stage">
@@ -432,7 +584,187 @@ document.addEventListener("keydown", (e) => {
   else if (["1", "2", "3"].includes(e.key)) { const sd = (S.options[S.shots[sel].id] || [])[+e.key - 1]; if (sd) pick(S.shots[sel].id, sd); }
 });
 window.addEventListener("beforeunload", flushSave);
-loadSongs();
+
+/* ---- the coached flow: steps ---- */
+const STEPS = ["song", "story", "look", "cast", "shots", "review"];
+const built = {};
+function setStep(step, push = true) {
+  if (!STEPS.includes(step)) step = "song";
+  document.body.dataset.step = step;
+  document.querySelectorAll("#steps button").forEach((b) => b.dataset.step === step ? b.setAttribute("aria-current", "step") : b.removeAttribute("aria-current"));
+  if (!["song", "shots"].includes(step) && !audio.paused) toggle();
+  if (step !== "review") { $("cutVideo").pause(); }
+  if (push) { const q = new URLSearchParams(location.search); q.set("step", step); history.replaceState(null, "", `?${q}`); }
+  if (S && !built[step] && builders[step]) { builders[step](); built[step] = true; }
+  if (step === "shots" || step === "song") renderOptions();
+}
+document.querySelectorAll("#steps button").forEach((b) => b.onclick = () => setStep(b.dataset.step));
+const builders = { story: buildStory, look: buildLook, cast: buildCast, review: buildReview };
+const titled = (s) => s.replace(/_/g, " ").replace(/^\w/, (c) => c.toUpperCase());
+const linesIn = (a, b) => S.lines.filter((l) => l.start < b - 0.05 && l.end > a + 0.05);
+function zoom(src) { const z = $("zoom"); z.querySelector("img").src = src; z.showModal(); }
+$("zoom").onclick = () => $("zoom").close();
+async function saveStep(key, value) {
+  await fetch(`/api/song/${encodeURIComponent(S.name)}/step`, {
+    method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ key, value }) });
+  S.steps[key] = value;
+}
+
+/* Story: the song's sections, their lyrics and the beats (shots) inside each one */
+function buildStory() {
+  $("logline").textContent = S.theme;
+  const groups = [];
+  S.shots.forEach((sh) => {
+    const key = sh.id.split("-")[0], last = groups[groups.length - 1];
+    if (last && last.key === key) last.shots.push(sh); else groups.push({ key, shots: [sh] });
+  });
+  const story = S.steps.story || {};
+  let timer = null;
+  $("sections2").innerHTML = groups.map((g) => {
+    const a = g.shots[0].start, b = g.shots[g.shots.length - 1].end, num = g.key.match(/\d+$/);
+    const sec0 = g.shots[0].section, name = /\d$/.test(sec0) || !num ? sec0 : `${sec0} ${num[0]}`;
+    const sung = linesIn(a, b).map((l) => `<span>${esc(l.text)}</span>`).join("") || "<span>(instrumental)</span>";
+    const beats = g.shots.map((sh) => {
+      const d = S.direction[sh.id] || {}, img = S.keyframes.includes(sh.id)
+        ? `<img loading="lazy" src="${media("keyframes/" + sh.id + ".png")}" alt="">` : `<div class="noimg"></div>`;
+      return `<div class="beat">${img}<div><span class="bid">${sh.id}</span>${esc(d.keyframe && !d.keyframe.startsWith("(") ? d.keyframe : d.motion || "")}</div></div>`;
+    }).join("");
+    return `<div class="sec" style="--c:var(--sec-${fam(g.shots[0].section)})">
+      <div><h3><i></i>${esc(name)} <span class="when">${fmt(a)}</span></h3><div class="sung">${sung}</div></div>
+      <div><div class="beats">${beats}</div>
+        <textarea data-key="${g.key}" placeholder="Rewrite this section's story in a sentence or two.">${esc(story[g.key] || "")}</textarea></div>
+    </div>`;
+  }).join("");
+  $("sections2").querySelectorAll("textarea").forEach((t) => t.addEventListener("input", () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      const s = { ...(S.steps.story || {}) };
+      if (t.value.trim()) s[t.dataset.key] = t.value; else delete s[t.dataset.key];
+      saveStep("story", s);
+    }, 600);
+  }));
+}
+
+/* Look: the same subjects in each candidate style; the locked one is what every shot inherits */
+const LOOKS = {
+  gouache: ["Gouache", "Painted storybook: thick matte paint, visible brush strokes."],
+  ligne: ["Ligne claire", "Clean ink outlines, flat color."],
+  "3d": ["3D", "Soft, toy-like CG."],
+  clay: ["Clay", "Stop-motion clay."],
+};
+function buildLook() {
+  const locked = S.steps.look || (/gouache/i.test(JSON.stringify(S.art)) ? "gouache" : null);
+  const order = Object.keys(LOOKS).filter((k) => S.look[k]);
+  $("looks").innerHTML = order.map((k) => {
+    const t = S.look[k], [name, why] = LOOKS[k];
+    const hero = t.motion[0] ? `<video class="hero" src="${media(t.motion[0])}" muted loop playsinline autoplay></video>`
+                             : `<img class="hero" src="${media(t.stills[0])}" alt="">`;
+    const strip = [...t.refs, ...t.stills].slice(0, 8).map((p) => `<img loading="lazy" src="${media(p)}" alt="" data-z="${media(p)}">`).join("");
+    return `<div class="lookcard ${k === locked ? "locked" : ""}">
+      <h3>${name} ${k === locked ? `<span class="tag">Locked</span>` : `<button class="btn" data-lock="${k}">Lock this look</button>`}</h3>
+      ${hero}<div class="why">${why}${t.motion[0] ? " Motion test above." : ""}</div><div class="strip">${strip}</div></div>`;
+  }).join("");
+  $("looks").querySelectorAll("[data-z]").forEach((i) => i.onclick = () => zoom(i.dataset.z));
+  $("looks").querySelectorAll("[data-lock]").forEach((b) => b.onclick = async () => { await saveStep("look", b.dataset.lock); buildLook(); });
+  const worlds = Object.entries(S.art || {}).filter(([, a]) => a && a.style);
+  $("artdir").innerHTML = worlds.map(([w, a]) => `<div><h4>${w === "phone" ? "Inside the phone" : w === "real" ? "Real world" : titled(w)}</h4>${esc(a.style || "")}</div>`).join("");
+}
+
+/* Cast: each locked sheet, and the options it was picked from */
+function buildCast() {
+  $("castgrid").innerHTML = S.cast.map((c) => `<div class="person">
+      <h3>${esc(titled(c.name))} <span class="tag">Locked sheet</span></h3>
+      <img class="sheet" src="${media(c.refs[0])}" alt="${esc(c.name)} character sheet" data-z="${media(c.refs[0])}">
+      <div class="look">${esc(c.look)}</div>
+      ${c.options.length ? `<div class="from">Picked from</div><div class="strip">${c.options.slice(0, 8).map((p) =>
+        `<img loading="lazy" src="${media(p)}" alt="" data-z="${media(p)}">`).join("")}</div>` : ""}
+    </div>`).join("");
+  $("castgrid").querySelectorAll("[data-z]").forEach((i) => i.onclick = () => zoom(i.dataset.z));
+}
+
+/* Review: watch the cut, re-roll one shot live on the local GPU, pick a take, export */
+let rv = 0, poll = null;
+function buildReview() {
+  const cuts = [...S.cuts].reverse();
+  $("cutPick").innerHTML = cuts.map((c) => `<option>${c}</option>`).join("") || "<option disabled>No cut yet: export one</option>";
+  $("cutPick").onchange = () => { $("cutVideo").src = media($("cutPick").value); };
+  if (cuts[0]) $("cutVideo").src = media(cuts[0]);
+  $("thumbs").innerHTML = S.shots.map((sh, i) => `<button data-i="${i}" title="${sh.id}">${S.keyframes.includes(sh.id)
+    ? `<img loading="lazy" src="${media("keyframes/" + sh.id + ".png")}" alt="">` : `<div style="aspect-ratio:16/9"></div>`}<span>${sh.id}</span></button>`).join("");
+  $("thumbs").querySelectorAll("button").forEach((b) => b.onclick = () => {
+    const sh = S.shots[+b.dataset.i]; $("cutVideo").currentTime = sh.start + 0.01; reviewShot(+b.dataset.i);
+  });
+  $("cutVideo").ontimeupdate = () => {
+    const i = shotAt($("cutVideo").currentTime);
+    $("thumbs").querySelectorAll("button").forEach((b, k) => b.classList.toggle("live", k === i));
+  };
+  reviewShot(Math.max(sel, 0));
+  if (Object.values(S.takes).some((t) => active(t.status))) startPoll();
+}
+const active = (st) => st && ["queued", "waiting for the GPU", "starting ComfyUI", "rendering"].includes(st.state);
+function reviewShot(i) {
+  rv = i; const sh = S.shots[i];
+  $("rvId").textContent = sh.id;
+  $("rvWhen").textContent = `${fmt(sh.start)} – ${fmt(sh.end)}`;
+  $("rvLyrics").innerHTML = linesIn(sh.start, sh.end).map((l) => `<span>${esc(l.text)}</span>`).join("") || `<span class="spill">(instrumental)</span>`;
+  $("thumbs").querySelectorAll("button").forEach((b, k) => b.classList.toggle("on", k === i));
+  $("rvClip").src = S.clips.includes(sh.id) ? media(`clips/${sh.id}.mp4`) + `?v=${S.seeds[sh.id]}` : "";
+  renderTakes();
+}
+function renderTakes() {
+  const sh = S.shots[rv], t = S.takes[sh.id] || { seeds: [], status: null }, st = t.status;
+  const busy = active(st);
+  $("rerollBtn").disabled = busy;
+  $("rerollBtn").textContent = busy ? "Re-rolling…" : t.seeds.length ? "Re-roll again" : "Re-roll this shot";
+  const say = !st ? "" : st.state === "rendering" ? `Rendering take ${(st.done || []).length + 1} of ${st.seeds.length} on the local GPU`
+    : st.state === "done" ? `${(st.done || []).length} new takes. Use one, or keep the current clip.`
+    : st.state === "busy" || st.state === "failed" ? (st.error || "The re-roll failed.") : titled(st.state);
+  $("rvJob").innerHTML = busy ? `<span class="pulse"></span>${esc(say)}` : esc(say);
+  const seeds = [...new Set(t.seeds)].sort((a, b) => b - a);
+  $("rvTakes").innerHTML = seeds.map((s) => `<div class="take ${s === S.seeds[sh.id] ? "current" : ""}">
+      <video src="${media(`takes/app/${sh.id}_${s}.mp4`)}" muted loop playsinline preload="metadata"></video>
+      ${s === S.seeds[sh.id] ? `<span>In the cut</span>` : `<button class="btn" data-seed="${s}">Use this</button>`}</div>`).join("");
+  $("rvTakes").querySelectorAll("video").forEach((v) => { v.onmouseenter = () => v.play(); v.onmouseleave = () => v.pause(); v.onclick = () => v.paused ? v.play() : v.pause(); });
+  $("rvTakes").querySelectorAll("[data-seed]").forEach((b) => b.onclick = () => useTake(sh.id, +b.dataset.seed));
+}
+async function refresh() {
+  const fresh = await (await fetch(`/api/song/${encodeURIComponent(S.name)}`)).json();
+  Object.assign(S, { takes: fresh.takes, seeds: fresh.seeds, clips: fresh.clips, cuts: fresh.cuts });
+}
+function startPoll() {
+  clearInterval(poll);
+  poll = setInterval(async () => {
+    await refresh(); renderTakes();
+    if (!Object.values(S.takes).some((t) => active(t.status))) { clearInterval(poll); poll = null; }
+  }, 3000);
+}
+$("rerollBtn").onclick = async () => {
+  const id = S.shots[rv].id;
+  const r = await fetch(`/api/song/${encodeURIComponent(S.name)}/reroll/${id}`, { method: "POST" });
+  if (!r.ok) { $("rvJob").textContent = (await r.json()).error || "Couldn't start the re-roll."; return; }
+  await refresh(); renderTakes(); startPoll();
+};
+async function useTake(id, seed) {
+  const r = await fetch(`/api/song/${encodeURIComponent(S.name)}/clip/${id}`, {
+    method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ seed }) });
+  if (!r.ok) { $("rvJob").textContent = "Couldn't use that take."; return; }
+  await refresh(); reviewShot(rv);
+  $("rvJob").textContent = "In the cut. Export to hear it with the song.";
+}
+$("exportBtn").onclick = async () => {
+  $("exportBtn").disabled = true; $("exportMsg").textContent = "Cutting to the song, frame-exact…";
+  const r = await fetch(`/api/song/${encodeURIComponent(S.name)}/export`, { method: "POST" });
+  const j = await r.json();
+  $("exportBtn").disabled = false;
+  if (!r.ok) { $("exportMsg").textContent = j.error || "Export failed."; return; }
+  await refresh();
+  const cuts = [...S.cuts].reverse();
+  $("cutPick").innerHTML = cuts.map((c) => `<option ${c === j.cut ? "selected" : ""}>${c}</option>`).join("");
+  $("cutVideo").src = media(j.cut) + `?t=${Date.now()}`;
+  $("exportMsg").textContent = `Exported ${j.cut}.`;
+};
+
+loadSongs().then(() => setStep(new URLSearchParams(location.search).get("step") || "song", false));
 </script>
 </body>
 </html>
