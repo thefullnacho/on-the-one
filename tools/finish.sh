@@ -3,6 +3,8 @@
 # usage: tools/finish.sh [song]        (default green_flag)    log: logs/finish_<date>.log
 # STOP_AT (default 08:00): no new upscale starts after it, so the box is free in the morning; the next run picks up
 # where this one stopped (finished shots are skipped). A 113-frame clip takes ~18 min on the 5080.
+# FOLEY_ARGS: extra foley arguments, e.g. re-rolls: FOLEY_ARGS="prechorus1-2 verse1-2 --takes 3 --seed-base 5101"
+# The master gets the song + picked foley (on_the_one.foleymix) when foley_picks.json exists.
 # Shared box: takes the GPU lock, renders on the 5080 only (CUDA index 0, PCI order), pauses Hestia's Ollama and
 # gives it back at the end, even if a step fails. The 4060 Ti and Hestia's voice units are never touched.
 SONG=${1:-green_flag}
@@ -33,7 +35,7 @@ if ! curl -sf http://127.0.0.1:8189/api/v2/health >/dev/null; then
   until curl -sf http://127.0.0.1:8189/api/v2/health >/dev/null; do sleep 2; done
 fi
 PY=.venv/bin/python
-echo "-- foley $(date)";  $PY -u -m on_the_one.foley "songs/$SONG" --takes 2;  echo "foley exit $?"
+echo "-- foley $(date)";  $PY -u -m on_the_one.foley "songs/$SONG" ${FOLEY_ARGS:---takes 2};  echo "foley exit $?"
 # one shot at a time, so a failure (an OOM) skips that shot instead of ending the night; done shots are skipped on re-run
 echo "-- upscale $(date)"
 for shot in $($PY -c "import json; print(' '.join(s['id'] for s in json.load(open('songs/$SONG/shots.json'))['shots']))"); do
@@ -41,5 +43,6 @@ for shot in $($PY -c "import json; print(' '.join(s['id'] for s in json.load(ope
   $PY -u -m on_the_one.upscale "songs/$SONG" "$shot" || echo "upscale $shot FAILED"
 done
 echo "-- master $(date)"
-$PY -m on_the_one.conform "songs/$SONG" --clips clips_1080 --size 1920x1080 --out "songs/$SONG/cut_master_1080.mp4"
+AUDIO=(); [ -f "songs/$SONG/foley_picks.json" ] && $PY -m on_the_one.foleymix "songs/$SONG" && AUDIO=(--audio mix_foley.wav)
+$PY -m on_the_one.conform "songs/$SONG" --clips clips_1080 --size 1920x1080 "${AUDIO[@]}" --out "songs/$SONG/cut_master_1080.mp4"
 echo "master exit $?; 1080p clips: $(ls songs/$SONG/clips_1080/*.mp4 2>/dev/null | wc -l)"

@@ -60,12 +60,13 @@
   "verse1-2": {
    "keyframe": "2D side-scroller level across a terrain of audio waveforms: little podcast desks with big microphones and tiny figures in suits sit on the platforms ahead as enemies; the character mid-hop over a microphone stand.",
    "motion": "The character hops over each podcast desk and microphone stand on the beat while the waveform terrain pulses, the camera scrolling right. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
-   "foley": "muffled podcast chatter, tiny marching stomps",
+   "foley": "muffled, indistinct voices of several men talking over each other, heard through a wall like a podcast in the next room; no words can be made out",
    "seed": 17,
    "characters": [
     "blip"
    ],
-   "world": "phone"
+   "world": "phone",
+   "foley_negative": "music, melody, singing, drums, beat, clear speech"
   },
   "verse1-3": {
    "keyframe": "2D side-scroller level in cold blue-grey ink: the character planting a green flag checkpoint, warm color flooding outward from it into the level; a small glowing planet Earth power-up floats ahead.",
@@ -100,7 +101,10 @@
    "transition": {
     "type": "flash",
     "frames": 8
-   }
+   },
+   "foley_hits": [
+    35.32
+   ]
   },
   "prechorus1-3": {
    "keyframe": "Sunlit kitchen in the morning: the character peeks out from behind a white coffee mug on the counter, much smaller than the mug; behind it a toaster is smoking, the toast burnt black. Warm golden window light, shallow depth of field.",
@@ -125,7 +129,7 @@
   "prechorus1-2": {
    "keyframe": "Warm sunlit kitchen in the morning: a phone lying on the wooden counter next to a coffee mug, its screen stacked with group-chat message bubbles; the character lounges on top of the phone like a sun-warmed cat. Real, cozy, golden window light.",
    "motion": "Group-chat bubbles keep popping up on the phone screen in quick succession; the character lounging on the phone bobs its head to the beat and lazily waves its flag at each new bubble. Gentle slide along the counter. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, worn on its face the whole time and never removed, one single little green flag.",
-   "foley": "a flurry of message pops",
+   "foley": "a quick run of short, bright bubble-pop notification sounds from a smartphone messaging app, five pops in a row",
    "seed": 4037,
    "characters": [
     "blip"
@@ -153,7 +157,13 @@
    "characters": [
     "blip"
    ],
-   "world": "phone"
+   "world": "phone",
+   "foley_hits": [
+    15.08,
+    15.72,
+    16.0,
+    16.56
+   ]
   },
   "chorus1-2": {
    "keyframe": "Macro photo at sunrise: a jungle of giant dewy grass blades, warm low backlight and bokeh; the tiny glowing mint-green character mid-leap between the blades, flag streaming behind it.",
@@ -201,7 +211,10 @@
    ],
    "note": "training-montage feel (Alex). Unchained 2026-10-19: each shot starts from its own on-model keyframe, the gags accumulate in the keyframes.",
    "world": "real",
-   "negative_extra": "real eyes, eyeballs, pupils, eyes visible on the small character, clear lenses on the small character, sunglasses removed, leaning, tilting"
+   "negative_extra": "real eyes, eyeballs, pupils, eyes visible on the small character, clear lenses on the small character, sunglasses removed, leaning, tilting",
+   "foley_hits": [
+    64.96
+   ]
   },
   "verse2-2": {
    "keyframe": "At night on a bedside nightstand, at the tiny character's scale: an alarm clock and a charging phone, the man fast asleep in bed beyond, eyes closed. The character is spinning on the lazy Susan and curling a pair of tiny dumbbells.",
@@ -245,7 +258,8 @@
      "path": "character/props_verse2.png",
      "look": "the exact props of this scene: the brass alarm clock, the smartphone, the round wooden lazy Susan and the wooden nightstand (same shapes, colors and materials)"
     }
-   ]
+   ],
+   "foley_keep": 1
   },
   "verse2-4": {
    "keyframe": "At night on a bedside nightstand, at the tiny character's scale: an alarm clock and a charging phone, the man fast asleep in bed beyond, eyes closed. The character is on the lazy Susan amid tiny dumbbells and rubber balls, little green flags popping up all over the nightstand.",
@@ -296,7 +310,7 @@
   "verse2-6": {
    "keyframe": "At night on a bedside nightstand, at the tiny character's scale: an alarm clock and a charging phone, the man fast asleep in bed beyond, eyes closed. The character is on the lazy Susan, black pixel sunglasses on, striking a cool pose.",
    "motion": "On the beat the character strikes a cool pose on the lazy Susan, one stubby arm on its hip, flag raised; the three green dots on each lens of its black pixel sunglasses flash bright like an 8-bit level-up, and the lazy Susan turns a quarter turn under it. The man stays fast asleep the whole time, eyes closed, never looking at the camera. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, worn on its face the whole time and never removed, one single little green flag.",
-   "foley": "a pixel 'bling' as the shades land on 'down' (76.92)",
+   "foley": "a short, sparkly 8-bit video game power-up chime",
    "seed": 5056,
    "characters": [
     "blip",
@@ -314,7 +328,8 @@
      "look": "the exact props of this scene: the brass alarm clock, the smartphone, the round wooden lazy Susan and the wooden nightstand (same shapes, colors and materials)"
     }
    ],
-   "negative_extra": "real eyes, eyeballs, pupils, eyes visible on the small character, clear lenses on the small character, sunglasses removed, second pair of sunglasses, floating sunglasses"
+   "negative_extra": "real eyes, eyeballs, pupils, eyes visible on the small character, clear lenses on the small character, sunglasses removed, second pair of sunglasses, floating sunglasses",
+   "foley_negative": "speech, talking, vocals, drums, beat, song"
   },
   "verse2-7": {
    "keyframe": "At night on a bedside nightstand, at the tiny character's scale: an alarm clock and a charging phone, the man fast asleep in bed beyond, eyes closed. The character is hopping off the lazy Susan and running across the nightstand past scattered rubber balls, tiny dumbbells and a crown.",
@@ -353,7 +368,7 @@
   "prechorus2-1": {
    "keyframe": "Morning kitchen: an electric kettle on the counter in a puff of steam; through the window behind it a porch light is still on in the soft dawn; a phone on the counter shows a long group-chat argument; the tiny glowing character perches on top of the kettle.",
    "motion": "The kettle clicks off and steam billows up; message bubbles keep stacking on the phone; the character on the kettle watches the pointless argument and rolls its eyes with its pixel lenses, then shrugs. The three green dots on each lens stay crisp and unchanged the whole time. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
-   "foley": "kettle CLICK on the cut (82.77), steam hiss, message pops",
+   "foley": "an electric kettle switch clicking off, then steam hissing",
    "seed": 61,
    "characters": [
     "blip"
@@ -495,7 +510,7 @@
   "chorus3-3": {
    "keyframe": "Golden hour in a wide open park: behind him a glowing sunset sky with warm clouds, rolling green hills and trees in the distance, long warm light. Close on the man (brown mid-length hair, beard, glasses) in his brown plaid flannel, eyes closed, face turned up to the sun, smiling; the small glowing character sits on his shoulder. No hands in frame. The background is a full painted landscape, not a plain backdrop.",
    "motion": "He breathes in the sun, smiling, eyes closed; the character on his shoulder waves its flag on 'still alive'. Gentle, warm, slow push-in. The man wears his own clear eyeglasses the whole time, never sunglasses; only the small character wears the black pixel sunglasses. The character stays exactly the same throughout: same face, same black pixel sunglasses with three green dots on each lens, one single little green flag.",
-   "foley": "warm breeze, birdsong under the music",
+   "foley": "gentle outdoor park ambience: a soft breeze through leaves and a few songbirds chirping",
    "seed": 176,
    "characters": [
     "blip",
@@ -503,7 +518,8 @@
     "man_face"
    ],
    "note": "his daylight reveal: same you, still alive",
-   "world": "real"
+   "world": "real",
+   "foley_negative": "music, melody, speech, talking, drums, beat"
   },
   "chorus3-4": {
    "keyframe": "Golden hour, close on the man's brown, amber and cream plaid flannel sleeve and shoulder, a softly painted sunset park and sky behind; the small glowing character at the top of the sleeve near the shoulder, about to slide. The background is a painted landscape, not a plain backdrop.",

@@ -48,12 +48,13 @@ def main():
     ap.add_argument("--out", default=None)
     ap.add_argument("--size", default="1408x768")
     ap.add_argument("--clips", default="clips", help="folder of per-shot clips (clips_1080 for the master)")
+    ap.add_argument("--audio", default=None, help="audio file in the song folder (mix_foley.wav for the song + foley)")
     a = ap.parse_args()
     d = Path(a.song_dir)
     plan = json.loads((d / "shots.json").read_text())
     notes = json.loads((d / "notes.json").read_text()) if (d / "notes.json").exists() else {}
     fps, size = plan["fps"], tuple(int(x) for x in a.size.split("x"))
-    audio = next(d.glob("audio.*"))
+    audio = d / a.audio if a.audio else next(d.glob("audio.*"))
     out = Path(a.out or d / "cut.mp4")
     vf = f"scale={size[0]}:{size[1]}:force_original_aspect_ratio=increase,crop={size[0]}:{size[1]},fps={fps},format=yuv420p"
     used = {"clip": 0, "keyframe": 0, "card": 0}

@@ -21,10 +21,15 @@ def cues(d):
     for sh in shots["shots"]:
         line = direction.get(sh["id"], {}).get("foley")
         if line:
-            out[sh["id"]] = {"text": line, "seconds": sh["duration"]}
+            out[sh["id"]] = {"text": line, "seconds": sh["duration"],
+                             "negative": direction[sh["id"]].get("foley_negative", NEGATIVE)}   # e.g. chatter, birdsong
     for c in shots.get("cues", []):
-        if not any(w in c["text"].lower() for w in MUSICAL):
-            out[c["id"]] = {"text": c["text"], "seconds": 2.0}
+        if any(w in c["text"].lower() for w in MUSICAL):
+            continue
+        host = next((sh["id"] for sh in shots["shots"] if sh["start"] <= c["time"] < sh["end"]), None)
+        if host in out and c["text"].lower() in out[host]["text"].lower():
+            continue                       # the shot's own foley line already is this sound
+        out[c["id"]] = {"text": c["text"], "seconds": 2.0, "negative": NEGATIVE}
     return out
 
 
@@ -33,6 +38,7 @@ def main():
     ap.add_argument("song_dir")
     ap.add_argument("ids", nargs="*")
     ap.add_argument("--takes", type=int, default=2)
+    ap.add_argument("--seed-base", type=int, default=101, help="re-rolls: a new base gives new takes beside the old ones")
     a = ap.parse_args()
     d = Path(a.song_dir)
     todo = cues(d)
@@ -43,13 +49,13 @@ def main():
     for n, cid in enumerate(ids):
         c = todo[cid]
         for k in range(a.takes):
-            seed = 101 + 1000 * k + n
+            seed = a.seed_base + 1000 * k + n
             out = d / "foley" / f"{cid}_{seed}.flac"
             if out.exists():
                 continue
             wf = fill(client, "ltx_t2a", {
                 "prompt": f"Sound effects only, close and clean, no music: {c['text']}.",
-                "negative": NEGATIVE, "duration": round(max(c["seconds"], 1.0), 3), "seed": seed})
+                "negative": c["negative"], "duration": round(max(c["seconds"], 1.0), 3), "seed": seed})
             took = run(client, wf, out)
             print(f"{cid} take {seed}: {out.name} ({took:.0f}s) {c['text']}", flush=True)
 
