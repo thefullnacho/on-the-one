@@ -162,6 +162,7 @@
   .foley .ftake > span { min-width: 54px; color: var(--ink-soft); }
   .foley button { font-size: 12px; padding: 3px 9px; }
   .foley .ftake.used > span { color: var(--mint); font-weight: 600; }
+  .foley .gain { min-width: 48px; text-align: center; font-weight: 600; color: var(--ink); }
   body[data-step="song"] .foley { display: flex; }
   .info {
     width: 24px; height: 24px; border-radius: 50%; border: 1px solid var(--dusk-3); background: none; cursor: pointer;
@@ -533,11 +534,20 @@ function renderFoley() {
         <button class="btn" data-f="${f}" data-mix="1">▶ with song</button>
         <button class="btn" data-f="${f}">▶ alone</button>
         ${picked === f ? "" : `<button class="btn" data-use="${f}" data-id="${id}">Use</button>`}</div>`).join("")
+      + (S.direction[id] ? `<div class="ftake"><span>Level</span><button class="btn" data-gain="-3" data-id="${id}">−3 dB</button>
+        <b class="gain">${(S.foley_gain[id] || 0) > 0 ? "+" : ""}${S.foley_gain[id] || 0} dB</b>
+        <button class="btn" data-gain="3" data-id="${id}">+3 dB</button></div>` : "")
       + `<div class="ftake ${picked === "" ? "used" : ""}"><span>None${picked === "" ? " ✓" : ""}</span>
         ${picked === "" ? "" : `<button class="btn" data-use="" data-id="${id}">No foley here</button>`}</div>`;
   }).join("");
   $("foley").querySelectorAll("[data-f]").forEach((b) => b.onclick = () => playFoley(b.dataset.f, !!b.dataset.mix));
-  $("foley").querySelectorAll("[data-id]").forEach((b) => b.onclick = async () => {
+  $("foley").querySelectorAll("[data-gain]").forEach((b) => b.onclick = async () => {
+    const id = b.dataset.id, gain = (S.foley_gain[id] || 0) + +b.dataset.gain;
+    const r = await fetch(`/api/song/${encodeURIComponent(S.name)}/foley/${id}`, {
+      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ gain }) });
+    if (r.ok) { S.foley_gain[id] = (await r.json()).gain; renderFoley(); }
+  });
+  $("foley").querySelectorAll("[data-id]:not([data-gain])").forEach((b) => b.onclick = async () => {
     const r = await fetch(`/api/song/${encodeURIComponent(S.name)}/foley/${b.dataset.id}`, {
       method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ take: b.dataset.use }) });
     if (r.ok) { S.foley_picks[b.dataset.id] = b.dataset.use; renderFoley(); }
@@ -546,6 +556,8 @@ function renderFoley() {
 function playFoley(file, withSong) {
   const fa = $("foleyAudio"), sh = S.shots[sel];
   fa.src = media(`foley/${file}`); fa.currentTime = 0;
+  const id = file.replace(/_\d+\.flac$/, "");
+  fa.volume = Math.min(1, 10 ** (((S.foley_gain[id] || 0) - 6) / 20));   // preview at the mix's level; nudges heard live
   if (withSong) { setFollow(false); seekTo(sh.start); audio.volume = 0.6; if (audio.paused) toggle(); }
   else if (!audio.paused) toggle();
   fa.play();

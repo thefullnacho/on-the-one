@@ -52,6 +52,7 @@ def song_payload(d):
         "takes": app_takes(d),
         "foley": foley_takes(d),
         "foley_picks": read_json(d / "foley_picks.json"),
+        "foley_gain": {k: v["foley_gain_db"] for k, v in direction.get("shots", {}).items() if "foley_gain_db" in v},
     }
 
 
@@ -207,7 +208,16 @@ class Handler(BaseHTTPRequestHandler):
         if action == "clip" and shot:
             return self.use_take(d, shot)
         if action == "foley" and shot:
-            take = str(self.body().get("take", ""))   # a file name from foley/, or "" for no foley on this shot
+            b = self.body()
+            if "gain" in b:                            # level nudge in dB, kept in the direction (foleymix reads it)
+                direction = read_json(d / "direction.json")
+                if shot not in direction.get("shots", {}):
+                    return self.send_json({"error": "no such shot"}, 404)
+                g = max(-18.0, min(12.0, float(b["gain"])))
+                direction["shots"][shot]["foley_gain_db"] = g
+                write_json(d / "direction.json", direction)
+                return self.send_json({"foley": shot, "gain": g})
+            take = str(b.get("take", ""))   # a file name from foley/, or "" for no foley on this shot
             if take and not (re.fullmatch(rf"{re.escape(shot)}_\d+\.flac", take) and (d / "foley" / take).exists()):
                 return self.send_json({"error": "no such take"}, 404)
             picks = read_json(d / "foley_picks.json")

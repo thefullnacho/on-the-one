@@ -9,7 +9,7 @@
  "verse1-4": "verse1-4_109.flac",
  "verse1-5": "verse1-5_1110.flac",
  "prechorus1-1": "",
- "prechorus1-2": "",
+ "prechorus1-2": "prechorus1-2_5101.flac",
  "chorus1-2": "",
  "chorus1-3": "chorus1-3_114.flac",
  "chorus1-4": "chorus1-4_1115.flac",
@@ -19,7 +19,7 @@
  "verse2-4": "",
  "verse2-5": "verse2-5_1120.flac",
  "verse2-8": "",
- "prechorus2-1": "prechorus2-1_124.flac",
+ "prechorus2-1": "prechorus2-1_6104.flac",
  "prechorus2-2": "prechorus2-2_125.flac",
  "chorus2-1": "",
  "chorus2-2": "chorus2-2_1127.flac",
@@ -30,7 +30,7 @@
  "bridge-3": "",
  "chorus3-1": "",
  "chorus3-2": "chorus3-2_1134.flac",
- "chorus3-3": "",
+ "chorus3-3": "chorus3-3_5103.flac",
  "chorus3-4": "",
  "outro-1": "",
  "outro-2": "outro-2_1138.flac",
@@ -39,5 +39,7 @@
  "outro-5": "outro-5_1141.flac",
  "outro-6": "",
  "verse2-7": "",
- "outro-3": ""
+ "outro-3": "",
+ "verse1-2": "verse1-2_5102.flac",
+ "verse2-6": "verse2-6_7105.flac"
 }

@@ -1,6 +1,7 @@
 """Foley mix: the song plus each picked foley take (foley_picks.json), placed and timed, into mix_foley.wav for the conform.
 
-usage: python -m on_the_one.foleymix songs/<song> [--peak-db -10]
+usage: python -m on_the_one.foleymix songs/<song> [--rms-db -26]
+       python -m on_the_one.foleymix songs/<song> --level-takes    # loudness-match every take on disk (the app plays these)
 then:  python -m on_the_one.conform songs/<song> --audio mix_foley.wav ...
 
 A take starts at its shot's start (a sheet cue's take at the cue's time). Per shot, in direction.json:
@@ -37,6 +38,28 @@ def onsets(x, win=0.01, gap=0.08):
     return out
 
 
+def level(x, rms_db=-26.0, ceiling_db=-6.0):
+    """Loudness match, not peak match: set the RMS of the part that is actually sounding (within 30 dB of the peak, in
+    10 ms windows) to rms_db, then pull down if the peak would pass ceiling_db. A one-frame click and a three-second
+    breeze then sit at the same perceived level; peak matching made the breeze loud and the click vanish."""
+    hop = int(SR * 0.01)
+    w = x[: len(x) // hop * hop].reshape(-1, hop, 2)
+    rms = np.sqrt((w ** 2).mean(axis=(1, 2)))
+    if not len(rms) or rms.max() <= 0:
+        return x
+    active = rms[rms > rms.max() * 10 ** (-30 / 20)]
+    g = 10 ** (rms_db / 20) / max(np.sqrt((active ** 2).mean()), 1e-9)
+    g = min(g, 10 ** (ceiling_db / 20) / max(np.abs(x).max(), 1e-9))
+    return x * g
+
+
+def level_file(path, rms_db=-26.0):
+    """Loudness-match one take on disk, so auditioning in the app sounds like the mix (idempotent)."""
+    y = level(decode(path), rms_db)
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "f32le", "-ar", str(SR), "-ac", "2", "-i", "-", str(path)],
+                   input=y.astype(np.float32).tobytes(), check=True)
+
+
 def fade(seg, ms=5):
     n = min(len(seg) // 2, int(SR * ms / 1000))
     if n:
@@ -48,9 +71,14 @@ def fade(seg, ms=5):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("song_dir")
-    ap.add_argument("--peak-db", type=float, default=-10.0, help="each take's peak level before foley_gain_db")
+    ap.add_argument("--rms-db", type=float, default=-26.0, help="each take's loudness (active RMS) before foley_gain_db")
+    ap.add_argument("--level-takes", action="store_true", help="rewrite foley/*.flac loudness-matched, then stop")
     a = ap.parse_args()
     d = Path(a.song_dir)
+    if a.level_takes:
+        for f in sorted((d / "foley").glob("*.flac")):
+            level_file(f, a.rms_db)
+        return
     shots = json.loads((d / "shots.json").read_text())
     direction = json.loads((d / "direction.json").read_text())["shots"]
     picks = json.loads((d / "foley_picks.json").read_text()) if (d / "foley_picks.json").exists() else {}
@@ -63,7 +91,7 @@ def main():
             continue
         x = decode(d / "foley" / take)
         spec = direction.get(cid, {})
-        x *= 10 ** ((a.peak_db + spec.get("foley_gain_db", 0)) / 20) / max(np.abs(x).max(), 1e-6)
+        x = level(x, a.rms_db) * 10 ** (spec.get("foley_gain_db", 0) / 20)
         ons = onsets(x)
         hits, keep = spec.get("foley_hits"), spec.get("foley_keep")
         pieces = []                           # (song time, audio)

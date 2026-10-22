@@ -9,6 +9,7 @@ import argparse, json, os, time
 from pathlib import Path
 from comfy_sdk import Comfy
 from on_the_one.render import fill, run
+from on_the_one.foleymix import level_file
 
 MUSICAL = ("beat", "riser", "snare", "drop", "bass", "drum", "build")
 NEGATIVE = "music, melody, singing, vocals, speech, talking, drums, beat"
@@ -57,6 +58,7 @@ def main():
                 "prompt": f"Sound effects only, close and clean, no music: {c['text']}.",
                 "negative": c["negative"], "duration": round(max(c["seconds"], 1.0), 3), "seed": seed})
             took = run(client, wf, out)
+            level_file(out)                   # takes come out of the model at any level; match them before anyone listens
             print(f"{cid} take {seed}: {out.name} ({took:.0f}s) {c['text']}", flush=True)
 
 
