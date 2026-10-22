@@ -386,7 +386,8 @@
     "blip"
    ],
    "note": "the line repeats, so the picture rhymes",
-   "world": "real"
+   "world": "real",
+   "foley_gain_db": -10.0
   },
   "chorus2-1": {
    "keyframe": "Macro photograph of a sunny garden at dawn: a long curved green leaf arching down to the grass like a slide, three round dewdrops sitting on it as bumps; the tiny glowing mint-green character at the top of the leaf, flag raised, giant blurred flowers behind.",
@@ -555,7 +556,8 @@
    "characters": [
     "blip"
    ],
-   "world": "real"
+   "world": "real",
+   "foley_extend_to": "end"
   },
   "outro-3": {
    "keyframe": "(chained from outro-2)",

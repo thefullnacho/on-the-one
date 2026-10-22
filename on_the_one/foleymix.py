@@ -8,6 +8,7 @@ A take starts at its shot's start (a sheet cue's take at the cue's time). Per sh
   foley_hits: [35.32]            the take's sound onsets land on these song times, one onset per hit, in order
   foley_keep: 1                   keep only the first N onsets (the rest of the take is dropped)
   foley_gain_db: -3               nudge one shot's level
+  foley_extend_to: "end" | 160.0  loop the take's second half (an ambience bed: crickets) on to that time, fading out
 Onsets come from the take's own envelope, so a click that sounds right but lands early moves without re-rendering.
 """
 import argparse, json, subprocess
@@ -71,7 +72,7 @@ def fade(seg, ms=5):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("song_dir")
-    ap.add_argument("--rms-db", type=float, default=-26.0, help="each take's loudness (active RMS) before foley_gain_db")
+    ap.add_argument("--rms-db", type=float, default=-28.0, help="each take's loudness (active RMS) before foley_gain_db")
     ap.add_argument("--level-takes", action="store_true", help="rewrite foley/*.flac loudness-matched, then stop")
     a = ap.parse_args()
     d = Path(a.song_dir)
@@ -106,6 +107,22 @@ def main():
                 pieces.append((at, fade(x[a0:a1].copy())))
         else:
             pieces.append((starts[cid], fade(x)))
+        until = spec.get("foley_extend_to")
+        if until:
+            end = len(song) / SR if until == "end" else float(until)
+            bed, xf = x[len(x) // 2:].copy(), int(SR * 0.3)
+            at, tail = starts[cid] + len(x) / SR - xf / SR, []
+            while at < end:
+                tail.append((at, fade(bed.copy(), ms=300)))
+                at += (len(bed) - xf) / SR
+            if tail:                           # the bed fades out over the last 3 s before `end`
+                n_out = int(SR * 3)
+                for k, (t0, seg) in enumerate(tail):
+                    i0 = int((end - 3 - t0) * SR)
+                    if i0 < len(seg):
+                        ramp = np.clip(1 - (np.arange(len(seg)) - i0) / n_out, 0, 1).astype(np.float32)[:, None]
+                        seg *= ramp
+                pieces += tail
         for at, seg in pieces:
             i0 = int(round(at * SR))
             if i0 >= len(bus):
@@ -114,6 +131,9 @@ def main():
             bus[max(i0, 0): max(i0, 0) + len(seg)] += seg
         print(f"{cid}: {take} {len(ons)} onsets, {len(pieces)} placed"
               + (f" at {', '.join(f'{t + pre / SR:.2f}' for t, _ in pieces)}" if hits else ""))
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "f32le", "-ar", str(SR), "-ac", "2", "-i", "-",   # the foley alone,
+                    "-c:a", "pcm_s16le", str(d / "foley_stem.wav")],                                           # to check by measurement
+                   input=bus.astype(np.float32).tobytes(), check=True)
     mix = song + bus
     out = d / "mix_foley.wav"
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "f32le", "-ar", str(SR), "-ac", "2", "-i", "-",
