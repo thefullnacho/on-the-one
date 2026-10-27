@@ -629,7 +629,7 @@ $("timeline").onclick = (e) => {
 };
 audio.onended = () => { $("play").textContent = "▶"; };
 document.addEventListener("keydown", (e) => {
-  const typing = e.target === $("notes");
+  const typing = e.target.matches("textarea, input, select");   // any text field (notes, story rewrites), not just the notes pad
   if (e.key === "Escape" && typing) { e.target.blur(); return; }
   if (typing) return;
   if (e.key === " ") { e.preventDefault(); toggle(); }
