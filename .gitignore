@@ -28,3 +28,6 @@ songs/*/cut_master_*.mp4
 songs/*/mix_foley.wav
 songs/*/foley_stem.wav
 demo/capture/
+songs/*/qc/
+songs/*/takes/app/
+songs/*/takes/v3*/
