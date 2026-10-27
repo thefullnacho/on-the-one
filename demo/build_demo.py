@@ -143,9 +143,10 @@ def main():
                               cap="Finish: every shot refined to 1080p with LTX-2.5.", step="6  Finish"); parts.append(p)
         t["film"] = t["app"] + app
         # the film
-        pay_a, pay_b = 113.97, 160.97
+        pay_a, pay_b = 113.97, 138.3   # ends on the chase into the plaid (chorus3-4), straight to the end card (Alex)
         p = P(); clip(p, FILM, pay_a, pay_b - pay_a, [f"drawbox=x=0:y=ih-150:w=iw:h=150:color={DUSK}@0.9:t=fill:enable='lt(t,4)'",
-            f"drawtext=fontfile={FONT}:text='{esc('The finished film: every frame rendered locally.')}':fontsize=50:fontcolor={INK}:x=70:y=h-102:enable='lt(t,4)'"])
+            f"drawtext=fontfile={FONT}:text='{esc('The finished film: every frame rendered locally.')}':fontsize=50:fontcolor={INK}:x=70:y=h-102:enable='lt(t,4)'",
+            f"fade=t=out:st={pay_b - pay_a - 0.5}:d=0.5:color={DUSK}"])
         parts.append(p)
         end_s = 7.0
         lines = [("on-the-one", 110, INK, FONT, 330), ("Open weights only: LTX-2.5 and FLUX Klein, in ComfyUI", 46, INK, FONT, 530),
