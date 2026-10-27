@@ -27,3 +27,4 @@ songs/*/foley/
 songs/*/cut_master_*.mp4
 songs/*/mix_foley.wav
 songs/*/foley_stem.wav
+demo/capture/
