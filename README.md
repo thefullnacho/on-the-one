@@ -2,6 +2,8 @@
 
 Song in, beat-locked music video out — on open weights, on your own GPU.
 
+https://github.com/user-attachments/assets/0a0d6198-28e6-448c-aea8-d0d1967fe706
+
 Built for the Comfy #OpenSourceHiggsfield build competition, October 2026. The example film, Green Flag (`songs/green_flag/`), was made end to end with it.
 
 - `on_the_one/planner.py` — lyric sheet + Whisper word timings + beat grid -> `shots.json`: every cut on a bar line,
