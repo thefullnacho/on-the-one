@@ -12,6 +12,7 @@ import argparse, json, mimetypes, re, shutil, subprocess, sys, time
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 from pathlib import Path
 from urllib.parse import unquote
+from on_the_one import song_audio
 
 STATIC = Path(__file__).parent / "static"
 SONGS = Path("songs")
@@ -28,9 +29,9 @@ def song_payload(d):
     shots = json.loads((d / "shots.json").read_text())
     direction = json.loads((d / "direction.json").read_text()) if (d / "direction.json").exists() else {}
     notes = json.loads((d / "notes.json").read_text()) if (d / "notes.json").exists() else {}
-    audio = next((p.name for p in sorted(d.glob("audio.*"))), None)
+    audio = song_audio(d)
     return {
-        "name": d.name, "audio": audio,
+        "name": d.name, "audio": audio.name if audio else None,
         "bpm": shots["bpm"], "phase": shots["phase"], "bar": shots["bar"], "duration": shots["duration"],
         "shots": shots["shots"], "cues": shots.get("cues", []),
         "direction": direction.get("shots", {}), "theme": direction.get("theme", ""), "art": direction.get("art", {}),

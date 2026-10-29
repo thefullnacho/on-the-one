@@ -20,6 +20,7 @@ songs/<song>/direction.json:
 import argparse, copy, json, os, shutil, subprocess, tempfile, time
 from pathlib import Path
 from comfy_sdk import Comfy
+from on_the_one import song_audio
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -159,7 +160,7 @@ def main():
                     print(f"{shot} [{name}] option seed {seed}: {out.name} ({took:.0f}s)", flush=True)
 
     if a.stage == "clips":
-        audio = next(d.glob("audio.*"))
+        audio = song_audio(d)
         (d / "clips").mkdir(exist_ok=True)
         with tempfile.TemporaryDirectory() as tmp:
             for shot in a.args:

@@ -13,6 +13,7 @@ reads  songs/<song>/{shots.json, audio.*, clips/<shot_id>.mp4, keyframes/<shot_i
 import argparse, json, subprocess, tempfile
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
+from on_the_one import song_audio
 
 FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
 
@@ -54,7 +55,7 @@ def main():
     plan = json.loads((d / "shots.json").read_text())
     notes = json.loads((d / "notes.json").read_text()) if (d / "notes.json").exists() else {}
     fps, size = plan["fps"], tuple(int(x) for x in a.size.split("x"))
-    audio = d / a.audio if a.audio else next(d.glob("audio.*"))
+    audio = d / a.audio if a.audio else song_audio(d)
     out = Path(a.out or d / "cut.mp4")
     vf = f"scale={size[0]}:{size[1]}:force_original_aspect_ratio=increase,crop={size[0]}:{size[1]},fps={fps},format=yuv420p"
     used = {"clip": 0, "keyframe": 0, "card": 0}

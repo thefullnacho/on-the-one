@@ -27,8 +27,8 @@ python3 -m venv .venv && .venv/bin/pip install -e .
 .venv/bin/python -m on_the_one.app          # then open http://127.0.0.1:8700
 ```
 
-The example song opens with its shot list, direction and all 44 picked keyframes. The song audio and the rendered
-clips are not in the repo, so its animatic is silent; the finished film is the video above.
+The example song opens with its shot list, direction, all 44 picked keyframes and a 128k mp3 of the song, so the
+animatic plays. The rendered clips are not in the repo; the finished film is the video above.
 
 ### Your own song
 

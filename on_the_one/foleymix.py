@@ -14,6 +14,7 @@ Onsets come from the take's own envelope, so a click that sounds right but lands
 import argparse, json, subprocess
 from pathlib import Path
 import numpy as np
+from on_the_one import song_audio
 
 SR = 48000
 
@@ -84,7 +85,7 @@ def main():
     direction = json.loads((d / "direction.json").read_text())["shots"]
     picks = json.loads((d / "foley_picks.json").read_text()) if (d / "foley_picks.json").exists() else {}
     starts = {s["id"]: s["start"] for s in shots["shots"]} | {c["id"]: c["time"] for c in shots.get("cues", [])}
-    song = decode(next(d.glob("audio.*")))
+    song = decode(song_audio(d))
     bus = np.zeros_like(song)
     pre = int(SR * 0.02)                      # keep 20 ms before each onset so the attack is not clipped
     for cid, take in sorted(picks.items()):
