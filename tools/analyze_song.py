@@ -7,10 +7,16 @@ Run from the repo root with the project venv (needs ffmpeg; pip install faster-w
   python tools/analyze_song.py SONG.wav --out songs/<song> --onsets 38-45                                  # measure a chop
 
 Writes: <out>/mono.f32 (11025 Hz mono), <out>/grid.json {bpm, phase}, <out>/bars.txt,
-<out>/words.json (Whisper segments with word timestamps).
+<out>/words.json (Whisper segments with word timestamps), <out>/events.json (kick/snare
+onsets, beat grid, drop, loudness curve -- the reactive layer's input; see on_the_one/reactive.py).
 """
 import argparse, json, os, subprocess, sys
 import numpy as np
+try:
+    from on_the_one import reactive
+except ImportError:  # running uninstalled straight from tools/
+    sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
+    from on_the_one import reactive
 
 ap = argparse.ArgumentParser()
 ap.add_argument("song"); ap.add_argument("--out", default="analysis")
@@ -53,6 +59,12 @@ for b in range(int(len(x) / SR / bar)):
     lines.append(f"{b:3d} {b * bar:6.1f}s tot{tot:5.1f} low{low:5.1f} " + "#" * int(max(0, tot - 60)))
 open(os.path.join(a.out, "bars.txt"), "w").write("\n".join(lines))
 print(f"energy map -> {a.out}/bars.txt ({len(lines)} bars)")
+
+# ---- reactive events: kick/snare onsets + drop + loudness, for the conform's --fx layer
+events = reactive.analyze_events(x, SR, a.bpm, phase, len(x) / SR)
+reactive.write_events(os.path.join(a.out, "events.json"), events)
+print(f"events -> {a.out}/events.json ({len(events['kick'])} kicks, {len(events['snare'])} snares, "
+      f"drop at {events['drop']}s)")
 
 
 def whisper_model():

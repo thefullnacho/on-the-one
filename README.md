@@ -9,6 +9,7 @@ Built for the Comfy #OpenSourceHiggsfield build competition, October 2026. The e
 - `on_the_one/planner.py` — lyric sheet + Whisper word timings + beat grid -> `shots.json`: every cut on a bar line,
   sections from the lyric sheet's `[Section]` tags, render lengths LTX accepts (1 + 8n frames).
 - `on_the_one/conform.py` — shots.json + clips/keyframes -> one cut over the original song; frame-exact cuts, placeholder cards for unrendered shots (a full-length animatic before any render).
+- `on_the_one/reactive.py` — the reactive layer: kick/snare onsets out of the analysis, applied per shot in the conform as a zoompan punch-in + eq flash/bloom (`--fx subtle|intense`, or `direction.json` `"fx"` per section). Cuts never move — every segment still gets exactly its slot's frame count. Parameter tables adapted from OneShot MV's `fv/fx.py` (MIT, see `reactive.py`).
 - `on_the_one/render.py` — via the Comfy SDK: keyframe options per shot (character placed from a reference), pick one,
   then the clip: LTX-2.5 audio-to-video on that shot's exact audio slice.
 - `workflows/` + `tools/build_workflows.py` — the two graphs the app runs, built with every API node stripped and
@@ -53,4 +54,12 @@ animatic plays. The rendered clips are not in the repo; the finished film is the
 .venv/bin/python -m on_the_one.render songs/<song> pick <shot> <seed>                # or pick in the app
 .venv/bin/python -m on_the_one.render songs/<song> clips <shot ids>
 .venv/bin/python -m on_the_one.conform songs/<song>                                  # the cut over the song
+.venv/bin/python -m on_the_one.conform songs/<song> --fx subtle                      # same cut, reactive layer on
 ```
+
+The reactive layer is a post-process in the conform: a punch-in on downbeats, a zoom on kicks, a flash/bloom on
+snares, a strobe on the beats after the drop — all from `events.json`, which `analyze_song.py` now writes next to
+`grid.json`. Levels: `off` (default), `subtle`, `intense`, settable per section in `direction.json`
+(`"fx": {"level": "subtle", "sections": {"Chorus": "intense"}}`); `--fx` wins over `direction.json`. Placeholder
+cards get it at half strength so the text stays readable. Word-timed freezes are still to come (the plan in
+`docs/APP_FLOW.md` names them; there is no ffmpeg mechanism in this change).

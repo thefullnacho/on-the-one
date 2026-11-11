@@ -8,12 +8,17 @@ The audio is the original song, laid once under the whole cut: no seams at the c
 
 usage: python -m on_the_one.conform songs/<song> [--out cut.mp4] [--size 1408x768] [--clips clips]
   master: --clips clips_1080 --size 1920x1080 (a shot without a 1080p clip falls back to clips/)
+  reactive layer: --fx subtle|intense (default off; direction.json "fx" can set it per level/section)
 reads  songs/<song>/{shots.json, audio.*, clips/<shot_id>.mp4, keyframes/<shot_id>.png}
+The reactive layer (on_the_one.reactive) is a post-process on each shot segment: punch-in on
+downbeats, flash/bloom on snares, a strobe on the beats after the drop. It never moves a cut --
+every segment still gets exactly its slot's frame count, so the frame total is identical with
+the layer on or off. Placeholder text cards get it at half strength so they stay legible.
 """
 import argparse, json, subprocess, tempfile
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
-from on_the_one import song_audio
+from on_the_one import reactive, song_audio
 
 FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
 
@@ -50,22 +55,47 @@ def main():
     ap.add_argument("--size", default="1408x768")
     ap.add_argument("--clips", default="clips", help="folder of per-shot clips (clips_1080 for the master)")
     ap.add_argument("--audio", default=None, help="audio file in the song folder (mix_foley.wav for the song + foley)")
+    ap.add_argument("--fx", default=None, choices=["off", "subtle", "intense"],
+                    help="reactive layer level (default: direction.json fx.level, else off)")
     a = ap.parse_args()
     d = Path(a.song_dir)
     plan = json.loads((d / "shots.json").read_text())
     notes = json.loads((d / "notes.json").read_text()) if (d / "notes.json").exists() else {}
+    direction = json.loads((d / "direction.json").read_text()) if (d / "direction.json").exists() else {"shots": {}}
     fps, size = plan["fps"], tuple(int(x) for x in a.size.split("x"))
     audio = d / a.audio if a.audio else song_audio(d)
     out = Path(a.out or d / "cut.mp4")
-    vf = f"scale={size[0]}:{size[1]}:force_original_aspect_ratio=increase,crop={size[0]}:{size[1]},fps={fps},format=yuv420p"
-    used = {"clip": 0, "keyframe": 0, "card": 0}
+    # reactive layer: --fx wins, else direction.json "fx", else off. Events come from
+    # events.json when analyze_song.py has written it; otherwise they are computed
+    # from the song audio here (and saved, so the next run is a plain read).
+    fx = reactive.resolve_level(direction, a.fx)
+    events = None
+    if fx["level"] != "off":
+        events = reactive.read_events(d / "events.json")
+        if events is None:
+            if audio is None:
+                print("fx: no audio in song folder, reactive layer off")
+            else:
+                drop = next((c["time"] for c in plan.get("cues", [])
+                             if "drop" in c.get("text", "").lower()), None)
+                events = reactive.analyze_audio_file(audio, plan["bpm"], plan["phase"],
+                                                     plan["duration"], drop=drop)
+                reactive.write_events(d / "events.json", events)
+                print(f"fx: analyzed {len(events['kick'])} kicks, {len(events['snare'])} snares, "
+                      f"drop at {events['drop']}s -> {d / 'events.json'}")
+        if events is not None:
+            print(f"fx: {fx['level']} (sections: {fx['sections'] or 'all ' + fx['level']})")
+    vf_head = f"scale={size[0]}:{size[1]}:force_original_aspect_ratio=increase,crop={size[0]}:{size[1]}"
+    vf_tail = f",fps={fps},format=yuv420p"
+    used = {"clip": 0, "keyframe": 0, "card": 0, "fx": fx["level"]}
     with tempfile.TemporaryDirectory() as tmp:
         tmp = Path(tmp)
-        parts = []
+        parts, frags = [], {}
         for sh in plan["shots"]:
             frames = round(sh["end"] * fps) - round(sh["start"] * fps)
             seg = tmp / f"{sh['id']}.mp4"
             clip, kf = clip_path(d, a.clips, sh["id"]), d / "keyframes" / f"{sh['id']}.png"
+            is_card = False
             if clip.exists():
                 src = ["-i", str(clip)]; used["clip"] += 1
                 # a clip shorter than its slot holds its last frame
@@ -73,15 +103,22 @@ def main():
             else:
                 img = kf if kf.exists() else tmp / f"{sh['id']}.png"
                 if not kf.exists():
-                    card(img, size, sh, notes.get(sh["id"], "")); used["card"] += 1
+                    card(img, size, sh, notes.get(sh["id"], "")); used["card"] += 1; is_card = True
                 else:
                     used["keyframe"] += 1
                 src = ["-loop", "1", "-i", str(img)]; pad = ""
-            run(["ffmpeg", "-y", *src, "-vf", vf + pad, "-frames:v", str(frames), "-an",
+            # reactive layer: per-section level, half strength on text cards. The fragment
+            # slots between the scale/crop and the fps filter; it changes pixels only --
+            # frame counts are still fixed by -frames:v, so cuts cannot move.
+            level = fx["sections"].get(sh["section"], fx["level"])
+            frag = reactive.shot_filters(events, sh, fps, size, level, card=is_card)
+            frags[sh["id"]] = frag
+            run(["ffmpeg", "-y", *src, "-vf", vf_head + frag + vf_tail + pad, "-frames:v", str(frames), "-an",
                  "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", str(seg)])
             parts.append(seg)
         # transitions: the outgoing clip lends its spare frames (LTX renders past the slot), so the overlap never moves a cut
-        direction = json.loads((d / "direction.json").read_text()) if (d / "direction.json").exists() else {"shots": {}}
+        # the extension gets the same reactive fragment as its shot (same segment-relative
+        # times, so the first `frames` frames match the main segment exactly)
         XF = {"whip": "smoothleft", "flash": "fadewhite", "blend": "fade"}
         i = 0
         while i < len(plan["shots"]) - 1:
@@ -92,7 +129,7 @@ def main():
                 i += 1; continue
             n = int(tr.get("frames", 6)); frames = round(sh["end"] * fps) - round(sh["start"] * fps)
             ext = tmp / f"{sh['id']}_ext.mp4"
-            run(["ffmpeg", "-y", "-i", str(clip), "-vf", vf + f",tpad=stop_mode=clone:stop={frames + n}", "-frames:v", str(frames + n),
+            run(["ffmpeg", "-y", "-i", str(clip), "-vf", vf_head + frags[sh["id"]] + vf_tail + f",tpad=stop_mode=clone:stop={frames + n}", "-frames:v", str(frames + n),
                  "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", str(ext)])
             xout = tmp / f"{sh['id']}_x_{nxt['id']}.mp4"
             run(["ffmpeg", "-y", "-i", str(ext), "-i", str(parts[i + 1]), "-filter_complex",
